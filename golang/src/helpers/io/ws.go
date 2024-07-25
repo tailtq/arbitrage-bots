@@ -4,7 +4,7 @@ import (
 	"log"
 	"sync"
 
-	jsonHelper "arbitrage-bot/helpers/json"
+	"arbitrage-bot/helpers"
 
 	"github.com/gorilla/websocket"
 )
@@ -18,9 +18,7 @@ type WebSocketClient struct {
 
 func NewWebSocketClient(endpoint string) *WebSocketClient {
     conn, _, err := websocket.DefaultDialer.Dial(endpoint, nil)
-    if err != nil {
-        panic(err)
-    }
+    helpers.Panic(err)
 
     return &WebSocketClient{
         Endpoint: endpoint,
@@ -29,7 +27,7 @@ func NewWebSocketClient(endpoint string) *WebSocketClient {
     }
 }
 
-func (wsc *WebSocketClient) Start(streamHandler func(data interface{})) {
+func (wsc *WebSocketClient) Start(streamHandler func(data *[]byte)) {
     // Start a goroutine to read messages from the WebSocket, and call the streamHandler function
     go func() {
         defer wsc.Conn.Close()
@@ -39,16 +37,8 @@ func (wsc *WebSocketClient) Start(streamHandler func(data interface{})) {
                 return
             default:
                 _, dataByte, err := wsc.Conn.ReadMessage()
-                data := make(map[string]interface{})
-
-                if err != nil {
-                    log.Println("Error reading message:", err)
-                    return
-                }
-                if err := jsonHelper.Unmarshal(dataByte, &data); err != nil {
-                    panic(err)
-                }
-                streamHandler(data)
+                helpers.Panic(err)
+                streamHandler(&dataByte)
             }
         }
     }()
