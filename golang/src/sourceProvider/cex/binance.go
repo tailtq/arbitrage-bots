@@ -13,6 +13,7 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	ioHelper "arbitrage-bot/helpers/io"
 	jsonHelper "arbitrage-bot/helpers/json"
+	"arbitrage-bot/sourceProvider"
 )
 
 type BinanceKLineCandlestick struct {
@@ -43,39 +44,38 @@ type BinanceKLineCandlestick struct {
 type BinanceSourceProvider struct {
     // data stream
     stream *ioHelper.WebSocketClient
-    symbols map[string]Symbol
-    symbolData map[string]SymbolPrice
+    tokens map[string]*sourceProvider.Symbol
+    tokenData map[string]*sourceProvider.SymbolPrice
 }
 
 func NewBinanceSourceProvider() *BinanceSourceProvider {
     return &BinanceSourceProvider{
-        symbols: make(map[string]Symbol),
-        symbolData: make(map[string]SymbolPrice),
+        tokens: make(map[string]*sourceProvider.Symbol),
+        tokenData: make(map[string]*sourceProvider.SymbolPrice),
     }
 }
 
-func (b *BinanceSourceProvider) GetTokenList(force bool) (*[]Symbol, error) {
+func (b *BinanceSourceProvider) GetTokenList(force bool) ([]*sourceProvider.Symbol, error) {
     // get a list of all tokens on Binance & save to file as cache
-    if !force && fileHelper.PathExists(BinanceCachePath) {
-        var symbols []Symbol
-        symbolsJSON, _ := os.ReadFile(BinanceCachePath)
-        err := jsonHelper.Unmarshal(symbolsJSON, &symbols)
+    if !force && fileHelper.PathExists(BinanceTokenListPath) {
+        var tokens []*sourceProvider.Symbol
+        err := jsonHelper.ReadJSONFile(BinanceTokenListPath, &tokens)
         
-        return &symbols, err
+        return tokens, err
     }
 
     var data *map[string]interface{}
     data, err := ioHelper.Get(BinanceApiUrl + "/exchangeInfo", data)
     helpers.Panic(err)
 
-    dataMap := make([]Symbol, 0)
+    dataMap := make([]*sourceProvider.Symbol, 0)
     // Type assertion (a way to retrieve the dynamic type of an interface)
-    symbols, ok := (*data)["symbols"].([]interface{})
+    tokens, ok := (*data)["symbols"].([]interface{})
     
     if ok {
-        for _, symbol := range symbols {
-            if s, ok := symbol.(map[string]interface{}); ok {
-                dataMap = append(dataMap, Symbol{
+        for _, token := range tokens {
+            if s, ok := token.(map[string]interface{}); ok && s["isSpotTradingAllowed"].(bool) {
+                dataMap = append(dataMap, &sourceProvider.Symbol{
                     Symbol:     s["symbol"].(string),
                     BaseAsset:  s["baseAsset"].(string),
                     QuoteAsset: s["quoteAsset"].(string),
@@ -83,40 +83,40 @@ func (b *BinanceSourceProvider) GetTokenList(force bool) (*[]Symbol, error) {
             }
         }
         // save to file
-        tokenListJson, _ := json.MarshalIndent(symbols, "", "\t")
-        err = os.WriteFile(BinanceCachePath, tokenListJson, 0644)
+        tokenListJson, _ := json.MarshalIndent(tokens, "", "\t")
+        err = os.WriteFile(BinanceTokenListPath, tokenListJson, 0644)
     }
 
-    return &dataMap, err
+    return dataMap, err
 }
 
-func (b *BinanceSourceProvider) SubscribeSymbol(symbol Symbol) {
-    // subscribe a new data stream for a new symbol
-    // check if symbol already exists
-    if _, ok := b.symbols[symbol.Symbol]; ok {
+func (b *BinanceSourceProvider) SubscribeSymbol(token *sourceProvider.Symbol) {
+    // subscribe a new data stream for a new token
+    // check if token already exists
+    if _, ok := b.tokens[token.Symbol]; ok {
         return
     }
 
-    b.symbols[symbol.Symbol] = symbol
+    b.tokens[token.Symbol] = token
     b.stopDataStream()
     b.startDataStream()
 }
 
 func (b *BinanceSourceProvider) startDataStream() {
     // subscribe to multiple data streams using one connection
-    var symbolStringString string
+    var tokenString string
     var charCount int = 0
 
-    for key := range b.symbols {
-        symbolStringString += strings.ToLower(key) +  "@kline_1m/"
+    for key := range b.tokens {
+        tokenString += strings.ToLower(key) +  "@kline_1m/"
     }
 
-    if charCount := utf8.RuneCountInString(symbolStringString); charCount == 0 {
+    if charCount := utf8.RuneCountInString(tokenString); charCount == 0 {
         return
     }
 
-    symbolStringString = string([]rune(symbolStringString)[:charCount - 1])
-    var endpoint string = "wss://fstream.binance.com/ws/" + symbolStringString
+    tokenString = string([]rune(tokenString)[:charCount - 1])
+    var endpoint string = "wss://fstream.binance.com/ws/" + tokenString
     b.stream = ioHelper.NewWebSocketClient(endpoint)
     b.stream.Start(b.handleDataStream)
 }
@@ -128,8 +128,8 @@ func (b *BinanceSourceProvider) handleDataStream(data *[]byte) {
     price, err := strconv.ParseFloat(kline.KLineData.ClosePrice, 64)
     helpers.Panic(err)
 
-    b.symbolData[kline.Symbol] = SymbolPrice{
-        Symbol: b.symbols[kline.Symbol],
+    b.tokenData[kline.Symbol] = &sourceProvider.SymbolPrice{
+        Symbol: b.tokens[kline.Symbol],
         Price: price,
         EventTime: time.Unix(0, kline.EventTime * 1000000),
     }
@@ -141,7 +141,7 @@ func (b *BinanceSourceProvider) handleDataStream(data *[]byte) {
         kline.KLineData.ClosePrice,
         kline.KLineData.CloseTime,
         kline.KLineData.IsClosed,
-        b.symbolData,
+        b.tokenData,
         "ehehehe",
     )
 }
@@ -153,9 +153,9 @@ func (b *BinanceSourceProvider) stopDataStream() {
     }
 }
 
-func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol Symbol) {
-    // unsubscribe a symbol from the data stream (remove symbol from the map -> restart data stream)
-    delete(b.symbols, symbol.Symbol)
+func (b *BinanceSourceProvider) UnsubscribeSymbol(token *sourceProvider.Symbol) {
+    // unsubscribe a token from the data stream (remove token from the map -> restart data stream)
+    delete(b.tokens, token.Symbol)
     b.stopDataStream()
     b.startDataStream()
 }
