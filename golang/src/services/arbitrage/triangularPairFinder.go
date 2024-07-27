@@ -7,13 +7,13 @@ import (
 	"strings"
 )
 
-type ArbitragePairFinder struct {}
+type TriangularPairFinder struct {}
 
-func (t *ArbitragePairFinder) Handle(tokens []*sourceProvider.Symbol, amount int) [][3]*sourceProvider.Symbol {
+func (t *TriangularPairFinder) Handle(symbols []*sourceProvider.Symbol, amount int) [][3]*sourceProvider.Symbol {
 	// find a list of 3 arbitrage pairs (f.e. SEIBNB BNBBTC SEIBTC)
 	var triangularPairsList [][3]*sourceProvider.Symbol
 	var removeDuplicatesMap map[string]bool = make(map[string]bool)
-	var pairsList []*sourceProvider.Symbol = tokens[:amount]
+	var pairsList []*sourceProvider.Symbol = symbols[:amount]
 
 	// get pair A
 	for _, pairA := range pairsList {

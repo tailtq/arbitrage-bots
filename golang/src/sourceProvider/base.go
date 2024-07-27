@@ -3,7 +3,7 @@ package sourceProvider
 import "time"
 
 type SourceProvider interface {
-    GetTokenList() (*[]Symbol, error)
+    GetSymbols() (*[]Symbol, error)
 }
 
 type Symbol struct {
@@ -14,7 +14,10 @@ type Symbol struct {
 
 type SymbolPrice struct {
     Symbol *Symbol `json:"symbol"`
-    Price float64 `json:"price"`
+    BestBid float64 `json:"bestBid"`
+    BestBidQuantity float64 `json:"bestBidQty"`
+    BestAsk float64 `json:"bestAsk"`
+    BestAskQuantity float64 `json:"bestAskQty"`
     EventTime time.Time `json:"eventTime"`
 }
 
