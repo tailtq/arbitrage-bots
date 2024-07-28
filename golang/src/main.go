@@ -36,7 +36,7 @@ func step1(force bool) [][3]*sourceProvider.Symbol {
 }
 
 func main() {
-    var triangularPairBatches [][3]*sourceProvider.Symbol = step1(true)
+    var triangularPairBatches [][3]*sourceProvider.Symbol = step1(false)
     var symbols []*sourceProvider.Symbol
 
     for _, pair := range triangularPairBatches {
@@ -50,7 +50,7 @@ func main() {
     arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
 
     fmt.Println("Subscribed to symbols, waiting for data...")
-    time.Sleep(20 * time.Second)
+    time.Sleep(10 * time.Second)
     fmt.Println("Starting the arbitrage calculation...")
 
     for {
@@ -64,60 +64,4 @@ func main() {
         time.Sleep(3 * time.Second)
         fmt.Println("------")
     }
-    
-    // symbol1 := &sourceProvider.Symbol{
-    //     Symbol: "PEPEUSDT",
-    //     BaseAsset: "PEPE",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol2 := &sourceProvider.Symbol{
-    //     Symbol: "BTCUSDT",
-    //     BaseAsset: "BTC",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol3 := &sourceProvider.Symbol{
-    //     Symbol: "ETHUSDT",
-    //     BaseAsset: "ETH",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol4 := &sourceProvider.Symbol{
-    //     Symbol: "ADAUSDT",
-    //     BaseAsset: "ADA",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol5 := &sourceProvider.Symbol{
-    //     Symbol: "BNBUSDT",
-    //     BaseAsset: "BNB",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol6 := &sourceProvider.Symbol{
-    //     Symbol: "SOLUSDT",
-    //     BaseAsset: "SOL",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol7 := &sourceProvider.Symbol{
-    //     Symbol: "TRXUSDT",
-    //     BaseAsset: "TRX",
-    //     QuoteAsset: "USDT",
-    // }
-    // symbol8 := &sourceProvider.Symbol{
-    //     Symbol: "SHIBUSDT",
-    //     BaseAsset: "SHIB",
-    //     QuoteAsset: "USDT",
-    // }
-    // var sec int = 0
-
-    // for {
-    //     time.Sleep(1 * time.Second)
-    //     sec++
-    //     fmt.Print("\r", sec)
-
-    //     // if sec > 20 {
-    //         // break
-    //     // }
-    // }
-
-    // binanceSourceProvider.UnsubscribeSymbol(symbol1)
-
-    // for {}
 }
