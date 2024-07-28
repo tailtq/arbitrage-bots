@@ -7,8 +7,8 @@ import (
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/sourceProvider"
 	CEX "arbitrage-bot/sourceProvider/cex"
+	"fmt"
 	"time"
-	_ "time"
 )
 
 func step1(force bool) [][3]*sourceProvider.Symbol {
@@ -36,37 +36,86 @@ func step1(force bool) [][3]*sourceProvider.Symbol {
 }
 
 func main() {
-    // step1(true)
+    var triangularPairBatches [][3]*sourceProvider.Symbol = step1(true)
+    var symbols []*sourceProvider.Symbol
 
-    symbol1 := &sourceProvider.Symbol{
-        Symbol: "PEPEUSDT",
-        BaseAsset: "PEPE",
-        QuoteAsset: "USDT",
+    for _, pair := range triangularPairBatches {
+        for _, symbol := range pair {
+            symbols = append(symbols, symbol)
+        }
     }
-    symbol2 := &sourceProvider.Symbol{
-        Symbol: "BTCUSDT",
-        BaseAsset: "BTC",
-        QuoteAsset: "USDT",
-    }
-    symbol3 := &sourceProvider.Symbol{
-        Symbol: "ETHUSDT",
-        BaseAsset: "ETH",
-        QuoteAsset: "USDT",
-    }
+
     binanceSourceProvider := CEX.NewBinanceSourceProvider()
-    binanceSourceProvider.SubscribeSymbol(symbol1)
-    binanceSourceProvider.SubscribeSymbol(symbol2)
-    binanceSourceProvider.SubscribeSymbol(symbol3)
-    var sec int = 0
+    binanceSourceProvider.SubscribeSymbols(symbols)
+    arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
+
+    fmt.Println("Subscribed to symbols, waiting for data...")
+    time.Sleep(20 * time.Second)
+    fmt.Println("Starting the arbitrage calculation...")
 
     for {
-        time.Sleep(1 * time.Second)
-        sec++
+        for _, triangularPairs := range triangularPairBatches {
+            result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs)
 
-        // if sec > 20 {
-            // break
-        // }
+            if result != nil && result.ProfitLoss > 0 {
+                fmt.Println(result)
+            }
+        }
+        time.Sleep(3 * time.Second)
+        fmt.Println("------")
     }
+    
+    // symbol1 := &sourceProvider.Symbol{
+    //     Symbol: "PEPEUSDT",
+    //     BaseAsset: "PEPE",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol2 := &sourceProvider.Symbol{
+    //     Symbol: "BTCUSDT",
+    //     BaseAsset: "BTC",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol3 := &sourceProvider.Symbol{
+    //     Symbol: "ETHUSDT",
+    //     BaseAsset: "ETH",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol4 := &sourceProvider.Symbol{
+    //     Symbol: "ADAUSDT",
+    //     BaseAsset: "ADA",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol5 := &sourceProvider.Symbol{
+    //     Symbol: "BNBUSDT",
+    //     BaseAsset: "BNB",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol6 := &sourceProvider.Symbol{
+    //     Symbol: "SOLUSDT",
+    //     BaseAsset: "SOL",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol7 := &sourceProvider.Symbol{
+    //     Symbol: "TRXUSDT",
+    //     BaseAsset: "TRX",
+    //     QuoteAsset: "USDT",
+    // }
+    // symbol8 := &sourceProvider.Symbol{
+    //     Symbol: "SHIBUSDT",
+    //     BaseAsset: "SHIB",
+    //     QuoteAsset: "USDT",
+    // }
+    // var sec int = 0
+
+    // for {
+    //     time.Sleep(1 * time.Second)
+    //     sec++
+    //     fmt.Print("\r", sec)
+
+    //     // if sec > 20 {
+    //         // break
+    //     // }
+    // }
 
     // binanceSourceProvider.UnsubscribeSymbol(symbol1)
 

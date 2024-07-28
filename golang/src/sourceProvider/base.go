@@ -3,7 +3,9 @@ package sourceProvider
 import "time"
 
 type SourceProvider interface {
-    GetSymbols() (*[]Symbol, error)
+    Symbols() map[string]*Symbol
+    SymbolPriceData() map[string]*SymbolPrice
+    GetSymbols(force bool) ([]*Symbol, error)
 }
 
 type Symbol struct {
@@ -12,6 +14,10 @@ type Symbol struct {
     QuoteAsset string `json:"quoteAsset"`
 }
 
+// https://www.investopedia.com/terms/b/bid-and-ask.asp
+// bid: the highest price a buyer will pay for a security
+// ask: the lowest price a seller will take for it
+// The difference between bid and ask prices, or the spread, is a key indicator of the liquidity of the asset. 
 type SymbolPrice struct {
     Symbol *Symbol `json:"symbol"`
     BestBid float64 `json:"bestBid"`
@@ -20,5 +26,3 @@ type SymbolPrice struct {
     BestAskQuantity float64 `json:"bestAskQty"`
     EventTime time.Time `json:"eventTime"`
 }
-
-// type
