@@ -4,7 +4,7 @@ import "time"
 
 type SourceProvider interface {
     Symbols() map[string]*Symbol
-    SymbolPriceData() map[string]*SymbolPrice
+    GetSymbolPrice(symbol string) *SymbolPrice
     GetSymbols(force bool) ([]*Symbol, error)
 }
 

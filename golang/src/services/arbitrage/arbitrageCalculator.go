@@ -15,18 +15,17 @@ func NewArbitrageCalculator(sourceProvider sourceProvider.SourceProvider) *Arbit
 
 func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourceProvider.Symbol) (*TriangularBidAskPrice, error) {
 	// get the price data for the triangular pair
-	symbolData := a.sourceProvider.SymbolPriceData()
-	symbol1Price, ok1 := symbolData[triangularPair[0].Symbol]
-	symbol2Price, ok2 := symbolData[triangularPair[1].Symbol]
-	symbol3Price, ok3 := symbolData[triangularPair[2].Symbol]
+	symbol1Price := a.sourceProvider.GetSymbolPrice(triangularPair[0].Symbol)
+	symbol2Price := a.sourceProvider.GetSymbolPrice(triangularPair[1].Symbol)
+	symbol3Price := a.sourceProvider.GetSymbolPrice(triangularPair[2].Symbol)
 
-	if !ok1 {
+	if symbol1Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[0].Symbol)
 		return nil, err
-	} else if !ok2 {
+	} else if symbol2Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[1].Symbol)
 		return nil, err
-	} else if !ok3 {
+	} else if symbol3Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[2].Symbol)
 		return nil, err
 	}

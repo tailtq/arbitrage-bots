@@ -3,6 +3,7 @@ package CEX
 import (
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 	"unicode/utf8"
 
@@ -17,13 +18,13 @@ type BinanceSourceProvider struct {
 	// data stream
 	stream     *ioHelper.WebSocketClient
 	symbols    map[string]*sourceProvider.Symbol
-	symbolPriceData map[string]*sourceProvider.SymbolPrice
+    // we'll get (fatal error: concurrent map read and map write) if using regular map
+	symbolPriceData sync.Map
 }
 
 func NewBinanceSourceProvider() *BinanceSourceProvider {
 	return &BinanceSourceProvider{
 		symbols:    make(map[string]*sourceProvider.Symbol),
-		symbolPriceData: make(map[string]*sourceProvider.SymbolPrice),
 	}
 }
 
@@ -31,8 +32,12 @@ func (b *BinanceSourceProvider) Symbols() map[string]*sourceProvider.Symbol {
 	return b.symbols
 }
 
-func (b *BinanceSourceProvider) SymbolPriceData() map[string]*sourceProvider.SymbolPrice {
-	return b.symbolPriceData
+func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.SymbolPrice {
+    if price, ok := b.symbolPriceData.Load(symbol); ok {
+        return price.(*sourceProvider.SymbolPrice)
+    }
+
+    return nil
 }
 
 func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, error) {
@@ -120,14 +125,14 @@ func (b *BinanceSourceProvider) handleDataStream(data *[]byte) {
 	bestAskQuantity, _ := strconv.ParseFloat(ticker.Data.BestAskQuantity, 64)
 	bestBidQuantity, _ := strconv.ParseFloat(ticker.Data.BestBidQuantity, 64)
 
-	b.symbolPriceData[ticker.Data.Symbol] = &sourceProvider.SymbolPrice{
+	b.symbolPriceData.Store(ticker.Data.Symbol, &sourceProvider.SymbolPrice{
 		Symbol:          b.symbols[ticker.Data.Symbol],
 		BestBid:         bestBid,
 		BestBidQuantity: bestBidQuantity,
 		BestAsk:         bestAsk,
 		BestAskQuantity: bestAskQuantity,
 		EventTime:       time.Unix(0, ticker.Data.EventTime*1000000),
-	}
+	})
 
 	// build a general interface so all exchanges can use the same data structure
 	// fmt.Println(string(*data))
