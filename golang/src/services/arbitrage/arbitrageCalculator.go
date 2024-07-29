@@ -367,3 +367,19 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 
 	return nil
 }
+
+// func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfaceRate) {
+// 	var swap1 string = surfaceRate.Swap1
+// 	var startingAmount float64 = surfaceRate.StartingAmount
+
+// 	// Define pairs
+// 	var contract1 string = surfaceRate.Contract1
+// 	var contract2 string = surfaceRate.Contract2
+// 	var contract3 string = surfaceRate.Contract3
+
+// 	// Define directions
+// 	var directionTrade1 string = surfaceRate.DirectionTrade1
+// 	var directionTrade2 string = surfaceRate.DirectionTrade2
+// 	var directionTrade3 string = surfaceRate.DirectionTrade3
+
+// }

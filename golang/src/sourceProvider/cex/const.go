@@ -58,3 +58,16 @@ type BinanceSymbolTicker struct {
         TotalNumberOfTrades int `json:"n"`
     } `json:"data"`
 }
+
+type BinanceOrderbookDepth struct {
+    Stream string `json:"stream"`
+    Data struct {
+        EventType string `json:"e"`
+        EventTime int64 `json:"E"`
+        Symbol string `json:"s"`
+        FirstUpdateID int `json:"U"`
+        FinalUpdateID int `json:"u"`
+        Bids [][]string `json:"b"`
+        Asks [][]string `json:"a"`
+    } `json:"data"`
+}

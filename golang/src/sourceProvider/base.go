@@ -26,3 +26,16 @@ type SymbolPrice struct {
     BestAskQuantity float64 `json:"bestAskQty"`
     EventTime time.Time `json:"eventTime"`
 }
+
+type OrderbookEntry struct {
+    Price float64 `json:"price"`
+    Quantity float64 `json:"quantity"`
+}
+
+type SymbolOrderbookDepth struct {
+    Symbol *Symbol `json:"symbol"`
+    EventTime time.Time `json:"eventTime"`
+    LastUpdateId int `json:"lastUpdateId"`
+    Bids []*OrderbookEntry `json:"bids"`
+    Asks []*OrderbookEntry `json:"asks"`
+}
