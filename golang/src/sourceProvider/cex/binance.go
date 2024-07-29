@@ -16,10 +16,12 @@ import (
 
 type BinanceSourceProvider struct {
 	// data stream
-	stream     *ioHelper.WebSocketClient
+	streamTicker *ioHelper.WebSocketClient
+    streamOrderbookDepth *ioHelper.WebSocketClient
 	symbols    map[string]*sourceProvider.Symbol
     // we'll get (fatal error: concurrent map read and map write) if using regular map
 	symbolPriceData sync.Map
+    symbolOrderbookData sync.Map
 }
 
 func NewBinanceSourceProvider() *BinanceSourceProvider {
@@ -92,11 +94,13 @@ func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceProvider.Symbo
 
 		b.symbols[symbol.Symbol] = symbol
 	}
-	b.stopDataStream()
-	b.startDataStream()
+	b.stopTickerDataStream()
+	b.stopOrderbookDepthStream()
+	b.startTickerDataStream()
+    b.startOrderbookDepthStream()
 }
 
-func (b *BinanceSourceProvider) startDataStream() {
+func (b *BinanceSourceProvider) startTickerDataStream() {
 	// subscribe to multiple data streams using one connection (ticker topic)
 	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var symbolString string
@@ -112,12 +116,13 @@ func (b *BinanceSourceProvider) startDataStream() {
 
 	symbolString = string([]rune(symbolString)[:charCount-1])
 	var endpoint string = BinanceWsUrl + "/stream?streams=" + symbolString
-	b.stream = ioHelper.NewWebSocketClient(endpoint)
-	b.stream.Start(b.handleDataStream)
+	b.streamTicker = ioHelper.NewWebSocketClient(endpoint)
+	b.streamTicker.Start(b.handleTickerDataStream)
 }
 
-func (b *BinanceSourceProvider) handleDataStream(data *[]byte) {
+func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
 	// handle the ticker data stream
+    // https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var ticker BinanceSymbolTicker
 	jsonHelper.Unmarshal(*data, &ticker)
 	bestAsk, _ := strconv.ParseFloat(ticker.Data.BestAskPrice, 64)
@@ -138,16 +143,84 @@ func (b *BinanceSourceProvider) handleDataStream(data *[]byte) {
 	// fmt.Println(string(*data))
 }
 
-func (b *BinanceSourceProvider) stopDataStream() {
+func (b *BinanceSourceProvider) stopTickerDataStream() {
 	// stop the data stream if exists
-	if b.stream != nil {
-		b.stream.Stop()
+	if b.streamTicker != nil {
+		b.streamTicker.Stop()
 	}
 }
 
 func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol) {
 	// unsubscribe a symbol from the data stream (remove symbol from the map -> restart data stream)
 	delete(b.symbols, symbol.Symbol)
-	b.stopDataStream()
-	b.startDataStream()
+	b.stopTickerDataStream()
+	b.stopOrderbookDepthStream()
+	b.startTickerDataStream()
+    b.startOrderbookDepthStream()
+}
+
+func (b *BinanceSourceProvider) startOrderbookDepthStream() {
+    // subscribe to multiple data streams using one connection (order book/depth topic)
+    // CHALLENGES:
+    // - Full amount of available amount in can be eaten on the first level (level 0)
+    // - Some of the amount in can be eaten up by multiple levels
+    // - Some coins may not have enough liquidity
+	var symbolString string
+	var charCount int = 0
+
+	for key := range b.symbols {
+		symbolString += strings.ToLower(key) + "@depth10/"
+	}
+
+	if charCount = utf8.RuneCountInString(symbolString); charCount == 0 {
+		return
+	}
+
+	symbolString = string([]rune(symbolString)[:charCount-1])
+	var endpoint string = BinanceWsUrl + "/stream?streams=" + symbolString
+	b.streamOrderbookDepth = ioHelper.NewWebSocketClient(endpoint)
+	b.streamOrderbookDepth.Start(b.handleOrderbookDepthStream)
+}
+
+func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
+    // handle the ticker data stream
+	var orderbookDepth BinanceOrderbookDepth
+	jsonHelper.Unmarshal(*data, &orderbookDepth)
+    var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
+        Symbol:       b.symbols[orderbookDepth.Data.Symbol],
+        EventTime:    time.Unix(0, orderbookDepth.Data.EventTime*1000000),
+        LastUpdateId: orderbookDepth.Data.FinalUpdateID,
+        Asks: make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
+        Bids: make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
+    }
+
+    for i, ask := range orderbookDepth.Data.Asks {
+        price, _ := strconv.ParseFloat(ask[0], 64)
+        quantity, _ := strconv.ParseFloat(ask[1], 64)
+        symbolOrderbookDepth.Asks[i] = &sourceProvider.OrderbookEntry{
+            Price:    price,
+            Quantity: quantity,
+        }
+    }
+
+    for i, bid := range orderbookDepth.Data.Bids {
+        price, _ := strconv.ParseFloat(bid[0], 64)
+        quantity, _ := strconv.ParseFloat(bid[1], 64)
+        symbolOrderbookDepth.Bids[i] = &sourceProvider.OrderbookEntry{
+            Price:    price,
+            Quantity: quantity,
+        }
+    }
+
+	b.symbolOrderbookData.Store(orderbookDepth.Data.Symbol, &symbolOrderbookDepth)
+
+	// build a general interface so all exchanges can use the same data structure
+	// fmt.Println(string(*data))
+}
+
+func (b *BinanceSourceProvider) stopOrderbookDepthStream() {
+    // Get the depth from the order book
+    if b.streamOrderbookDepth != nil {
+		b.streamOrderbookDepth.Stop()
+	}
 }

@@ -57,7 +57,7 @@ func main() {
         for _, triangularPairs := range triangularPairBatches {
             result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs)
 
-            if result != nil && result.ProfitLoss > 0 {
+            if result != nil && result.ProfitLoss > 0 && result.Swap1 == "USDT" {
                 fmt.Println(result)
             }
         }

@@ -34,4 +34,4 @@ type TriangularSurfaceRate struct {
 	TradeDescription3 string
 }
 
-const MinSurfaceRate float64 = 0  // the rate that indicates the arbitrage is profitable or not (and to prevent tiny wins)
+const MinSurfaceRate float64 = 0.01  // the rate that indicates the arbitrage is profitable or not (and to prevent tiny wins)
