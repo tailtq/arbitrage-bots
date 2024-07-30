@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-type TriangularPairFinder struct {}
+type TriangularPairFinder struct{}
 
 func (t *TriangularPairFinder) Handle(symbols []*sourceProvider.Symbol, amount int) [][3]*sourceProvider.Symbol {
 	// find a list of 3 arbitrage pairs (f.e. SEIBNB BNBBTC SEIBTC)
@@ -28,7 +28,7 @@ func (t *TriangularPairFinder) Handle(symbols []*sourceProvider.Symbol, amount i
 			// if three pairs form a cycle, continue
 			if slices.Contains(aPairBox, pairB.BaseAsset) || slices.Contains(aPairBox, pairB.QuoteAsset) {
 				var abPairBox []string = append([]string{pairB.BaseAsset, pairB.QuoteAsset}, aPairBox...)
-				
+
 				// get pair C
 				for _, pairC := range pairsList {
 					if pairC == pairA || pairC == pairB {

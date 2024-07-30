@@ -12,56 +12,56 @@ import (
 )
 
 func step1(force bool) [][3]*sourceProvider.Symbol {
-    // get all the triangular pairs
-    if !force && fileHelper.PathExists(CEX.BinanceArbitragePairPath) {
-        var symbols [][3]*sourceProvider.Symbol
-        err := jsonHelper.ReadJSONFile(CEX.BinanceArbitragePairPath, &symbols)
-        helpers.Panic(err)
+	// get all the triangular pairs
+	if !force && fileHelper.PathExists(CEX.BinanceArbitragePairPath) {
+		var symbols [][3]*sourceProvider.Symbol
+		err := jsonHelper.ReadJSONFile(CEX.BinanceArbitragePairPath, &symbols)
+		helpers.Panic(err)
 
-        return symbols
-    }
+		return symbols
+	}
 
-    // NOTE: this doesn't cover the case when we have multiple CEX
-    triangularPairFinder := arbitrage.TriangularPairFinder{}
-    binanceSP := CEX.BinanceSourceProvider{}
-    symbols, err := binanceSP.GetSymbols(force)
-    helpers.Panic(err)
+	// NOTE: this doesn't cover the case when we have multiple CEX
+	triangularPairFinder := arbitrage.TriangularPairFinder{}
+	binanceSP := CEX.BinanceSourceProvider{}
+	symbols, err := binanceSP.GetSymbols(force)
+	helpers.Panic(err)
 
-    // find the arbitrage pairs -> cache it
-    triangularPairs := triangularPairFinder.Handle(symbols, 1000)
-    err = jsonHelper.WriteJSONFile(CEX.BinanceArbitragePairPath, triangularPairs)
-    helpers.Panic(err)
+	// find the arbitrage pairs -> cache it
+	triangularPairs := triangularPairFinder.Handle(symbols, 1000)
+	err = jsonHelper.WriteJSONFile(CEX.BinanceArbitragePairPath, triangularPairs)
+	helpers.Panic(err)
 
-    return triangularPairs
+	return triangularPairs
 }
 
 func main() {
-    var triangularPairBatches [][3]*sourceProvider.Symbol = step1(false)
-    var symbols []*sourceProvider.Symbol
+	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(false)
+	var symbols []*sourceProvider.Symbol
 
-    for _, pair := range triangularPairBatches {
-        for _, symbol := range pair {
-            symbols = append(symbols, symbol)
-        }
-    }
+	for _, pair := range triangularPairBatches {
+		for _, symbol := range pair {
+			symbols = append(symbols, symbol)
+		}
+	}
 
-    binanceSourceProvider := CEX.NewBinanceSourceProvider()
-    binanceSourceProvider.SubscribeSymbols(symbols)
-    arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
+	binanceSourceProvider := CEX.NewBinanceSourceProvider()
+	binanceSourceProvider.SubscribeSymbols(symbols)
+	arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
 
-    fmt.Println("Subscribed to symbols, waiting for data...")
-    time.Sleep(10 * time.Second)
-    fmt.Println("Starting the arbitrage calculation...")
+	fmt.Println("Subscribed to symbols, waiting for data...")
+	time.Sleep(10 * time.Second)
+	fmt.Println("Starting the arbitrage calculation...")
 
-    for {
-        for _, triangularPairs := range triangularPairBatches {
-            result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs)
+	for {
+		for _, triangularPairs := range triangularPairBatches {
+			result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs)
 
-            if result != nil && result.ProfitLoss > 0 && result.Swap1 == "USDT" {
-                fmt.Println(result)
-            }
-        }
-        time.Sleep(3 * time.Second)
-        fmt.Println("------")
-    }
+			if result != nil && result.ProfitLoss > 0 && result.Swap1 == "USDT" {
+				fmt.Println(result)
+			}
+		}
+		time.Sleep(3 * time.Second)
+		fmt.Println("------")
+	}
 }
