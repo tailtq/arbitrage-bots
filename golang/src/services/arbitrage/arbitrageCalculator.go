@@ -5,16 +5,18 @@ import (
 	"fmt"
 )
 
+// ArbitrageCalculator ... the main calculator for the arbitrage
 type ArbitrageCalculator struct {
 	sourceProvider sourceProvider.SourceProvider
 }
 
+// NewArbitrageCalculator ... creates a new instance of the ArbitrageCalculator
 func NewArbitrageCalculator(sourceProvider sourceProvider.SourceProvider) *ArbitrageCalculator {
 	return &ArbitrageCalculator{sourceProvider: sourceProvider}
 }
 
+// GetPriceForTriangularPair ... get the price data for the triangular pair
 func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourceProvider.Symbol) (*TriangularBidAskPrice, error) {
-	// get the price data for the triangular pair
 	symbol1Price := a.sourceProvider.GetSymbolPrice(triangularPair[0].Symbol)
 	symbol2Price := a.sourceProvider.GetSymbolPrice(triangularPair[1].Symbol)
 	symbol3Price := a.sourceProvider.GetSymbolPrice(triangularPair[2].Symbol)
@@ -30,7 +32,6 @@ func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourc
 		return nil, err
 	}
 
-
 	return &TriangularBidAskPrice{
 		pairAAsk: symbol1Price.BestAsk,
 		pairABid: symbol1Price.BestBid,
@@ -41,6 +42,7 @@ func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourc
 	}, nil
 }
 
+// CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
 func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceProvider.Symbol) *TriangularSurfaceRate {
 	priceData, err := a.GetPriceForTriangularPair(triangularPair)
 
@@ -49,7 +51,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 	}
 
 	// set variables
-	var startingAmount float64 = 1  // the amount of the asset that is used to calculate the arbitrage
+	var startingAmount float64 = 1 // the amount of the asset that is used to calculate the arbitrage
 	var contract1 string = ""
 	var contract2 string = ""
 	var contract3 string = ""
@@ -93,7 +95,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 			swap1Rate = 1 / priceData.pairAAsk
 			directionTrade1 = "baseToQuote"
 		}
-		
+
 		// Assume starting with aBase and swapping for aQuote
 		if direction == "backward" {
 			swap1 = aQuote
@@ -215,7 +217,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 				calculated = true
 			}
 		}
-		
+
 		// BACKWARD
 		if direction == "backward" {
 			// SCENARIO 1: aBase matches bQuote
@@ -330,7 +332,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 		// PROFIT LOSS OUTPUT
 		// Profit and loss calculation
 		var profitLoss float64 = acquiredCoinT3 - startingAmount
-		var profitLossPercentage float32 = float32(profitLoss / startingAmount) * 100
+		var profitLossPercentage float32 = float32(profitLoss/startingAmount) * 100
 
 		// Trade Descriptions
 		var tradeDescription1 string = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)

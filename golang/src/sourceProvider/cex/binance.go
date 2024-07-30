@@ -16,17 +16,17 @@ import (
 
 type BinanceSourceProvider struct {
 	// data stream
-	streamTicker *ioHelper.WebSocketClient
-    streamOrderbookDepth *ioHelper.WebSocketClient
-	symbols    map[string]*sourceProvider.Symbol
-    // we'll get (fatal error: concurrent map read and map write) if using regular map
-	symbolPriceData sync.Map
-    symbolOrderbookData sync.Map
+	streamTicker         *ioHelper.WebSocketClient
+	streamOrderbookDepth *ioHelper.WebSocketClient
+	symbols              map[string]*sourceProvider.Symbol
+	// we'll get (fatal error: concurrent map read and map write) if using regular map
+	symbolPriceData     sync.Map
+	symbolOrderbookData sync.Map
 }
 
 func NewBinanceSourceProvider() *BinanceSourceProvider {
 	return &BinanceSourceProvider{
-		symbols:    make(map[string]*sourceProvider.Symbol),
+		symbols: make(map[string]*sourceProvider.Symbol),
 	}
 }
 
@@ -35,11 +35,11 @@ func (b *BinanceSourceProvider) Symbols() map[string]*sourceProvider.Symbol {
 }
 
 func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.SymbolPrice {
-    if price, ok := b.symbolPriceData.Load(symbol); ok {
-        return price.(*sourceProvider.SymbolPrice)
-    }
+	if price, ok := b.symbolPriceData.Load(symbol); ok {
+		return price.(*sourceProvider.SymbolPrice)
+	}
 
-    return nil
+	return nil
 }
 
 func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, error) {
@@ -97,7 +97,7 @@ func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceProvider.Symbo
 	b.stopTickerDataStream()
 	b.stopOrderbookDepthStream()
 	b.startTickerDataStream()
-    b.startOrderbookDepthStream()
+	b.startOrderbookDepthStream()
 }
 
 func (b *BinanceSourceProvider) startTickerDataStream() {
@@ -122,7 +122,7 @@ func (b *BinanceSourceProvider) startTickerDataStream() {
 
 func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
 	// handle the ticker data stream
-    // https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
+	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var ticker BinanceSymbolTicker
 	jsonHelper.Unmarshal(*data, &ticker)
 	bestAsk, _ := strconv.ParseFloat(ticker.Data.BestAskPrice, 64)
@@ -156,15 +156,15 @@ func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol)
 	b.stopTickerDataStream()
 	b.stopOrderbookDepthStream()
 	b.startTickerDataStream()
-    b.startOrderbookDepthStream()
+	b.startOrderbookDepthStream()
 }
 
 func (b *BinanceSourceProvider) startOrderbookDepthStream() {
-    // subscribe to multiple data streams using one connection (order book/depth topic)
-    // CHALLENGES:
-    // - Full amount of available amount in can be eaten on the first level (level 0)
-    // - Some of the amount in can be eaten up by multiple levels
-    // - Some coins may not have enough liquidity
+	// subscribe to multiple data streams using one connection (order book/depth topic)
+	// CHALLENGES:
+	// - Full amount of available amount in can be eaten on the first level (level 0)
+	// - Some of the amount in can be eaten up by multiple levels
+	// - Some coins may not have enough liquidity
 	var symbolString string
 	var charCount int = 0
 
@@ -183,34 +183,34 @@ func (b *BinanceSourceProvider) startOrderbookDepthStream() {
 }
 
 func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
-    // handle the ticker data stream
+	// handle the ticker data stream
 	var orderbookDepth BinanceOrderbookDepth
 	jsonHelper.Unmarshal(*data, &orderbookDepth)
-    var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
-        Symbol:       b.symbols[orderbookDepth.Data.Symbol],
-        EventTime:    time.Unix(0, orderbookDepth.Data.EventTime*1000000),
-        LastUpdateId: orderbookDepth.Data.FinalUpdateID,
-        Asks: make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
-        Bids: make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
-    }
+	var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
+		Symbol:       b.symbols[orderbookDepth.Data.Symbol],
+		EventTime:    time.Unix(0, orderbookDepth.Data.EventTime*1000000),
+		LastUpdateId: orderbookDepth.Data.FinalUpdateID,
+		Asks:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
+		Bids:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
+	}
 
-    for i, ask := range orderbookDepth.Data.Asks {
-        price, _ := strconv.ParseFloat(ask[0], 64)
-        quantity, _ := strconv.ParseFloat(ask[1], 64)
-        symbolOrderbookDepth.Asks[i] = &sourceProvider.OrderbookEntry{
-            Price:    price,
-            Quantity: quantity,
-        }
-    }
+	for i, ask := range orderbookDepth.Data.Asks {
+		price, _ := strconv.ParseFloat(ask[0], 64)
+		quantity, _ := strconv.ParseFloat(ask[1], 64)
+		symbolOrderbookDepth.Asks[i] = &sourceProvider.OrderbookEntry{
+			Price:    price,
+			Quantity: quantity,
+		}
+	}
 
-    for i, bid := range orderbookDepth.Data.Bids {
-        price, _ := strconv.ParseFloat(bid[0], 64)
-        quantity, _ := strconv.ParseFloat(bid[1], 64)
-        symbolOrderbookDepth.Bids[i] = &sourceProvider.OrderbookEntry{
-            Price:    price,
-            Quantity: quantity,
-        }
-    }
+	for i, bid := range orderbookDepth.Data.Bids {
+		price, _ := strconv.ParseFloat(bid[0], 64)
+		quantity, _ := strconv.ParseFloat(bid[1], 64)
+		symbolOrderbookDepth.Bids[i] = &sourceProvider.OrderbookEntry{
+			Price:    price,
+			Quantity: quantity,
+		}
+	}
 
 	b.symbolOrderbookData.Store(orderbookDepth.Data.Symbol, &symbolOrderbookDepth)
 
@@ -219,8 +219,8 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 }
 
 func (b *BinanceSourceProvider) stopOrderbookDepthStream() {
-    // Get the depth from the order book
-    if b.streamOrderbookDepth != nil {
+	// Get the depth from the order book
+	if b.streamOrderbookDepth != nil {
 		b.streamOrderbookDepth.Stop()
 	}
 }
