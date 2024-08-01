@@ -5,6 +5,7 @@ import "time"
 type SourceProvider interface {
 	Symbols() map[string]*Symbol
 	GetSymbolPrice(symbol string) *SymbolPrice
+	GetSymbolOrderbookDepth(symbol string) *SymbolOrderbookDepth
 	GetSymbols(force bool) ([]*Symbol, error)
 }
 
@@ -34,7 +35,6 @@ type OrderbookEntry struct {
 
 type SymbolOrderbookDepth struct {
 	Symbol       *Symbol           `json:"symbol"`
-	EventTime    time.Time         `json:"eventTime"`
 	LastUpdateId int               `json:"lastUpdateId"`
 	Bids         []*OrderbookEntry `json:"bids"`
 	Asks         []*OrderbookEntry `json:"asks"`

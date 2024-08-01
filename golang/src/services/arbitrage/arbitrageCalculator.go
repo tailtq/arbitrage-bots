@@ -43,7 +43,7 @@ func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourc
 }
 
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
-func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceProvider.Symbol) *TriangularSurfaceRate {
+func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceProvider.Symbol, startingAmount float64) *TriangularSurfaceTradingResult {
 	priceData, err := a.GetPriceForTriangularPair(triangularPair)
 
 	if err != nil {
@@ -51,7 +51,6 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 	}
 
 	// set variables
-	var startingAmount float64 = 1 // the amount of the asset that is used to calculate the arbitrage
 	var contract1 string = ""
 	var contract2 string = ""
 	var contract3 string = ""
@@ -340,7 +339,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 		var tradeDescription3 string = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
 		if profitLoss > MinSurfaceRate {
-			return &TriangularSurfaceRate{
+			return &TriangularSurfaceTradingResult{
 				Swap1:             swap1,
 				Swap2:             swap2,
 				Swap3:             swap3,
@@ -370,18 +369,130 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 	return nil
 }
 
-// func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfaceRate) {
-// 	var swap1 string = surfaceRate.Swap1
-// 	var startingAmount float64 = surfaceRate.StartingAmount
+// reformatOrderbook ... reformat the orderbook to be used in the calculation
+func (a *ArbitrageCalculator) reformatOrderbook(
+	directionTrade string, orderBookPrice *sourceProvider.SymbolOrderbookDepth,
+) []*sourceProvider.OrderbookEntry {
+	var result []*sourceProvider.OrderbookEntry
 
-// 	// Define pairs
-// 	var contract1 string = surfaceRate.Contract1
-// 	var contract2 string = surfaceRate.Contract2
-// 	var contract3 string = surfaceRate.Contract3
+	if directionTrade == "baseToQuote" {
+		for _, entry := range orderBookPrice.Asks {
+			// TODO: add comment to this
+			var adjPrice float64 = 0
 
-// 	// Define directions
-// 	var directionTrade1 string = surfaceRate.DirectionTrade1
-// 	var directionTrade2 string = surfaceRate.DirectionTrade2
-// 	var directionTrade3 string = surfaceRate.DirectionTrade3
+			if entry.Price != 0 {
+				adjPrice = 1 / entry.Price
+			}
 
-// }
+			var adjQuantity float64 = entry.Quantity * adjPrice
+			result = append(result, &sourceProvider.OrderbookEntry{
+				Price:    adjPrice,
+				Quantity: adjQuantity,
+			})
+		}
+	} else if directionTrade == "quoteToBase" {
+		for _, entry := range orderBookPrice.Bids {
+			var adjPrice float64 = entry.Price
+			var adjQuantity float64 = entry.Quantity
+			result = append(result, &sourceProvider.OrderbookEntry{
+				Price:    adjPrice,
+				Quantity: adjQuantity,
+			})
+		}
+	}
+
+	return result
+}
+
+// CalculateAcquiredCoin ... get acquired coin also known as (aka) Depth calculation
+func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook []*sourceProvider.OrderbookEntry) float64 {
+	// CHALLENGES:
+	// - Full amount of starting amount in can be eaten on the first level (level 0)
+	// - Some of the amount in can be eaten up by multiple levels
+	// - Some coins may not have enough liquidity
+
+	tradingBalance := amountIn
+	quantityBought := 0.0
+	acquiredCoin := 0.0
+	counts := 0
+
+	for _, level := range orderbook {
+		var amountBought float64 = 0
+
+		// Amount In <= first level's total amount
+		if level.Quantity >= tradingBalance {
+			quantityBought = tradingBalance
+			tradingBalance = 0
+			amountBought = quantityBought * level.Price
+		}
+		// Amount In > a given level's total amount
+		if level.Quantity < tradingBalance {
+			quantityBought = level.Quantity
+			tradingBalance -= level.Quantity
+			amountBought = quantityBought * level.Price
+		}
+
+		acquiredCoin += amountBought
+
+		if tradingBalance == 0 {
+			return acquiredCoin
+		}
+
+		counts++
+
+		if counts == len(orderbook) {
+			return 0
+		}
+	}
+	return 0
+}
+
+func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfaceTradingResult) *TriangularDepthTradingResult {
+	var startingAmount float64 = surfaceRate.StartingAmount
+
+	// Define variables
+	var contract1 string = surfaceRate.Contract1
+	var contract2 string = surfaceRate.Contract2
+	var contract3 string = surfaceRate.Contract3
+	var directionTrade1 string = surfaceRate.DirectionTrade1
+	var directionTrade2 string = surfaceRate.DirectionTrade2
+	var directionTrade3 string = surfaceRate.DirectionTrade3
+	var depthContract1 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract1)
+	var depthContract2 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract2)
+	var depthContract3 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract3)
+
+	if depthContract1 == nil {
+		fmt.Printf("Error: depthContract1 %v is nil\n", contract1)
+		return nil
+	} else if depthContract2 == nil {
+		fmt.Printf("Error: depthContract2 %v is nil\n", contract2)
+		return nil
+	} else if depthContract3 == nil {
+		fmt.Printf("Error: depthContract3 %v is nil\n", contract3)
+		return nil
+	}
+
+	// get acquired coins
+	orderbook1 := a.reformatOrderbook(directionTrade1, depthContract1)
+	orderbook2 := a.reformatOrderbook(directionTrade2, depthContract2)
+	orderbook3 := a.reformatOrderbook(directionTrade3, depthContract3)
+	acquiredCoinT1 := a.calculateAcquiredCoin(startingAmount, orderbook1)
+	acquiredCoinT2 := a.calculateAcquiredCoin(acquiredCoinT1, orderbook2)
+	acquiredCoinT3 := a.calculateAcquiredCoin(acquiredCoinT2, orderbook3)
+
+	// calculate profit loss also known as real rate
+	profitLoss := acquiredCoinT3 - startingAmount
+	realRatePercent := 0.0
+
+	if profitLoss != 0 {
+		realRatePercent = (profitLoss / startingAmount) * 100
+	}
+
+	if realRatePercent > -1 {
+		return &TriangularDepthTradingResult{
+			ProfitLoss:     profitLoss,
+			ProfitLossPerc: float32(realRatePercent),
+		}
+	}
+	return nil
+}

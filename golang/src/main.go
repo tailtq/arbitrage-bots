@@ -50,15 +50,19 @@ func main() {
 	arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
-	time.Sleep(10 * time.Second)
+	time.Sleep(3 * time.Second)
 	fmt.Println("Starting the arbitrage calculation...")
 
 	for {
 		for _, triangularPairs := range triangularPairBatches {
-			result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs)
+			startingAmount := 10
+			result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
 
 			if result != nil && result.ProfitLoss > 0 && result.Swap1 == "USDT" {
+				depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
 				fmt.Println(result)
+				fmt.Println(depthResult)
+				fmt.Println("---------")
 			}
 		}
 		time.Sleep(3 * time.Second)

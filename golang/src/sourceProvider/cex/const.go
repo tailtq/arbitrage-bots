@@ -1,5 +1,7 @@
 package CEX
 
+import "strings"
+
 const BinanceApiUrl string = "https://api.binance.com/api/v3"
 const BinanceWsUrl string = "wss://stream.binance.com:443"
 const BinanceTokenListPath string = "data/binanceTokens.json"
@@ -62,12 +64,13 @@ type BinanceSymbolTicker struct {
 type BinanceOrderbookDepth struct {
 	Stream string `json:"stream"`
 	Data   struct {
-		EventType     string     `json:"e"`
-		EventTime     int64      `json:"E"`
-		Symbol        string     `json:"s"`
-		FirstUpdateID int        `json:"U"`
-		FinalUpdateID int        `json:"u"`
-		Bids          [][]string `json:"b"`
-		Asks          [][]string `json:"a"`
+		LastUpdateID int        `json:"lastUpdateId"`
+		Bids         [][]string `json:"bids"`
+		Asks         [][]string `json:"asks"`
 	} `json:"data"`
+}
+
+// GetSymbol ... returns the symbol from the stream
+func (b *BinanceOrderbookDepth) GetSymbol() string {
+	return strings.ToUpper(strings.Split(b.Stream, "@")[0])
 }
