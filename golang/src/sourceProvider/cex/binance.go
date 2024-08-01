@@ -24,19 +24,31 @@ type BinanceSourceProvider struct {
 	symbolOrderbookData sync.Map
 }
 
+// NewBinanceSourceProvider ... creates a new Binance source provider
 func NewBinanceSourceProvider() *BinanceSourceProvider {
 	return &BinanceSourceProvider{
 		symbols: make(map[string]*sourceProvider.Symbol),
 	}
 }
 
+// Symbols ... returns all symbols
 func (b *BinanceSourceProvider) Symbols() map[string]*sourceProvider.Symbol {
 	return b.symbols
 }
 
+// GetSymbolPrice returns the price for a given symbol
 func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
 		return price.(*sourceProvider.SymbolPrice)
+	}
+
+	return nil
+}
+
+// GetSymbolOrderbook returns the order book for a given symbol
+func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceProvider.SymbolOrderbookDepth {
+	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
+		return orderbook.(*sourceProvider.SymbolOrderbookDepth)
 	}
 
 	return nil
@@ -161,15 +173,11 @@ func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol)
 
 func (b *BinanceSourceProvider) startOrderbookDepthStream() {
 	// subscribe to multiple data streams using one connection (order book/depth topic)
-	// CHALLENGES:
-	// - Full amount of available amount in can be eaten on the first level (level 0)
-	// - Some of the amount in can be eaten up by multiple levels
-	// - Some coins may not have enough liquidity
 	var symbolString string
 	var charCount int = 0
 
 	for key := range b.symbols {
-		symbolString += strings.ToLower(key) + "@depth10/"
+		symbolString += strings.ToLower(key) + "@depth20/"
 	}
 
 	if charCount = utf8.RuneCountInString(symbolString); charCount == 0 {
@@ -187,9 +195,8 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 	var orderbookDepth BinanceOrderbookDepth
 	jsonHelper.Unmarshal(*data, &orderbookDepth)
 	var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
-		Symbol:       b.symbols[orderbookDepth.Data.Symbol],
-		EventTime:    time.Unix(0, orderbookDepth.Data.EventTime*1000000),
-		LastUpdateId: orderbookDepth.Data.FinalUpdateID,
+		Symbol:       b.symbols[orderbookDepth.GetSymbol()],
+		LastUpdateId: orderbookDepth.Data.LastUpdateID,
 		Asks:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
 		Bids:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
 	}
@@ -212,10 +219,10 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 		}
 	}
 
-	b.symbolOrderbookData.Store(orderbookDepth.Data.Symbol, &symbolOrderbookDepth)
+	b.symbolOrderbookData.Store(orderbookDepth.GetSymbol(), &symbolOrderbookDepth)
 
 	// build a general interface so all exchanges can use the same data structure
-	// fmt.Println(string(*data))
+	// fmt.Println(len(string(*data)), orderbookDepth.GetSymbol())
 }
 
 func (b *BinanceSourceProvider) stopOrderbookDepthStream() {

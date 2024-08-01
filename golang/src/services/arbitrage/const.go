@@ -9,7 +9,7 @@ type TriangularBidAskPrice struct {
 	pairCBid float64
 }
 
-type TriangularSurfaceRate struct {
+type TriangularSurfaceTradingResult struct {
 	Swap1             string
 	Swap2             string
 	Swap3             string
@@ -34,4 +34,9 @@ type TriangularSurfaceRate struct {
 	TradeDescription3 string
 }
 
-const MinSurfaceRate float64 = 0.01 // the rate that indicates the arbitrage is profitable or not (and to prevent tiny wins)
+type TriangularDepthTradingResult struct {
+	ProfitLoss     float64
+	ProfitLossPerc float32
+}
+
+const MinSurfaceRate float64 = 0.0 // the rate that indicates the arbitrage is profitable or not (and to prevent tiny wins)
