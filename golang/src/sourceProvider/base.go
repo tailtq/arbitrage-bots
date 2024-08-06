@@ -2,8 +2,9 @@ package sourceProvider
 
 import "time"
 
-type SourceProvider interface {
-	Symbols() map[string]*Symbol
+type SourceProviderInterface interface {
+	GetTokenListCachePath() string
+	GetArbitragePairCachePath() string
 	GetSymbolPrice(symbol string) *SymbolPrice
 	GetSymbolOrderbookDepth(symbol string) *SymbolOrderbookDepth
 	GetSymbols(force bool) ([]*Symbol, error)

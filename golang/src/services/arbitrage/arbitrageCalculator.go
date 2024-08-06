@@ -7,11 +7,11 @@ import (
 
 // ArbitrageCalculator ... the main calculator for the arbitrage
 type ArbitrageCalculator struct {
-	sourceProvider sourceProvider.SourceProvider
+	sourceProvider sourceProvider.SourceProviderInterface
 }
 
 // NewArbitrageCalculator ... creates a new instance of the ArbitrageCalculator
-func NewArbitrageCalculator(sourceProvider sourceProvider.SourceProvider) *ArbitrageCalculator {
+func NewArbitrageCalculator(sourceProvider sourceProvider.SourceProviderInterface) *ArbitrageCalculator {
 	return &ArbitrageCalculator{sourceProvider: sourceProvider}
 }
 
@@ -338,31 +338,29 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 		var tradeDescription2 string = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT1, swap2, swap2Rate, swap3, acquiredCoinT2)
 		var tradeDescription3 string = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
-		if profitLoss > MinSurfaceRate {
-			return &TriangularSurfaceTradingResult{
-				Swap1:             swap1,
-				Swap2:             swap2,
-				Swap3:             swap3,
-				Contract1:         contract1,
-				Contract2:         contract2,
-				Contract3:         contract3,
-				DirectionTrade1:   directionTrade1,
-				DirectionTrade2:   directionTrade2,
-				DirectionTrade3:   directionTrade3,
-				StartingAmount:    startingAmount,
-				AcquiredCoinT1:    acquiredCoinT1,
-				AcquiredCoinT2:    acquiredCoinT2,
-				AcquiredCoinT3:    acquiredCoinT3,
-				Swap1Rate:         swap1Rate,
-				Swap2Rate:         swap2Rate,
-				Swap3Rate:         swap3Rate,
-				ProfitLoss:        profitLoss,
-				ProfitLossPerc:    profitLossPercentage,
-				Direction:         direction,
-				TradeDescription1: tradeDescription1,
-				TradeDescription2: tradeDescription2,
-				TradeDescription3: tradeDescription3,
-			}
+		return &TriangularSurfaceTradingResult{
+			Swap1:             swap1,
+			Swap2:             swap2,
+			Swap3:             swap3,
+			Contract1:         contract1,
+			Contract2:         contract2,
+			Contract3:         contract3,
+			DirectionTrade1:   directionTrade1,
+			DirectionTrade2:   directionTrade2,
+			DirectionTrade3:   directionTrade3,
+			StartingAmount:    startingAmount,
+			AcquiredCoinT1:    acquiredCoinT1,
+			AcquiredCoinT2:    acquiredCoinT2,
+			AcquiredCoinT3:    acquiredCoinT3,
+			Swap1Rate:         swap1Rate,
+			Swap2Rate:         swap2Rate,
+			Swap3Rate:         swap3Rate,
+			ProfitLoss:        profitLoss,
+			ProfitLossPerc:    profitLossPercentage,
+			Direction:         direction,
+			TradeDescription1: tradeDescription1,
+			TradeDescription2: tradeDescription2,
+			TradeDescription3: tradeDescription3,
 		}
 	}
 

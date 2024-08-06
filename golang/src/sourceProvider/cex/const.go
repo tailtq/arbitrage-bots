@@ -7,31 +7,6 @@ const BinanceWsUrl string = "wss://stream.binance.com:443"
 const BinanceTokenListPath string = "data/binanceTokens.json"
 const BinanceArbitragePairPath string = "data/binanceArbitragePairs.json"
 
-type BinanceKLineCandlestick struct {
-	EventType string `json:"e"`
-	EventTime int64  `json:"E"`
-	Symbol    string `json:"s"`
-	KLineData struct {
-		StartTime                int64  `json:"t"`
-		CloseTime                int64  `json:"T"`
-		Symbol                   string `json:"s"`
-		Interval                 string `json:"i"`
-		FirstTradeID             int    `json:"f"`
-		LastTradeID              int    `json:"L"`
-		OpenPrice                string `json:"o"`
-		ClosePrice               string `json:"c"`
-		HighPrice                string `json:"h"`
-		LowPrice                 string `json:"l"`
-		BaseAssetVolume          string `json:"v"`
-		NumberOfTrades           int    `json:"n"`
-		IsClosed                 bool   `json:"x"`
-		QuoteAssetVolume         string `json:"q"`
-		TakerBuyBaseAssetVolume  string `json:"V"`
-		TakerBuyQuoteAssetVolume string `json:"Q"`
-		Ignore                   int    `json:"B"`
-	} `json:"k"`
-}
-
 type BinanceSymbolTicker struct {
 	Stream string `json:"stream"`
 	Data   struct {
@@ -73,4 +48,26 @@ type BinanceOrderbookDepth struct {
 // GetSymbol ... returns the symbol from the stream
 func (b *BinanceOrderbookDepth) GetSymbol() string {
 	return strings.ToUpper(strings.Split(b.Stream, "@")[0])
+}
+
+const MEXCApiUrl string = "https://api.mexc.com/api/v3"
+const MEXCWsUrl string = "wss://wbs.mexc.com/ws"
+const MEXCTokenListPath string = "data/mexcTokens.json"
+const MEXCArbitragePairPath string = "data/mexcArbitragePairs.json"
+
+type MEXCEventSubscriptionUnsubscription struct {
+	Method string   `json:"method"`
+	Params []string `json:"params"`
+}
+
+type MEXCSymbolTicker struct {
+	Channel string `json:"c"`
+	Data    struct {
+		BestBidPrice    string `json:"b"`
+		BestBidQuantity string `json:"B"`
+		BestAskPrice    string `json:"a"`
+		BestAskQuantity string `json:"A"`
+	} `json:"d"`
+	Symbol string `json:"s"`
+	Time   int64  `json:"t"`
 }
