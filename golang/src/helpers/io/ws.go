@@ -27,6 +27,11 @@ func NewWebSocketClient(endpoint string) *WebSocketClient {
 	}
 }
 
+func (wsc *WebSocketClient) WriteJSON(data interface{}) {
+	err := wsc.Conn.WriteJSON(data)
+	helpers.Panic(err)
+}
+
 func (wsc *WebSocketClient) Start(streamHandler func(data *[]byte)) {
 	// Start a goroutine to read messages from the WebSocket, and call the streamHandler function
 	go func() {

@@ -1,0 +1,410 @@
+[
+	[
+		{
+			"symbol": "MXETH",
+			"baseAsset": "MX",
+			"quoteAsset": "ETH"
+		},
+		{
+			"symbol": "MXUSDC",
+			"baseAsset": "MX",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "ETHUSDC",
+			"baseAsset": "ETH",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "XRPUSDC",
+			"baseAsset": "XRP",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "XRPBTC",
+			"baseAsset": "XRP",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "SHITUSDT",
+			"baseAsset": "SHIT",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "SHITUSDC",
+			"baseAsset": "SHIT",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "ELFBTC",
+			"baseAsset": "ELF",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "ELFETH",
+			"baseAsset": "ELF",
+			"quoteAsset": "ETH"
+		},
+		{
+			"symbol": "ETHBTC",
+			"baseAsset": "ETH",
+			"quoteAsset": "BTC"
+		}
+	],
+	[
+		{
+			"symbol": "ATOMUSDC",
+			"baseAsset": "ATOM",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "ATOMBTC",
+			"baseAsset": "ATOM",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "SENSOBTC",
+			"baseAsset": "SENSO",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "SENSOETH",
+			"baseAsset": "SENSO",
+			"quoteAsset": "ETH"
+		},
+		{
+			"symbol": "ETHBTC",
+			"baseAsset": "ETH",
+			"quoteAsset": "BTC"
+		}
+	],
+	[
+		{
+			"symbol": "ANKRBTC",
+			"baseAsset": "ANKR",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "ETHBTC",
+			"baseAsset": "ETH",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "ANKRETH",
+			"baseAsset": "ANKR",
+			"quoteAsset": "ETH"
+		}
+	],
+	[
+		{
+			"symbol": "AZEROUSDT",
+			"baseAsset": "AZERO",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "AZEROUSDC",
+			"baseAsset": "AZERO",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "TRXUSDC",
+			"baseAsset": "TRX",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "TRXBTC",
+			"baseAsset": "TRX",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "LTCBTC",
+			"baseAsset": "LTC",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "LTCUSDC",
+			"baseAsset": "LTC",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "UNIETH",
+			"baseAsset": "UNI",
+			"quoteAsset": "ETH"
+		},
+		{
+			"symbol": "UNIUSDC",
+			"baseAsset": "UNI",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "ETHUSDC",
+			"baseAsset": "ETH",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "WBTCUSDT",
+			"baseAsset": "WBTC",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "WBTCUSDC",
+			"baseAsset": "WBTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "DEXEBTC",
+			"baseAsset": "DEXE",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "DEXEETH",
+			"baseAsset": "DEXE",
+			"quoteAsset": "ETH"
+		},
+		{
+			"symbol": "ETHBTC",
+			"baseAsset": "ETH",
+			"quoteAsset": "BTC"
+		}
+	],
+	[
+		{
+			"symbol": "FITFIUSDC",
+			"baseAsset": "FITFI",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "FITFIUSDT",
+			"baseAsset": "FITFI",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "EULUSDT",
+			"baseAsset": "EUL",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "EULUSDC",
+			"baseAsset": "EUL",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "ADABTC",
+			"baseAsset": "ADA",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "ADAUSDC",
+			"baseAsset": "ADA",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "SOLUSDC",
+			"baseAsset": "SOL",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "SOLBTC",
+			"baseAsset": "SOL",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "STETHUSDC",
+			"baseAsset": "STETH",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "STETHUSDT",
+			"baseAsset": "STETH",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "ETHUSDC",
+			"baseAsset": "ETH",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "ETHBTC",
+			"baseAsset": "ETH",
+			"quoteAsset": "BTC"
+		}
+	],
+	[
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "BCHUSDC",
+			"baseAsset": "BCH",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "BCHBTC",
+			"baseAsset": "BCH",
+			"quoteAsset": "BTC"
+		}
+	],
+	[
+		{
+			"symbol": "BTCUSDC",
+			"baseAsset": "BTC",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "EOSBTC",
+			"baseAsset": "EOS",
+			"quoteAsset": "BTC"
+		},
+		{
+			"symbol": "EOSUSDC",
+			"baseAsset": "EOS",
+			"quoteAsset": "USDC"
+		}
+	],
+	[
+		{
+			"symbol": "HOPUSDC",
+			"baseAsset": "HOP",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "HOPUSDT",
+			"baseAsset": "HOP",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "CGPTUSDC",
+			"baseAsset": "CGPT",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "CGPTUSDT",
+			"baseAsset": "CGPT",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	],
+	[
+		{
+			"symbol": "XWGUSDT",
+			"baseAsset": "XWG",
+			"quoteAsset": "USDT"
+		},
+		{
+			"symbol": "XWGUSDC",
+			"baseAsset": "XWG",
+			"quoteAsset": "USDC"
+		},
+		{
+			"symbol": "USDCUSDT",
+			"baseAsset": "USDC",
+			"quoteAsset": "USDT"
+		}
+	]
+]

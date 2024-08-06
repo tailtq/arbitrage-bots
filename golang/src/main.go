@@ -11,11 +11,13 @@ import (
 	"time"
 )
 
-func step1(force bool) [][3]*sourceProvider.Symbol {
+func step1(cexSourceProvider sourceProvider.SourceProviderInterface, force bool) [][3]*sourceProvider.Symbol {
 	// get all the triangular pairs
-	if !force && fileHelper.PathExists(CEX.BinanceArbitragePairPath) {
+	arbitragePairPath := cexSourceProvider.GetArbitragePairCachePath()
+
+	if !force && fileHelper.PathExists(arbitragePairPath) {
 		var symbols [][3]*sourceProvider.Symbol
-		err := jsonHelper.ReadJSONFile(CEX.BinanceArbitragePairPath, &symbols)
+		err := jsonHelper.ReadJSONFile(arbitragePairPath, &symbols)
 		helpers.Panic(err)
 
 		return symbols
@@ -23,20 +25,20 @@ func step1(force bool) [][3]*sourceProvider.Symbol {
 
 	// NOTE: this doesn't cover the case when we have multiple CEX
 	triangularPairFinder := arbitrage.TriangularPairFinder{}
-	binanceSP := CEX.BinanceSourceProvider{}
-	symbols, err := binanceSP.GetSymbols(force)
+	symbols, err := cexSourceProvider.GetSymbols(force)
 	helpers.Panic(err)
 
 	// find the arbitrage pairs -> cache it
-	triangularPairs := triangularPairFinder.Handle(symbols, 1000)
-	err = jsonHelper.WriteJSONFile(CEX.BinanceArbitragePairPath, triangularPairs)
+	triangularPairs := triangularPairFinder.Handle(symbols, len(symbols))
+	err = jsonHelper.WriteJSONFile(arbitragePairPath, triangularPairs)
 	helpers.Panic(err)
 
 	return triangularPairs
 }
 
 func main() {
-	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(false)
+	cexSourceProvider := CEX.NewMEXCSourceProvider()
+	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(cexSourceProvider, false)
 	var symbols []*sourceProvider.Symbol
 
 	for _, pair := range triangularPairBatches {
@@ -45,9 +47,8 @@ func main() {
 		}
 	}
 
-	binanceSourceProvider := CEX.NewBinanceSourceProvider()
-	binanceSourceProvider.SubscribeSymbols(symbols)
-	arbitrageCalculator := arbitrage.NewArbitrageCalculator(binanceSourceProvider)
+	cexSourceProvider.SubscribeSymbols(symbols)
+	arbitrageCalculator := arbitrage.NewArbitrageCalculator(cexSourceProvider)
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
 	time.Sleep(3 * time.Second)
@@ -58,7 +59,7 @@ func main() {
 			startingAmount := 10
 			result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
 
-			if result != nil && result.ProfitLoss > 0 && result.Swap1 == "USDT" {
+			if result != nil && result.ProfitLoss > arbitrage.MinSurfaceRate {
 				depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
 				fmt.Println(result)
 				fmt.Println(depthResult)

@@ -31,9 +31,12 @@ func NewBinanceSourceProvider() *BinanceSourceProvider {
 	}
 }
 
-// Symbols ... returns all symbols
-func (b *BinanceSourceProvider) Symbols() map[string]*sourceProvider.Symbol {
-	return b.symbols
+func (b *BinanceSourceProvider) GetTokenListCachePath() string {
+	return BinanceTokenListPath
+}
+
+func (b *BinanceSourceProvider) GetArbitragePairCachePath() string {
+	return BinanceArbitragePairPath
 }
 
 // GetSymbolPrice returns the price for a given symbol
