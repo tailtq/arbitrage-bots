@@ -1,6 +1,8 @@
 package sourceProvider
 
-import "time"
+import (
+	"time"
+)
 
 // ISourceProvider ... Interface for the source provider
 type ISourceProvider interface {
@@ -46,4 +48,11 @@ type SymbolOrderbookDepth struct {
 	LastUpdateID int               `json:"lastUpdateId"`
 	Bids         []*OrderbookEntry `json:"bids"`
 	Asks         []*OrderbookEntry `json:"asks"`
+}
+
+// SourceProviderName ... Source provider name
+var SourceProviderName = map[string]string{
+	"Binance": "Binance",
+	"MEXC":    "MEXC",
+	"Uniswap": "Uniswap",
 }

@@ -6,9 +6,7 @@ import (
 	jsonHelper "arbitrage-bot/helpers/json"
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/sourceProvider"
-	cex "arbitrage-bot/sourceProvider/cex"
-	"fmt"
-	"time"
+	"arbitrage-bot/sourceProvider/dex"
 )
 
 func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*sourceProvider.Symbol {
@@ -36,9 +34,10 @@ func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*s
 	return triangularPairs
 }
 
+// CEX/DEX arbitrage opportunities
 func main() {
-	cexSourceProvider := cex.GetCEXSourceProvider(cex.SourceProviderName["MEXC"])
-	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(cexSourceProvider, false)
+	SourceProvider := dex.GetSourceProvider(sourceProvider.SourceProviderName["Uniswap"])
+	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(SourceProvider, false)
 	var symbols []*sourceProvider.Symbol
 
 	for _, pair := range triangularPairBatches {
@@ -47,29 +46,29 @@ func main() {
 		}
 	}
 
-	cexSourceProvider.SubscribeSymbols(symbols)
-	arbitrageCalculator := arbitrage.NewArbitrageCalculator(cexSourceProvider)
+	// cexSourceProvider.SubscribeSymbols(symbols)
+	// arbitrageCalculator := arbitrage.NewArbitrageCalculator(cexSourceProvider)
 
-	fmt.Println("Subscribed to symbols, waiting for data...")
-	time.Sleep(3 * time.Second)
-	fmt.Println("Starting the arbitrage calculation...")
+	// fmt.Println("Subscribed to symbols, waiting for data...")
+	// time.Sleep(3 * time.Second)
+	// fmt.Println("Starting the arbitrage calculation...")
 
-	for {
-		for _, triangularPairs := range triangularPairBatches {
-			startingAmount := 10
-			result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
+	// for {
+	// 	for _, triangularPairs := range triangularPairBatches {
+	// 		startingAmount := 10
+	// 		result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
 
-			if result != nil && result.ProfitLoss > arbitrage.MinSurfaceRate {
-				depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
+	// 		if result != nil && result.ProfitLoss > arbitrage.MinSurfaceRate {
+	// 			depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
 
-				if depthResult != nil {
-					fmt.Println(result)
-					fmt.Println(depthResult)
-					fmt.Println("---------")
-				}
-			}
-		}
-		time.Sleep(3 * time.Second)
-		fmt.Println("------")
-	}
+	// 			if depthResult != nil {
+	// 				fmt.Println(result)
+	// 				fmt.Println(depthResult)
+	// 				fmt.Println("---------")
+	// 			}
+	// 		}
+	// 	}
+	// 	time.Sleep(3 * time.Second)
+	// 	fmt.Println("------")
+	// }
 }
