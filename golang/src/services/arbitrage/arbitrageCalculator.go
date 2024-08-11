@@ -1,25 +1,25 @@
 package arbitrage
 
 import (
-	"arbitrage-bot/sourceProvider"
+	"arbitrage-bot/sourceprovider"
 	"fmt"
 )
 
 // ArbitrageCalculator ... the main calculator for the arbitrage
 type ArbitrageCalculator struct {
-	sourceProvider sourceProvider.ISourceProvider
+	sourceprovider sourceprovider.ISourceProvider
 }
 
 // NewArbitrageCalculator ... creates a new instance of the ArbitrageCalculator
-func NewArbitrageCalculator(sourceProvider sourceProvider.ISourceProvider) *ArbitrageCalculator {
-	return &ArbitrageCalculator{sourceProvider: sourceProvider}
+func NewArbitrageCalculator(sourceprovider sourceprovider.ISourceProvider) *ArbitrageCalculator {
+	return &ArbitrageCalculator{sourceprovider: sourceprovider}
 }
 
 // GetPriceForTriangularPair ... get the price data for the triangular pair
-func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourceProvider.Symbol) (*TriangularBidAskPrice, error) {
-	symbol1Price := a.sourceProvider.GetSymbolPrice(triangularPair[0].Symbol)
-	symbol2Price := a.sourceProvider.GetSymbolPrice(triangularPair[1].Symbol)
-	symbol3Price := a.sourceProvider.GetSymbolPrice(triangularPair[2].Symbol)
+func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourceprovider.Symbol) (*TriangularBidAskPrice, error) {
+	symbol1Price := a.sourceprovider.GetSymbolPrice(triangularPair[0].Symbol)
+	symbol2Price := a.sourceprovider.GetSymbolPrice(triangularPair[1].Symbol)
+	symbol3Price := a.sourceprovider.GetSymbolPrice(triangularPair[2].Symbol)
 
 	if symbol1Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[0].Symbol)
@@ -43,7 +43,7 @@ func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourc
 }
 
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
-func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceProvider.Symbol, startingAmount float64) *TriangularSurfaceTradingResult {
+func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) *TriangularSurfaceTradingResult {
 	priceData, err := a.GetPriceForTriangularPair(triangularPair)
 
 	if err != nil {
@@ -369,9 +369,9 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 
 // reformatOrderbook ... reformat the orderbook to be used in the calculation
 func (a *ArbitrageCalculator) reformatOrderbook(
-	directionTrade string, orderBookPrice *sourceProvider.SymbolOrderbookDepth,
-) []*sourceProvider.OrderbookEntry {
-	var result []*sourceProvider.OrderbookEntry
+	directionTrade string, orderBookPrice *sourceprovider.SymbolOrderbookDepth,
+) []*sourceprovider.OrderbookEntry {
+	var result []*sourceprovider.OrderbookEntry
 
 	if directionTrade == "baseToQuote" {
 		for _, entry := range orderBookPrice.Asks {
@@ -383,7 +383,7 @@ func (a *ArbitrageCalculator) reformatOrderbook(
 			}
 
 			var adjQuantity float64 = entry.Quantity * adjPrice
-			result = append(result, &sourceProvider.OrderbookEntry{
+			result = append(result, &sourceprovider.OrderbookEntry{
 				Price:    adjPrice,
 				Quantity: adjQuantity,
 			})
@@ -392,7 +392,7 @@ func (a *ArbitrageCalculator) reformatOrderbook(
 		for _, entry := range orderBookPrice.Bids {
 			var adjPrice float64 = entry.Price
 			var adjQuantity float64 = entry.Quantity
-			result = append(result, &sourceProvider.OrderbookEntry{
+			result = append(result, &sourceprovider.OrderbookEntry{
 				Price:    adjPrice,
 				Quantity: adjQuantity,
 			})
@@ -403,7 +403,7 @@ func (a *ArbitrageCalculator) reformatOrderbook(
 }
 
 // CalculateAcquiredCoin ... get acquired coin also known as (aka) Depth calculation
-func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook []*sourceProvider.OrderbookEntry) float64 {
+func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook []*sourceprovider.OrderbookEntry) float64 {
 	// CHALLENGES:
 	// - Full amount of starting amount in can be eaten on the first level (level 0)
 	// - Some of the amount in can be eaten up by multiple levels
@@ -455,9 +455,9 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfa
 	var directionTrade1 string = surfaceRate.DirectionTrade1
 	var directionTrade2 string = surfaceRate.DirectionTrade2
 	var directionTrade3 string = surfaceRate.DirectionTrade3
-	var depthContract1 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract1)
-	var depthContract2 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract2)
-	var depthContract3 *sourceProvider.SymbolOrderbookDepth = a.sourceProvider.GetSymbolOrderbookDepth(contract3)
+	var depthContract1 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract1)
+	var depthContract2 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract2)
+	var depthContract3 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract3)
 
 	if depthContract1 == nil {
 		fmt.Printf("Error: depthContract1 %v is nil\n", contract1)

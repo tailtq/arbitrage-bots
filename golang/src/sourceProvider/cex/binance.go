@@ -11,7 +11,7 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	ioHelper "arbitrage-bot/helpers/io"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/sourceProvider"
+	"arbitrage-bot/sourceprovider"
 )
 
 // BinanceSourceProvider ... Binance source provider
@@ -19,7 +19,7 @@ type BinanceSourceProvider struct {
 	// data stream
 	streamTicker         *ioHelper.WebSocketClient
 	streamOrderbookDepth *ioHelper.WebSocketClient
-	symbols              map[string]*sourceProvider.Symbol
+	symbols              map[string]*sourceprovider.Symbol
 	// we'll get (fatal error: concurrent map read and map write) if using regular map
 	symbolPriceData     sync.Map
 	symbolOrderbookData sync.Map
@@ -28,7 +28,7 @@ type BinanceSourceProvider struct {
 // NewBinanceSourceProvider ... creates a new Binance source provider
 func NewBinanceSourceProvider() *BinanceSourceProvider {
 	return &BinanceSourceProvider{
-		symbols: make(map[string]*sourceProvider.Symbol),
+		symbols: make(map[string]*sourceprovider.Symbol),
 	}
 }
 
@@ -43,28 +43,28 @@ func (b *BinanceSourceProvider) GetArbitragePairCachePath() string {
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.SymbolPrice {
+func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceprovider.SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
-		return price.(*sourceProvider.SymbolPrice)
+		return price.(*sourceprovider.SymbolPrice)
 	}
 
 	return nil
 }
 
 // GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceProvider.SymbolOrderbookDepth {
+func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
 	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
-		return orderbook.(*sourceProvider.SymbolOrderbookDepth)
+		return orderbook.(*sourceprovider.SymbolOrderbookDepth)
 	}
 
 	return nil
 }
 
 // GetSymbols ... returns all the symbols
-func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, error) {
+func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	// get a list of all symbols on Binance & save to file as cache
 	if !force && fileHelper.PathExists(BinanceTokenListPath) {
-		var symbols []*sourceProvider.Symbol
+		var symbols []*sourceprovider.Symbol
 		err := jsonHelper.ReadJSONFile(BinanceTokenListPath, &symbols)
 
 		return symbols, err
@@ -74,7 +74,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol
 	data, err := ioHelper.Get(BinanceAPIURL+"/exchangeInfo", data)
 	helpers.Panic(err)
 
-	dataMap := make([]*sourceProvider.Symbol, 0)
+	dataMap := make([]*sourceprovider.Symbol, 0)
 	// Type assertion (a way to retrieve the dynamic type of an interface)
 	symbols, ok := (*data)["symbols"].([]interface{})
 
@@ -89,7 +89,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol
 			}
 
 			if ok && s["isSpotTradingAllowed"].(bool) {
-				dataMap = append(dataMap, &sourceProvider.Symbol{
+				dataMap = append(dataMap, &sourceprovider.Symbol{
 					Symbol:     s["symbol"].(string),
 					BaseAsset:  s["baseAsset"].(string),
 					QuoteAsset: s["quoteAsset"].(string),
@@ -104,7 +104,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceProvider.Symbol) {
+func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
 	// subscribe a new data stream for a new symbol
 	// check if symbol already exists
 	for _, symbol := range symbols {
@@ -150,7 +150,7 @@ func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
 	bestAskQuantity, _ := strconv.ParseFloat(ticker.Data.BestAskQuantity, 64)
 	bestBidQuantity, _ := strconv.ParseFloat(ticker.Data.BestBidQuantity, 64)
 
-	b.symbolPriceData.Store(ticker.Data.Symbol, &sourceProvider.SymbolPrice{
+	b.symbolPriceData.Store(ticker.Data.Symbol, &sourceprovider.SymbolPrice{
 		Symbol:          b.symbols[ticker.Data.Symbol],
 		BestBid:         bestBid,
 		BestBidQuantity: bestBidQuantity,
@@ -171,7 +171,7 @@ func (b *BinanceSourceProvider) stopTickerDataStream() {
 }
 
 // UnsubscribeSymbol ... unsubscribes from the symbol
-func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol) {
+func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
 	// unsubscribe a symbol from the data stream (remove symbol from the map -> restart data stream)
 	delete(b.symbols, symbol.Symbol)
 	b.stopTickerDataStream()
@@ -203,17 +203,17 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 	// handle the ticker data stream
 	var orderbookDepth BinanceOrderbookDepth
 	jsonHelper.Unmarshal(*data, &orderbookDepth)
-	var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
+	var symbolOrderbookDepth sourceprovider.SymbolOrderbookDepth = sourceprovider.SymbolOrderbookDepth{
 		Symbol:       b.symbols[orderbookDepth.GetSymbol()],
 		LastUpdateID: orderbookDepth.Data.LastUpdateID,
-		Asks:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
-		Bids:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
+		Asks:         make([]*sourceprovider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
+		Bids:         make([]*sourceprovider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
 	}
 
 	for i, ask := range orderbookDepth.Data.Asks {
 		price, _ := strconv.ParseFloat(ask[0], 64)
 		quantity, _ := strconv.ParseFloat(ask[1], 64)
-		symbolOrderbookDepth.Asks[i] = &sourceProvider.OrderbookEntry{
+		symbolOrderbookDepth.Asks[i] = &sourceprovider.OrderbookEntry{
 			Price:    price,
 			Quantity: quantity,
 		}
@@ -222,7 +222,7 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 	for i, bid := range orderbookDepth.Data.Bids {
 		price, _ := strconv.ParseFloat(bid[0], 64)
 		quantity, _ := strconv.ParseFloat(bid[1], 64)
-		symbolOrderbookDepth.Bids[i] = &sourceProvider.OrderbookEntry{
+		symbolOrderbookDepth.Bids[i] = &sourceprovider.OrderbookEntry{
 			Price:    price,
 			Quantity: quantity,
 		}
