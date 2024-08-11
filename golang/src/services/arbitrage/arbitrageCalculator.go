@@ -7,11 +7,11 @@ import (
 
 // ArbitrageCalculator ... the main calculator for the arbitrage
 type ArbitrageCalculator struct {
-	sourceProvider sourceProvider.SourceProviderInterface
+	sourceProvider sourceProvider.ISourceProvider
 }
 
 // NewArbitrageCalculator ... creates a new instance of the ArbitrageCalculator
-func NewArbitrageCalculator(sourceProvider sourceProvider.SourceProviderInterface) *ArbitrageCalculator {
+func NewArbitrageCalculator(sourceProvider sourceProvider.ISourceProvider) *ArbitrageCalculator {
 	return &ArbitrageCalculator{sourceProvider: sourceProvider}
 }
 

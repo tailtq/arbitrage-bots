@@ -1,4 +1,4 @@
-package CEX
+package cex
 
 import (
 	"arbitrage-bot/helpers"
@@ -13,6 +13,7 @@ import (
 	"time"
 )
 
+// MEXCSourceProvider ...
 type MEXCSourceProvider struct {
 	// data stream
 	streamsTicker         []*ioHelper.WebSocketClient
@@ -29,12 +30,12 @@ func NewMEXCSourceProvider() *MEXCSourceProvider {
 	}
 }
 
-// GetArbitragePairCachePath implements sourceProvider.SourceProviderInterface.
+// GetArbitragePairCachePath implements sourceProvider.ISourceProvider.
 func (b *MEXCSourceProvider) GetArbitragePairCachePath() string {
 	return MEXCArbitragePairPath
 }
 
-// GetTokenListCachePath implements sourceProvider.SourceProviderInterface.
+// GetTokenListCachePath implements sourceProvider.ISourceProvider.
 func (b *MEXCSourceProvider) GetTokenListCachePath() string {
 	return MEXCTokenListPath
 }
@@ -67,7 +68,7 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, e
 		return symbols, err
 	}
 	var data *map[string]interface{}
-	data, err := ioHelper.Get(MEXCApiUrl+"/exchangeInfo", data)
+	data, err := ioHelper.Get(MEXCAPIURL+"/exchangeInfo", data)
 	helpers.Panic(err)
 
 	dataMap := make([]*sourceProvider.Symbol, 0)
@@ -131,7 +132,7 @@ func (b *MEXCSourceProvider) startTickerDataStream() {
 			Method: "SUBSCRIPTION",
 			Params: paramBatch,
 		}
-		streamTicker := ioHelper.NewWebSocketClient(MEXCWsUrl)
+		streamTicker := ioHelper.NewWebSocketClient(MEXCWsURL)
 		streamTicker.Start(b.handleTickerDataStream)
 		streamTicker.WriteJSON(subscriptionEvent)
 		b.streamsTicker = append(b.streamsTicker, streamTicker)
@@ -162,6 +163,7 @@ func (b *MEXCSourceProvider) stopTickerDataStream() {
 	}
 }
 
+// UnsubscribeSymbol ... unsubscribes from a symbol
 func (b *MEXCSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol) {
 	delete(b.symbols, symbol.Symbol)
 	b.stopTickerDataStream()
@@ -175,9 +177,9 @@ func (b *MEXCSourceProvider) startOrderbookDepthStream() {
 }
 
 func (b *MEXCSourceProvider) handleOrderbookDepthStream(data *[]byte) {
-
+	// Stop because the arbitrage rate is negative
 }
 
 func (b *MEXCSourceProvider) stopOrderbookDepthStream() {
-
+	// Stop because the arbitrage rate is negative
 }

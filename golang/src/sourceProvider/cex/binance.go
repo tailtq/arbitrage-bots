@@ -1,4 +1,4 @@
-package CEX
+package cex
 
 import (
 	"strconv"
@@ -14,6 +14,7 @@ import (
 	"arbitrage-bot/sourceProvider"
 )
 
+// BinanceSourceProvider ... Binance source provider
 type BinanceSourceProvider struct {
 	// data stream
 	streamTicker         *ioHelper.WebSocketClient
@@ -31,10 +32,12 @@ func NewBinanceSourceProvider() *BinanceSourceProvider {
 	}
 }
 
+// GetTokenListCachePath ... returns the path to the token list cache
 func (b *BinanceSourceProvider) GetTokenListCachePath() string {
 	return BinanceTokenListPath
 }
 
+// GetArbitragePairCachePath ... returns the path to the arbitrage pair cache
 func (b *BinanceSourceProvider) GetArbitragePairCachePath() string {
 	return BinanceArbitragePairPath
 }
@@ -48,7 +51,7 @@ func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.Sy
 	return nil
 }
 
-// GetSymbolOrderbook returns the order book for a given symbol
+// GetSymbolOrderbookDepth ... returns the order book for a given symbol
 func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceProvider.SymbolOrderbookDepth {
 	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
 		return orderbook.(*sourceProvider.SymbolOrderbookDepth)
@@ -57,6 +60,7 @@ func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourcePr
 	return nil
 }
 
+// GetSymbols ... returns all the symbols
 func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, error) {
 	// get a list of all symbols on Binance & save to file as cache
 	if !force && fileHelper.PathExists(BinanceTokenListPath) {
@@ -67,7 +71,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol
 	}
 
 	var data *map[string]interface{}
-	data, err := ioHelper.Get(BinanceApiUrl+"/exchangeInfo", data)
+	data, err := ioHelper.Get(BinanceAPIURL+"/exchangeInfo", data)
 	helpers.Panic(err)
 
 	dataMap := make([]*sourceProvider.Symbol, 0)
@@ -99,6 +103,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol
 	return dataMap, err
 }
 
+// SubscribeSymbols ... subscribes to the symbols
 func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceProvider.Symbol) {
 	// subscribe a new data stream for a new symbol
 	// check if symbol already exists
@@ -130,7 +135,7 @@ func (b *BinanceSourceProvider) startTickerDataStream() {
 	}
 
 	symbolString = string([]rune(symbolString)[:charCount-1])
-	var endpoint string = BinanceWsUrl + "/stream?streams=" + symbolString
+	var endpoint string = BinanceWsURL + "/stream?streams=" + symbolString
 	b.streamTicker = ioHelper.NewWebSocketClient(endpoint)
 	b.streamTicker.Start(b.handleTickerDataStream)
 }
@@ -165,6 +170,7 @@ func (b *BinanceSourceProvider) stopTickerDataStream() {
 	}
 }
 
+// UnsubscribeSymbol ... unsubscribes from the symbol
 func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol) {
 	// unsubscribe a symbol from the data stream (remove symbol from the map -> restart data stream)
 	delete(b.symbols, symbol.Symbol)
@@ -188,7 +194,7 @@ func (b *BinanceSourceProvider) startOrderbookDepthStream() {
 	}
 
 	symbolString = string([]rune(symbolString)[:charCount-1])
-	var endpoint string = BinanceWsUrl + "/stream?streams=" + symbolString
+	var endpoint string = BinanceWsURL + "/stream?streams=" + symbolString
 	b.streamOrderbookDepth = ioHelper.NewWebSocketClient(endpoint)
 	b.streamOrderbookDepth.Start(b.handleOrderbookDepthStream)
 }
@@ -199,7 +205,7 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 	jsonHelper.Unmarshal(*data, &orderbookDepth)
 	var symbolOrderbookDepth sourceProvider.SymbolOrderbookDepth = sourceProvider.SymbolOrderbookDepth{
 		Symbol:       b.symbols[orderbookDepth.GetSymbol()],
-		LastUpdateId: orderbookDepth.Data.LastUpdateID,
+		LastUpdateID: orderbookDepth.Data.LastUpdateID,
 		Asks:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Asks)),
 		Bids:         make([]*sourceProvider.OrderbookEntry, len(orderbookDepth.Data.Bids)),
 	}
