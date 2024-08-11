@@ -6,12 +6,12 @@ import (
 	jsonHelper "arbitrage-bot/helpers/json"
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/sourceProvider"
-	CEX "arbitrage-bot/sourceProvider/cex"
+	cex "arbitrage-bot/sourceProvider/cex"
 	"fmt"
 	"time"
 )
 
-func step1(cexSourceProvider sourceProvider.SourceProviderInterface, force bool) [][3]*sourceProvider.Symbol {
+func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*sourceProvider.Symbol {
 	// get all the triangular pairs
 	arbitragePairPath := cexSourceProvider.GetArbitragePairCachePath()
 
@@ -37,7 +37,7 @@ func step1(cexSourceProvider sourceProvider.SourceProviderInterface, force bool)
 }
 
 func main() {
-	cexSourceProvider := CEX.NewMEXCSourceProvider()
+	cexSourceProvider := cex.GetCEXSourceProvider(cex.SourceProviderName["MEXC"])
 	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(cexSourceProvider, false)
 	var symbols []*sourceProvider.Symbol
 
@@ -61,9 +61,12 @@ func main() {
 
 			if result != nil && result.ProfitLoss > arbitrage.MinSurfaceRate {
 				depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
-				fmt.Println(result)
-				fmt.Println(depthResult)
-				fmt.Println("---------")
+
+				if depthResult != nil {
+					fmt.Println(result)
+					fmt.Println(depthResult)
+					fmt.Println("---------")
+				}
 			}
 		}
 		time.Sleep(3 * time.Second)

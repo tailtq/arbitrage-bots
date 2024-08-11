@@ -1,12 +1,20 @@
-package CEX
+package cex
 
 import "strings"
 
-const BinanceApiUrl string = "https://api.binance.com/api/v3"
-const BinanceWsUrl string = "wss://stream.binance.com:443"
+// BinanceAPIURL ... Binance API URL
+const BinanceAPIURL string = "https://api.binance.com/api/v3"
+
+// BinanceWsURL ... Binance WS URL
+const BinanceWsURL string = "wss://stream.binance.com:443"
+
+// BinanceTokenListPath ... Binance token list path
 const BinanceTokenListPath string = "data/binanceTokens.json"
+
+// BinanceArbitragePairPath ... Binance arbitrage pair path
 const BinanceArbitragePairPath string = "data/binanceArbitragePairs.json"
 
+// BinanceSymbolTicker ... Binance symbol ticker
 type BinanceSymbolTicker struct {
 	Stream string `json:"stream"`
 	Data   struct {
@@ -36,6 +44,7 @@ type BinanceSymbolTicker struct {
 	} `json:"data"`
 }
 
+// BinanceOrderbookDepth ... Binance orderbook depth
 type BinanceOrderbookDepth struct {
 	Stream string `json:"stream"`
 	Data   struct {
@@ -50,16 +59,25 @@ func (b *BinanceOrderbookDepth) GetSymbol() string {
 	return strings.ToUpper(strings.Split(b.Stream, "@")[0])
 }
 
-const MEXCApiUrl string = "https://api.mexc.com/api/v3"
-const MEXCWsUrl string = "wss://wbs.mexc.com/ws"
+// MEXCAPIURL ... MEXC API URL
+const MEXCAPIURL string = "https://api.mexc.com/api/v3"
+
+// MEXCWsURL ... MEXC WS URL
+const MEXCWsURL string = "wss://wbs.mexc.com/ws"
+
+// MEXCTokenListPath ... MEXC token list path
 const MEXCTokenListPath string = "data/mexcTokens.json"
+
+// MEXCArbitragePairPath ... MEXC arbitrage pair path
 const MEXCArbitragePairPath string = "data/mexcArbitragePairs.json"
 
+// MEXCEventSubscriptionUnsubscription ... MEXC event subscription subscription
 type MEXCEventSubscriptionUnsubscription struct {
 	Method string   `json:"method"`
 	Params []string `json:"params"`
 }
 
+// MEXCSymbolTicker ... MEXC symbol ticker
 type MEXCSymbolTicker struct {
 	Channel string `json:"c"`
 	Data    struct {
@@ -70,4 +88,10 @@ type MEXCSymbolTicker struct {
 	} `json:"d"`
 	Symbol string `json:"s"`
 	Time   int64  `json:"t"`
+}
+
+// SourceProviderName ... Source provider name
+var SourceProviderName = map[string]string{
+	"Binance": "Binance",
+	"MEXC":    "MEXC",
 }
