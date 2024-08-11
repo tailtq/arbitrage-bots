@@ -1,4 +1,4 @@
-package sourceProvider
+package sourceprovider
 
 import (
 	"time"

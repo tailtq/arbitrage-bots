@@ -5,7 +5,7 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	ioHelper "arbitrage-bot/helpers/io"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/sourceProvider"
+	"arbitrage-bot/sourceprovider"
 	"fmt"
 	"strconv"
 	"strings"
@@ -18,7 +18,7 @@ type MEXCSourceProvider struct {
 	// data stream
 	streamsTicker         []*ioHelper.WebSocketClient
 	streamsOrderbookDepth []*ioHelper.WebSocketClient
-	symbols               map[string]*sourceProvider.Symbol
+	symbols               map[string]*sourceprovider.Symbol
 	symbolPriceData       sync.Map
 	symbolOrderbookData   sync.Map
 }
@@ -26,43 +26,43 @@ type MEXCSourceProvider struct {
 // NewMEXCSourceProvider ... creates a new MEXC source provider
 func NewMEXCSourceProvider() *MEXCSourceProvider {
 	return &MEXCSourceProvider{
-		symbols: make(map[string]*sourceProvider.Symbol),
+		symbols: make(map[string]*sourceprovider.Symbol),
 	}
 }
 
-// GetArbitragePairCachePath implements sourceProvider.ISourceProvider.
+// GetArbitragePairCachePath implements sourceprovider.ISourceProvider.
 func (b *MEXCSourceProvider) GetArbitragePairCachePath() string {
 	return MEXCArbitragePairPath
 }
 
-// GetTokenListCachePath implements sourceProvider.ISourceProvider.
+// GetTokenListCachePath implements sourceprovider.ISourceProvider.
 func (b *MEXCSourceProvider) GetTokenListCachePath() string {
 	return MEXCTokenListPath
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *sourceProvider.SymbolPrice {
+func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *sourceprovider.SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
-		return price.(*sourceProvider.SymbolPrice)
+		return price.(*sourceprovider.SymbolPrice)
 	}
 
 	return nil
 }
 
 // GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (b *MEXCSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceProvider.SymbolOrderbookDepth {
+func (b *MEXCSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
 	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
-		return orderbook.(*sourceProvider.SymbolOrderbookDepth)
+		return orderbook.(*sourceprovider.SymbolOrderbookDepth)
 	}
 
 	return nil
 }
 
 // GetSymbols ... returns a list of symbols
-func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, error) {
+func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	// get a list of all symbols on Binance & save to file as cache
 	if !force && fileHelper.PathExists(MEXCTokenListPath) {
-		var symbols []*sourceProvider.Symbol
+		var symbols []*sourceprovider.Symbol
 		err := jsonHelper.ReadJSONFile(MEXCTokenListPath, &symbols)
 
 		return symbols, err
@@ -71,7 +71,7 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, e
 	data, err := ioHelper.Get(MEXCAPIURL+"/exchangeInfo", data)
 	helpers.Panic(err)
 
-	dataMap := make([]*sourceProvider.Symbol, 0)
+	dataMap := make([]*sourceprovider.Symbol, 0)
 	// Type assertion (a way to retrieve the dynamic type of an interface)
 	symbols, ok := (*data)["symbols"].([]interface{})
 
@@ -86,7 +86,7 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, e
 			}
 
 			if ok && s["isSpotTradingAllowed"].(bool) {
-				dataMap = append(dataMap, &sourceProvider.Symbol{
+				dataMap = append(dataMap, &sourceprovider.Symbol{
 					Symbol:     s["symbol"].(string),
 					BaseAsset:  s["baseAsset"].(string),
 					QuoteAsset: s["quoteAsset"].(string),
@@ -102,7 +102,7 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceProvider.Symbol, e
 }
 
 // SubscribeSymbols ... subscribes to a list of symbols
-func (b *MEXCSourceProvider) SubscribeSymbols(symbols []*sourceProvider.Symbol) {
+func (b *MEXCSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
 	// subscribe a new data stream for a new symbol
 	// check if symbol already exists
 	for _, symbol := range symbols {
@@ -147,7 +147,7 @@ func (b *MEXCSourceProvider) handleTickerDataStream(data *[]byte) {
 	bestAskQuantity, _ := strconv.ParseFloat(ticker.Data.BestAskQuantity, 64)
 	bestBidQuantity, _ := strconv.ParseFloat(ticker.Data.BestBidQuantity, 64)
 
-	b.symbolPriceData.Store(ticker.Symbol, &sourceProvider.SymbolPrice{
+	b.symbolPriceData.Store(ticker.Symbol, &sourceprovider.SymbolPrice{
 		Symbol:          b.symbols[ticker.Symbol],
 		BestBid:         bestBid,
 		BestBidQuantity: bestBidQuantity,
@@ -164,7 +164,7 @@ func (b *MEXCSourceProvider) stopTickerDataStream() {
 }
 
 // UnsubscribeSymbol ... unsubscribes from a symbol
-func (b *MEXCSourceProvider) UnsubscribeSymbol(symbol *sourceProvider.Symbol) {
+func (b *MEXCSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
 	delete(b.symbols, symbol.Symbol)
 	b.stopTickerDataStream()
 	b.stopOrderbookDepthStream()

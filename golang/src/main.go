@@ -5,16 +5,16 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	jsonHelper "arbitrage-bot/helpers/json"
 	"arbitrage-bot/services/arbitrage"
-	"arbitrage-bot/sourceProvider"
-	"arbitrage-bot/sourceProvider/dex"
+	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/sourceprovider/dex"
 )
 
-func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*sourceProvider.Symbol {
+func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sourceprovider.Symbol {
 	// get all the triangular pairs
-	arbitragePairPath := cexSourceProvider.GetArbitragePairCachePath()
+	arbitragePairPath := sourceProvider.GetArbitragePairCachePath()
 
 	if !force && fileHelper.PathExists(arbitragePairPath) {
-		var symbols [][3]*sourceProvider.Symbol
+		var symbols [][3]*sourceprovider.Symbol
 		err := jsonHelper.ReadJSONFile(arbitragePairPath, &symbols)
 		helpers.Panic(err)
 
@@ -23,7 +23,7 @@ func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*s
 
 	// NOTE: this doesn't cover the case when we have multiple CEX
 	triangularPairFinder := arbitrage.TriangularPairFinder{}
-	symbols, err := cexSourceProvider.GetSymbols(force)
+	symbols, err := sourceProvider.GetSymbols(force)
 	helpers.Panic(err)
 
 	// find the arbitrage pairs -> cache it
@@ -36,9 +36,9 @@ func step1(cexSourceProvider sourceProvider.ISourceProvider, force bool) [][3]*s
 
 // CEX/DEX arbitrage opportunities
 func main() {
-	SourceProvider := dex.GetSourceProvider(sourceProvider.SourceProviderName["Uniswap"])
-	var triangularPairBatches [][3]*sourceProvider.Symbol = step1(SourceProvider, false)
-	var symbols []*sourceProvider.Symbol
+	sourceProvider := dex.GetSourceProvider(sourceprovider.SourceProviderName["Uniswap"])
+	var triangularPairBatches [][3]*sourceprovider.Symbol = step1(sourceProvider, false)
+	var symbols []*sourceprovider.Symbol
 
 	for _, pair := range triangularPairBatches {
 		for _, symbol := range pair {

@@ -1,7 +1,7 @@
 package arbitrage
 
 import (
-	"arbitrage-bot/sourceProvider"
+	"arbitrage-bot/sourceprovider"
 	"slices"
 	"sort"
 	"strings"
@@ -9,11 +9,11 @@ import (
 
 type TriangularPairFinder struct{}
 
-func (t *TriangularPairFinder) Handle(symbols []*sourceProvider.Symbol, amount int) [][3]*sourceProvider.Symbol {
+func (t *TriangularPairFinder) Handle(symbols []*sourceprovider.Symbol, amount int) [][3]*sourceprovider.Symbol {
 	// find a list of 3 arbitrage pairs (f.e. SEIBNB BNBBTC SEIBTC)
-	var triangularPairsList [][3]*sourceProvider.Symbol
+	var triangularPairsList [][3]*sourceprovider.Symbol
 	var removeDuplicatesMap map[string]bool = make(map[string]bool)
-	var pairsList []*sourceProvider.Symbol = symbols[:amount]
+	var pairsList []*sourceprovider.Symbol = symbols[:amount]
 
 	// get pair A
 	for _, pairA := range pairsList {
@@ -44,7 +44,7 @@ func (t *TriangularPairFinder) Handle(symbols []*sourceProvider.Symbol, amount i
 						var key string = strings.Join(pairSymbols, "_")
 
 						if _, ok := removeDuplicatesMap[key]; !ok {
-							triangularPairsList = append(triangularPairsList, [3]*sourceProvider.Symbol{
+							triangularPairsList = append(triangularPairsList, [3]*sourceprovider.Symbol{
 								pairA,
 								pairB,
 								pairC,
