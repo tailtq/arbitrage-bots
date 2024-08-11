@@ -89,9 +89,3 @@ type MEXCSymbolTicker struct {
 	Symbol string `json:"s"`
 	Time   int64  `json:"t"`
 }
-
-// SourceProviderName ... Source provider name
-var SourceProviderName = map[string]string{
-	"Binance": "Binance",
-	"MEXC":    "MEXC",
-}
