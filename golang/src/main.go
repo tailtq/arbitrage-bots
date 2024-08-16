@@ -7,6 +7,8 @@ import (
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/sourceprovider"
 	"arbitrage-bot/sourceprovider/dex"
+	"fmt"
+	"time"
 )
 
 func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sourceprovider.Symbol {
@@ -36,39 +38,51 @@ func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sour
 
 // CEX/DEX arbitrage opportunities
 func main() {
-	sourceProvider := dex.GetSourceProvider(sourceprovider.SourceProviderName["Uniswap"])
-	var triangularPairBatches [][3]*sourceprovider.Symbol = step1(sourceProvider, false)
+	const TriangularPairLimit = 500
+	currentSourceProviderName := sourceprovider.SourceProviderName["Uniswap"]
+	sourceProvider := dex.GetSourceProvider(currentSourceProviderName)
+	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
+	//currentSourceProviderName := sourceprovider.SourceProviderName["Binance"]
+	//sourceProvider := cex.GetSourceProvider(currentSourceProviderName)
+	//arbitrageCalculator := arbitrage.NewArbitrageCalculator(sourceProvider)
+
+	var triangularPairBatches = step1(sourceProvider, false)
+	_ = triangularPairBatches
 	var symbols []*sourceprovider.Symbol
 
-	for _, pair := range triangularPairBatches {
+	for _, pair := range triangularPairBatches[:TriangularPairLimit] {
 		for _, symbol := range pair {
 			symbols = append(symbols, symbol)
 		}
 	}
 
-	// cexSourceProvider.SubscribeSymbols(symbols)
-	// arbitrageCalculator := arbitrage.NewArbitrageCalculator(cexSourceProvider)
+	if currentSourceProviderName == sourceprovider.SourceProviderName["Uniswap"] {
+		go sourceProvider.SubscribeSymbols(symbols)
+	} else {
+		sourceProvider.SubscribeSymbols(symbols)
+	}
 
-	// fmt.Println("Subscribed to symbols, waiting for data...")
-	// time.Sleep(3 * time.Second)
-	// fmt.Println("Starting the arbitrage calculation...")
+	fmt.Println("Subscribed to symbols, waiting for data...")
+	time.Sleep(3 * time.Second)
+	fmt.Println("Starting the arbitrage calculation...")
 
-	// for {
-	// 	for _, triangularPairs := range triangularPairBatches {
-	// 		startingAmount := 10
-	// 		result := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
+	for {
+		for _, triangularPairs := range triangularPairBatches {
+			startingAmount := 10
+			result, err := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
 
-	// 		if result != nil && result.ProfitLoss > arbitrage.MinSurfaceRate {
-	// 			depthResult := arbitrageCalculator.GetDepthFromOrderBook(result)
+			if err == nil {
+				fmt.Println(result.Contract1, result.Contract2, result.Contract3, result.ProfitLossPerc, result.ProfitLoss)
+				//depthResult, err2 := arbitrageCalculator.GetDepthFromOrderBook(result)
 
-	// 			if depthResult != nil {
-	// 				fmt.Println(result)
-	// 				fmt.Println(depthResult)
-	// 				fmt.Println("---------")
-	// 			}
-	// 		}
-	// 	}
-	// 	time.Sleep(3 * time.Second)
-	// 	fmt.Println("------")
-	// }
+				//if err2 == nil {
+				//	fmt.Println(result)
+				//	fmt.Println(depthResult)
+				//	fmt.Println("---------")
+				//}
+			}
+		}
+		fmt.Println("------")
+		time.Sleep(3 * time.Second)
+	}
 }

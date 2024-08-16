@@ -1,9 +1,11 @@
 package dex
 
-import "arbitrage-bot/sourceprovider"
+import (
+	"arbitrage-bot/sourceprovider"
+)
 
 // GetSourceProvider ... Get the source provider for the CEX
-func GetSourceProvider(name string) sourceprovider.ISourceProvider {
+func GetSourceProvider(name string) ISourceProvider {
 	if name == sourceprovider.SourceProviderName["Uniswap"] {
 		return NewUniswapSourceProvider()
 	}

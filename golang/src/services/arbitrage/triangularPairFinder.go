@@ -12,12 +12,12 @@ type TriangularPairFinder struct{}
 func (t *TriangularPairFinder) Handle(symbols []*sourceprovider.Symbol, amount int) [][3]*sourceprovider.Symbol {
 	// find a list of 3 arbitrage pairs (f.e. SEIBNB BNBBTC SEIBTC)
 	var triangularPairsList [][3]*sourceprovider.Symbol
-	var removeDuplicatesMap map[string]bool = make(map[string]bool)
-	var pairsList []*sourceprovider.Symbol = symbols[:amount]
+	var removeDuplicatesMap = make(map[string]bool)
+	var pairsList = symbols[:amount]
 
 	// get pair A
 	for _, pairA := range pairsList {
-		var aPairBox []string = []string{pairA.BaseAsset, pairA.QuoteAsset}
+		var aPairBox = []string{pairA.BaseAsset, pairA.QuoteAsset}
 
 		// get pair B
 		for _, pairB := range pairsList {
@@ -27,21 +27,40 @@ func (t *TriangularPairFinder) Handle(symbols []*sourceprovider.Symbol, amount i
 
 			// if three pairs form a cycle, continue
 			if slices.Contains(aPairBox, pairB.BaseAsset) || slices.Contains(aPairBox, pairB.QuoteAsset) {
-				var abPairBox []string = append([]string{pairB.BaseAsset, pairB.QuoteAsset}, aPairBox...)
-
 				// get pair C
 				for _, pairC := range pairsList {
-					if pairC == pairA || pairC == pairB {
+					if pairC == pairA || pairC == pairB || pairA == pairB {
 						continue
 					}
 
+					pairBox := []string{
+						pairA.BaseAsset,
+						pairA.QuoteAsset,
+						pairB.BaseAsset,
+						pairB.QuoteAsset,
+						pairC.BaseAsset,
+						pairC.QuoteAsset,
+					}
+
+					var countsCBase = 0
+					var countsCQuote = 0
+
+					for _, value := range pairBox {
+						if value == pairC.BaseAsset {
+							countsCBase++
+						}
+						if value == pairC.QuoteAsset {
+							countsCQuote++
+						}
+					}
+
 					// found a triangular match
-					if slices.Contains(abPairBox, pairC.BaseAsset) && slices.Contains(abPairBox, pairC.QuoteAsset) {
-						var pairSymbols []string = []string{pairA.Symbol, pairB.Symbol, pairC.Symbol}
+					if pairC.BaseAsset != pairC.QuoteAsset && countsCBase == 2 && countsCQuote == 2 {
+						var pairSymbols = []string{pairA.Symbol, pairB.Symbol, pairC.Symbol}
 						sort.Slice(pairSymbols, func(i, j int) bool {
 							return pairSymbols[i] < pairSymbols[j]
 						})
-						var key string = strings.Join(pairSymbols, "_")
+						var key = strings.Join(pairSymbols, "_")
 
 						if _, ok := removeDuplicatesMap[key]; !ok {
 							triangularPairsList = append(triangularPairsList, [3]*sourceprovider.Symbol{

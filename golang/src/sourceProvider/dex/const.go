@@ -1,5 +1,18 @@
 package dex
 
+import (
+	"arbitrage-bot/sourceprovider"
+	"time"
+)
+
+// SymbolPrice ... Represents the price of a symbol in a DEX
+type SymbolPrice struct {
+	Symbol      *sourceprovider.Symbol `json:"symbol"`
+	Token0Price float64                `json:"token0Price"`
+	Token1Price float64                `json:"token1Price"`
+	EventTime   time.Time              `json:"eventTime"`
+}
+
 // UniswapGraphQLURL ... Uniswap GraphQL endpoint
 const UniswapGraphQLURL string = "https://gateway.thegraph.com/api/{api-key}/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV"
 
@@ -27,3 +40,9 @@ const UniswapTokenListPath string = "data/uniswapTokens.json"
 
 // UniswapArbitragePairPath ... Uniswap arbitrage pair path
 const UniswapArbitragePairPath string = "data/uniswapArbitragePairs.json"
+
+// ISourceProvider ... Interface for the DEX source provider
+type ISourceProvider interface {
+	sourceprovider.ISourceProvider
+	GetSymbolPrice(symbol string) *SymbolPrice
+}

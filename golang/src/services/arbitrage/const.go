@@ -9,6 +9,15 @@ type TriangularBidAskPrice struct {
 	pairCBid float64
 }
 
+type TriangularDexPrice struct {
+	pairAToken0 float64
+	pairAToken1 float64
+	pairBToken0 float64
+	pairBToken1 float64
+	pairCToken0 float64
+	pairCToken1 float64
+}
+
 type TriangularSurfaceTradingResult struct {
 	Swap1             string
 	Swap2             string

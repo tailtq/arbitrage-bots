@@ -2,37 +2,38 @@ package arbitrage
 
 import (
 	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/sourceprovider/cex"
 	"fmt"
 )
 
 // ArbitrageCalculator ... the main calculator for the arbitrage
 type ArbitrageCalculator struct {
-	sourceprovider sourceprovider.ISourceProvider
+	sourceProvider cex.ISourceProvider
 }
 
 // NewArbitrageCalculator ... creates a new instance of the ArbitrageCalculator
-func NewArbitrageCalculator(sourceprovider sourceprovider.ISourceProvider) *ArbitrageCalculator {
-	return &ArbitrageCalculator{sourceprovider: sourceprovider}
+func NewArbitrageCalculator(sourceProvider cex.ISourceProvider) *ArbitrageCalculator {
+	return &ArbitrageCalculator{sourceProvider: sourceProvider}
 }
 
-// GetPriceForTriangularPair ... get the price data for the triangular pair
-func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourceprovider.Symbol) (*TriangularBidAskPrice, error) {
-	symbol1Price := a.sourceprovider.GetSymbolPrice(triangularPair[0].Symbol)
-	symbol2Price := a.sourceprovider.GetSymbolPrice(triangularPair[1].Symbol)
-	symbol3Price := a.sourceprovider.GetSymbolPrice(triangularPair[2].Symbol)
+// getPriceForTriangularPair ... get the price data for the triangular pair
+func (a *ArbitrageCalculator) getPriceForTriangularPair(triangularPair [3]*sourceprovider.Symbol) (TriangularBidAskPrice, error) {
+	symbol1Price := a.sourceProvider.GetSymbolPrice(triangularPair[0].Symbol)
+	symbol2Price := a.sourceProvider.GetSymbolPrice(triangularPair[1].Symbol)
+	symbol3Price := a.sourceProvider.GetSymbolPrice(triangularPair[2].Symbol)
 
 	if symbol1Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[0].Symbol)
-		return nil, err
+		return TriangularBidAskPrice{}, err
 	} else if symbol2Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[1].Symbol)
-		return nil, err
+		return TriangularBidAskPrice{}, err
 	} else if symbol3Price == nil {
 		err := fmt.Errorf("symbol %s not found", triangularPair[2].Symbol)
-		return nil, err
+		return TriangularBidAskPrice{}, err
 	}
 
-	return &TriangularBidAskPrice{
+	return TriangularBidAskPrice{
 		pairAAsk: symbol1Price.BestAsk,
 		pairABid: symbol1Price.BestBid,
 		pairBAsk: symbol2Price.BestAsk,
@@ -43,34 +44,36 @@ func (a *ArbitrageCalculator) GetPriceForTriangularPair(triangularPair [3]*sourc
 }
 
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
-func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) *TriangularSurfaceTradingResult {
-	priceData, err := a.GetPriceForTriangularPair(triangularPair)
+func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(
+	triangularPair [3]*sourceprovider.Symbol, startingAmount float64,
+) (TriangularSurfaceTradingResult, error) {
+	priceData, err := a.getPriceForTriangularPair(triangularPair)
 
 	if err != nil {
-		return nil
+		return TriangularSurfaceTradingResult{}, err
 	}
 
 	// set variables
-	var contract1 string = ""
-	var contract2 string = ""
-	var contract3 string = ""
-	var directionTrade1 string = ""
-	var directionTrade2 string = ""
-	var directionTrade3 string = ""
+	var contract1 = ""
+	var contract2 = ""
+	var contract3 = ""
+	var directionTrade1 = ""
+	var directionTrade2 = ""
+	var directionTrade3 = ""
 	var acquiredCoinT1 float64 = 0
 	var acquiredCoinT2 float64 = 0
 	var acquiredCoinT3 float64 = 0
-	var calculated bool = false
+	var calculated = false
 
-	var aPair string = triangularPair[0].Symbol
-	var aBase string = triangularPair[0].BaseAsset
-	var aQuote string = triangularPair[0].QuoteAsset
-	var bPair string = triangularPair[1].Symbol
-	var bBase string = triangularPair[1].BaseAsset
-	var bQuote string = triangularPair[1].QuoteAsset
-	var cPair string = triangularPair[2].Symbol
-	var cBase string = triangularPair[2].BaseAsset
-	var cQuote string = triangularPair[2].QuoteAsset
+	var aPair = triangularPair[0].Symbol
+	var aBase = triangularPair[0].BaseAsset
+	var aQuote = triangularPair[0].QuoteAsset
+	var bPair = triangularPair[1].Symbol
+	var bBase = triangularPair[1].BaseAsset
+	var bQuote = triangularPair[1].QuoteAsset
+	var cPair = triangularPair[2].Symbol
+	var cBase = triangularPair[2].BaseAsset
+	var cQuote = triangularPair[2].QuoteAsset
 
 	// set directions and loop through
 	var directions = [2]string{"forward", "backward"}
@@ -330,41 +333,43 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*so
 
 		// PROFIT LOSS OUTPUT
 		// Profit and loss calculation
-		var profitLoss float64 = acquiredCoinT3 - startingAmount
-		var profitLossPercentage float32 = float32(profitLoss/startingAmount) * 100
+		var profitLoss = acquiredCoinT3 - startingAmount
+		var profitLossPercentage = float32(profitLoss/startingAmount) * 100
 
 		// Trade Descriptions
-		var tradeDescription1 string = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)
-		var tradeDescription2 string = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT1, swap2, swap2Rate, swap3, acquiredCoinT2)
-		var tradeDescription3 string = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
+		var tradeDescription1 = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)
+		var tradeDescription2 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT1, swap2, swap2Rate, swap3, acquiredCoinT2)
+		var tradeDescription3 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
-		return &TriangularSurfaceTradingResult{
-			Swap1:             swap1,
-			Swap2:             swap2,
-			Swap3:             swap3,
-			Contract1:         contract1,
-			Contract2:         contract2,
-			Contract3:         contract3,
-			DirectionTrade1:   directionTrade1,
-			DirectionTrade2:   directionTrade2,
-			DirectionTrade3:   directionTrade3,
-			StartingAmount:    startingAmount,
-			AcquiredCoinT1:    acquiredCoinT1,
-			AcquiredCoinT2:    acquiredCoinT2,
-			AcquiredCoinT3:    acquiredCoinT3,
-			Swap1Rate:         swap1Rate,
-			Swap2Rate:         swap2Rate,
-			Swap3Rate:         swap3Rate,
-			ProfitLoss:        profitLoss,
-			ProfitLossPerc:    profitLossPercentage,
-			Direction:         direction,
-			TradeDescription1: tradeDescription1,
-			TradeDescription2: tradeDescription2,
-			TradeDescription3: tradeDescription3,
+		if profitLoss > MinSurfaceRate {
+			return TriangularSurfaceTradingResult{
+				Swap1:             swap1,
+				Swap2:             swap2,
+				Swap3:             swap3,
+				Contract1:         contract1,
+				Contract2:         contract2,
+				Contract3:         contract3,
+				DirectionTrade1:   directionTrade1,
+				DirectionTrade2:   directionTrade2,
+				DirectionTrade3:   directionTrade3,
+				StartingAmount:    startingAmount,
+				AcquiredCoinT1:    acquiredCoinT1,
+				AcquiredCoinT2:    acquiredCoinT2,
+				AcquiredCoinT3:    acquiredCoinT3,
+				Swap1Rate:         swap1Rate,
+				Swap2Rate:         swap2Rate,
+				Swap3Rate:         swap3Rate,
+				ProfitLoss:        profitLoss,
+				ProfitLossPerc:    profitLossPercentage,
+				Direction:         direction,
+				TradeDescription1: tradeDescription1,
+				TradeDescription2: tradeDescription2,
+				TradeDescription3: tradeDescription3,
+			}, nil
 		}
 	}
 
-	return nil
+	return TriangularSurfaceTradingResult{}, fmt.Errorf("no profitable arbitrage found")
 }
 
 // reformatOrderbook ... reformat the orderbook to be used in the calculation
@@ -445,29 +450,29 @@ func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook 
 	return 0
 }
 
-func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfaceTradingResult) *TriangularDepthTradingResult {
-	var startingAmount float64 = surfaceRate.StartingAmount
+func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate TriangularSurfaceTradingResult) (TriangularDepthTradingResult, error) {
+	var startingAmount = surfaceRate.StartingAmount
 
 	// Define variables
-	var contract1 string = surfaceRate.Contract1
-	var contract2 string = surfaceRate.Contract2
-	var contract3 string = surfaceRate.Contract3
-	var directionTrade1 string = surfaceRate.DirectionTrade1
-	var directionTrade2 string = surfaceRate.DirectionTrade2
-	var directionTrade3 string = surfaceRate.DirectionTrade3
-	var depthContract1 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract1)
-	var depthContract2 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract2)
-	var depthContract3 *sourceprovider.SymbolOrderbookDepth = a.sourceprovider.GetSymbolOrderbookDepth(contract3)
+	var contract1 = surfaceRate.Contract1
+	var contract2 = surfaceRate.Contract2
+	var contract3 = surfaceRate.Contract3
+	var directionTrade1 = surfaceRate.DirectionTrade1
+	var directionTrade2 = surfaceRate.DirectionTrade2
+	var directionTrade3 = surfaceRate.DirectionTrade3
+	var depthContract1 = a.sourceProvider.GetSymbolOrderbookDepth(contract1)
+	var depthContract2 = a.sourceProvider.GetSymbolOrderbookDepth(contract2)
+	var depthContract3 = a.sourceProvider.GetSymbolOrderbookDepth(contract3)
 
 	if depthContract1 == nil {
-		fmt.Printf("Error: depthContract1 %v is nil\n", contract1)
-		return nil
+		var err = fmt.Errorf("Error: depthContract1 %v is nil\n", contract1)
+		return TriangularDepthTradingResult{}, err
 	} else if depthContract2 == nil {
-		fmt.Printf("Error: depthContract2 %v is nil\n", contract2)
-		return nil
+		var err = fmt.Errorf("Error: depthContract2 %v is nil\n", contract2)
+		return TriangularDepthTradingResult{}, err
 	} else if depthContract3 == nil {
-		fmt.Printf("Error: depthContract3 %v is nil\n", contract3)
-		return nil
+		var err = fmt.Errorf("Error: depthContract3 %v is nil\n", contract3)
+		return TriangularDepthTradingResult{}, err
 	}
 
 	// get acquired coins
@@ -487,10 +492,10 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate *TriangularSurfa
 	}
 
 	if realRatePercent > -1 {
-		return &TriangularDepthTradingResult{
+		return TriangularDepthTradingResult{
 			ProfitLoss:     profitLoss,
 			ProfitLossPerc: float32(realRatePercent),
-		}
+		}, nil
 	}
-	return nil
+	return TriangularDepthTradingResult{}, fmt.Errorf("no profitable arbitrage found")
 }
