@@ -1,6 +1,18 @@
 package cex
 
-import "strings"
+import (
+	"arbitrage-bot/sourceprovider"
+	"strings"
+	"time"
+)
+
+// SymbolPrice ... Represents the price of a symbol
+type SymbolPrice struct {
+	Symbol    *sourceprovider.Symbol `json:"symbol"`
+	BestBid   float64                `json:"bestBid"`
+	BestAsk   float64                `json:"bestAsk"`
+	EventTime time.Time              `json:"eventTime"`
+}
 
 // BinanceAPIURL ... Binance API URL
 const BinanceAPIURL string = "https://api.binance.com/api/v3"
@@ -88,4 +100,10 @@ type MEXCSymbolTicker struct {
 	} `json:"d"`
 	Symbol string `json:"s"`
 	Time   int64  `json:"t"`
+}
+
+// ISourceProvider ... Interface for the CEX source provider
+type ISourceProvider interface {
+	sourceprovider.ISourceProvider
+	GetSymbolPrice(symbol string) *SymbolPrice
 }

@@ -43,9 +43,9 @@ func (b *BinanceSourceProvider) GetArbitragePairCachePath() string {
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *sourceprovider.SymbolPrice {
+func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
-		return price.(*sourceprovider.SymbolPrice)
+		return price.(*SymbolPrice)
 	}
 
 	return nil
@@ -124,7 +124,7 @@ func (b *BinanceSourceProvider) startTickerDataStream() {
 	// subscribe to multiple data streams using one connection (ticker topic)
 	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var symbolString string
-	var charCount int = 0
+	var charCount = 0
 
 	for key := range b.symbols {
 		symbolString += strings.ToLower(key) + "@ticker/"
@@ -135,7 +135,7 @@ func (b *BinanceSourceProvider) startTickerDataStream() {
 	}
 
 	symbolString = string([]rune(symbolString)[:charCount-1])
-	var endpoint string = BinanceWsURL + "/stream?streams=" + symbolString
+	var endpoint = BinanceWsURL + "/stream?streams=" + symbolString
 	b.streamTicker = ioHelper.NewWebSocketClient(endpoint)
 	b.streamTicker.Start(b.handleTickerDataStream)
 }
@@ -147,16 +147,12 @@ func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
 	jsonHelper.Unmarshal(*data, &ticker)
 	bestAsk, _ := strconv.ParseFloat(ticker.Data.BestAskPrice, 64)
 	bestBid, _ := strconv.ParseFloat(ticker.Data.BestBidPrice, 64)
-	bestAskQuantity, _ := strconv.ParseFloat(ticker.Data.BestAskQuantity, 64)
-	bestBidQuantity, _ := strconv.ParseFloat(ticker.Data.BestBidQuantity, 64)
 
-	b.symbolPriceData.Store(ticker.Data.Symbol, &sourceprovider.SymbolPrice{
-		Symbol:          b.symbols[ticker.Data.Symbol],
-		BestBid:         bestBid,
-		BestBidQuantity: bestBidQuantity,
-		BestAsk:         bestAsk,
-		BestAskQuantity: bestAskQuantity,
-		EventTime:       time.Unix(0, ticker.Data.EventTime*1000000),
+	b.symbolPriceData.Store(ticker.Data.Symbol, &SymbolPrice{
+		Symbol:    b.symbols[ticker.Data.Symbol],
+		BestBid:   bestBid,
+		BestAsk:   bestAsk,
+		EventTime: time.Unix(0, ticker.Data.EventTime*1000000),
 	})
 
 	// build a general interface so all exchanges can use the same data structure

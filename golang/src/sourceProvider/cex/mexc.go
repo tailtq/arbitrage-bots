@@ -30,20 +30,20 @@ func NewMEXCSourceProvider() *MEXCSourceProvider {
 	}
 }
 
-// GetArbitragePairCachePath implements sourceprovider.ISourceProvider.
+// GetArbitragePairCachePath implements sourceprovider.ICexSourceProvider.
 func (b *MEXCSourceProvider) GetArbitragePairCachePath() string {
 	return MEXCArbitragePairPath
 }
 
-// GetTokenListCachePath implements sourceprovider.ISourceProvider.
+// GetTokenListCachePath implements sourceprovider.ICexSourceProvider.
 func (b *MEXCSourceProvider) GetTokenListCachePath() string {
 	return MEXCTokenListPath
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *sourceprovider.SymbolPrice {
+func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
-		return price.(*sourceprovider.SymbolPrice)
+		return price.(*SymbolPrice)
 	}
 
 	return nil
@@ -144,16 +144,12 @@ func (b *MEXCSourceProvider) handleTickerDataStream(data *[]byte) {
 	jsonHelper.Unmarshal(*data, &ticker)
 	bestAsk, _ := strconv.ParseFloat(ticker.Data.BestAskPrice, 64)
 	bestBid, _ := strconv.ParseFloat(ticker.Data.BestBidPrice, 64)
-	bestAskQuantity, _ := strconv.ParseFloat(ticker.Data.BestAskQuantity, 64)
-	bestBidQuantity, _ := strconv.ParseFloat(ticker.Data.BestBidQuantity, 64)
 
-	b.symbolPriceData.Store(ticker.Symbol, &sourceprovider.SymbolPrice{
-		Symbol:          b.symbols[ticker.Symbol],
-		BestBid:         bestBid,
-		BestBidQuantity: bestBidQuantity,
-		BestAsk:         bestAsk,
-		BestAskQuantity: bestAskQuantity,
-		EventTime:       time.Unix(0, ticker.Time*1000000),
+	b.symbolPriceData.Store(ticker.Symbol, &SymbolPrice{
+		Symbol:    b.symbols[ticker.Symbol],
+		BestBid:   bestBid,
+		BestAsk:   bestAsk,
+		EventTime: time.Unix(0, ticker.Time*1000000),
 	})
 }
 
