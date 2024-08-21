@@ -2,6 +2,7 @@ package sourceprovider
 
 // Symbol ... Represents a symbol
 type Symbol struct {
+	ID                 string `json:"id"`
 	Symbol             string `json:"symbol"`
 	BaseAsset          string `json:"baseAsset"`
 	BaseAssetID        string `json:"baseAssetId"`

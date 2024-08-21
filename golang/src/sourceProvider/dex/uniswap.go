@@ -5,6 +5,7 @@ import (
 	ioHelper "arbitrage-bot/helpers/io"
 	"arbitrage-bot/sourceprovider"
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"sync"
 	"time"
@@ -72,12 +73,13 @@ func (u *UniswapSourceProvider) getSubgraphPoolData() ([]SubgraphPoolItem, error
 		return nil, err
 	}
 
-	resData, err := ioHelper.Post(UniswapGraphQLURL, requestBody)
+	resData, err := ioHelper.Post(UniswapGraphQLURL(), requestBody)
 
 	if err != nil {
 		return nil, err
 	}
 
+	fmt.Println("resData", resData)
 	resDataItems := (*resData)["data"].(map[string]interface{})["pools"].([]interface{})
 	subgraphPoolItems := make([]SubgraphPoolItem, len(resDataItems))
 
@@ -113,6 +115,7 @@ func (u *UniswapSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol
 		}
 
 		symbols = append(symbols, &sourceprovider.Symbol{
+			ID:                 item.ID,
 			Symbol:             pair,
 			BaseAsset:          item.Token0.Symbol,
 			BaseAssetID:        item.Token0.ID,
