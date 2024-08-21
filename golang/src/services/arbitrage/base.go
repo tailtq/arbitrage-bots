@@ -6,6 +6,6 @@ import (
 
 type IArbitrageCalculator interface {
 	NewArbitrageCalculator(sourceProvider sp.ISourceProvider) IArbitrageCalculator
-	CalcTriangularArbSurfaceRate(triangularPair [3]*sp.Symbol, startingAmount float64) (TriangularSurfaceTradingResult, error)
-	GetDepthFromOrderBook(surfaceRate TriangularSurfaceTradingResult) TriangularDepthTradingResult
+	CalcTriangularArbSurfaceRate(triangularPair [3]*sp.Symbol, startingAmount float64) (TriangularArbSurfaceResult, error)
+	GetDepthFromOrderBook(surfaceRate TriangularArbSurfaceResult) TriangularArbDepthResult
 }

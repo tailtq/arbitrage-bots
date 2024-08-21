@@ -44,17 +44,20 @@ func (a *AmmArbitrageCalculator) getPriceForTriangularPair(triangularPair [3]*so
 }
 
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
-func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) (TriangularSurfaceTradingResult, error) {
+func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) (TriangularArbSurfaceResult, error) {
 	priceData, err := a.getPriceForTriangularPair(triangularPair)
 
 	if err != nil {
-		return TriangularSurfaceTradingResult{}, err
+		return TriangularArbSurfaceResult{}, err
 	}
 
 	// set variables
 	var contract1 = ""
 	var contract2 = ""
 	var contract3 = ""
+	var contract1Address = ""
+	var contract2Address = ""
+	var contract3Address = ""
 	var directionTrade1 = ""
 	var directionTrade2 = ""
 	var directionTrade3 = ""
@@ -64,17 +67,22 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	var calculated = false
 
 	var aPair = triangularPair[0].Symbol
+	var aPairContractAddress = triangularPair[0].ID
 	var aBase = triangularPair[0].BaseAsset
 	var aQuote = triangularPair[0].QuoteAsset
+
 	var bPair = triangularPair[1].Symbol
+	var bPairContractAddress = triangularPair[1].ID
 	var bBase = triangularPair[1].BaseAsset
 	var bQuote = triangularPair[1].QuoteAsset
+
 	var cPair = triangularPair[2].Symbol
+	var cPairContractAddress = triangularPair[2].ID
 	var cBase = triangularPair[2].BaseAsset
 	var cQuote = triangularPair[2].QuoteAsset
 	// set directions and loop through
 	var directions = [2]string{"forward", "backward"}
-	var tradingResult TriangularSurfaceTradingResult
+	var tradingResult TriangularArbSurfaceResult
 
 	for _, direction := range directions {
 		// set additional variables for swap information
@@ -105,6 +113,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 		}
 		// Place first trade
 		contract1 = aPair
+		contract1Address = aPairContractAddress
 		acquiredCoinT1 = startingAmount * swap1Rate
 
 		// FORWARD
@@ -116,6 +125,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "quoteToBase"
 				contract2 = bPair
+				contract2Address = bPairContractAddress
 
 				// If bBase (acquired coin 2) matches cBase
 				if bBase == cBase {
@@ -133,6 +143,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = cPair
+				contract3Address = cPairContractAddress
 				calculated = true
 			}
 
@@ -143,6 +154,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "baseToQuote"
 				contract2 = bPair
+				contract2Address = bPairContractAddress
 
 				// If bQuote (acquired coin 2) matches cBase
 				if bQuote == cBase {
@@ -160,6 +172,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = cPair
+				contract3Address = cPairContractAddress
 				calculated = true
 			}
 
@@ -170,6 +183,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "quoteToBase"
 				contract2 = cPair
+				contract2Address = cPairContractAddress
 
 				// If cBase (acquired coin 2) matches bBase
 				if cBase == bBase {
@@ -187,6 +201,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = bPair
+				contract3Address = bPairContractAddress
 				calculated = true
 			}
 
@@ -197,6 +212,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "baseToQuote"
 				contract2 = cPair
+				contract2Address = cPairContractAddress
 
 				// If cQuote (acquired coin 2) matches bBase
 				if cQuote == bBase {
@@ -214,6 +230,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = bPair
+				contract3Address = bPairContractAddress
 				calculated = true
 			}
 		}
@@ -227,6 +244,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "quoteToBase"
 				contract2 = bPair
+				contract2Address = bPairContractAddress
 
 				// If bBase (acquired coin 2) matches cBase
 				if bBase == cBase {
@@ -244,6 +262,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = cPair
+				contract3Address = cPairContractAddress
 				calculated = true
 			}
 
@@ -254,6 +273,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "baseToQuote"
 				contract2 = bPair
+				contract2Address = bPairContractAddress
 
 				// If bQuote (acquired coin 2) matches cBase
 				if bQuote == cBase {
@@ -271,6 +291,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = cPair
+				contract3Address = cPairContractAddress
 				calculated = true
 			}
 
@@ -281,6 +302,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "quoteToBase"
 				contract2 = cPair
+				contract2Address = cPairContractAddress
 
 				// If cBase (acquired coin 2) matches bBase
 				if cBase == bBase {
@@ -298,6 +320,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = bPair
+				contract3Address = bPairContractAddress
 				calculated = true
 			}
 
@@ -308,6 +331,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 				acquiredCoinT2 = acquiredCoinT1 * swap2Rate
 				directionTrade2 = "baseToQuote"
 				contract2 = cPair
+				contract2Address = cPairContractAddress
 
 				// If cQuote (acquired coin 2) matches bBase
 				if cQuote == bBase {
@@ -325,6 +349,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 
 				acquiredCoinT3 = acquiredCoinT2 * swap3Rate
 				contract3 = bPair
+				contract3Address = bPairContractAddress
 				calculated = true
 			}
 		}
@@ -340,13 +365,16 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 		var tradeDescription3 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
 		if profitLoss > MinSurfaceRate {
-			return TriangularSurfaceTradingResult{
+			return TriangularArbSurfaceResult{
 				Swap1:             swap1,
 				Swap2:             swap2,
 				Swap3:             swap3,
 				Contract1:         contract1,
 				Contract2:         contract2,
 				Contract3:         contract3,
+				Contract1Address:  contract1Address,
+				Contract2Address:  contract2Address,
+				Contract3Address:  contract3Address,
 				DirectionTrade1:   directionTrade1,
 				DirectionTrade2:   directionTrade2,
 				DirectionTrade3:   directionTrade3,

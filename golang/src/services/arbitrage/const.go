@@ -18,32 +18,35 @@ type TriangularDexPrice struct {
 	pairCToken1 float64
 }
 
-type TriangularSurfaceTradingResult struct {
-	Swap1             string
-	Swap2             string
-	Swap3             string
-	Contract1         string
-	Contract2         string
-	Contract3         string
-	DirectionTrade1   string
-	DirectionTrade2   string
-	DirectionTrade3   string
-	StartingAmount    float64
-	AcquiredCoinT1    float64
-	AcquiredCoinT2    float64
-	AcquiredCoinT3    float64
-	Swap1Rate         float64
-	Swap2Rate         float64
-	Swap3Rate         float64
-	ProfitLoss        float64
-	ProfitLossPerc    float32
-	Direction         string
-	TradeDescription1 string
-	TradeDescription2 string
-	TradeDescription3 string
+type TriangularArbSurfaceResult struct {
+	Swap1             string  `json:"swap1"`
+	Swap2             string  `json:"swap2"`
+	Swap3             string  `json:"swap3"`
+	Contract1         string  `json:"contract1"`
+	Contract2         string  `json:"contract2"`
+	Contract3         string  `json:"contract3"`
+	Contract1Address  string  `json:"contract1Address"`
+	Contract2Address  string  `json:"contract2Address"`
+	Contract3Address  string  `json:"contract3Address"`
+	DirectionTrade1   string  `json:"directionTrade1"`
+	DirectionTrade2   string  `json:"directionTrade2"`
+	DirectionTrade3   string  `json:"directionTrade3"`
+	StartingAmount    float64 `json:"startingAmount"`
+	AcquiredCoinT1    float64 `json:"acquiredCoinT1"`
+	AcquiredCoinT2    float64 `json:"acquiredCoinT2"`
+	AcquiredCoinT3    float64 `json:"acquiredCoinT3"`
+	Swap1Rate         float64 `json:"swap1Rate"`
+	Swap2Rate         float64 `json:"swap2Rate"`
+	Swap3Rate         float64 `json:"swap3Rate"`
+	ProfitLoss        float64 `json:"profitLoss"`
+	ProfitLossPerc    float32 `json:"profitLossPerc"`
+	Direction         string  `json:"direction"`
+	TradeDescription1 string  `json:"tradeDescription1"`
+	TradeDescription2 string  `json:"tradeDescription2"`
+	TradeDescription3 string  `json:"tradeDescription3"`
 }
 
-type TriangularDepthTradingResult struct {
+type TriangularArbDepthResult struct {
 	ProfitLoss     float64
 	ProfitLossPerc float32
 }

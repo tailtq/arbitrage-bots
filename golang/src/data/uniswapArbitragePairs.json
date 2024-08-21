@@ -1,6 +1,7 @@
 [
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -10,6 +11,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
 			"symbol": "WBTCWETH",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -19,6 +21,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
 			"symbol": "WBTCUSDC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -30,6 +33,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -39,6 +43,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -48,6 +53,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -59,6 +65,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -68,6 +75,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
 			"symbol": "DAIUSDC",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -77,6 +85,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
 			"symbol": "DAIWETH",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -88,6 +97,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -97,6 +107,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
 			"symbol": "LINKWETH",
 			"baseAsset": "LINK",
 			"baseAssetId": "0x514910771af9ca656af840dff83e8264ecf986ca",
@@ -106,6 +117,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xfad57d2039c21811c8f2b5d5b65308aa99d31559",
 			"symbol": "LINKUSDC",
 			"baseAsset": "LINK",
 			"baseAssetId": "0x514910771af9ca656af840dff83e8264ecf986ca",
@@ -117,6 +129,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -126,6 +139,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x12d6867fa648d269835cf69b49f125147754b54d",
 			"symbol": "USDCUST",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -135,6 +149,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x7a5ae802895d5f90b6edbafc870fd348fba2a3d2",
 			"symbol": "USTWETH",
 			"baseAsset": "UST",
 			"baseAssetId": "0xa693b19d2931d498c5b318df961919bb4aee87a5",
@@ -146,6 +161,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -155,6 +171,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
 			"symbol": "UNIWETH",
 			"baseAsset": "UNI",
 			"baseAssetId": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
@@ -164,6 +181,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xd0fc8ba7e267f2bc56044a7715a489d851dc6d78",
 			"symbol": "UNIUSDC",
 			"baseAsset": "UNI",
 			"baseAssetId": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
@@ -175,6 +193,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -184,6 +203,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xac4b3dacb91461209ae9d41ec517c2b9cb1b7daf",
 			"symbol": "APEWETH",
 			"baseAsset": "APE",
 			"baseAssetId": "0x4d224452801aced8b2f0aebe155379bb5d594381",
@@ -193,6 +213,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xb07fe2f407f971125d4eb1977f8acee8846c7324",
 			"symbol": "APEUSDC",
 			"baseAsset": "APE",
 			"baseAssetId": "0x4d224452801aced8b2f0aebe155379bb5d594381",
@@ -204,6 +225,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -213,6 +235,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x2982d3295a0e1a99e6e88ece0e93ffdfc5c761ae",
 			"symbol": "wTAOWETH",
 			"baseAsset": "wTAO",
 			"baseAssetId": "0x77e06c9eccf2e797fd462a92b6d7642ef85b0a44",
@@ -222,6 +245,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xf763bb342eb3d23c02ccb86312422fe0c1c17e94",
 			"symbol": "wTAOUSDC",
 			"baseAsset": "wTAO",
 			"baseAssetId": "0x77e06c9eccf2e797fd462a92b6d7642ef85b0a44",
@@ -233,6 +257,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -242,6 +267,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x69d91b94f0aaf8e8a2586909fa77a5c2c89818d5",
 			"symbol": "HEXUSDC",
 			"baseAsset": "HEX",
 			"baseAssetId": "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
@@ -251,6 +277,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x9e0905249ceefffb9605e034b534544684a58be6",
 			"symbol": "HEXWETH",
 			"baseAsset": "HEX",
 			"baseAssetId": "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
@@ -262,6 +289,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -271,6 +299,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x381fe4eb128db1621647ca00965da3f9e09f4fac",
 			"symbol": "ELONWETH",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -280,6 +309,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xa7b3bcc6c88da2856867d29f11c67c3a85634882",
 			"symbol": "ELONUSDC",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -291,6 +321,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -300,6 +331,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x94981f69f7483af3ae218cbfe65233cc3c60d93a",
 			"symbol": "RBNWETH",
 			"baseAsset": "RBN",
 			"baseAssetId": "0x6123b0049f904d730db3c36a31167d9d4121fa6b",
@@ -309,6 +341,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xfe0df74636bc25c7f2400f22fe7dae32d39443d2",
 			"symbol": "RBNUSDC",
 			"baseAsset": "RBN",
 			"baseAssetId": "0x6123b0049f904d730db3c36a31167d9d4121fa6b",
@@ -320,6 +353,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -329,6 +363,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x510100d5143e011db24e2aa38abe85d73d5b2177",
 			"symbol": "RLBWETH",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -338,6 +373,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x2322e5517a3cbc75a3f02d74c96f82dda120d841",
 			"symbol": "RLBUSDC",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -349,6 +385,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -358,6 +395,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x4c83a7f819a5c37d64b4c5a2f8238ea082fa1f4e",
 			"symbol": "WETHCRV",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -367,6 +405,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x9445bd19767f73dcae6f2de90e6cd31192f62589",
 			"symbol": "USDCCRV",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -378,6 +417,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -387,6 +427,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x88051b0eea095007d3bef21ab287be961f3d8598",
 			"symbol": "OHMWETH",
 			"baseAsset": "OHM",
 			"baseAssetId": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
@@ -396,6 +437,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x893f503fac2ee1e5b78665db23f9c94017aae97d",
 			"symbol": "OHMUSDC",
 			"baseAsset": "OHM",
 			"baseAssetId": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
@@ -407,6 +449,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -416,6 +459,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xe931b03260b2854e77e8da8378a1bc017b13cb97",
 			"symbol": "1INCHWETH",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -425,6 +469,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x9febc984504356225405e26833608b17719c82ae",
 			"symbol": "1INCHUSDC",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -436,6 +481,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -445,6 +491,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x2e4784446a0a06df3d1a040b03e1680ee266c35a",
 			"symbol": "CVXWETH",
 			"baseAsset": "CVX",
 			"baseAssetId": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
@@ -454,6 +501,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x3df6bb62348d786a50b635b638ff99d850f98211",
 			"symbol": "CVXUSDC",
 			"baseAsset": "CVX",
 			"baseAssetId": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
@@ -465,6 +513,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -474,6 +523,39 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x020c349a0541d76c16f501abc6b2e9c98adae892",
+			"symbol": "USDCSNX",
+			"baseAsset": "USDC",
+			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "SNX",
+			"quoteAssetId": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0xede8dd046586d22625ae7ff2708f879ef7bdb8cf",
+			"symbol": "SNXWETH",
+			"baseAsset": "SNX",
+			"baseAssetId": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+			"symbol": "USDCWETH",
+			"baseAsset": "USDC",
+			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0x7ec0b75a98997c927ace6d87958147a105147ea0",
 			"symbol": "YGGUSDC",
 			"baseAsset": "YGG",
 			"baseAssetId": "0x25f8087ead173b73d6e8b84329989a8eea16cf73",
@@ -483,6 +565,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x319f4366b2ec8b0120d09522c88f919bedbb18ff",
 			"symbol": "YGGWETH",
 			"baseAsset": "YGG",
 			"baseAssetId": "0x25f8087ead173b73d6e8b84329989a8eea16cf73",
@@ -494,6 +577,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -503,6 +587,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x1a098a748c8167f023e79986b095843ba0c8db03",
 			"symbol": "GPTUSDC",
 			"baseAsset": "GPT",
 			"baseAssetId": "0x99b2e411589fd3bb4e2eb4bb65729db013887372",
@@ -512,6 +597,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xa28c4c450aa9b4f7f52f4ed8072d72e8d38fcb3c",
 			"symbol": "WETHGPT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -523,6 +609,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -532,6 +619,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x9f41a3ac0c16a9feb5400751a34c609211839cfa",
 			"symbol": "MPLWETH",
 			"baseAsset": "MPL",
 			"baseAssetId": "0x33349b282065b0284d756f0577fb39c158f935e6",
@@ -541,6 +629,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x858a2ca525466a5c7ad1bd4f66ecbfdcc938f237",
 			"symbol": "MPLUSDC",
 			"baseAsset": "MPL",
 			"baseAssetId": "0x33349b282065b0284d756f0577fb39c158f935e6",
@@ -552,6 +641,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -561,35 +651,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
-			"symbol": "SNXWETH",
-			"baseAsset": "SNX",
-			"baseAssetId": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "WETH",
-			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"symbol": "USDCSNX",
-			"baseAsset": "USDC",
-			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "SNX",
-			"quoteAssetId": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"symbol": "USDCWETH",
-			"baseAsset": "USDC",
-			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "WETH",
-			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-			"quoteAssetDecimals": 18
-		},
-		{
+			"id": "0x965e3a3007c02162d11ad3db98d475b8b9c690f7",
 			"symbol": "WETHSAITO",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -599,6 +661,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xe626282591a993b0b0c86be3a102649a0ce6f34d",
 			"symbol": "USDCSAITO",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -610,6 +673,7 @@
 	],
 	[
 		{
+			"id": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
 			"symbol": "USDCWETH",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -619,6 +683,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x59b4bb1f5d943cf71a10df63f6b743ee4a4489ee",
 			"symbol": "XMONWETH",
 			"baseAsset": "XMON",
 			"baseAssetId": "0x3aada3e213abf8529606924d8d1c55cbdc70bf74",
@@ -628,6 +693,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xd3ca35355106cb8bc5fd7c534275509673319d83",
 			"symbol": "XMONUSDC",
 			"baseAsset": "XMON",
 			"baseAssetId": "0x3aada3e213abf8529606924d8d1c55cbdc70bf74",
@@ -639,6 +705,7 @@
 	],
 	[
 		{
+			"id": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
 			"symbol": "WBTCWETH",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -648,6 +715,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -657,6 +725,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x9db9e0e53058c89e5b94e29621a205198648425b",
 			"symbol": "WBTCUSDT",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -668,6 +737,7 @@
 	],
 	[
 		{
+			"id": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
 			"symbol": "WBTCWETH",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -677,6 +747,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
 			"symbol": "DAIWETH",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -686,6 +757,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x391e8501b626c623d39474afca6f9e46c2686649",
 			"symbol": "WBTCDAI",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -697,6 +769,7 @@
 	],
 	[
 		{
+			"id": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
 			"symbol": "WBTCWETH",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -706,6 +779,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x8f8ef111b67c04eb1641f5ff19ee54cda062f163",
 			"symbol": "WBTCPAX",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -715,6 +789,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xd83d78108dd0d1dffff11ea3f99871671a52488b",
 			"symbol": "PAXWETH",
 			"baseAsset": "PAX",
 			"baseAssetId": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
@@ -726,6 +801,7 @@
 	],
 	[
 		{
+			"id": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
 			"symbol": "WBTCWETH",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -735,6 +811,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xd1d5a4c0ea98971894772dcd6d2f1dc71083c44e",
 			"symbol": "LQTYWETH",
 			"baseAsset": "LQTY",
 			"baseAssetId": "0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d",
@@ -744,6 +821,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xefd784093ddd12e24231fa6b792c09d03a4f7b7e",
 			"symbol": "WBTCLQTY",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -755,6 +833,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -764,6 +843,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
 			"symbol": "DAIWETH",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -773,6 +853,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x48da0965ab2d2cbf1c17c09cfb5cbe67ad5b1406",
 			"symbol": "DAIUSDT",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -784,6 +865,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -793,6 +875,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x4b62fa30fea125e43780dc425c2be5acb4ba743b",
 			"symbol": "TONCOINWETH",
 			"baseAsset": "TONCOIN",
 			"baseAssetId": "0x582d872a1b094fc48f5de31d3b73f2d9be47def1",
@@ -802,6 +885,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x6a9c4fc2b35ee398e7a0e75d982872466ba93cb8",
 			"symbol": "TONCOINUSDT",
 			"baseAsset": "TONCOIN",
 			"baseAssetId": "0x582d872a1b094fc48f5de31d3b73f2d9be47def1",
@@ -813,6 +897,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -822,6 +907,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x381fe4eb128db1621647ca00965da3f9e09f4fac",
 			"symbol": "ELONWETH",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -831,6 +917,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x543842cbfef3b3f5614b2153c28936967218a0e6",
 			"symbol": "ELONUSDT",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -842,6 +929,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -851,6 +939,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x510100d5143e011db24e2aa38abe85d73d5b2177",
 			"symbol": "RLBWETH",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -860,6 +949,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x33676385160f9d8f03a0db2821029882f7c79e93",
 			"symbol": "RLBUSDT",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -871,6 +961,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -880,6 +971,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xe931b03260b2854e77e8da8378a1bc017b13cb97",
 			"symbol": "1INCHWETH",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -889,6 +981,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xa21ed0af81d7cdaebd06d1150c166821cfcd64ff",
 			"symbol": "1INCHUSDT",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -900,6 +993,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -909,6 +1003,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xd8de6af55f618a7bc69835d55ddc6582220c36c0",
 			"symbol": "DYDXWETH",
 			"baseAsset": "DYDX",
 			"baseAssetId": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
@@ -918,6 +1013,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x6c4ab1907805adcb0b7ae911a5d1b0b99d608b3c",
 			"symbol": "DYDXUSDT",
 			"baseAsset": "DYDX",
 			"baseAssetId": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
@@ -929,6 +1025,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -938,6 +1035,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xaf585783337434fee47c9abfbd737156f9a84dd1",
 			"symbol": "SHIBA2WETH",
 			"baseAsset": "SHIBA2",
 			"baseAssetId": "0xa0335820dc549dbfae5b8d691331cadfca7026e0",
@@ -947,6 +1045,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x3d71021345aed9ffab1efd805e58aec9c857d525",
 			"symbol": "SHIBA2USDT",
 			"baseAsset": "SHIBA2",
 			"baseAssetId": "0xa0335820dc549dbfae5b8d691331cadfca7026e0",
@@ -958,6 +1057,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -967,6 +1067,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xe2680fd7cdbb04e9087a647ad4d023ef6c8fb4e2",
 			"symbol": "HUNTWETH",
 			"baseAsset": "HUNT",
 			"baseAssetId": "0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5",
@@ -976,6 +1077,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x54578b6f942aeb23b67a8cef24220651306b8e26",
 			"symbol": "HUNTUSDT",
 			"baseAsset": "HUNT",
 			"baseAssetId": "0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5",
@@ -987,6 +1089,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -996,6 +1099,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x965e3a3007c02162d11ad3db98d475b8b9c690f7",
 			"symbol": "WETHSAITO",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -1005,6 +1109,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x19f83460e387f1b01f94b85c2532ebc15b0b712e",
 			"symbol": "USDTSAITO",
 			"baseAsset": "USDT",
 			"baseAssetId": "0xdac17f958d2ee523a2206206994597c13d831ec7",
@@ -1016,6 +1121,7 @@
 	],
 	[
 		{
+			"id": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
 			"symbol": "WETHUSDT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -1025,6 +1131,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x4bec87cb126de6c1f8b410e32d1f4ae472fdd83b",
 			"symbol": "WETHEURT",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -1034,6 +1141,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x07f3d316630719f4fc69c152f397c150f0831071",
 			"symbol": "EURTUSDT",
 			"baseAsset": "EURT",
 			"baseAssetId": "0xc581b735a1688071a1746c968e0798d642ede491",
@@ -1045,6 +1153,7 @@
 	],
 	[
 		{
+			"id": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
 			"symbol": "WBTCUSDC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1054,6 +1163,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
 			"symbol": "DAIUSDC",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1063,6 +1173,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x391e8501b626c623d39474afca6f9e46c2686649",
 			"symbol": "WBTCDAI",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1074,6 +1185,7 @@
 	],
 	[
 		{
+			"id": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
 			"symbol": "WBTCUSDC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1083,6 +1195,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x9db9e0e53058c89e5b94e29621a205198648425b",
 			"symbol": "WBTCUSDT",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1092,6 +1205,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1103,6 +1217,7 @@
 	],
 	[
 		{
+			"id": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
 			"symbol": "WBTCUSDC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1112,6 +1227,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xf3a0d4580933022f2c54283adfa87ec51d17885c",
 			"symbol": "USDCUSDz",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1121,6 +1237,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x00da578acb3381f48f187374cda78d6824676f27",
 			"symbol": "WBTCUSDz",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1132,6 +1249,7 @@
 	],
 	[
 		{
+			"id": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
 			"symbol": "WBTCUSDC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1141,6 +1259,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x89e4d042c27210c2cdfc472d3ea4a88d30e4c245",
 			"symbol": "ICHIUSDC",
 			"baseAsset": "ICHI",
 			"baseAssetId": "0x111111517e4929d3dcbdfa7cce55d30d4b6bc4d6",
@@ -1150,6 +1269,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x14b49fe0aeca3beabfee01b16900322313089681",
 			"symbol": "ICHIWBTC",
 			"baseAsset": "ICHI",
 			"baseAssetId": "0x111111517e4929d3dcbdfa7cce55d30d4b6bc4d6",
@@ -1161,6 +1281,7 @@
 	],
 	[
 		{
+			"id": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
 			"symbol": "DAIUSDC",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1170,6 +1291,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52",
 			"symbol": "FRAXUSDC",
 			"baseAsset": "FRAX",
 			"baseAssetId": "0x853d955acef822db058eb8505911ed77f175b99e",
@@ -1179,6 +1301,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x97e7d56a0408570ba1a7852de36350f7713906ec",
 			"symbol": "DAIFRAX",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1190,6 +1313,7 @@
 	],
 	[
 		{
+			"id": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
 			"symbol": "DAIUSDC",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1199,6 +1323,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1208,6 +1333,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x48da0965ab2d2cbf1c17c09cfb5cbe67ad5b1406",
 			"symbol": "DAIUSDT",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1219,6 +1345,7 @@
 	],
 	[
 		{
+			"id": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
 			"symbol": "DAIUSDC",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1228,6 +1355,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x8c54aa2a32a779e6f6fbea568ad85a19e0109c26",
 			"symbol": "FEIUSDC",
 			"baseAsset": "FEI",
 			"baseAssetId": "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
@@ -1237,6 +1365,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xbb2e5c2ff298fd96e166f90c8abacaf714df14f8",
 			"symbol": "DAIFEI",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1248,6 +1377,7 @@
 	],
 	[
 		{
+			"id": "0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52",
 			"symbol": "FRAXUSDC",
 			"baseAsset": "FRAX",
 			"baseAssetId": "0x853d955acef822db058eb8505911ed77f175b99e",
@@ -1257,6 +1387,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1266,6 +1397,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xc2a856c3aff2110c1171b8f942256d40e980c726",
 			"symbol": "FRAXUSDT",
 			"baseAsset": "FRAX",
 			"baseAssetId": "0x853d955acef822db058eb8505911ed77f175b99e",
@@ -1277,6 +1409,7 @@
 	],
 	[
 		{
+			"id": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
 			"symbol": "DAIWETH",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1286,6 +1419,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xae750560b09ad1f5246f3b279b3767afd1d79160",
 			"symbol": "PEASDAI",
 			"baseAsset": "PEAS",
 			"baseAssetId": "0x02f92800f57bcd74066f5709f1daa1a4302df875",
@@ -1295,6 +1429,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x44c95bf226a6a1385beaced2bb3328d6afb044a3",
 			"symbol": "PEASWETH",
 			"baseAsset": "PEAS",
 			"baseAssetId": "0x02f92800f57bcd74066f5709f1daa1a4302df875",
@@ -1306,6 +1441,7 @@
 	],
 	[
 		{
+			"id": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
 			"symbol": "DAIWETH",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1315,6 +1451,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xd5af950c02ee40635efb8710946923b1a583e01a",
 			"symbol": "UwUDAI",
 			"baseAsset": "UwU",
 			"baseAssetId": "0x55c08ca52497e2f1534b59e2917bf524d4765257",
@@ -1324,6 +1461,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x98c58833efb950291a2f13978291d9b18c754404",
 			"symbol": "UwUWETH",
 			"baseAsset": "UwU",
 			"baseAssetId": "0x55c08ca52497e2f1534b59e2917bf524d4765257",
@@ -1335,6 +1473,7 @@
 	],
 	[
 		{
+			"id": "0x9db9e0e53058c89e5b94e29621a205198648425b",
 			"symbol": "WBTCUSDT",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1344,6 +1483,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x48da0965ab2d2cbf1c17c09cfb5cbe67ad5b1406",
 			"symbol": "DAIUSDT",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1353,6 +1493,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x391e8501b626c623d39474afca6f9e46c2686649",
 			"symbol": "WBTCDAI",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1364,6 +1505,39 @@
 	],
 	[
 		{
+			"id": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
+			"symbol": "UNIWETH",
+			"baseAsset": "UNI",
+			"baseAssetId": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
+			"symbol": "AAVEWETH",
+			"baseAsset": "AAVE",
+			"baseAssetId": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0x59c38b6775ded821f010dbd30ecabdcf84e04756",
+			"symbol": "UNIAAVE",
+			"baseAsset": "UNI",
+			"baseAssetId": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "AAVE",
+			"quoteAssetId": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1373,6 +1547,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xa7b3bcc6c88da2856867d29f11c67c3a85634882",
 			"symbol": "ELONUSDC",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -1382,6 +1557,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x543842cbfef3b3f5614b2153c28936967218a0e6",
 			"symbol": "ELONUSDT",
 			"baseAsset": "ELON",
 			"baseAssetId": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
@@ -1393,6 +1569,7 @@
 	],
 	[
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1402,6 +1579,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x9febc984504356225405e26833608b17719c82ae",
 			"symbol": "1INCHUSDC",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -1411,6 +1589,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xa21ed0af81d7cdaebd06d1150c166821cfcd64ff",
 			"symbol": "1INCHUSDT",
 			"baseAsset": "1INCH",
 			"baseAssetId": "0x111111111117dc0aa78b770fa6a738034120c302",
@@ -1422,6 +1601,7 @@
 	],
 	[
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1431,6 +1611,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x33676385160f9d8f03a0db2821029882f7c79e93",
 			"symbol": "RLBUSDT",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -1440,6 +1621,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0x2322e5517a3cbc75a3f02d74c96f82dda120d841",
 			"symbol": "RLBUSDC",
 			"baseAsset": "RLB",
 			"baseAssetId": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
@@ -1451,6 +1633,7 @@
 	],
 	[
 		{
+			"id": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
 			"symbol": "USDCUSDT",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1460,6 +1643,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xe626282591a993b0b0c86be3a102649a0ce6f34d",
 			"symbol": "USDCSAITO",
 			"baseAsset": "USDC",
 			"baseAssetId": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1469,6 +1653,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x19f83460e387f1b01f94b85c2532ebc15b0b712e",
 			"symbol": "USDTSAITO",
 			"baseAsset": "USDT",
 			"baseAssetId": "0xdac17f958d2ee523a2206206994597c13d831ec7",
@@ -1480,6 +1665,7 @@
 	],
 	[
 		{
+			"id": "0x7a415b19932c0105c82fdb6b720bb01b0cc2cae3",
 			"symbol": "WETHweETH",
 			"baseAsset": "WETH",
 			"baseAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -1489,6 +1675,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
 			"symbol": "wstETHWETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1498,6 +1685,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xf47f04a8605be181e525d6391233cba1f7474182",
 			"symbol": "wstETHweETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1509,6 +1697,7 @@
 	],
 	[
 		{
+			"id": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
 			"symbol": "wstETHWETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1518,6 +1707,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x059615ebf32c946aaab3d44491f78e4f8e97e1d3",
 			"symbol": "rsETHWETH",
 			"baseAsset": "rsETH",
 			"baseAssetId": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
@@ -1527,6 +1717,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x7a27c7b7e2536e452c57d3e8b909d9ecba2e2eee",
 			"symbol": "wstETHrsETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1538,6 +1729,7 @@
 	],
 	[
 		{
+			"id": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
 			"symbol": "wstETHWETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1547,6 +1739,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x553e9c493678d8606d6a5ba284643db2110df823",
 			"symbol": "rETHWETH",
 			"baseAsset": "rETH",
 			"baseAssetId": "0xae78736cd615f374d3085123a210448e74fc6393",
@@ -1556,6 +1749,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x18319135e02aa6e02d412c98ccb16af3a0a9cb57",
 			"symbol": "wstETHrETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1567,6 +1761,7 @@
 	],
 	[
 		{
+			"id": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
 			"symbol": "wstETHWETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1576,35 +1771,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
-			"symbol": "wstETHHARAMBE",
-			"baseAsset": "wstETH",
-			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "HARAMBE",
-			"quoteAssetId": "0xade6fdaba1643e4d1eef68da7170f234470938c6",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"symbol": "HARAMBEWETH",
-			"baseAsset": "HARAMBE",
-			"baseAssetId": "0xade6fdaba1643e4d1eef68da7170f234470938c6",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "WETH",
-			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"symbol": "wstETHWETH",
-			"baseAsset": "wstETH",
-			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "WETH",
-			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-			"quoteAssetDecimals": 18
-		},
-		{
+			"id": "0xbe80225f09645f172b079394312220637c440a63",
 			"symbol": "ezETHWETH",
 			"baseAsset": "ezETH",
 			"baseAssetId": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
@@ -1614,6 +1781,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x1b9d58bea5ed5d935cc2e818dde1d796abff0bc0",
 			"symbol": "wstETHezETH",
 			"baseAsset": "wstETH",
 			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -1625,6 +1793,39 @@
 	],
 	[
 		{
+			"id": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+			"symbol": "wstETHWETH",
+			"baseAsset": "wstETH",
+			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0x58ee92c366f197e434a1267a38e28e8c08cd27e7",
+			"symbol": "wstETHHARAMBE",
+			"baseAsset": "wstETH",
+			"baseAssetId": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "HARAMBE",
+			"quoteAssetId": "0xade6fdaba1643e4d1eef68da7170f234470938c6",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"id": "0x2a4a220beb6a0fd217a129125d0034e2db0dee46",
+			"symbol": "HARAMBEWETH",
+			"baseAsset": "HARAMBE",
+			"baseAssetId": "0xade6fdaba1643e4d1eef68da7170f234470938c6",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WETH",
+			"quoteAssetId": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"id": "0x97e7d56a0408570ba1a7852de36350f7713906ec",
 			"symbol": "DAIFRAX",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1634,6 +1835,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x48da0965ab2d2cbf1c17c09cfb5cbe67ad5b1406",
 			"symbol": "DAIUSDT",
 			"baseAsset": "DAI",
 			"baseAssetId": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -1643,6 +1845,7 @@
 			"quoteAssetDecimals": 6
 		},
 		{
+			"id": "0xc2a856c3aff2110c1171b8f942256d40e980c726",
 			"symbol": "FRAXUSDT",
 			"baseAsset": "FRAX",
 			"baseAssetId": "0x853d955acef822db058eb8505911ed77f175b99e",
@@ -1654,6 +1857,7 @@
 	],
 	[
 		{
+			"id": "0xe15e6583425700993bd08f51bf6e7b73cd5da91b",
 			"symbol": "WBTCBADGER",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -1663,6 +1867,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0x81d97d927ce883b46a5ecbe696b7189677fdc0cd",
 			"symbol": "BADGEREBTC",
 			"baseAsset": "BADGER",
 			"baseAssetId": "0x3472a5a71965499acd81997a54bba8d852c6e53d",
@@ -1672,6 +1877,7 @@
 			"quoteAssetDecimals": 18
 		},
 		{
+			"id": "0xef9b4fddd861aa2f00ee039c323b7fabd7afe239",
 			"symbol": "WBTCEBTC",
 			"baseAsset": "WBTC",
 			"baseAssetId": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",

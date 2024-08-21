@@ -2,6 +2,7 @@ package dex
 
 import (
 	"arbitrage-bot/sourceprovider"
+	"os"
 	"time"
 )
 
@@ -14,7 +15,9 @@ type SymbolPrice struct {
 }
 
 // UniswapGraphQLURL ... Uniswap GraphQL endpoint
-const UniswapGraphQLURL string = "https://gateway.thegraph.com/api/{api-key}/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV"
+func UniswapGraphQLURL() string {
+	return "https://gateway.thegraph.com/api/" + os.Getenv("SUBGRAPH_API_KEY") + "/subgraphs/id/" + os.Getenv("SUBGRAPH_UNISWAP_ID")
+}
 
 // SubgraphPoolItem ... Uniswap subgraph pool item
 type SubgraphPoolItem struct {
