@@ -106,4 +106,5 @@ type MEXCSymbolTicker struct {
 type ISourceProvider interface {
 	sourceprovider.ISourceProvider
 	GetSymbolPrice(symbol string) *SymbolPrice
+	GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth
 }

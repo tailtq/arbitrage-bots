@@ -1,6 +1,7 @@
 package dex
 
 import (
+	"arbitrage-bot/models"
 	"arbitrage-bot/sourceprovider"
 	"os"
 	"time"
@@ -48,4 +49,5 @@ const UniswapArbitragePairPath string = "data/uniswapArbitragePairs.json"
 type ISourceProvider interface {
 	sourceprovider.ISourceProvider
 	GetSymbolPrice(symbol string) *SymbolPrice
+	GetDepth(surfaceRate models.TriangularArbSurfaceResult, amountIn int) (models.TriangularArbDepthResult, error)
 }

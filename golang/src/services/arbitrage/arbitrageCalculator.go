@@ -1,6 +1,7 @@
 package arbitrage
 
 import (
+	"arbitrage-bot/models"
 	"arbitrage-bot/sourceprovider"
 	"arbitrage-bot/sourceprovider/cex"
 	"fmt"
@@ -46,11 +47,11 @@ func (a *ArbitrageCalculator) getPriceForTriangularPair(triangularPair [3]*sourc
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
 func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(
 	triangularPair [3]*sourceprovider.Symbol, startingAmount float64,
-) (TriangularArbSurfaceResult, error) {
+) (models.TriangularArbSurfaceResult, error) {
 	priceData, err := a.getPriceForTriangularPair(triangularPair)
 
 	if err != nil {
-		return TriangularArbSurfaceResult{}, err
+		return models.TriangularArbSurfaceResult{}, err
 	}
 
 	// set variables
@@ -342,7 +343,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(
 		var tradeDescription3 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
 		if profitLoss > MinSurfaceRate {
-			return TriangularArbSurfaceResult{
+			return models.TriangularArbSurfaceResult{
 				Swap1:             swap1,
 				Swap2:             swap2,
 				Swap3:             swap3,
@@ -369,7 +370,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(
 		}
 	}
 
-	return TriangularArbSurfaceResult{}, fmt.Errorf("no profitable arbitrage found")
+	return models.TriangularArbSurfaceResult{}, fmt.Errorf("no profitable arbitrage found")
 }
 
 // reformatOrderbook ... reformat the orderbook to be used in the calculation
@@ -395,8 +396,8 @@ func (a *ArbitrageCalculator) reformatOrderbook(
 		}
 	} else if directionTrade == "quoteToBase" {
 		for _, entry := range orderBookPrice.Bids {
-			var adjPrice float64 = entry.Price
-			var adjQuantity float64 = entry.Quantity
+			var adjPrice = entry.Price
+			var adjQuantity = entry.Quantity
 			result = append(result, &sourceprovider.OrderbookEntry{
 				Price:    adjPrice,
 				Quantity: adjQuantity,
@@ -450,7 +451,9 @@ func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook 
 	return 0
 }
 
-func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate TriangularArbSurfaceResult) (TriangularArbDepthResult, error) {
+func (a *ArbitrageCalculator) GetDepthFromOrderBook(
+	surfaceRate models.TriangularArbSurfaceResult,
+) (models.TriangularArbDepthResult, error) {
 	var startingAmount = surfaceRate.StartingAmount
 
 	// Define variables
@@ -466,13 +469,13 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate TriangularArbSur
 
 	if depthContract1 == nil {
 		var err = fmt.Errorf("Error: depthContract1 %v is nil\n", contract1)
-		return TriangularArbDepthResult{}, err
+		return models.TriangularArbDepthResult{}, err
 	} else if depthContract2 == nil {
 		var err = fmt.Errorf("Error: depthContract2 %v is nil\n", contract2)
-		return TriangularArbDepthResult{}, err
+		return models.TriangularArbDepthResult{}, err
 	} else if depthContract3 == nil {
 		var err = fmt.Errorf("Error: depthContract3 %v is nil\n", contract3)
-		return TriangularArbDepthResult{}, err
+		return models.TriangularArbDepthResult{}, err
 	}
 
 	// get acquired coins
@@ -492,10 +495,10 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(surfaceRate TriangularArbSur
 	}
 
 	if realRatePercent > -1 {
-		return TriangularArbDepthResult{
+		return models.TriangularArbDepthResult{
 			ProfitLoss:     profitLoss,
 			ProfitLossPerc: float32(realRatePercent),
 		}, nil
 	}
-	return TriangularArbDepthResult{}, fmt.Errorf("no profitable arbitrage found")
+	return models.TriangularArbDepthResult{}, fmt.Errorf("no profitable arbitrage found")
 }

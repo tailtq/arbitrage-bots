@@ -3,9 +3,9 @@ package dex
 import (
 	"arbitrage-bot/helpers"
 	ioHelper "arbitrage-bot/helpers/io"
+	"arbitrage-bot/models"
 	"arbitrage-bot/sourceprovider"
 	"encoding/json"
-	"fmt"
 	"strconv"
 	"sync"
 	"time"
@@ -16,7 +16,7 @@ const surfaceRateQuery string = `
 	pools(
 		orderBy:totalValueLockedETH,
 		orderDirection: desc,
-		first: 500,
+		first: 700,
 		skip: 4
 	) {
 		token0 {id symbol decimals}
@@ -73,14 +73,15 @@ func (u *UniswapSourceProvider) getSubgraphPoolData() ([]SubgraphPoolItem, error
 		return nil, err
 	}
 
-	resData, err := ioHelper.Post(UniswapGraphQLURL(), requestBody)
+	resData := make(map[string]interface{})
+	err = ioHelper.Post(UniswapGraphQLURL(), requestBody, &resData)
 
 	if err != nil {
 		return nil, err
 	}
 
-	fmt.Println("resData", resData)
-	resDataItems := (*resData)["data"].(map[string]interface{})["pools"].([]interface{})
+	//fmt.Println("resData", resData)
+	resDataItems := resData["data"].(map[string]interface{})["pools"].([]interface{})
 	subgraphPoolItems := make([]SubgraphPoolItem, len(resDataItems))
 
 	for i, item := range resDataItems {
@@ -96,6 +97,20 @@ func (u *UniswapSourceProvider) getSubgraphPoolData() ([]SubgraphPoolItem, error
 	}
 
 	return subgraphPoolItems, nil
+}
+
+// loadTokens ... loads the tokens for calculating depths before running
+func (u *UniswapSourceProvider) loadTokens(addresses []string) {
+	requestBody, err := json.Marshal(map[string][]string{
+		"pairAddresses": addresses,
+	})
+	helpers.Panic(err)
+
+	var responseData []interface{}
+	var uniswapLoadTokensAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/tokens/load"
+	err = ioHelper.Post(uniswapLoadTokensAPI, requestBody, &responseData)
+	helpers.Panic(err)
+	//fmt.Println("Token upload", responseData)
 }
 
 // GetSymbols ... returns the symbols
@@ -132,9 +147,14 @@ func (u *UniswapSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol
 
 // SubscribeSymbols ... subscribes to the symbols
 func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
+	var symbolAddresses []string
+
 	for _, symbol := range symbols {
 		u.symbols[symbol.Symbol] = symbol
+		symbolAddresses = append(symbolAddresses, symbol.ID)
 	}
+
+	u.loadTokens(symbolAddresses)
 
 	for {
 		subgraphPoolItems, err := u.getSubgraphPoolData()
@@ -158,6 +178,29 @@ func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbo
 		}
 
 		// Fetch the data every 60 seconds
-		time.Sleep(60 * time.Second)
+		time.Sleep(10 * time.Second)
 	}
+}
+
+func (u *UniswapSourceProvider) GetDepth(
+	surfaceRate models.TriangularArbSurfaceResult, amountIn int,
+) (models.TriangularArbDepthResult, error) {
+	var result = models.TriangularArbDepthResult{}
+	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/depth"
+	requestBody, err := json.Marshal(map[string]any{"surfaceResult": surfaceRate})
+	if err != nil {
+		return result, err
+	}
+
+	var responseData = make(map[string]interface{})
+	err = ioHelper.Post(uniswapDepthAPI, requestBody, &responseData)
+	if err != nil {
+		return result, err
+	}
+
+	result = models.TriangularArbDepthResult{
+		ProfitLoss:     responseData["profitLoss"].(float64),
+		ProfitLossPerc: float32(responseData["profitLossPerc"].(float64)),
+	}
+	return result, nil
 }

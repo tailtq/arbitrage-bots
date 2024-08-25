@@ -1,13 +1,12 @@
-const express = require('express');
-const { body, validationResult } = require('express-validator');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
 
-const UniswapService = require('./service');
+import UniswapService from './service.js';
 
 const router = express.Router();
 const service = new UniswapService();
 
 router.post('/arbitrage/depth', [
-    body('amountIn').isFloat(),
     body('surfaceResult.swap1').isString(),
     body('surfaceResult.swap2').isString(),
     body('surfaceResult.swap3').isString(),
@@ -40,8 +39,9 @@ router.post('/arbitrage/depth', [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { amountIn, surfaceResult } = req.body;
-    const result = await service.getDepthOpportunity(surfaceResult, amountIn);
+    const { surfaceResult } = req.body;
+    const result = await service.getDepthOpportunity(surfaceResult);
+    console.log(JSON.stringify(req.body), result);
 
     return res.status(200).json(result);
 });
@@ -49,15 +49,19 @@ router.post('/arbitrage/depth', [
 router.post('/tokens/load', [
     body('pairAddresses').isArray()
 ], async (req, res) => {
-    const errors = validationResult(req);
+    try {
+        const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const result = await service.loadTokens(req.body.pairAddresses);
+
+        return res.status(200).json(result);
+    } catch(e) {
+        return res.status(500).json({ error: e.message });
     }
-
-    const result = await service.loadTokens(req.body.pairAddresses);
-
-    return res.status(200).json(result);
 });
 
-module.exports = router;
+export default router;
