@@ -96,7 +96,7 @@ class UniswapService {
         return {};
     }
 
-    async getDepthOpportunity(surfaceResult) {
+    async getDepthOpportunityForward(surfaceResult) {
         const pair1ContractAddress = surfaceResult.contract1Address;
         const pair2ContractAddress = surfaceResult.contract2Address;
         const pair3ContractAddress = surfaceResult.contract3Address;
@@ -117,6 +117,34 @@ class UniswapService {
 
         // Calculate and show result
         return this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult);
+    }
+
+    async getDepthOpportunityBackward(surfaceResult) {
+        const pair1ContractAddress = surfaceResult.contract3Address;
+        const pair2ContractAddress = surfaceResult.contract2Address;
+        const pair3ContractAddress = surfaceResult.contract1Address;
+        const directionTrade1 = this.#revertDirection(surfaceResult.directionTrade3);
+        const directionTrade2 = this.#revertDirection(surfaceResult.directionTrade2);
+        const directionTrade3 = this.#revertDirection(surfaceResult.directionTrade1);
+
+        console.log('Checking trade 1 acquired coin...');
+        const acquiredCoinT1 = await this.#getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
+
+        // console.log('Checking trade 2 acquired coin...');
+        if (acquiredCoinT1 === 0) return;
+        const acquiredCoinT2 = await this.#getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
+
+        // console.log('Checking trade 3 acquired coin...');
+        if (acquiredCoinT2 === 0) return;
+        const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
+
+        // Calculate and show result
+        return this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult);
+    }
+
+    #revertDirection(direction) {
+        if (direction === 'baseToQuote') return 'quoteToBase';
+        if (direction === 'quoteToBase') return 'baseToQuote';
     }
 
     // GET PRICE /////////////////////////////////////////////////

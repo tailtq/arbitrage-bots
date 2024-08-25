@@ -110,7 +110,6 @@ func (u *UniswapSourceProvider) loadTokens(addresses []string) {
 	var uniswapLoadTokensAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/tokens/load"
 	err = ioHelper.Post(uniswapLoadTokensAPI, requestBody, &responseData)
 	helpers.Panic(err)
-	//fmt.Println("Token upload", responseData)
 }
 
 // GetSymbols ... returns the symbols
@@ -182,10 +181,8 @@ func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbo
 	}
 }
 
-func (u *UniswapSourceProvider) GetDepth(
-	surfaceRate models.TriangularArbSurfaceResult, amountIn int,
-) (models.TriangularArbDepthResult, error) {
-	var result = models.TriangularArbDepthResult{}
+func (u *UniswapSourceProvider) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
+	var result [2]models.TriangularArbDepthResult
 	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/depth"
 	requestBody, err := json.Marshal(map[string]any{"surfaceResult": surfaceRate})
 	if err != nil {
@@ -198,9 +195,16 @@ func (u *UniswapSourceProvider) GetDepth(
 		return result, err
 	}
 
-	result = models.TriangularArbDepthResult{
-		ProfitLoss:     responseData["profitLoss"].(float64),
-		ProfitLossPerc: float32(responseData["profitLossPerc"].(float64)),
+	if _, ok := responseData["forward"]; ok {
+		var resultForward = responseData["forward"].(map[string]interface{})
+		result[0].ProfitLoss = resultForward["profitLoss"].(float64)
+		result[0].ProfitLossPerc = float32(resultForward["profitLossPerc"].(float64))
 	}
+	if _, ok := responseData["backward"]; ok {
+		var resultBackward = responseData["backward"].(map[string]interface{})
+		result[1].ProfitLoss = resultBackward["profitLoss"].(float64)
+		result[1].ProfitLossPerc = float32(resultBackward["profitLossPerc"].(float64))
+	}
+
 	return result, nil
 }
