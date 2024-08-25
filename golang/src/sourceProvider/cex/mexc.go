@@ -67,13 +67,13 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, e
 
 		return symbols, err
 	}
-	var data *map[string]interface{}
-	data, err := ioHelper.Get(MEXCAPIURL+"/exchangeInfo", data)
+	var data = make(map[string]interface{})
+	err := ioHelper.Get(MEXCAPIURL+"/exchangeInfo", &data)
 	helpers.Panic(err)
 
 	dataMap := make([]*sourceprovider.Symbol, 0)
 	// Type assertion (a way to retrieve the dynamic type of an interface)
-	symbols, ok := (*data)["symbols"].([]interface{})
+	symbols, ok := data["symbols"].([]interface{})
 
 	if ok {
 		for _, symbol := range symbols {

@@ -1,5 +1,7 @@
 package helpers
 
+import "os"
+
 func Panic(err error) {
 	if err != nil {
 		panic(err)
@@ -15,4 +17,8 @@ func Batch[T any](arr []T, batchSize int) [][]T {
 	}
 
 	return batches
+}
+
+func GetEnv(key string) string {
+	return os.Getenv(key)
 }

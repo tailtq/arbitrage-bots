@@ -4,7 +4,6 @@ package sourceprovider
 type ISourceProvider interface {
 	GetTokenListCachePath() string
 	GetArbitragePairCachePath() string
-	GetSymbolOrderbookDepth(symbol string) *SymbolOrderbookDepth
 	GetSymbols(force bool) ([]*Symbol, error)
 	SubscribeSymbols(symbols []*Symbol)
 }

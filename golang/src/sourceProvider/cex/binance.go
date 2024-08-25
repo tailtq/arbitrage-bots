@@ -70,18 +70,18 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol
 		return symbols, err
 	}
 
-	var data *map[string]interface{}
-	data, err := ioHelper.Get(BinanceAPIURL+"/exchangeInfo", data)
+	var data = make(map[string]interface{})
+	err := ioHelper.Get(BinanceAPIURL+"/exchangeInfo", &data)
 	helpers.Panic(err)
 
 	dataMap := make([]*sourceprovider.Symbol, 0)
 	// Type assertion (a way to retrieve the dynamic type of an interface)
-	symbols, ok := (*data)["symbols"].([]interface{})
+	symbols, ok := data["symbols"].([]interface{})
 
 	if ok {
 		for _, symbol := range symbols {
 			s, ok := symbol.(map[string]interface{})
-			var quoteAsset string = s["quoteAsset"].(string)
+			var quoteAsset = s["quoteAsset"].(string)
 
 			// skip other USD assets but USDT and USDC because they don't seem to be reliable
 			if ok && strings.Contains(quoteAsset, "USD") && quoteAsset != "USDT" && quoteAsset != "USDC" {

@@ -1,11 +1,16 @@
-const ethers = require('ethers');
-const QuoterABI = require('@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json').abi;
+import * as ethers from 'ethers';
+import fs from 'fs';
+import pLimit from 'p-limit';
+import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json' assert { type: 'json' };
+
+const QuoterABI = Quoter.abi;
 
 class UniswapService {
     #provider;
     #quoterAddress;
     #quoterContract;
     #tokenInfo;
+    #tokenInfoCacheFile = 'tokenInfo.json';
 
     static UNISWAP_PAIR_ABI = [
         'function token0() external view returns (address)',
@@ -22,43 +27,40 @@ class UniswapService {
     constructor() {
         this.#provider = new ethers.JsonRpcProvider(`https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`);
         this.#quoterAddress = '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6';
-        this.#tokenInfo = {};
+        this.#tokenInfo = this.#loadTokenInfoLocal();
         this.#quoterContract = new ethers.Contract(this.#quoterAddress, QuoterABI, this.#provider);
     }
 
     async loadTokens(pairAddresses) {
-        const promises = pairAddresses.map(async pairAddress => {
-            const uniswapPairABI = this.constructor.UNISWAP_PAIR_ABI;
-            const poolContract = new ethers.Contract(pairAddress, uniswapPairABI, this.#provider);
+        const limit = pLimit(3);
+        const { TOKEN_ABI, UNISWAP_PAIR_ABI } = this.constructor;
+
+        const promises = [... new Set(pairAddresses)].map(async pairAddress => limit(async () =>{
+            if (this.#tokenInfo[pairAddress]) return this.#tokenInfo[pairAddress];
+
+            console.time(`Get token list ${pairAddress}`);
+            const poolContract = new ethers.Contract(pairAddress, UNISWAP_PAIR_ABI, this.#provider);
             const [token0Address, token1Address, fee] = await Promise.all([
                 poolContract.token0(),
                 poolContract.token1(),
                 poolContract.fee()
             ]);
-            const addressArray = [token0Address, token1Address];
             const tokenInfo = {
                 pairAddress,
                 fee,
-                token0: {
-                    address: token0Address,
-                },
-                token1: {
-                    address: token1Address,
-                },
+                token0: { address: token0Address },
+                token1: { address: token1Address },
             };
+            console.timeEnd(`Get token list ${pairAddress}`);
 
-            for (let j = 0; j < addressArray.length; j++) {
-                const tokenAddress = addressArray[j];
-                const tokenABI = this.constructor.TOKEN_ABI;
-
-                const tokenContract = new ethers.Contract(tokenAddress, tokenABI, this.#provider);
+            for (const tokenAddress of [token0Address, token1Address]) {
+                const tokenContract = new ethers.Contract(tokenAddress, TOKEN_ABI, this.#provider);
                 const [tokenSymbol, tokenName, tokenDecimals] = await Promise.all([
                     tokenContract.symbol(),
                     tokenContract.name(),
                     tokenContract.decimals(),
                 ]);
                 const tokenData = {
-                    id: `token${j}`,
                     address: tokenAddress,
                     symbol: tokenSymbol,
                     name: tokenName,
@@ -70,12 +72,31 @@ class UniswapService {
             }
 
             return this.#tokenInfo[pairAddress] = tokenInfo;
-        });
+        }));
+        const result = await Promise.all(promises);
+        await this.#saveTokenInfoLocal();
 
-        return Promise.all(promises);
+        return result;
     }
 
-    async getDepthOpportunity(surfaceResult, amountIn) {
+    async #saveTokenInfoLocal() {
+        return new Promise(async (resolve, reject) => {
+            const tokenInfo = JSON.stringify(this.#tokenInfo, null, 2);
+            fs.writeFile(this.#tokenInfoCacheFile, tokenInfo, () => {
+                resolve();
+            });
+        });
+    }
+
+    #loadTokenInfoLocal() {
+        if (fs.existsSync(this.#tokenInfoCacheFile)) {
+            const data = fs.readFileSync(this.#tokenInfoCacheFile);
+            return JSON.parse(data);
+        }
+        return {};
+    }
+
+    async getDepthOpportunity(surfaceResult) {
         const pair1ContractAddress = surfaceResult.contract1Address;
         const pair2ContractAddress = surfaceResult.contract2Address;
         const pair3ContractAddress = surfaceResult.contract3Address;
@@ -84,7 +105,7 @@ class UniswapService {
         const directionTrade3 = surfaceResult.directionTrade3;
 
         console.log('Checking trade 1 acquired coin...');
-        const acquiredCoinT1 = await this.#getPrice(pair1ContractAddress, 0.1, directionTrade1);
+        const acquiredCoinT1 = await this.#getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
 
         // console.log('Checking trade 2 acquired coin...');
         if (acquiredCoinT1 === 0) return;
@@ -95,7 +116,7 @@ class UniswapService {
         const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
 
         // Calculate and show result
-        return this.#calculateArb(amountIn, acquiredCoinT3, surfaceResult);
+        return this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult);
     }
 
     // GET PRICE /////////////////////////////////////////////////
@@ -125,19 +146,17 @@ class UniswapService {
         }
 
         // reformat amountIn
-        let amountInParsed = ethers.parseUnits(amountIn.toString(), inputDecimalA);
-        let quotedAmountOut = 0;
+        const amountInParsed = ethers.parseUnits(amountIn.toString(), parseInt(inputDecimalA));
 
         try {
-            console.log(inputTokenA, inputTokenB, fee, amountInParsed, 0);
-            quotedAmountOut = await this.#quoterContract.quoteExactInputSingle.staticCall(
+            let quotedAmountOut = await this.#quoterContract.quoteExactInputSingle.staticCall(
                 inputTokenA,
                 inputTokenB,
                 fee,
                 amountInParsed,
                 0
             );
-            quotedAmountOut = ethers.formatUnits(quotedAmountOut, inputDecimalB);
+            quotedAmountOut = ethers.formatUnits(quotedAmountOut, parseInt(inputDecimalB));
             console.timeEnd('quoteExactInputSingle');
 
             return quotedAmountOut
@@ -159,4 +178,4 @@ class UniswapService {
     }
 }
 
-module.exports = UniswapService;
+export default UniswapService;

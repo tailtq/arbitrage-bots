@@ -4,11 +4,12 @@ import (
 	"arbitrage-bot/helpers"
 	fileHelper "arbitrage-bot/helpers/file"
 	jsonHelper "arbitrage-bot/helpers/json"
+	"arbitrage-bot/models"
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/sourceprovider"
 	"arbitrage-bot/sourceprovider/dex"
 	"fmt"
-	"github.com/joho/godotenv"
+	_ "github.com/joho/godotenv/autoload"
 	"time"
 )
 
@@ -41,9 +42,6 @@ func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sour
 
 // CEX/DEX arbitrage opportunities
 func main() {
-	err := godotenv.Load()
-	helpers.Panic(err)
-
 	currentSourceProviderName := sourceprovider.SourceProviderName["Uniswap"]
 	sourceProvider := dex.GetSourceProvider(currentSourceProviderName)
 	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
@@ -76,29 +74,26 @@ func main() {
 	fmt.Println("Starting the arbitrage calculation...")
 
 	for {
-		var triangularSurfaceResults []arbitrage.TriangularArbSurfaceResult
+		var triangularSurfaceResults []models.TriangularArbSurfaceResult
 
 		for _, triangularPairs := range triangularPairBatches {
-			startingAmount := 10
+			startingAmount := 3
 			result, err := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
 
 			if err == nil {
 				triangularSurfaceResults = append(triangularSurfaceResults, result)
-				fmt.Println(result.Swap1, result.Swap2, result.Swap3, result.ProfitLossPerc, result.ProfitLoss)
-				//depthResult, err2 := arbitrageCalculator.GetDepthFromOrderBook(result)
+				depthResult, err := arbitrageCalculator.GetDepthFromOrderBook(result, startingAmount)
 
-				//if err2 == nil {
-				//	fmt.Println(result)
-				//	fmt.Println(depthResult)
-				//	fmt.Println("---------")
-				//}
+				if err != nil {
+					fmt.Println(err)
+				} else if depthResult.ProfitLoss > 0 {
+					fmt.Println(result.Swap1, result.Swap2, result.Swap3, result.ProfitLossPerc, result.ProfitLoss*100)
+					fmt.Println("Profit", depthResult)
+					fmt.Println("---------")
+				}
 			}
 		}
 
-		error := jsonHelper.WriteJSONFile("triangular_arb_surface_results.json", triangularSurfaceResults)
-		helpers.Panic(error)
-
-		fmt.Println("------")
 		time.Sleep(3 * time.Second)
 	}
 }

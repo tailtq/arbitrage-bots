@@ -1,7 +1,8 @@
-const express = require('express');
-require('dotenv').config();
-
-const uniswapRouter = require('./api/uniswap/views');
+// cannot use import dotenv from 'dotenv'; dotenv.config(); because imports are hoisted
+// https://github.com/motdotla/dotenv/issues/206
+import 'dotenv/config';
+import express from 'express';
+import uniswapRouter from './api/uniswap/views.js';
 
 BigInt.prototype.toJSON = function () {
     return this.toString();

@@ -1,6 +1,7 @@
 package arbitrage
 
 import (
+	"arbitrage-bot/models"
 	"arbitrage-bot/sourceprovider"
 	"arbitrage-bot/sourceprovider/dex"
 	"fmt"
@@ -44,11 +45,11 @@ func (a *AmmArbitrageCalculator) getPriceForTriangularPair(triangularPair [3]*so
 }
 
 // CalcTriangularArbSurfaceRate ... calculates the surface rate for the triangular pair.
-func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) (TriangularArbSurfaceResult, error) {
+func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]*sourceprovider.Symbol, startingAmount float64) (models.TriangularArbSurfaceResult, error) {
 	priceData, err := a.getPriceForTriangularPair(triangularPair)
 
 	if err != nil {
-		return TriangularArbSurfaceResult{}, err
+		return models.TriangularArbSurfaceResult{}, err
 	}
 
 	// set variables
@@ -82,7 +83,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	var cQuote = triangularPair[2].QuoteAsset
 	// set directions and loop through
 	var directions = [2]string{"forward", "backward"}
-	var tradingResult TriangularArbSurfaceResult
+	var tradingResult models.TriangularArbSurfaceResult
 
 	for _, direction := range directions {
 		// set additional variables for swap information
@@ -365,7 +366,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 		var tradeDescription3 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
 
 		if profitLoss > MinSurfaceRate {
-			return TriangularArbSurfaceResult{
+			return models.TriangularArbSurfaceResult{
 				Swap1:             swap1,
 				Swap2:             swap2,
 				Swap3:             swap3,
@@ -396,4 +397,10 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	}
 
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
+}
+
+func (a *AmmArbitrageCalculator) GetDepthFromOrderBook(surfaceRate models.TriangularArbSurfaceResult, amountIn int) (models.TriangularArbDepthResult, error) {
+	result, err := a.sourceProvider.GetDepth(surfaceRate, amountIn)
+
+	return result, err
 }
