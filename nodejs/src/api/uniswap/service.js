@@ -96,6 +96,27 @@ class UniswapService {
         return {};
     }
 
+    async getBatchDepthOpportunity(surfaceResults) {
+        const limit = pLimit(3);
+        const promises = surfaceResults.map(surfaceResult => limit(async () => {
+            const [resultForward, resultBackward] = await Promise.all([
+                this.getDepthOpportunityForward(surfaceResult),
+                this.getDepthOpportunityBackward(surfaceResult),
+            ]);
+            const key = `${surfaceResult.swap1}_${surfaceResult.swap2}_${surfaceResult.swap3}`;
+            return {
+                [`${key}`]: {
+                    forward: resultForward,
+                    backward: resultBackward,
+                },
+            };
+        }));
+        const results = await Promise.all(promises);
+        const resultObj = results.reduce((acc, result) => ({ ...acc, ...result }), {});
+
+        return resultObj;
+    }
+
     async getDepthOpportunityForward(surfaceResult) {
         const pair1ContractAddress = surfaceResult.contract1Address;
         const pair2ContractAddress = surfaceResult.contract2Address;

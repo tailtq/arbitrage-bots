@@ -50,4 +50,5 @@ type ISourceProvider interface {
 	sourceprovider.ISourceProvider
 	GetSymbolPrice(symbol string) *SymbolPrice
 	GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error)
+	BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error)
 }

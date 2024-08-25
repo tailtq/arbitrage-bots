@@ -10,5 +10,5 @@ type IArbitrageCalculator interface {
 	CalcTriangularArbSurfaceRate(
 		triangularPair [3]*sp.Symbol, startingAmount float64,
 	) (models.TriangularArbSurfaceResult, error)
-	GetDepthFromOrderBook(surfaceRate models.TriangularArbSurfaceResult) models.TriangularArbDepthResult
+	GetDepth(surfaceRate models.TriangularArbSurfaceResult) models.TriangularArbDepthResult
 }

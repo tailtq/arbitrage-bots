@@ -399,8 +399,14 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
 }
 
-func (a *AmmArbitrageCalculator) GetDepthFromOrderBook(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
+// GetDepth ... get the depth from DEX (uniswap, ...)
+func (a *AmmArbitrageCalculator) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
 	result, err := a.sourceProvider.GetDepth(surfaceRate)
+	return result, err
+}
 
+// BatchGetDepth ... get the depth from DEX (uniswap, ...) for multiple surface rates
+func (a *AmmArbitrageCalculator) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
+	result, err := a.sourceProvider.BatchGetDepth(surfaceRates)
 	return result, err
 }
