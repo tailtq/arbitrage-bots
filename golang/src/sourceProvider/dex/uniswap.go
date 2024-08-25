@@ -181,30 +181,52 @@ func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbo
 	}
 }
 
+// GetDepth ... returns the depth for a given surface rate
 func (u *UniswapSourceProvider) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
-	var result [2]models.TriangularArbDepthResult
-	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/depth"
-	requestBody, err := json.Marshal(map[string]any{"surfaceResult": surfaceRate})
+	results, err := u.BatchGetDepth([]models.TriangularArbSurfaceResult{surfaceRate})
+
 	if err != nil {
-		return result, err
+		return [2]models.TriangularArbDepthResult{}, err
 	}
 
-	var responseData = make(map[string]interface{})
-	err = ioHelper.Post(uniswapDepthAPI, requestBody, &responseData)
+	return results[0], nil
+}
+
+func (u *UniswapSourceProvider) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
+	var results [][2]models.TriangularArbDepthResult
+	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/batch-depth"
+	requestBody, err := json.Marshal(map[string]any{"surfaceResults": surfaceRates})
 	if err != nil {
-		return result, err
+		return results, err
 	}
 
-	if _, ok := responseData["forward"]; ok {
-		var resultForward = responseData["forward"].(map[string]interface{})
-		result[0].ProfitLoss = resultForward["profitLoss"].(float64)
-		result[0].ProfitLossPerc = float32(resultForward["profitLossPerc"].(float64))
-	}
-	if _, ok := responseData["backward"]; ok {
-		var resultBackward = responseData["backward"].(map[string]interface{})
-		result[1].ProfitLoss = resultBackward["profitLoss"].(float64)
-		result[1].ProfitLossPerc = float32(resultBackward["profitLossPerc"].(float64))
+	var responseBatchData = make(map[string]interface{})
+	err = ioHelper.Post(uniswapDepthAPI, requestBody, &responseBatchData)
+	if err != nil {
+		return results, err
 	}
 
-	return result, nil
+	for _, surfaceRate := range surfaceRates {
+		var key = surfaceRate.Swap1 + "_" + surfaceRate.Swap2 + "_" + surfaceRate.Swap3
+
+		if _, ok := responseBatchData[key]; ok {
+			var responseData = responseBatchData[key].(map[string]interface{})
+			var resultItem [2]models.TriangularArbDepthResult
+
+			if _, ok = responseData["forward"]; ok {
+				var resultForward = responseData["forward"].(map[string]interface{})
+				resultItem[0].ProfitLoss = resultForward["profitLoss"].(float64)
+				resultItem[0].ProfitLossPerc = float32(resultForward["profitLossPerc"].(float64))
+			}
+			if _, ok = responseData["backward"]; ok {
+				var resultBackward = responseData["backward"].(map[string]interface{})
+				resultItem[1].ProfitLoss = resultBackward["profitLoss"].(float64)
+				resultItem[1].ProfitLossPerc = float32(resultBackward["profitLossPerc"].(float64))
+			}
+
+			results = append(results, resultItem)
+		}
+	}
+
+	return results, nil
 }

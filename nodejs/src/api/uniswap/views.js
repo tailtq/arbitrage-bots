@@ -1,73 +1,53 @@
 import express from 'express';
-import { body, validationResult } from 'express-validator';
 
 import UniswapService from './service.js';
+import { batchDepthCalculationRules, depthCalculationRules, loadTokenRules } from './validation.js';
+import { validateInputs } from '../common/validation.js';
 
 const router = express.Router();
 const service = new UniswapService();
 
-router.post('/arbitrage/depth', [
-    body('surfaceResult.swap1').isString(),
-    body('surfaceResult.swap2').isString(),
-    body('surfaceResult.swap3').isString(),
-    body('surfaceResult.contract1').isString(),
-    body('surfaceResult.contract2').isString(),
-    body('surfaceResult.contract3').isString(),
-    body('surfaceResult.contract1Address').isString(),
-    body('surfaceResult.contract2Address').isString(),
-    body('surfaceResult.contract3Address').isString(),
-    body('surfaceResult.directionTrade1').isString(),
-    body('surfaceResult.directionTrade2').isString(),
-    body('surfaceResult.directionTrade3').isString(),
-    body('surfaceResult.startingAmount').isFloat(),
-    body('surfaceResult.acquiredCoinT1').isFloat(),
-    body('surfaceResult.acquiredCoinT2').isFloat(),
-    body('surfaceResult.acquiredCoinT3').isFloat(),
-    body('surfaceResult.swap1Rate').isFloat(),
-    body('surfaceResult.swap2Rate').isFloat(),
-    body('surfaceResult.swap3Rate').isFloat(),
-    body('surfaceResult.profitLoss').isFloat(),
-    body('surfaceResult.profitLossPerc').isFloat(),
-    body('surfaceResult.direction').isString(),
-    body('surfaceResult.tradeDescription1').isString(),
-    body('surfaceResult.tradeDescription2').isString(),
-    body('surfaceResult.tradeDescription3').isString()
-], async (req, res) => {
-    const errors = validationResult(req);
+router.post(
+    '/arbitrage/depth',
+    validateInputs(depthCalculationRules),
+    async (req, res) => {
+        const { surfaceResult } = req.body;
+        const [resultForward, resultBackward] = await Promise.all([
+            service.getDepthOpportunityForward(surfaceResult),
+            service.getDepthOpportunityBackward(surfaceResult),
+        ]);
+        console.log(JSON.stringify(req.body), resultForward, resultBackward);
 
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(200).json({
+            forward: resultForward,
+            backward: resultBackward
+        });
     }
+);
 
-    const { surfaceResult } = req.body;
-    const [resultForward, resultBackward] = await Promise.all([
-        service.getDepthOpportunityForward(surfaceResult),
-        service.getDepthOpportunityBackward(surfaceResult),
-    ]);
-    console.log(JSON.stringify(req.body), resultForward, resultBackward);
+router.post(
+    '/arbitrage/batch-depth',
+    validateInputs(batchDepthCalculationRules),
+    async (req, res) => {
+        const results = await service.getBatchDepthOpportunity(req.body.surfaceResults);
+        console.log(JSON.stringify(req.body), results);
 
-    return res.status(200).json({
-        forward: resultForward,
-        backward: resultBackward
-    });
-});
+        return res.status(200).json(results);
+    }
+);
 
-router.post('/tokens/load', [
-    body('pairAddresses').isArray()
-], async (req, res) => {
-    try {
-        const errors = validationResult(req);
+router.post(
+    '/tokens/load',
+    validateInputs(loadTokenRules),
+    async (req, res) => {
+        try {
+            const result = await service.loadTokens(req.body.pairAddresses);
 
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(200).json(result);
+        } catch(e) {
+            return res.status(500).json({ error: e.message });
         }
-
-        const result = await service.loadTokens(req.body.pairAddresses);
-
-        return res.status(200).json(result);
-    } catch(e) {
-        return res.status(500).json({ error: e.message });
     }
-});
+);
 
 export default router;

@@ -451,7 +451,7 @@ func (a *ArbitrageCalculator) calculateAcquiredCoin(amountIn float64, orderbook 
 	return 0
 }
 
-func (a *ArbitrageCalculator) GetDepthFromOrderBook(
+func (a *ArbitrageCalculator) GetDepth(
 	surfaceRate models.TriangularArbSurfaceResult,
 ) (models.TriangularArbDepthResult, error) {
 	var startingAmount = surfaceRate.StartingAmount
