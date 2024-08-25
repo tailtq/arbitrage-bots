@@ -399,8 +399,8 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
 }
 
-func (a *AmmArbitrageCalculator) GetDepthFromOrderBook(surfaceRate models.TriangularArbSurfaceResult, amountIn int) (models.TriangularArbDepthResult, error) {
-	result, err := a.sourceProvider.GetDepth(surfaceRate, amountIn)
+func (a *AmmArbitrageCalculator) GetDepthFromOrderBook(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
+	result, err := a.sourceProvider.GetDepth(surfaceRate)
 
 	return result, err
 }

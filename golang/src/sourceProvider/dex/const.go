@@ -49,5 +49,5 @@ const UniswapArbitragePairPath string = "data/uniswapArbitragePairs.json"
 type ISourceProvider interface {
 	sourceprovider.ISourceProvider
 	GetSymbolPrice(symbol string) *SymbolPrice
-	GetDepth(surfaceRate models.TriangularArbSurfaceResult, amountIn int) (models.TriangularArbDepthResult, error)
+	GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error)
 }

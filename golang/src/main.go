@@ -77,18 +77,18 @@ func main() {
 		var triangularSurfaceResults []models.TriangularArbSurfaceResult
 
 		for _, triangularPairs := range triangularPairBatches {
-			startingAmount := 3
-			result, err := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, float64(startingAmount))
+			var startingAmount float64 = 3
+			result, err := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, startingAmount)
 
 			if err == nil {
 				triangularSurfaceResults = append(triangularSurfaceResults, result)
-				depthResult, err := arbitrageCalculator.GetDepthFromOrderBook(result, startingAmount)
+				depthResults, err := arbitrageCalculator.GetDepthFromOrderBook(result)
 
 				if err != nil {
 					fmt.Println(err)
-				} else if depthResult.ProfitLoss > 0 {
+				} else if depthResults[0].ProfitLoss > 0 || depthResults[1].ProfitLoss > 0 {
 					fmt.Println(result.Swap1, result.Swap2, result.Swap3, result.ProfitLossPerc, result.ProfitLoss*100)
-					fmt.Println("Profit", depthResult)
+					fmt.Println("Profit", depthResults)
 					fmt.Println("---------")
 				}
 			}

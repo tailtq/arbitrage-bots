@@ -40,10 +40,16 @@ router.post('/arbitrage/depth', [
     }
 
     const { surfaceResult } = req.body;
-    const result = await service.getDepthOpportunity(surfaceResult);
-    console.log(JSON.stringify(req.body), result);
+    const [resultForward, resultBackward] = await Promise.all([
+        service.getDepthOpportunityForward(surfaceResult),
+        service.getDepthOpportunityBackward(surfaceResult),
+    ]);
+    console.log(JSON.stringify(req.body), resultForward, resultBackward);
 
-    return res.status(200).json(result);
+    return res.status(200).json({
+        forward: resultForward,
+        backward: resultBackward
+    });
 });
 
 router.post('/tokens/load', [

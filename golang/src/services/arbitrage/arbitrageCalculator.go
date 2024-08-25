@@ -466,16 +466,17 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(
 	var depthContract1 = a.sourceProvider.GetSymbolOrderbookDepth(contract1)
 	var depthContract2 = a.sourceProvider.GetSymbolOrderbookDepth(contract2)
 	var depthContract3 = a.sourceProvider.GetSymbolOrderbookDepth(contract3)
+	var result models.TriangularArbDepthResult
 
 	if depthContract1 == nil {
 		var err = fmt.Errorf("Error: depthContract1 %v is nil\n", contract1)
-		return models.TriangularArbDepthResult{}, err
+		return result, err
 	} else if depthContract2 == nil {
 		var err = fmt.Errorf("Error: depthContract2 %v is nil\n", contract2)
-		return models.TriangularArbDepthResult{}, err
+		return result, err
 	} else if depthContract3 == nil {
 		var err = fmt.Errorf("Error: depthContract3 %v is nil\n", contract3)
-		return models.TriangularArbDepthResult{}, err
+		return result, err
 	}
 
 	// get acquired coins
@@ -495,10 +496,9 @@ func (a *ArbitrageCalculator) GetDepthFromOrderBook(
 	}
 
 	if realRatePercent > -1 {
-		return models.TriangularArbDepthResult{
-			ProfitLoss:     profitLoss,
-			ProfitLossPerc: float32(realRatePercent),
-		}, nil
+		result.ProfitLoss = profitLoss
+		result.ProfitLossPerc = float32(realRatePercent)
+		return result, nil
 	}
-	return models.TriangularArbDepthResult{}, fmt.Errorf("no profitable arbitrage found")
+	return result, fmt.Errorf("no profitable arbitrage found")
 }
