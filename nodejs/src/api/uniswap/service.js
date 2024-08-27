@@ -2,6 +2,7 @@ import * as ethers from 'ethers';
 import fs from 'fs';
 import pLimit from 'p-limit';
 import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json' assert { type: 'json' };
+import { LOGS_DIR } from '../common/consts.js';
 
 const QuoterABI = Quoter.abi;
 
@@ -10,6 +11,7 @@ class UniswapService {
     #quoterAddress;
     #quoterContract;
     #tokenInfo;
+    #logger;
     #tokenInfoCacheFile = 'tokenInfo.json';
 
     static UNISWAP_PAIR_ABI = [
@@ -29,6 +31,7 @@ class UniswapService {
         this.#quoterAddress = '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6';
         this.#tokenInfo = this.#loadTokenInfoLocal();
         this.#quoterContract = new ethers.Contract(this.#quoterAddress, QuoterABI, this.#provider);
+        this.#logger = fs.createWriteStream(LOGS_DIR + '/arbitrage-logs.jsonl', {flags : 'a'});
     }
 
     async loadTokens(pairAddresses) {
@@ -97,18 +100,21 @@ class UniswapService {
     }
 
     async getBatchDepthOpportunity(surfaceResults) {
-        const limit = pLimit(3);
+        const limit = pLimit(2);
         const promises = surfaceResults.map(surfaceResult => limit(async () => {
             const [resultForward, resultBackward] = await Promise.all([
                 this.getDepthOpportunityForward(surfaceResult),
                 this.getDepthOpportunityBackward(surfaceResult),
             ]);
+            const depthResult = {
+                forward: resultForward,
+                backward: resultBackward,
+            };
+            this.logArbOpportunity({ surfaceResult, depthResult });
             const key = `${surfaceResult.swap1}_${surfaceResult.swap2}_${surfaceResult.swap3}`;
+
             return {
-                [`${key}`]: {
-                    forward: resultForward,
-                    backward: resultBackward,
-                },
+                [`${key}`]: depthResult,
             };
         }));
         const results = await Promise.all(promises);
@@ -118,6 +124,9 @@ class UniswapService {
     }
 
     async getDepthOpportunityForward(surfaceResult) {
+        const contract1 = surfaceResult.contract1;
+        const contract2 = surfaceResult.contract2;
+        const contract3 = surfaceResult.contract3;
         const pair1ContractAddress = surfaceResult.contract1Address;
         const pair2ContractAddress = surfaceResult.contract2Address;
         const pair3ContractAddress = surfaceResult.contract3Address;
@@ -137,10 +146,24 @@ class UniswapService {
         const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
 
         // Calculate and show result
-        return this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult);
+        return {
+            contract1,
+            contract2,
+            contract3,
+            directionTrade1,
+            directionTrade2,
+            directionTrade3,
+            acquiredCoinT1: parseFloat(acquiredCoinT1),
+            acquiredCoinT2: parseFloat(acquiredCoinT2),
+            acquiredCoinT3: parseFloat(acquiredCoinT3),
+            ...this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult)
+        };
     }
 
     async getDepthOpportunityBackward(surfaceResult) {
+        const contract1 = surfaceResult.contract3;
+        const contract2 = surfaceResult.contract2;
+        const contract3 = surfaceResult.contract1;
         const pair1ContractAddress = surfaceResult.contract3Address;
         const pair2ContractAddress = surfaceResult.contract2Address;
         const pair3ContractAddress = surfaceResult.contract1Address;
@@ -160,7 +183,18 @@ class UniswapService {
         const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
 
         // Calculate and show result
-        return this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult);
+        return {
+            contract1,
+            contract2,
+            contract3,
+            directionTrade1,
+            directionTrade2,
+            directionTrade3,
+            acquiredCoinT1: parseFloat(acquiredCoinT1),
+            acquiredCoinT2: parseFloat(acquiredCoinT2),
+            acquiredCoinT3: parseFloat(acquiredCoinT3),
+            ...this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult)
+        };
     }
 
     #revertDirection(direction) {
@@ -208,7 +242,7 @@ class UniswapService {
             quotedAmountOut = ethers.formatUnits(quotedAmountOut, parseInt(inputDecimalB));
             console.timeEnd('quoteExactInputSingle');
 
-            return quotedAmountOut
+            return quotedAmountOut;
         } catch (err) {
             if (verbose) console.error('Quoter error:', err);
             console.timeEnd('quoteExactInputSingle');
@@ -224,6 +258,10 @@ class UniswapService {
             profitLoss,
             profitLossPerc,
         };
+    }
+
+    logArbOpportunity(data) {
+        this.#logger.write(JSON.stringify(data) + '\n');
     }
 }
 
