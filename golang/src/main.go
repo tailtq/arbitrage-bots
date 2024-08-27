@@ -77,20 +77,28 @@ func main() {
 		var surfaceResults []models.TriangularArbSurfaceResult
 
 		for _, triangularPairs := range triangularPairBatches {
-			var startingAmount float64 = 3
-			surfaceResult, err := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, startingAmount)
-			helpers.Panic(err)
+			var startingAmount float64 = 5
+			surfaceResult, _ := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, startingAmount)
 
 			if surfaceResult.ProfitLoss > 0 {
 				surfaceResults = append(surfaceResults, surfaceResult)
+				//} else {
+				//fmt.Println(err)
 			}
 		}
 
 		// TODO: return stream of results
+		fmt.Println("Fetching depth for the surface results...")
 		results, err := arbitrageCalculator.BatchGetDepth(surfaceResults)
 		helpers.Panic(err)
-		fmt.Println(results)
+		fmt.Println("results", results)
 
-		time.Sleep(3 * time.Second)
+		for _, result := range results {
+			if result[0].ProfitLoss > 0 || result[1].ProfitLoss > 0 {
+				fmt.Println(result)
+			}
+		}
+
+		time.Sleep(10 * time.Second)
 	}
 }

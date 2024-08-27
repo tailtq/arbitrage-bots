@@ -2,6 +2,7 @@
 // https://github.com/motdotla/dotenv/issues/206
 import 'dotenv/config';
 import express from 'express';
+import morgan from 'morgan';
 import uniswapRouter from './api/uniswap/views.js';
 
 BigInt.prototype.toJSON = function () {
@@ -10,6 +11,7 @@ BigInt.prototype.toJSON = function () {
 
 const app = express();
 app.use(express.json());
+app.use(morgan('combined'))
 app.use('/uniswap', uniswapRouter);
 
 app.get('/', function (req, res) {

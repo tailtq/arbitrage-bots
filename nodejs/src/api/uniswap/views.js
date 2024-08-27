@@ -16,12 +16,13 @@ router.post(
             service.getDepthOpportunityForward(surfaceResult),
             service.getDepthOpportunityBackward(surfaceResult),
         ]);
-        console.log(JSON.stringify(req.body), resultForward, resultBackward);
-
-        return res.status(200).json({
+        const depthResult = {
             forward: resultForward,
-            backward: resultBackward
-        });
+            backward: resultBackward,
+        };
+        service.logArbOpportunity({ surfaceResult, depthResult });
+
+        return res.status(200).json(depthResult);
     }
 );
 
@@ -30,7 +31,6 @@ router.post(
     validateInputs(batchDepthCalculationRules),
     async (req, res) => {
         const results = await service.getBatchDepthOpportunity(req.body.surfaceResults);
-        console.log(JSON.stringify(req.body), results);
 
         return res.status(200).json(results);
     }
