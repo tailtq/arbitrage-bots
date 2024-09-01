@@ -1,11 +1,13 @@
 import express from 'express';
 
-import UniswapService from './service.js';
+import UniswapService from './services/uniswap.js';
 import { batchDepthCalculationRules, depthCalculationRules, loadTokenRules } from './validation.js';
 import { validateInputs } from '../common/validation.js';
+import TokenPriceAggregationService from './services/tokenPriceAggregation.js';
 
 const router = express.Router();
-const service = new UniswapService();
+const uniswapService = new UniswapService();
+new TokenPriceAggregationService(uniswapService, 60000).startPricePolling();
 
 router.post(
     '/arbitrage/depth',
@@ -13,14 +15,14 @@ router.post(
     async (req, res) => {
         const { surfaceResult } = req.body;
         const [resultForward, resultBackward] = await Promise.all([
-            service.getDepthOpportunityForward(surfaceResult),
-            service.getDepthOpportunityBackward(surfaceResult),
+            uniswapService.getDepthOpportunityForward(surfaceResult),
+            uniswapService.getDepthOpportunityBackward(surfaceResult),
         ]);
         const depthResult = {
             forward: resultForward,
             backward: resultBackward,
         };
-        service.logArbOpportunity({ surfaceResult, depthResult });
+        uniswapService.logArbOpportunity({ surfaceResult, depthResult });
 
         return res.status(200).json(depthResult);
     }
@@ -30,7 +32,8 @@ router.post(
     '/arbitrage/batch-depth',
     validateInputs(batchDepthCalculationRules),
     async (req, res) => {
-        const results = await service.getBatchDepthOpportunity(req.body.surfaceResults);
+        console.log(req.body.surfaceResults);
+        const results = await uniswapService.getBatchDepthOpportunity(req.body.surfaceResults);
 
         return res.status(200).json(results);
     }
@@ -41,7 +44,7 @@ router.post(
     validateInputs(loadTokenRules),
     async (req, res) => {
         try {
-            const result = await service.loadTokens(req.body.pairAddresses);
+            const result = await uniswapService.loadTokens(req.body.pairAddresses);
 
             return res.status(200).json(result);
         } catch(e) {

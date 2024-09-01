@@ -2,7 +2,7 @@ package dex
 
 import (
 	"arbitrage-bot/models"
-	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/services/sourceprovider"
 	"os"
 	"time"
 )

@@ -1,6 +1,7 @@
 package cex
 
 import (
+	"arbitrage-bot/services/sourceprovider"
 	"strconv"
 	"strings"
 	"sync"
@@ -11,11 +12,10 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	ioHelper "arbitrage-bot/helpers/io"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/sourceprovider"
 )
 
-// BinanceSourceProvider ... Binance source provider
-type BinanceSourceProvider struct {
+// BinanceSourceProviderService ... Binance source provider
+type BinanceSourceProviderService struct {
 	// data stream
 	streamTicker         *ioHelper.WebSocketClient
 	streamOrderbookDepth *ioHelper.WebSocketClient
@@ -25,25 +25,25 @@ type BinanceSourceProvider struct {
 	symbolOrderbookData sync.Map
 }
 
-// NewBinanceSourceProvider ... creates a new Binance source provider
-func NewBinanceSourceProvider() *BinanceSourceProvider {
-	return &BinanceSourceProvider{
+// NewBinanceSourceProviderService ... creates a new Binance source provider
+func NewBinanceSourceProviderService() *BinanceSourceProviderService {
+	return &BinanceSourceProviderService{
 		symbols: make(map[string]*sourceprovider.Symbol),
 	}
 }
 
 // GetTokenListCachePath ... returns the path to the token list cache
-func (b *BinanceSourceProvider) GetTokenListCachePath() string {
+func (b *BinanceSourceProviderService) GetTokenListCachePath() string {
 	return BinanceTokenListPath
 }
 
 // GetArbitragePairCachePath ... returns the path to the arbitrage pair cache
-func (b *BinanceSourceProvider) GetArbitragePairCachePath() string {
+func (b *BinanceSourceProviderService) GetArbitragePairCachePath() string {
 	return BinanceArbitragePairPath
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
+func (b *BinanceSourceProviderService) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
 		return price.(*SymbolPrice)
 	}
@@ -52,7 +52,7 @@ func (b *BinanceSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
 }
 
 // GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
+func (b *BinanceSourceProviderService) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
 	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
 		return orderbook.(*sourceprovider.SymbolOrderbookDepth)
 	}
@@ -61,7 +61,7 @@ func (b *BinanceSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourcepr
 }
 
 // GetSymbols ... returns all the symbols
-func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
+func (b *BinanceSourceProviderService) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	// get a list of all symbols on Binance & save to file as cache
 	if !force && fileHelper.PathExists(BinanceTokenListPath) {
 		var symbols []*sourceprovider.Symbol
@@ -104,7 +104,7 @@ func (b *BinanceSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
+func (b *BinanceSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
 	// subscribe a new data stream for a new symbol
 	// check if symbol already exists
 	for _, symbol := range symbols {
@@ -120,7 +120,7 @@ func (b *BinanceSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbo
 	b.startOrderbookDepthStream()
 }
 
-func (b *BinanceSourceProvider) startTickerDataStream() {
+func (b *BinanceSourceProviderService) startTickerDataStream() {
 	// subscribe to multiple data streams using one connection (ticker topic)
 	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var symbolString string
@@ -140,7 +140,7 @@ func (b *BinanceSourceProvider) startTickerDataStream() {
 	b.streamTicker.Start(b.handleTickerDataStream)
 }
 
-func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
+func (b *BinanceSourceProviderService) handleTickerDataStream(data *[]byte) {
 	// handle the ticker data stream
 	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var ticker BinanceSymbolTicker
@@ -159,7 +159,7 @@ func (b *BinanceSourceProvider) handleTickerDataStream(data *[]byte) {
 	// fmt.Println(string(*data))
 }
 
-func (b *BinanceSourceProvider) stopTickerDataStream() {
+func (b *BinanceSourceProviderService) stopTickerDataStream() {
 	// stop the data stream if exists
 	if b.streamTicker != nil {
 		b.streamTicker.Stop()
@@ -167,7 +167,7 @@ func (b *BinanceSourceProvider) stopTickerDataStream() {
 }
 
 // UnsubscribeSymbol ... unsubscribes from the symbol
-func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
+func (b *BinanceSourceProviderService) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
 	// unsubscribe a symbol from the data stream (remove symbol from the map -> restart data stream)
 	delete(b.symbols, symbol.Symbol)
 	b.stopTickerDataStream()
@@ -176,7 +176,7 @@ func (b *BinanceSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol)
 	b.startOrderbookDepthStream()
 }
 
-func (b *BinanceSourceProvider) startOrderbookDepthStream() {
+func (b *BinanceSourceProviderService) startOrderbookDepthStream() {
 	// subscribe to multiple data streams using one connection (order book/depth topic)
 	var symbolString string
 	var charCount int = 0
@@ -195,7 +195,7 @@ func (b *BinanceSourceProvider) startOrderbookDepthStream() {
 	b.streamOrderbookDepth.Start(b.handleOrderbookDepthStream)
 }
 
-func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
+func (b *BinanceSourceProviderService) handleOrderbookDepthStream(data *[]byte) {
 	// handle the ticker data stream
 	var orderbookDepth BinanceOrderbookDepth
 	jsonHelper.Unmarshal(*data, &orderbookDepth)
@@ -230,7 +230,7 @@ func (b *BinanceSourceProvider) handleOrderbookDepthStream(data *[]byte) {
 	// fmt.Println(len(string(*data)), orderbookDepth.GetSymbol())
 }
 
-func (b *BinanceSourceProvider) stopOrderbookDepthStream() {
+func (b *BinanceSourceProviderService) stopOrderbookDepthStream() {
 	// Get the depth from the order book
 	if b.streamOrderbookDepth != nil {
 		b.streamOrderbookDepth.Stop()

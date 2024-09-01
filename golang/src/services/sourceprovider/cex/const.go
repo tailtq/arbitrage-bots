@@ -1,7 +1,7 @@
 package cex
 
 import (
-	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/services/sourceprovider"
 	"strings"
 	"time"
 )

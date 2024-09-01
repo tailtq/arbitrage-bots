@@ -2,8 +2,8 @@ package arbitrage
 
 import (
 	"arbitrage-bot/models"
-	"arbitrage-bot/sourceprovider"
-	"arbitrage-bot/sourceprovider/dex"
+	"arbitrage-bot/services/sourceprovider"
+	"arbitrage-bot/services/sourceprovider/dex"
 	"fmt"
 )
 

@@ -1,0 +1,14 @@
+services:
+  my-mongodb:
+    image: mongo:7.0.14
+    container_name: my-mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=arbitrage-stats
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      # named volumes
+      - ./db/mongodb:/data/db
+      - ./db/mongoconfig:/data/configdb

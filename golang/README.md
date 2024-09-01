@@ -4,9 +4,9 @@
 
 **SourceProvider** (format and deliver the same output):
 
-- BinanceSourceProvider
+- BinanceSourceProviderService
 - OKXSourceProvider
-- UniswapSourceProvider
+- UniswapSourceProviderService
 
 **ArbitrageProcessor** (calculate the arbitrage opportunity from input sources)
 
