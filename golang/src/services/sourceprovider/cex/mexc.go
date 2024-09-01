@@ -5,7 +5,7 @@ import (
 	fileHelper "arbitrage-bot/helpers/file"
 	ioHelper "arbitrage-bot/helpers/io"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/services/sourceprovider"
 	"fmt"
 	"strconv"
 	"strings"
@@ -13,8 +13,8 @@ import (
 	"time"
 )
 
-// MEXCSourceProvider ...
-type MEXCSourceProvider struct {
+// MEXCSourceProviderService ...
+type MEXCSourceProviderService struct {
 	// data stream
 	streamsTicker         []*ioHelper.WebSocketClient
 	streamsOrderbookDepth []*ioHelper.WebSocketClient
@@ -23,25 +23,25 @@ type MEXCSourceProvider struct {
 	symbolOrderbookData   sync.Map
 }
 
-// NewMEXCSourceProvider ... creates a new MEXC source provider
-func NewMEXCSourceProvider() *MEXCSourceProvider {
-	return &MEXCSourceProvider{
+// NewMEXCSourceProviderService ... creates a new MEXC source provider
+func NewMEXCSourceProviderService() *MEXCSourceProviderService {
+	return &MEXCSourceProviderService{
 		symbols: make(map[string]*sourceprovider.Symbol),
 	}
 }
 
 // GetArbitragePairCachePath implements sourceprovider.ICexSourceProvider.
-func (b *MEXCSourceProvider) GetArbitragePairCachePath() string {
+func (b *MEXCSourceProviderService) GetArbitragePairCachePath() string {
 	return MEXCArbitragePairPath
 }
 
 // GetTokenListCachePath implements sourceprovider.ICexSourceProvider.
-func (b *MEXCSourceProvider) GetTokenListCachePath() string {
+func (b *MEXCSourceProviderService) GetTokenListCachePath() string {
 	return MEXCTokenListPath
 }
 
 // GetSymbolPrice returns the price for a given symbol
-func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
+func (b *MEXCSourceProviderService) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {
 		return price.(*SymbolPrice)
 	}
@@ -50,7 +50,7 @@ func (b *MEXCSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
 }
 
 // GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (b *MEXCSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
+func (b *MEXCSourceProviderService) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
 	if orderbook, ok := b.symbolOrderbookData.Load(symbol); ok {
 		return orderbook.(*sourceprovider.SymbolOrderbookDepth)
 	}
@@ -59,7 +59,7 @@ func (b *MEXCSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovi
 }
 
 // GetSymbols ... returns a list of symbols
-func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
+func (b *MEXCSourceProviderService) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	// get a list of all symbols on Binance & save to file as cache
 	if !force && fileHelper.PathExists(MEXCTokenListPath) {
 		var symbols []*sourceprovider.Symbol
@@ -102,7 +102,7 @@ func (b *MEXCSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, e
 }
 
 // SubscribeSymbols ... subscribes to a list of symbols
-func (b *MEXCSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
+func (b *MEXCSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
 	// subscribe a new data stream for a new symbol
 	// check if symbol already exists
 	for _, symbol := range symbols {
@@ -118,7 +118,7 @@ func (b *MEXCSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) 
 	b.startOrderbookDepthStream()
 }
 
-func (b *MEXCSourceProvider) startTickerDataStream() {
+func (b *MEXCSourceProviderService) startTickerDataStream() {
 	// subscribe to multiple data streams using one connection (ticker topic)
 	// https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams#individual-symbol-ticker-streams
 	var symbols []string
@@ -139,7 +139,7 @@ func (b *MEXCSourceProvider) startTickerDataStream() {
 	}
 }
 
-func (b *MEXCSourceProvider) handleTickerDataStream(data *[]byte) {
+func (b *MEXCSourceProviderService) handleTickerDataStream(data *[]byte) {
 	var ticker MEXCSymbolTicker
 	jsonHelper.Unmarshal(*data, &ticker)
 	bestAsk, _ := strconv.ParseFloat(ticker.Data.BestAskPrice, 64)
@@ -153,14 +153,14 @@ func (b *MEXCSourceProvider) handleTickerDataStream(data *[]byte) {
 	})
 }
 
-func (b *MEXCSourceProvider) stopTickerDataStream() {
+func (b *MEXCSourceProviderService) stopTickerDataStream() {
 	for _, streamTicker := range b.streamsTicker {
 		streamTicker.Stop()
 	}
 }
 
 // UnsubscribeSymbol ... unsubscribes from a symbol
-func (b *MEXCSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
+func (b *MEXCSourceProviderService) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
 	delete(b.symbols, symbol.Symbol)
 	b.stopTickerDataStream()
 	b.stopOrderbookDepthStream()
@@ -168,14 +168,14 @@ func (b *MEXCSourceProvider) UnsubscribeSymbol(symbol *sourceprovider.Symbol) {
 	b.startOrderbookDepthStream()
 }
 
-func (b *MEXCSourceProvider) startOrderbookDepthStream() {
+func (b *MEXCSourceProviderService) startOrderbookDepthStream() {
 	// Stop because the arbitrage rate is negative
 }
 
-func (b *MEXCSourceProvider) handleOrderbookDepthStream(data *[]byte) {
+func (b *MEXCSourceProviderService) handleOrderbookDepthStream(data *[]byte) {
 	// Stop because the arbitrage rate is negative
 }
 
-func (b *MEXCSourceProvider) stopOrderbookDepthStream() {
+func (b *MEXCSourceProviderService) stopOrderbookDepthStream() {
 	// Stop because the arbitrage rate is negative
 }

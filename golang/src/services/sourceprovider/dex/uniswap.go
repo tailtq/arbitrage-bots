@@ -4,8 +4,9 @@ import (
 	"arbitrage-bot/helpers"
 	ioHelper "arbitrage-bot/helpers/io"
 	"arbitrage-bot/models"
-	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/services/sourceprovider"
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"sync"
 	"time"
@@ -29,31 +30,31 @@ const surfaceRateQuery string = `
 	}
 }`
 
-// UniswapSourceProvider ... Uniswap source provider
-type UniswapSourceProvider struct {
+// UniswapSourceProviderService ... Uniswap source provider
+type UniswapSourceProviderService struct {
 	symbolPriceData sync.Map
 	symbols         map[string]*sourceprovider.Symbol
 }
 
-// NewUniswapSourceProvider ... creates a new Uniswap source provider
-func NewUniswapSourceProvider() *UniswapSourceProvider {
-	return &UniswapSourceProvider{
+// NewUniswapSourceProviderService ... creates a new Uniswap source provider
+func NewUniswapSourceProviderService() *UniswapSourceProviderService {
+	return &UniswapSourceProviderService{
 		symbols: make(map[string]*sourceprovider.Symbol),
 	}
 }
 
 // GetArbitragePairCachePath ... returns the path to the token list cache
-func (u *UniswapSourceProvider) GetArbitragePairCachePath() string {
+func (u *UniswapSourceProviderService) GetArbitragePairCachePath() string {
 	return UniswapArbitragePairPath
 }
 
 // GetTokenListCachePath ... returns the path to the token list cache
-func (u *UniswapSourceProvider) GetTokenListCachePath() string {
+func (u *UniswapSourceProviderService) GetTokenListCachePath() string {
 	return UniswapTokenListPath
 }
 
 // GetSymbolPrice ... returns the price for a given symbol
-func (u *UniswapSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
+func (u *UniswapSourceProviderService) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := u.symbolPriceData.Load(symbol); ok {
 		return price.(*SymbolPrice)
 	}
@@ -62,11 +63,11 @@ func (u *UniswapSourceProvider) GetSymbolPrice(symbol string) *SymbolPrice {
 }
 
 // GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (u *UniswapSourceProvider) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
+func (u *UniswapSourceProviderService) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
 	return nil
 }
 
-func (u *UniswapSourceProvider) getSubgraphPoolData() ([]SubgraphPoolItem, error) {
+func (u *UniswapSourceProviderService) getSubgraphPoolData() ([]SubgraphPoolItem, error) {
 	requestBody, err := json.Marshal(map[string]string{"query": surfaceRateQuery})
 
 	if err != nil {
@@ -100,7 +101,7 @@ func (u *UniswapSourceProvider) getSubgraphPoolData() ([]SubgraphPoolItem, error
 }
 
 // loadTokens ... loads the tokens for calculating depths before running
-func (u *UniswapSourceProvider) loadTokens(addresses []string) {
+func (u *UniswapSourceProviderService) loadTokens(addresses []string) {
 	requestBody, err := json.Marshal(map[string][]string{
 		"pairAddresses": addresses,
 	})
@@ -113,7 +114,7 @@ func (u *UniswapSourceProvider) loadTokens(addresses []string) {
 }
 
 // GetSymbols ... returns the symbols
-func (u *UniswapSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
+func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	subgraphPoolItems, err := u.getSubgraphPoolData()
 	helpers.Panic(err)
 	var symbols []*sourceprovider.Symbol
@@ -145,7 +146,7 @@ func (u *UniswapSourceProvider) GetSymbols(force bool) ([]*sourceprovider.Symbol
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
+func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
 	var symbolAddresses []string
 
 	for _, symbol := range symbols {
@@ -182,7 +183,7 @@ func (u *UniswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbo
 }
 
 // GetDepth ... returns the depth for a given surface rate
-func (u *UniswapSourceProvider) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
+func (u *UniswapSourceProviderService) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
 	results, err := u.BatchGetDepth([]models.TriangularArbSurfaceResult{surfaceRate})
 
 	if err != nil {
@@ -192,9 +193,10 @@ func (u *UniswapSourceProvider) GetDepth(surfaceRate models.TriangularArbSurface
 	return results[0], nil
 }
 
-func (u *UniswapSourceProvider) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
+func (u *UniswapSourceProviderService) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
 	var results [][2]models.TriangularArbDepthResult
 	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/batch-depth"
+	fmt.Println("hehehe surfaceRates", surfaceRates)
 	requestBody, err := json.Marshal(map[string]any{"surfaceResults": surfaceRates})
 	if err != nil {
 		return results, err

@@ -1,7 +1,7 @@
 package arbitrage
 
 import (
-	"arbitrage-bot/sourceprovider"
+	"arbitrage-bot/services/sourceprovider"
 	"slices"
 	"sort"
 	"strings"

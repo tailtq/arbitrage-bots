@@ -2,7 +2,8 @@ import * as ethers from 'ethers';
 import fs from 'fs';
 import pLimit from 'p-limit';
 import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json' assert { type: 'json' };
-import { LOGS_DIR } from '../common/consts.js';
+import { LOGS_DIR } from '../../common/consts.js';
+import { writeFile } from '../../common/helpers.js';
 
 const QuoterABI = Quoter.abi;
 
@@ -27,11 +28,15 @@ class UniswapService {
     ];
 
     constructor() {
-        this.#provider = new ethers.JsonRpcProvider(`https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`);
-        this.#quoterAddress = '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6';
+        this.#provider = new ethers.JsonRpcProvider(process.env.NETWORK_CONNECTION_URL);
+        this.#quoterAddress = process.env.QUOTER_ADDRESS;
         this.#tokenInfo = this.#loadTokenInfoLocal();
         this.#quoterContract = new ethers.Contract(this.#quoterAddress, QuoterABI, this.#provider);
         this.#logger = fs.createWriteStream(LOGS_DIR + '/arbitrage-logs.jsonl', {flags : 'a'});
+    }
+
+    getTokenInfo() {
+        return this.#tokenInfo;
     }
 
     async loadTokens(pairAddresses) {
@@ -77,18 +82,9 @@ class UniswapService {
             return this.#tokenInfo[pairAddress] = tokenInfo;
         }));
         const result = await Promise.all(promises);
-        await this.#saveTokenInfoLocal();
+        await writeFile(this.#tokenInfoCacheFile, this.#tokenInfo);
 
         return result;
-    }
-
-    async #saveTokenInfoLocal() {
-        return new Promise(async (resolve, reject) => {
-            const tokenInfo = JSON.stringify(this.#tokenInfo, null, 2);
-            fs.writeFile(this.#tokenInfoCacheFile, tokenInfo, () => {
-                resolve();
-            });
-        });
     }
 
     #loadTokenInfoLocal() {
@@ -135,15 +131,15 @@ class UniswapService {
         const directionTrade3 = surfaceResult.directionTrade3;
 
         console.log('Checking trade 1 acquired coin...');
-        const acquiredCoinT1 = await this.#getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
+        const acquiredCoinT1 = await this.getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
 
         // console.log('Checking trade 2 acquired coin...');
         if (acquiredCoinT1 === 0) return;
-        const acquiredCoinT2 = await this.#getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
+        const acquiredCoinT2 = await this.getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
 
         // console.log('Checking trade 3 acquired coin...');
         if (acquiredCoinT2 === 0) return;
-        const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
+        const acquiredCoinT3 = await this.getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
 
         // Calculate and show result
         return {
@@ -172,15 +168,15 @@ class UniswapService {
         const directionTrade3 = this.#revertDirection(surfaceResult.directionTrade1);
 
         console.log('Checking trade 1 acquired coin...');
-        const acquiredCoinT1 = await this.#getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
+        const acquiredCoinT1 = await this.getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
 
         // console.log('Checking trade 2 acquired coin...');
         if (acquiredCoinT1 === 0) return;
-        const acquiredCoinT2 = await this.#getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
+        const acquiredCoinT2 = await this.getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
 
         // console.log('Checking trade 3 acquired coin...');
         if (acquiredCoinT2 === 0) return;
-        const acquiredCoinT3 = await this.#getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
+        const acquiredCoinT3 = await this.getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
 
         // Calculate and show result
         return {
@@ -203,33 +199,39 @@ class UniswapService {
     }
 
     // GET PRICE /////////////////////////////////////////////////
-    async #getPrice(address , amountIn, tradeDirection, verbose = true) {
+    async getPrice(address , amountIn, tradeDirection, verbose = true) {
         if (!this.#tokenInfo[address]) {
             console.error('Token info not found');
             return 0;
         }
 
-        console.time('quoteExactInputSingle');
         const { fee, token0, token1 } = this.#tokenInfo[address];
         let inputTokenA;
         let inputDecimalA;
+        let inputSymbolA;
         let inputTokenB;
         let inputDecimalB;
+        let inputSymbolB;
 
         if (tradeDirection === 'baseToQuote') {
             inputTokenA = token0.address;
+            inputSymbolA = token0.symbol;
             inputDecimalA = token0.decimals;
             inputTokenB = token1.address;
+            inputSymbolB = token1.symbol;
             inputDecimalB = token1.decimals;
         } else if (tradeDirection === 'quoteToBase') {
             inputTokenA = token1.address;
+            inputSymbolA = token1.symbol;
             inputDecimalA = token1.decimals;
             inputTokenB = token0.address;
+            inputSymbolB = token0.symbol;
             inputDecimalB = token0.decimals;
         }
 
         // reformat amountIn
-        const amountInParsed = ethers.parseUnits(amountIn.toString(), parseInt(inputDecimalA));
+        const amountInParsed = BigInt(parseInt(amountIn * 10 ** inputDecimalA));
+        console.time(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
 
         try {
             let quotedAmountOut = await this.#quoterContract.quoteExactInputSingle.staticCall(
@@ -240,13 +242,13 @@ class UniswapService {
                 0
             );
             quotedAmountOut = ethers.formatUnits(quotedAmountOut, parseInt(inputDecimalB));
-            console.timeEnd('quoteExactInputSingle');
 
             return quotedAmountOut;
         } catch (err) {
             if (verbose) console.error('Quoter error:', err);
-            console.timeEnd('quoteExactInputSingle');
             return 0
+        } finally {
+            console.timeEnd(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
         }
     }
 
