@@ -105,6 +105,7 @@ type MEXCSymbolTicker struct {
 // ISourceProvider ... Interface for the CEX source provider
 type ISourceProvider interface {
 	sourceprovider.ISourceProvider
+	SubscribeSymbols(symbols []*sourceprovider.Symbol)
 	GetSymbolPrice(symbol string) *SymbolPrice
 	GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth
 }

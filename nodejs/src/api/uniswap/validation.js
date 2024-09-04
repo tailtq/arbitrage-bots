@@ -51,3 +51,7 @@ export const batchDepthCalculationRules = [
     body('surfaceResults.*.profitLoss').isFloat(),
     body('surfaceResults.*.profitLossPerc').isFloat(),
 ];
+
+export const tokenPairPriceRules = [
+    body('tokenPairs.*').isString(),
+];

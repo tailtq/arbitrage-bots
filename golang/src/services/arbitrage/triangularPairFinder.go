@@ -9,11 +9,10 @@ import (
 
 type TriangularPairFinder struct{}
 
-func (t *TriangularPairFinder) Handle(symbols []*sourceprovider.Symbol, amount int) [][3]*sourceprovider.Symbol {
+func (t *TriangularPairFinder) Handle(pairsList []*sourceprovider.Symbol) [][3]*sourceprovider.Symbol {
 	// find a list of 3 arbitrage pairs (f.e. SEIBNB BNBBTC SEIBTC)
 	var triangularPairsList [][3]*sourceprovider.Symbol
 	var removeDuplicatesMap = make(map[string]bool)
-	var pairsList = symbols[:amount]
 
 	// get pair A
 	for _, pairA := range pairsList {
