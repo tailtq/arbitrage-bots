@@ -5,8 +5,9 @@ import (
 	ioHelper "arbitrage-bot/helpers/io"
 	"arbitrage-bot/models"
 	"arbitrage-bot/services/sourceprovider"
+	"arbitrage-bot/services/web3"
 	"encoding/json"
-	"fmt"
+	"slices"
 	"strconv"
 	"sync"
 	"time"
@@ -17,7 +18,7 @@ const surfaceRateQuery string = `
 	pools(
 		orderBy:totalValueLockedETH,
 		orderDirection: desc,
-		first: 700,
+		first: 1000,
 		skip: 4
 	) {
 		token0 {id symbol decimals}
@@ -30,8 +31,13 @@ const surfaceRateQuery string = `
 	}
 }`
 
+var suitablePairs = []string{
+	"DAI", "FRAX", "FEI", "LINK", "DAI", "PEPE", "DYAD", "MKR", "UNI", "WHITE", "MNT", "TURBO", "SHIB", "DOG", "APE", "ENS", "PANDORA", "SOL", "LDO", "MATIC", "AAVE", "ONDO", "PEOPLE", "SHFL", "FTM", "RNDR", "KOIN", "RCH", "FET", "LBTC", "PORK", "PRIME", "HEX",
+}
+
 // UniswapSourceProviderService ... Uniswap source provider
 type UniswapSourceProviderService struct {
+	web3Service     *web3.UniswapWeb3Service
 	symbolPriceData sync.Map
 	symbols         map[string]*sourceprovider.Symbol
 }
@@ -39,7 +45,8 @@ type UniswapSourceProviderService struct {
 // NewUniswapSourceProviderService ... creates a new Uniswap source provider
 func NewUniswapSourceProviderService() *UniswapSourceProviderService {
 	return &UniswapSourceProviderService{
-		symbols: make(map[string]*sourceprovider.Symbol),
+		symbols:     make(map[string]*sourceprovider.Symbol),
+		web3Service: web3.NewUniswapWeb3Service(),
 	}
 }
 
@@ -58,15 +65,10 @@ func (u *UniswapSourceProviderService) GetSymbolPrice(symbol string) *SymbolPric
 	if price, ok := u.symbolPriceData.Load(symbol); ok {
 		return price.(*SymbolPrice)
 	}
-
 	return nil
 }
 
-// GetSymbolOrderbookDepth ... returns the order book for a given symbol
-func (u *UniswapSourceProviderService) GetSymbolOrderbookDepth(symbol string) *sourceprovider.SymbolOrderbookDepth {
-	return nil
-}
-
+// getSubgraphPoolData ... gets depth price data from the subgraph pool
 func (u *UniswapSourceProviderService) getSubgraphPoolData() ([]SubgraphPoolItem, error) {
 	requestBody, err := json.Marshal(map[string]string{"query": surfaceRateQuery})
 
@@ -81,7 +83,6 @@ func (u *UniswapSourceProviderService) getSubgraphPoolData() ([]SubgraphPoolItem
 		return nil, err
 	}
 
-	//fmt.Println("resData", resData)
 	resDataItems := resData["data"].(map[string]interface{})["pools"].([]interface{})
 	subgraphPoolItems := make([]SubgraphPoolItem, len(resDataItems))
 
@@ -100,19 +101,6 @@ func (u *UniswapSourceProviderService) getSubgraphPoolData() ([]SubgraphPoolItem
 	return subgraphPoolItems, nil
 }
 
-// loadTokens ... loads the tokens for calculating depths before running
-func (u *UniswapSourceProviderService) loadTokens(addresses []string) {
-	requestBody, err := json.Marshal(map[string][]string{
-		"pairAddresses": addresses,
-	})
-	helpers.Panic(err)
-
-	var responseData []interface{}
-	var uniswapLoadTokensAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/tokens/load"
-	err = ioHelper.Post(uniswapLoadTokensAPI, requestBody, &responseData)
-	helpers.Panic(err)
-}
-
 // GetSymbols ... returns the symbols
 func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider.Symbol, error) {
 	subgraphPoolItems, err := u.getSubgraphPoolData()
@@ -121,23 +109,26 @@ func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider
 	uniqueSymbols := make(map[string]bool)
 
 	for _, item := range subgraphPoolItems {
+		feeTier, _ := strconv.Atoi(item.FeeTier)
 		baseAssetDecimals, _ := strconv.Atoi(item.Token0.Decimals)
 		quoteAssetDecimals, _ := strconv.Atoi(item.Token1.Decimals)
 		pair := item.Token0.Symbol + item.Token1.Symbol
 
-		if uniqueSymbols[pair] {
+		if uniqueSymbols[pair] || (!slices.Contains(suitablePairs, item.Token0.Symbol) &&
+			!slices.Contains(suitablePairs, item.Token1.Symbol)) {
 			continue
 		}
 
 		symbols = append(symbols, &sourceprovider.Symbol{
-			ID:                 item.ID,
+			Address:            item.ID,
 			Symbol:             pair,
+			FeeTier:            feeTier,
 			BaseAsset:          item.Token0.Symbol,
-			BaseAssetID:        item.Token0.ID,
-			BaseAssetDecimals:  uint8(baseAssetDecimals),
+			BaseAssetAddress:   item.Token0.ID,
+			BaseAssetDecimals:  baseAssetDecimals,
 			QuoteAsset:         item.Token1.Symbol,
-			QuoteAssetID:       item.Token1.ID,
-			QuoteAssetDecimals: uint8(quoteAssetDecimals),
+			QuoteAssetAddress:  item.Token1.ID,
+			QuoteAssetDecimals: quoteAssetDecimals,
 		})
 		uniqueSymbols[pair] = true
 	}
@@ -146,35 +137,49 @@ func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol) {
-	var symbolAddresses []string
+func (u *UniswapSourceProviderService) SubscribeSymbols(
+	symbols []*sourceprovider.Symbol, useSubgraph bool, pingChannel chan bool,
+) {
+	var tokenPairs []string
 
 	for _, symbol := range symbols {
 		u.symbols[symbol.Symbol] = symbol
-		symbolAddresses = append(symbolAddresses, symbol.ID)
+		tokenPairs = append(tokenPairs, symbol.Symbol)
 	}
 
-	u.loadTokens(symbolAddresses)
-
 	for {
-		subgraphPoolItems, err := u.getSubgraphPoolData()
-		helpers.Panic(err)
+		if useSubgraph {
+			subgraphPoolItems, err := u.getSubgraphPoolData()
+			helpers.Panic(err)
 
-		for _, item := range subgraphPoolItems {
-			token0Price, _ := strconv.ParseFloat(item.Token0Price, 64)
-			token1Price, _ := strconv.ParseFloat(item.Token1Price, 64)
-			symbol := u.symbols[item.Token0.Symbol+item.Token1.Symbol]
+			for _, item := range subgraphPoolItems {
+				token0Price, _ := strconv.ParseFloat(item.Token0Price, 64)
+				token1Price, _ := strconv.ParseFloat(item.Token1Price, 64)
+				symbol := u.symbols[item.Token0.Symbol+item.Token1.Symbol]
 
-			if symbol == nil {
-				continue
+				if symbol == nil {
+					continue
+				}
+
+				u.symbolPriceData.Store(symbol.Symbol, &SymbolPrice{
+					Symbol:      symbol,
+					Token0Price: token0Price,
+					Token1Price: token1Price,
+					EventTime:   time.Now(),
+				})
 			}
-
-			u.symbolPriceData.Store(symbol.Symbol, &SymbolPrice{
-				Symbol:      symbol,
-				Token0Price: token0Price,
-				Token1Price: token1Price,
-				EventTime:   time.Now(),
+		} else {
+			aggregatedPrices := u.web3Service.AggregatePrices(symbols, true)
+			aggregatedPrices.Range(func(key any, value any) bool {
+				u.symbolPriceData.Store(key, &SymbolPrice{
+					Symbol:      u.symbols[key.(string)],
+					Token0Price: 1.0 / value.(float64),
+					Token1Price: value.(float64),
+					EventTime:   time.Now(),
+				})
+				return true
 			})
+			pingChannel <- true
 		}
 
 		// Fetch the data every 60 seconds
@@ -196,11 +201,8 @@ func (u *UniswapSourceProviderService) GetDepth(surfaceRate models.TriangularArb
 func (u *UniswapSourceProviderService) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
 	var results [][2]models.TriangularArbDepthResult
 	var uniswapDepthAPI = helpers.GetEnv("UNISWAP_NODEJS_SERVER") + "/uniswap/arbitrage/batch-depth"
-	fmt.Println("hehehe surfaceRates", surfaceRates)
 	requestBody, err := json.Marshal(map[string]any{"surfaceResults": surfaceRates})
-	if err != nil {
-		return results, err
-	}
+	helpers.Panic(err)
 
 	var responseBatchData = make(map[string]interface{})
 	err = ioHelper.Post(uniswapDepthAPI, requestBody, &responseBatchData)

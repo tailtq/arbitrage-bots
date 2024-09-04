@@ -13,8 +13,6 @@ import (
 	"time"
 )
 
-const TriangularPairLimit = 500
-
 func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sourceprovider.Symbol {
 	// get all the triangular pairs
 	arbitragePairPath := sourceProvider.GetArbitragePairCachePath()
@@ -33,7 +31,7 @@ func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sour
 	helpers.Panic(err)
 
 	// find the arbitrage pairs -> cache it
-	triangularPairs := triangularPairFinder.Handle(symbols, len(symbols))
+	triangularPairs := triangularPairFinder.Handle(symbols)
 	err = jsonHelper.WriteJSONFile(arbitragePairPath, triangularPairs)
 	helpers.Panic(err)
 
@@ -42,20 +40,18 @@ func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sour
 
 // CEX/DEX arbitrage opportunities
 func main() {
+	const forceReloadTriangularPairs = false
+
 	currentSourceProviderName := sourceprovider.SourceProviderName["Uniswap"]
 	sourceProvider := dex.GetSourceProvider(currentSourceProviderName)
 	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
+	_ = arbitrageCalculator
 	//currentSourceProviderName := sourceprovider.SourceProviderName["Binance"]
 	//sourceProvider := cex.GetSourceProvider(currentSourceProviderName)
 	//arbitrageCalculator := arbitrage.NewArbitrageCalculator(sourceProvider)
 
-	var triangularPairBatches = step1(sourceProvider, false)
-	_ = triangularPairBatches
+	var triangularPairBatches = step1(sourceProvider, forceReloadTriangularPairs)
 	var symbols []*sourceprovider.Symbol
-
-	if len(triangularPairBatches) > TriangularPairLimit {
-		triangularPairBatches = triangularPairBatches[:TriangularPairLimit]
-	}
 
 	for _, pair := range triangularPairBatches {
 		for _, symbol := range pair {
@@ -63,17 +59,14 @@ func main() {
 		}
 	}
 
-	if currentSourceProviderName == sourceprovider.SourceProviderName["Uniswap"] {
-		go sourceProvider.SubscribeSymbols(symbols)
-	} else {
-		sourceProvider.SubscribeSymbols(symbols)
-	}
+	var pingChannel = make(chan bool)
+	go sourceProvider.SubscribeSymbols(symbols, false, pingChannel)
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
 	time.Sleep(3 * time.Second)
 	fmt.Println("Starting the arbitrage calculation...")
 
-	for {
+	for range pingChannel {
 		var surfaceResults []models.TriangularArbSurfaceResult
 
 		for _, triangularPairs := range triangularPairBatches {
@@ -82,23 +75,23 @@ func main() {
 
 			if surfaceResult.ProfitLoss > 0 {
 				surfaceResults = append(surfaceResults, surfaceResult)
-				//} else {
-				//fmt.Println(err)
+				fmt.Println("Found an arbitrage opportunity", surfaceResult.Contract1, surfaceResult.Contract2, surfaceResult.Contract3, surfaceResult.ProfitLoss)
+				fmt.Println("=====")
 			}
 		}
 
 		// TODO: return stream of results
 		fmt.Println("Fetching depth for the surface results...")
-		results, err := arbitrageCalculator.BatchGetDepth(surfaceResults)
-		helpers.Panic(err)
-		fmt.Println("results", results)
+		//results, err := arbitrageCalculator.BatchGetDepth(surfaceResults)
+		//helpers.Panic(err)
+		//
+		//for _, result := range results {
+		//	fmt.Println("HUHU", result)
+		//	if result[0].ProfitLoss > 0 || result[1].ProfitLoss > 0 {
+		//}
+		//}
 
-		for _, result := range results {
-			if result[0].ProfitLoss > 0 || result[1].ProfitLoss > 0 {
-				fmt.Println(result)
-			}
-		}
-
+		fmt.Println("========================")
 		time.Sleep(10 * time.Second)
 	}
 }

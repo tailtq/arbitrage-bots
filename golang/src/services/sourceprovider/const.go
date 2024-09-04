@@ -2,12 +2,13 @@ package sourceprovider
 
 // Symbol ... Represents a symbol
 type Symbol struct {
-	ID                 string `json:"id"`
+	Address            string `json:"address"`
 	Symbol             string `json:"symbol"`
+	FeeTier            int    `json:"feeTier"`
 	BaseAsset          string `json:"baseAsset"`
-	BaseAssetID        string `json:"baseAssetId"`
-	BaseAssetDecimals  uint8  `json:"baseAssetDecimals"`
+	BaseAssetAddress   string `json:"baseAssetAddress"`
+	BaseAssetDecimals  int    `json:"baseAssetDecimals"`
 	QuoteAsset         string `json:"quoteAsset"`
-	QuoteAssetID       string `json:"quoteAssetId"`
-	QuoteAssetDecimals uint8  `json:"quoteAssetDecimals"`
+	QuoteAssetAddress  string `json:"quoteAssetAddress"`
+	QuoteAssetDecimals int    `json:"quoteAssetDecimals"`
 }

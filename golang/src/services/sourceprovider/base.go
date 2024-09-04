@@ -5,7 +5,6 @@ type ISourceProvider interface {
 	GetTokenListCachePath() string
 	GetArbitragePairCachePath() string
 	GetSymbols(force bool) ([]*Symbol, error)
-	SubscribeSymbols(symbols []*Symbol)
 }
 
 // https://www.investopedia.com/terms/b/bid-and-ask.asp

@@ -68,17 +68,17 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	var calculated = false
 
 	var aPair = triangularPair[0].Symbol
-	var aPairContractAddress = triangularPair[0].ID
+	var aPairContractAddress = triangularPair[0].Address
 	var aBase = triangularPair[0].BaseAsset
 	var aQuote = triangularPair[0].QuoteAsset
 
 	var bPair = triangularPair[1].Symbol
-	var bPairContractAddress = triangularPair[1].ID
+	var bPairContractAddress = triangularPair[1].Address
 	var bBase = triangularPair[1].BaseAsset
 	var bQuote = triangularPair[1].QuoteAsset
 
 	var cPair = triangularPair[2].Symbol
-	var cPairContractAddress = triangularPair[2].ID
+	var cPairContractAddress = triangularPair[2].Address
 	var cBase = triangularPair[2].BaseAsset
 	var cQuote = triangularPair[2].QuoteAsset
 	// set directions and loop through
@@ -364,45 +364,40 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 		var tradeDescription1 = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)
 		var tradeDescription2 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT1, swap2, swap2Rate, swap3, acquiredCoinT2)
 		var tradeDescription3 = fmt.Sprintf("Swap %v of %v at %v for %v, acquiring %v", acquiredCoinT2, swap3, swap3Rate, swap1, acquiredCoinT3)
+		tradingResult = models.TriangularArbSurfaceResult{
+			Swap1:             swap1,
+			Swap2:             swap2,
+			Swap3:             swap3,
+			Contract1:         contract1,
+			Contract2:         contract2,
+			Contract3:         contract3,
+			Contract1Address:  contract1Address,
+			Contract2Address:  contract2Address,
+			Contract3Address:  contract3Address,
+			DirectionTrade1:   directionTrade1,
+			DirectionTrade2:   directionTrade2,
+			DirectionTrade3:   directionTrade3,
+			StartingAmount:    startingAmount,
+			AcquiredCoinT1:    acquiredCoinT1,
+			AcquiredCoinT2:    acquiredCoinT2,
+			AcquiredCoinT3:    acquiredCoinT3,
+			Swap1Rate:         swap1Rate,
+			Swap2Rate:         swap2Rate,
+			Swap3Rate:         swap3Rate,
+			ProfitLoss:        profitLoss,
+			ProfitLossPerc:    profitLossPercentage,
+			Direction:         direction,
+			TradeDescription1: tradeDescription1,
+			TradeDescription2: tradeDescription2,
+			TradeDescription3: tradeDescription3,
+		}
 
 		if profitLoss > MinSurfaceRate {
-			return models.TriangularArbSurfaceResult{
-				Swap1:             swap1,
-				Swap2:             swap2,
-				Swap3:             swap3,
-				Contract1:         contract1,
-				Contract2:         contract2,
-				Contract3:         contract3,
-				Contract1Address:  contract1Address,
-				Contract2Address:  contract2Address,
-				Contract3Address:  contract3Address,
-				DirectionTrade1:   directionTrade1,
-				DirectionTrade2:   directionTrade2,
-				DirectionTrade3:   directionTrade3,
-				StartingAmount:    startingAmount,
-				AcquiredCoinT1:    acquiredCoinT1,
-				AcquiredCoinT2:    acquiredCoinT2,
-				AcquiredCoinT3:    acquiredCoinT3,
-				Swap1Rate:         swap1Rate,
-				Swap2Rate:         swap2Rate,
-				Swap3Rate:         swap3Rate,
-				ProfitLoss:        profitLoss,
-				ProfitLossPerc:    profitLossPercentage,
-				Direction:         direction,
-				TradeDescription1: tradeDescription1,
-				TradeDescription2: tradeDescription2,
-				TradeDescription3: tradeDescription3,
-			}, nil
+			return tradingResult, nil
 		}
 	}
 
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
-}
-
-// GetDepth ... get the depth from DEX (uniswap, ...)
-func (a *AmmArbitrageCalculator) GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error) {
-	result, err := a.sourceProvider.GetDepth(surfaceRate)
-	return result, err
 }
 
 // BatchGetDepth ... get the depth from DEX (uniswap, ...) for multiple surface rates

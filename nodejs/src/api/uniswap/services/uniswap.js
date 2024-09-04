@@ -29,10 +29,11 @@ class UniswapService {
 
     constructor() {
         this.#provider = new ethers.JsonRpcProvider(process.env.NETWORK_CONNECTION_URL);
+        this.#provider._getConnection().timeout = 30000;
         this.#quoterAddress = process.env.QUOTER_ADDRESS;
         this.#tokenInfo = this.#loadTokenInfoLocal();
         this.#quoterContract = new ethers.Contract(this.#quoterAddress, QuoterABI, this.#provider);
-        this.#logger = fs.createWriteStream(LOGS_DIR + '/arbitrage-logs.jsonl', {flags : 'a'});
+        this.#logger = fs.createWriteStream(LOGS_DIR + '/arbitrage-logs.jsonl', { flags: 'a' });
     }
 
     getTokenInfo() {
@@ -40,51 +41,57 @@ class UniswapService {
     }
 
     async loadTokens(pairAddresses) {
-        const limit = pLimit(3);
+        const limit = pLimit(1);
         const { TOKEN_ABI, UNISWAP_PAIR_ABI } = this.constructor;
 
-        const promises = [... new Set(pairAddresses)].map(async pairAddress => limit(async () =>{
-            if (this.#tokenInfo[pairAddress]) return this.#tokenInfo[pairAddress];
+        for (const pairAddress of new Set(pairAddresses)) {
+            console.log(`Get token list ${pairAddress}`);
+            if (this.#tokenInfo[pairAddress]) continue;
 
-            console.time(`Get token list ${pairAddress}`);
-            const poolContract = new ethers.Contract(pairAddress, UNISWAP_PAIR_ABI, this.#provider);
-            const [token0Address, token1Address, fee] = await Promise.all([
-                poolContract.token0(),
-                poolContract.token1(),
-                poolContract.fee()
-            ]);
-            const tokenInfo = {
-                pairAddress,
-                fee,
-                token0: { address: token0Address },
-                token1: { address: token1Address },
-            };
-            console.timeEnd(`Get token list ${pairAddress}`);
-
-            for (const tokenAddress of [token0Address, token1Address]) {
-                const tokenContract = new ethers.Contract(tokenAddress, TOKEN_ABI, this.#provider);
-                const [tokenSymbol, tokenName, tokenDecimals] = await Promise.all([
-                    tokenContract.symbol(),
-                    tokenContract.name(),
-                    tokenContract.decimals(),
+            try {
+                console.time(`Get token list ${pairAddress}`);
+                const poolContract = new ethers.Contract(pairAddress, UNISWAP_PAIR_ABI, this.#provider);
+                const [token0Address, token1Address, fee] = await Promise.all([
+                    poolContract.token0(),
+                    poolContract.token1(),
+                    poolContract.fee()
                 ]);
-                const tokenData = {
-                    address: tokenAddress,
-                    symbol: tokenSymbol,
-                    name: tokenName,
-                    decimals: tokenDecimals,
+                const tokenInfo = {
+                    pairAddress,
+                    fee,
+                    token0: { address: token0Address },
+                    token1: { address: token1Address },
                 };
 
-                if (tokenInfo.token0.address === tokenAddress) tokenInfo.token0 = tokenData;
-                if (tokenInfo.token1.address === tokenAddress) tokenInfo.token1 = tokenData;
-            }
+                for (const tokenAddress of [token0Address, token1Address]) {
+                    const tokenContract = new ethers.Contract(tokenAddress, TOKEN_ABI, this.#provider);
+                    const [tokenSymbol, tokenName, tokenDecimals] = await Promise.all([
+                        tokenContract.symbol(),
+                        tokenContract.name(),
+                        tokenContract.decimals(),
+                    ]);
+                    const tokenData = {
+                        address: tokenAddress,
+                        symbol: tokenSymbol,
+                        name: tokenName,
+                        decimals: tokenDecimals,
+                    };
 
-            return this.#tokenInfo[pairAddress] = tokenInfo;
-        }));
-        const result = await Promise.all(promises);
+                    if (tokenInfo.token0.address === tokenAddress) tokenInfo.token0 = tokenData;
+                    if (tokenInfo.token1.address === tokenAddress) tokenInfo.token1 = tokenData;
+                }
+
+                await writeFile(this.#tokenInfoCacheFile, this.#tokenInfo);
+                console.timeEnd(`Get token list ${pairAddress}`);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        console.log('Token info loaded');
         await writeFile(this.#tokenInfoCacheFile, this.#tokenInfo);
 
-        return result;
+        return this.#tokenInfo;
     }
 
     #loadTokenInfoLocal() {
@@ -129,17 +136,30 @@ class UniswapService {
         const directionTrade1 = surfaceResult.directionTrade1;
         const directionTrade2 = surfaceResult.directionTrade2;
         const directionTrade3 = surfaceResult.directionTrade3;
+        const allContracts = `${contract1}_${contract2}_${contract3}`;
 
         console.log('Checking trade 1 acquired coin...');
         const acquiredCoinT1 = await this.getPrice(pair1ContractAddress, surfaceResult.startingAmount, directionTrade1);
+        console.log(allContracts, 'acquiredCoinT1', acquiredCoinT1, 'startingAmount', surfaceResult.startingAmount);
 
         // console.log('Checking trade 2 acquired coin...');
         if (acquiredCoinT1 === 0) return;
         const acquiredCoinT2 = await this.getPrice(pair2ContractAddress, acquiredCoinT1, directionTrade2);
+        console.log(allContracts, 'acquiredCoinT2', acquiredCoinT2, 'startingAmount', acquiredCoinT1);
 
         // console.log('Checking trade 3 acquired coin...');
         if (acquiredCoinT2 === 0) return;
         const acquiredCoinT3 = await this.getPrice(pair3ContractAddress, acquiredCoinT2, directionTrade3);
+        console.log(
+            allContracts,
+            'acquiredCoinT3',
+            acquiredCoinT3,
+            'startingAmount',
+            acquiredCoinT2,
+            'direction',
+            directionTrade1,
+            this.#calculateArb(surfaceResult.startingAmount, acquiredCoinT3, surfaceResult)
+        );
 
         // Calculate and show result
         return {
@@ -199,9 +219,9 @@ class UniswapService {
     }
 
     // GET PRICE /////////////////////////////////////////////////
-    async getPrice(address , amountIn, tradeDirection, verbose = true) {
+    async getPrice(address, amountIn, tradeDirection, verbose = true) {
         if (!this.#tokenInfo[address]) {
-            console.error('Token info not found');
+            // console.error('Token info not found');
             return 0;
         }
 
@@ -231,7 +251,7 @@ class UniswapService {
 
         // reformat amountIn
         const amountInParsed = BigInt(parseInt(amountIn * 10 ** inputDecimalA));
-        console.time(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
+        // console.time(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
 
         try {
             let quotedAmountOut = await this.#quoterContract.quoteExactInputSingle.staticCall(
@@ -245,10 +265,11 @@ class UniswapService {
 
             return quotedAmountOut;
         } catch (err) {
-            if (verbose) console.error('Quoter error:', err);
-            return 0
+            // if (verbose) console.error('Quoter error:', err);
+            console.log('Error with params', inputSymbolA, inputSymbolB, fee, amountInParsed, 0);
+            return 0;
         } finally {
-            console.timeEnd(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
+            // console.timeEnd(`quoteExactInputSingle_${inputSymbolA}${inputSymbolB}`);
         }
     }
 
