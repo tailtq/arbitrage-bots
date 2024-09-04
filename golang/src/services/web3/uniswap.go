@@ -4,7 +4,6 @@ import (
 	"arbitrage-bot/helpers"
 	"arbitrage-bot/helpers/ethers"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/models"
 	"arbitrage-bot/services/sourceprovider"
 	"context"
 	"fmt"
@@ -18,23 +17,6 @@ import (
 	"os"
 	"sync"
 )
-
-type TokenPairInfo struct {
-	Address string `json:"address"`
-	Fee     int    `json:"fee"`
-	Token0  struct {
-		Address  string `json:"address"`
-		Symbol   string `json:"symbol"`
-		Name     string `json:"name"`
-		Decimals int    `json:"decimals"`
-	} `json:"token0"`
-	Token1 struct {
-		Address  string `json:"address"`
-		Symbol   string `json:"symbol"`
-		Name     string `json:"name"`
-		Decimals int    `json:"decimals"`
-	} `json:"token1"`
-}
 
 func callContractMethod(
 	wg *sync.WaitGroup,
@@ -71,19 +53,11 @@ func NewUniswapWeb3Service() *UniswapWeb3Service {
 	}
 }
 
-func (u *UniswapWeb3Service) CalcDepthOpportunity(surfaceResult models.TriangularArbSurfaceResult) {
-
-}
-
-func (u *UniswapWeb3Service) calcDepthOpportunityForward(surfaceResult models.TriangularArbSurfaceResult) {
-
-}
-
-func (u *UniswapWeb3Service) calcDepthOpportunityBackward(surfaceResult models.TriangularArbSurfaceResult) {
-
-}
-
 func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
+	if amountIn == 0 {
+		return 0
+	}
+
 	var inputSymbolA, inputSymbolB string
 	var inputTokenA, inputTokenB common.Address
 	var inputDecimalsA, inputDecimalsB int

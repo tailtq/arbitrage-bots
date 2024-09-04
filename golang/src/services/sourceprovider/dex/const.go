@@ -1,8 +1,8 @@
 package dex
 
 import (
-	"arbitrage-bot/models"
 	"arbitrage-bot/services/sourceprovider"
+	"arbitrage-bot/services/web3"
 	"os"
 	"time"
 )
@@ -47,9 +47,9 @@ const UniswapArbitragePairPath string = "data/uniswapArbitragePairs.json"
 
 // ISourceProvider ... Interface for the DEX source provider
 type ISourceProvider interface {
+	Web3Service() *web3.UniswapWeb3Service
 	sourceprovider.ISourceProvider
 	SubscribeSymbols(symbols []*sourceprovider.Symbol, useSubgraph bool, pingChannel chan bool)
+	GetSymbol(symbol string) sourceprovider.Symbol
 	GetSymbolPrice(symbol string) *SymbolPrice
-	GetDepth(surfaceRate models.TriangularArbSurfaceResult) ([2]models.TriangularArbDepthResult, error)
-	BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error)
 }

@@ -80,16 +80,18 @@ func main() {
 			}
 		}
 
-		// TODO: return stream of results
-		fmt.Println("Fetching depth for the surface results...")
-		//results, err := arbitrageCalculator.BatchGetDepth(surfaceResults)
-		//helpers.Panic(err)
-		//
-		//for _, result := range results {
-		//	fmt.Println("HUHU", result)
-		//	if result[0].ProfitLoss > 0 || result[1].ProfitLoss > 0 {
-		//}
-		//}
+		if len(surfaceResults) > 0 {
+			fmt.Println("Fetching depth for the surface results...")
+			depthResults, err := arbitrageCalculator.BatchCalcDepth(surfaceResults)
+			helpers.Panic(err)
+
+			for i, depthResult := range depthResults {
+				fmt.Println("HUHU", surfaceResults[i].Contract1, surfaceResults[i].Contract1, surfaceResults[i].Contract1, depthResult)
+				if depthResult[0].ProfitLoss > 0 || depthResult[1].ProfitLoss > 0 {
+					fmt.Println("HAHAHAHA", depthResult)
+				}
+			}
+		}
 
 		fmt.Println("========================")
 		time.Sleep(10 * time.Second)
