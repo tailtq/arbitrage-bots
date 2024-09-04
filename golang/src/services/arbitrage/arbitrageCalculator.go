@@ -335,7 +335,7 @@ func (a *ArbitrageCalculator) CalcTriangularArbSurfaceRate(
 		// PROFIT LOSS OUTPUT
 		// Profit and loss calculation
 		var profitLoss = acquiredCoinT3 - startingAmount
-		var profitLossPercentage = float32(profitLoss/startingAmount) * 100
+		var profitLossPercentage = profitLoss / startingAmount * 100
 
 		// Trade Descriptions
 		var tradeDescription1 = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)
@@ -497,7 +497,7 @@ func (a *ArbitrageCalculator) GetDepth(
 
 	if realRatePercent > -1 {
 		result.ProfitLoss = profitLoss
-		result.ProfitLossPerc = float32(realRatePercent)
+		result.ProfitLossPerc = realRatePercent
 		return result, nil
 	}
 	return result, fmt.Errorf("no profitable arbitrage found")

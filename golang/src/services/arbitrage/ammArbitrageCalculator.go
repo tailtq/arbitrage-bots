@@ -358,7 +358,7 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 		// PROFIT LOSS OUTPUT
 		// Profit and loss calculation
 		var profitLoss = acquiredCoinT3 - startingAmount
-		var profitLossPercentage = float32(profitLoss/startingAmount) * 100
+		var profitLossPercentage = profitLoss / startingAmount * 100
 
 		// Trade Descriptions
 		var tradeDescription1 = fmt.Sprintf("Start with %v of %v, swap at %v for %v, acquiring %v", swap1, startingAmount, swap1Rate, swap2, acquiredCoinT1)
@@ -371,6 +371,9 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 			Contract1:         contract1,
 			Contract2:         contract2,
 			Contract3:         contract3,
+			Symbol1:           a.sourceProvider.GetSymbol(contract1),
+			Symbol2:           a.sourceProvider.GetSymbol(contract2),
+			Symbol3:           a.sourceProvider.GetSymbol(contract3),
 			Contract1Address:  contract1Address,
 			Contract2Address:  contract2Address,
 			Contract3Address:  contract3Address,
@@ -400,8 +403,70 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
 }
 
-// BatchGetDepth ... get the depth from DEX (uniswap, ...) for multiple surface rates
-func (a *AmmArbitrageCalculator) BatchGetDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
-	result, err := a.sourceProvider.BatchGetDepth(surfaceRates)
-	return result, err
+// BatchCalcDepth ... get the depth from DEX (uniswap, ...) for multiple surface rates
+func (a *AmmArbitrageCalculator) BatchCalcDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
+	var results [][2]models.TriangularArbDepthResult
+
+	for _, surfaceRate := range surfaceRates {
+		results = append(results, [2]models.TriangularArbDepthResult{
+			a.calcDepthOpportunityForward(surfaceRate),
+			a.calcDepthOpportunityBackward(surfaceRate),
+		})
+	}
+
+	return results, nil
+}
+
+func (a *AmmArbitrageCalculator) calcDepthOpportunityForward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
+	var contract1 = surfaceResult.Contract1
+	var contract2 = surfaceResult.Contract2
+	var contract3 = surfaceResult.Contract3
+	var directionTrade1 = surfaceResult.DirectionTrade1
+	var directionTrade2 = surfaceResult.DirectionTrade2
+	var directionTrade3 = surfaceResult.DirectionTrade3
+	var allContracts = fmt.Sprintf("%s_%s_%s", contract1, contract2, contract3)
+	_ = allContracts
+
+	var acquiredCoinT1 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol1, surfaceResult.StartingAmount, directionTrade1, true)
+	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
+	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol3, acquiredCoinT2, directionTrade3, true)
+
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
+}
+
+func (a *AmmArbitrageCalculator) calcDepthOpportunityBackward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
+	var contract1 = surfaceResult.Contract3
+	var contract2 = surfaceResult.Contract2
+	var contract3 = surfaceResult.Contract1
+	var directionTrade1 = a.revertDirection(surfaceResult.DirectionTrade3)
+	var directionTrade2 = a.revertDirection(surfaceResult.DirectionTrade2)
+	var directionTrade3 = a.revertDirection(surfaceResult.DirectionTrade1)
+	var allContracts = fmt.Sprintf("%s_%s_%s", contract1, contract2, contract3)
+	_ = allContracts
+
+	var acquiredCoinT1 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol3, surfaceResult.StartingAmount, directionTrade1, true)
+	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
+	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol1, acquiredCoinT2, directionTrade3, true)
+
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
+}
+
+func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
+	if direction == "baseToQuote" {
+		return "quoteToBase"
+	} else if direction == "quoteToBase" {
+		return "baseToQuote"
+	}
+	return ""
+}
+
+// calcDepthArb ... calculate the depth arbitrage
+func (a *AmmArbitrageCalculator) calcDepthArb(amountIn float64, outputOut float64) models.TriangularArbDepthResult {
+	var profitLoss = outputOut - amountIn
+	var profitLossPerc = (profitLoss / amountIn) * 100
+
+	return models.TriangularArbDepthResult{
+		ProfitLoss:     profitLoss,
+		ProfitLossPerc: profitLossPerc,
+	}
 }
