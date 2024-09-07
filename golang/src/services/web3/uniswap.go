@@ -219,9 +219,20 @@ func (u *UniswapWeb3Service) quoteExactInputSingleV2(
 		}
 		return 0
 	}
-	var quotedAmountOut = new(big.Int)
-	quotedAmountOut.SetBytes(result)
-	return ethers.WeiToEther(quotedAmountOut, inputDecimalsB)
+
+	// Unpack the result
+	var amountOut *big.Int
+	var sqrtPriceX96After *big.Int
+	var initializedTicksCrossed uint32
+	var gasEstimate *big.Int
+	err = u.quoterABI.UnpackIntoInterface(&[]interface{}{
+		&amountOut,
+		&sqrtPriceX96After,
+		&initializedTicksCrossed,
+		&gasEstimate,
+	}, "quoteExactInputSingle", result)
+
+	return ethers.WeiToEther(amountOut, inputDecimalsB)
 }
 
 func (u *UniswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, verbose bool) *sync.Map {
@@ -236,7 +247,9 @@ func (u *UniswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, v
 			defer wg.Done()
 			for symbol := range channel {
 				var price = u.GetPrice(*symbol, 1, "baseToQuote", verbose)
-				result.Store(symbol.Symbol, price)
+				if price != 0 {
+					result.Store(symbol.Symbol, price)
+				}
 			}
 		}()
 	}
