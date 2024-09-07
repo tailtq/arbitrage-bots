@@ -75,8 +75,8 @@ func main() {
 
 			if surfaceResult.ProfitLoss > 0 {
 				surfaceResults = append(surfaceResults, surfaceResult)
-				fmt.Println("Found an arbitrage opportunity", surfaceResult.Contract1, surfaceResult.Contract2, surfaceResult.Contract3, surfaceResult.ProfitLoss)
-				fmt.Println("=====")
+				//fmt.Println("Found an arbitrage opportunity", surfaceResult.Contract1, surfaceResult.Contract2, surfaceResult.Contract3, surfaceResult.ProfitLoss)
+				//fmt.Println("=====")
 			}
 		}
 
@@ -85,8 +85,8 @@ func main() {
 			depthResults, err := arbitrageCalculator.BatchCalcDepth(surfaceResults)
 			helpers.Panic(err)
 
-			for i, depthResult := range depthResults {
-				fmt.Println("HUHU", surfaceResults[i].Contract1, surfaceResults[i].Contract1, surfaceResults[i].Contract1, depthResult)
+			for _, depthResult := range depthResults {
+				//fmt.Println("HUHU", surfaceResults[i].Contract1, surfaceResults[i].Contract1, surfaceResults[i].Contract1, depthResult)
 				if depthResult[0].ProfitLoss > 0 || depthResult[1].ProfitLoss > 0 {
 					fmt.Println("HAHAHAHA", depthResult)
 				}

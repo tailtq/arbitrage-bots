@@ -431,7 +431,7 @@ func (a *AmmArbitrageCalculator) calcDepthOpportunityForward(surfaceResult model
 	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
 	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol3, acquiredCoinT2, directionTrade3, true)
 
-	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3, surfaceResult)
 }
 
 func (a *AmmArbitrageCalculator) calcDepthOpportunityBackward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
@@ -448,7 +448,7 @@ func (a *AmmArbitrageCalculator) calcDepthOpportunityBackward(surfaceResult mode
 	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
 	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol1, acquiredCoinT2, directionTrade3, true)
 
-	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3, surfaceResult)
 }
 
 func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
@@ -461,12 +461,17 @@ func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
 }
 
 // calcDepthArb ... calculate the depth arbitrage
-func (a *AmmArbitrageCalculator) calcDepthArb(amountIn float64, outputOut float64) models.TriangularArbDepthResult {
+func (a *AmmArbitrageCalculator) calcDepthArb(
+	amountIn float64,
+	outputOut float64,
+	surfaceResult models.TriangularArbSurfaceResult,
+) models.TriangularArbDepthResult {
 	var profitLoss = outputOut - amountIn
 	var profitLossPerc = (profitLoss / amountIn) * 100
 
 	return models.TriangularArbDepthResult{
 		ProfitLoss:     profitLoss,
 		ProfitLossPerc: profitLossPerc,
+		SurfaceResult:  surfaceResult,
 	}
 }
