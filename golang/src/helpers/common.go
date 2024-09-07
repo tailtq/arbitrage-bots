@@ -8,6 +8,14 @@ func Panic(err error) {
 	}
 }
 
+func PanicBatch(errs ...error) {
+	for _, err := range errs {
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
 func Batch[T any](arr []T, batchSize int) [][]T {
 	var batches [][]T
 

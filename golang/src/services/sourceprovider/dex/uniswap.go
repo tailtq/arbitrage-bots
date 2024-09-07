@@ -6,6 +6,7 @@ import (
 	"arbitrage-bot/services/sourceprovider"
 	"arbitrage-bot/services/web3"
 	"encoding/json"
+	"os"
 	"slices"
 	"strconv"
 	"sync"
@@ -55,12 +56,8 @@ func (u *UniswapSourceProviderService) Web3Service() *web3.UniswapWeb3Service {
 
 // GetArbitragePairCachePath ... returns the path to the token list cache
 func (u *UniswapSourceProviderService) GetArbitragePairCachePath() string {
-	return UniswapArbitragePairPath
-}
-
-// GetTokenListCachePath ... returns the path to the token list cache
-func (u *UniswapSourceProviderService) GetTokenListCachePath() string {
-	return UniswapTokenListPath
+	var network = os.Getenv("NETWORK_NAME")
+	return "data/" + network + "/uniswapArbitragePairs.json"
 }
 
 // GetSymbolPrice ... returns the aggregated price for a given symbol
@@ -145,9 +142,7 @@ func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (u *UniswapSourceProviderService) SubscribeSymbols(
-	symbols []*sourceprovider.Symbol, useSubgraph bool, pingChannel chan bool,
-) {
+func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol, useSubgraph bool, pingChannel chan bool) {
 	var tokenPairs []string
 
 	for _, symbol := range symbols {

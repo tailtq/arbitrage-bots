@@ -32,11 +32,6 @@ func NewBinanceSourceProviderService() *BinanceSourceProviderService {
 	}
 }
 
-// GetTokenListCachePath ... returns the path to the token list cache
-func (b *BinanceSourceProviderService) GetTokenListCachePath() string {
-	return BinanceTokenListPath
-}
-
 // GetArbitragePairCachePath ... returns the path to the arbitrage pair cache
 func (b *BinanceSourceProviderService) GetArbitragePairCachePath() string {
 	return BinanceArbitragePairPath

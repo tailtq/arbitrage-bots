@@ -2,7 +2,6 @@ package sourceprovider
 
 // ISourceProvider ... Interface for the source provider
 type ISourceProvider interface {
-	GetTokenListCachePath() string
 	GetArbitragePairCachePath() string
 	GetSymbols(force bool) ([]*Symbol, error)
 }
