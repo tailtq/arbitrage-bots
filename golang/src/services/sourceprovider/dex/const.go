@@ -39,12 +39,6 @@ type SubgraphPoolItem struct {
 	} `json:"token1"`
 }
 
-// UniswapTokenListPath ... Uniswap token list path
-const UniswapTokenListPath string = "data/uniswapTokens.json"
-
-// UniswapArbitragePairPath ... Uniswap arbitrage pair path
-const UniswapArbitragePairPath string = "data/uniswapArbitragePairs.json"
-
 // ISourceProvider ... Interface for the DEX source provider
 type ISourceProvider interface {
 	Web3Service() *web3.UniswapWeb3Service

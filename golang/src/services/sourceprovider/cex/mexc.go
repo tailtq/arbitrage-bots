@@ -35,11 +35,6 @@ func (b *MEXCSourceProviderService) GetArbitragePairCachePath() string {
 	return MEXCArbitragePairPath
 }
 
-// GetTokenListCachePath implements sourceprovider.ICexSourceProvider.
-func (b *MEXCSourceProviderService) GetTokenListCachePath() string {
-	return MEXCTokenListPath
-}
-
 // GetSymbolPrice returns the price for a given symbol
 func (b *MEXCSourceProviderService) GetSymbolPrice(symbol string) *SymbolPrice {
 	if price, ok := b.symbolPriceData.Load(symbol); ok {

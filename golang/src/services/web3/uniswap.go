@@ -16,6 +16,7 @@ import (
 	"math/big"
 	"os"
 	"sync"
+	"time"
 )
 
 func callContractMethod(
@@ -34,53 +35,126 @@ type UniswapWeb3Service struct {
 	client         *ethclient.Client
 	quoterAddress  common.Address
 	quoterABI      abi.ABI
+	quoterVersion  string
 	quoterContract *bind.BoundContract
 }
 
 func NewUniswapWeb3Service() *UniswapWeb3Service {
 	var networkRpcUrl = os.Getenv("NETWORK_RPC_URL")
+	var networkName = os.Getenv("NETWORK_NAME")
 	var quoterAddress = common.HexToAddress(os.Getenv("UNISWAP_QUOTER_ADDRESS"))
-	var quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/quoterABI.json")
+	var quoterABI abi.ABI
+	var quoterVersion string
+	var err error
+
+	if networkName == "blast" || networkName == "celo" {
+		// use quoterV2
+		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/quoterV2ABI.json")
+		quoterVersion = "v2"
+	} else {
+		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/quoterABI.json")
+		quoterVersion = "v1"
+	}
 	helpers.Panic(err)
 	client, err := ethclient.Dial(networkRpcUrl)
 	helpers.Panic(err)
 
 	return &UniswapWeb3Service{
-		client:         client,
-		quoterAddress:  quoterAddress,
-		quoterABI:      quoterABI,
-		quoterContract: bind.NewBoundContract(quoterAddress, quoterABI, client, client, client),
+		client:        client,
+		quoterAddress: quoterAddress,
+		quoterABI:     quoterABI,
+		quoterVersion: quoterVersion,
+		// not used yet
+		//quoterContract: bind.NewBoundContract(quoterAddress, quoterABI, client, client, client),
 	}
 }
 
+// GetPoolData ... returns the pool data for a given pool address
+func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.Symbol {
+	var start = time.Now()
+	poolABI, err := jsonHelper.ReadJSONABIFile("data/web3/uniswapPoolABI.json")
+	helpers.Panic(err)
+	erc20ABI, err := jsonHelper.ReadJSONABIFile("data/web3/erc20.json")
+	helpers.Panic(err)
+
+	var contract = bind.NewBoundContract(address, poolABI, u.client, u.client, u.client)
+	var wg = sync.WaitGroup{}
+	wg.Add(3)
+	var symbol sourceprovider.Symbol
+	var resultToken0, resultToken1, resultFee []interface{}
+	var errToken0, errToken1, errFee error
+	go callContractMethod(&wg, contract, "token0", []interface{}{}, &resultToken0, &errToken0)
+	go callContractMethod(&wg, contract, "token1", []interface{}{}, &resultToken1, &errToken1)
+	go callContractMethod(&wg, contract, "fee", []interface{}{}, &resultFee, &errFee)
+	wg.Wait()
+	helpers.PanicBatch(errToken0, errToken1, errFee)
+
+	for _, result := range [][]interface{}{resultToken0, resultToken1} {
+		wg.Add(2)
+		var tokenAddress = result[0].(common.Address)
+		var tokenContract = bind.NewBoundContract(tokenAddress, erc20ABI, u.client, u.client, u.client)
+		var resultSymbol, resultDecimals []interface{}
+		var errSymbol, errDecimals error
+		go callContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
+		go callContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
+		wg.Wait()
+		helpers.PanicBatch(errSymbol, errDecimals)
+
+		if tokenAddress == resultToken0[0] {
+			symbol.BaseAsset = resultSymbol[0].(string)
+			symbol.BaseAssetAddress = tokenAddress.String()
+			symbol.BaseAssetDecimals = int(resultDecimals[0].(uint8))
+		} else {
+			symbol.QuoteAsset = resultSymbol[0].(string)
+			symbol.QuoteAssetAddress = tokenAddress.String()
+			symbol.QuoteAssetDecimals = int(resultDecimals[0].(uint8))
+		}
+	}
+
+	symbol.Address = address.String()
+	symbol.Symbol = symbol.BaseAsset + symbol.QuoteAsset
+	symbol.FeeTier = int(resultFee[0].(*big.Int).Int64())
+	fmt.Println("GetPoolData took", time.Since(start))
+
+	return symbol
+}
+
+// GetPrice ... returns the price for a given symbol
 func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
 	if amountIn == 0 {
 		return 0
 	}
-
-	var inputSymbolA, inputSymbolB string
 	var inputTokenA, inputTokenB common.Address
 	var inputDecimalsA, inputDecimalsB int
-	_ = inputSymbolA
-	_ = inputSymbolB
-	_ = inputDecimalsB
 
 	if tradeDirection == "baseToQuote" {
 		inputTokenA = common.HexToAddress(symbol.BaseAssetAddress)
-		inputSymbolA = symbol.BaseAsset
 		inputDecimalsA = symbol.BaseAssetDecimals
 		inputTokenB = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputSymbolB = symbol.QuoteAsset
 		inputDecimalsB = symbol.QuoteAssetDecimals
 	} else if tradeDirection == "quoteToBase" {
 		inputTokenA = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputSymbolA = symbol.QuoteAsset
 		inputDecimalsA = symbol.QuoteAssetDecimals
 		inputTokenB = common.HexToAddress(symbol.BaseAssetAddress)
-		inputSymbolB = symbol.BaseAsset
 		inputDecimalsB = symbol.BaseAssetDecimals
 	}
 
+	if u.quoterVersion == "v2" {
+		return u.quoteExactInputSingleV2(symbol, amountIn, inputTokenA, inputTokenB, inputDecimalsA, inputDecimalsB, verbose)
+	} else {
+		return u.quoteExactInputSingleV1(symbol, amountIn, inputTokenA, inputTokenB, inputDecimalsA, inputDecimalsB, verbose)
+	}
+}
+
+func (u *UniswapWeb3Service) quoteExactInputSingleV1(
+	symbol sourceprovider.Symbol,
+	amountIn float64,
+	inputTokenA common.Address,
+	inputTokenB common.Address,
+	inputDecimalsA int,
+	inputDecimalsB int,
+	verbose bool,
+) float64 {
 	var amountInParsed = big.NewInt(int64(amountIn * math.Pow(10, float64(inputDecimalsA))))
 	data, err := u.quoterABI.Pack(
 		"quoteExactInputSingle",
@@ -94,13 +168,57 @@ func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn flo
 
 	var message = ethereum.CallMsg{To: &u.quoterAddress, Data: data}
 	result, err := u.client.CallContract(context.Background(), message, nil)
+
 	if err != nil {
 		if verbose {
 			fmt.Println("Quoter error:", symbol.Symbol, err)
 		}
 		return 0
 	}
+	var quotedAmountOut = new(big.Int)
+	quotedAmountOut.SetBytes(result)
+	return ethers.WeiToEther(quotedAmountOut, inputDecimalsB)
+}
 
+func (u *UniswapWeb3Service) quoteExactInputSingleV2(
+	symbol sourceprovider.Symbol,
+	amountIn float64,
+	inputTokenA common.Address,
+	inputTokenB common.Address,
+	inputDecimalsA int,
+	inputDecimalsB int,
+	verbose bool,
+) float64 {
+	type QuoteExactInputSingleParams struct {
+		TokenIn           common.Address `json:"tokenIn"`
+		TokenOut          common.Address `json:"tokenOut"`
+		AmountIn          *big.Int       `json:"amountIn"`
+		Fee               *big.Int       `json:"fee"`
+		SqrtPriceLimitX96 *big.Int       `json:"sqrtPriceLimitX96"`
+	}
+
+	var amountInParsed = big.NewInt(int64(amountIn * math.Pow(10, float64(inputDecimalsA))))
+	data, err := u.quoterABI.Pack(
+		"quoteExactInputSingle",
+		QuoteExactInputSingleParams{
+			inputTokenA,
+			inputTokenB,
+			amountInParsed,
+			big.NewInt(int64(symbol.FeeTier)),
+			big.NewInt(0),
+		},
+	)
+	helpers.Panic(err)
+
+	var message = ethereum.CallMsg{To: &u.quoterAddress, Data: data}
+	result, err := u.client.CallContract(context.Background(), message, nil)
+
+	if err != nil {
+		if verbose {
+			fmt.Println("Quoter error:", symbol.Symbol, err)
+		}
+		return 0
+	}
 	var quotedAmountOut = new(big.Int)
 	quotedAmountOut.SetBytes(result)
 	return ethers.WeiToEther(quotedAmountOut, inputDecimalsB)
@@ -108,12 +226,12 @@ func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn flo
 
 func (u *UniswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, verbose bool) *sync.Map {
 	var channel = make(chan *sourceprovider.Symbol)
+	var concurrency = 8
 	var result sync.Map
 	var wg sync.WaitGroup
+	wg.Add(concurrency)
 
-	for range 8 {
-		wg.Add(1)
-
+	for range concurrency {
 		go func() {
 			defer wg.Done()
 			for symbol := range channel {
@@ -122,12 +240,11 @@ func (u *UniswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, v
 			}
 		}()
 	}
-
 	for _, symbol := range symbols {
 		channel <- symbol
 	}
-
 	close(channel)
 	wg.Wait()
+
 	return &result
 }
