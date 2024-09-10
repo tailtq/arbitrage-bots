@@ -19,18 +19,6 @@ import (
 	"time"
 )
 
-func callContractMethod(
-	wg *sync.WaitGroup,
-	contract *bind.BoundContract,
-	methodName string,
-	params []interface{},
-	result *[]interface{},
-	err *error,
-) {
-	defer wg.Done()
-	*err = contract.Call(nil, result, methodName, params...)
-}
-
 type UniswapWeb3Service struct {
 	client         *ethclient.Client
 	quoterAddress  common.Address
@@ -49,10 +37,10 @@ func NewUniswapWeb3Service() *UniswapWeb3Service {
 
 	if networkName == "blast" || networkName == "celo" {
 		// use quoterV2
-		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/quoterV2ABI.json")
+		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/uniswapQuoterV2ABI.json")
 		quoterVersion = "v2"
 	} else {
-		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/quoterABI.json")
+		quoterABI, err = jsonHelper.ReadJSONABIFile("data/web3/uniswapQuoterABI.json")
 		quoterVersion = "v1"
 	}
 	helpers.Panic(err)

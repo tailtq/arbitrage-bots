@@ -50,6 +50,7 @@ func main() {
 	//sourceProvider := cex.GetSourceProvider(currentSourceProviderName)
 	//arbitrageCalculator := arbitrage.NewArbitrageCalculator(sourceProvider)
 
+	// for networks like base, celo, we'll run a command to obtain the triangular pairs, then get cache from step1
 	var triangularPairBatches = step1(sourceProvider, forceReloadTriangularPairs)
 	var symbols []*sourceprovider.Symbol
 
@@ -75,19 +76,15 @@ func main() {
 
 			if surfaceResult.ProfitLoss > 0 {
 				surfaceResults = append(surfaceResults, surfaceResult)
-				//fmt.Println("Found an arbitrage opportunity", surfaceResult.Contract1, surfaceResult.Contract2, surfaceResult.Contract3, surfaceResult.ProfitLoss)
-				//fmt.Println("=====")
 			}
 		}
 
 		if len(surfaceResults) > 0 {
 			fmt.Println("Fetching depth for the surface results...")
-			depthResults, err := arbitrageCalculator.BatchCalcDepth(surfaceResults)
-			helpers.Panic(err)
+			var depthResults = arbitrageCalculator.BatchCalcDepth(surfaceResults)
 
 			for _, depthResult := range depthResults {
-				//fmt.Println("HUHU", surfaceResults[i].Contract1, surfaceResults[i].Contract1, surfaceResults[i].Contract1, depthResult)
-				if depthResult[0].ProfitLoss > 0 || depthResult[1].ProfitLoss > 0 {
+				if depthResult.DepthResultForward.ProfitLoss > 0 || depthResult.DepthResultBackward.ProfitLoss > 0 {
 					fmt.Println("HAHAHAHA", depthResult)
 				}
 			}
