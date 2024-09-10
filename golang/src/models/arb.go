@@ -36,5 +36,10 @@ type TriangularArbSurfaceResult struct {
 type TriangularArbDepthResult struct {
 	ProfitLoss     float64
 	ProfitLossPerc float64
-	SurfaceResult  TriangularArbSurfaceResult
+}
+
+type TriangularArbFullResult struct {
+	SurfaceResult       TriangularArbSurfaceResult
+	DepthResultForward  TriangularArbDepthResult
+	DepthResultBackward TriangularArbDepthResult
 }

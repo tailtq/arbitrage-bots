@@ -404,17 +404,18 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 }
 
 // BatchCalcDepth ... get the depth from DEX (uniswap, ...) for multiple surface rates
-func (a *AmmArbitrageCalculator) BatchCalcDepth(surfaceRates []models.TriangularArbSurfaceResult) ([][2]models.TriangularArbDepthResult, error) {
-	var results [][2]models.TriangularArbDepthResult
+func (a *AmmArbitrageCalculator) BatchCalcDepth(surfaceRates []models.TriangularArbSurfaceResult) []models.TriangularArbFullResult {
+	var results []models.TriangularArbFullResult
 
 	for _, surfaceRate := range surfaceRates {
-		results = append(results, [2]models.TriangularArbDepthResult{
-			a.calcDepthOpportunityForward(surfaceRate),
-			a.calcDepthOpportunityBackward(surfaceRate),
+		results = append(results, models.TriangularArbFullResult{
+			SurfaceResult:       surfaceRate,
+			DepthResultForward:  a.calcDepthOpportunityForward(surfaceRate),
+			DepthResultBackward: a.calcDepthOpportunityBackward(surfaceRate),
 		})
 	}
 
-	return results, nil
+	return results
 }
 
 func (a *AmmArbitrageCalculator) calcDepthOpportunityForward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
@@ -431,7 +432,7 @@ func (a *AmmArbitrageCalculator) calcDepthOpportunityForward(surfaceResult model
 	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
 	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol3, acquiredCoinT2, directionTrade3, true)
 
-	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3, surfaceResult)
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
 }
 
 func (a *AmmArbitrageCalculator) calcDepthOpportunityBackward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
@@ -448,7 +449,7 @@ func (a *AmmArbitrageCalculator) calcDepthOpportunityBackward(surfaceResult mode
 	var acquiredCoinT2 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol2, acquiredCoinT1, directionTrade2, true)
 	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPrice(surfaceResult.Symbol1, acquiredCoinT2, directionTrade3, true)
 
-	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3, surfaceResult)
+	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
 }
 
 func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
@@ -464,7 +465,6 @@ func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
 func (a *AmmArbitrageCalculator) calcDepthArb(
 	amountIn float64,
 	outputOut float64,
-	surfaceResult models.TriangularArbSurfaceResult,
 ) models.TriangularArbDepthResult {
 	var profitLoss = outputOut - amountIn
 	var profitLossPerc = (profitLoss / amountIn) * 100
@@ -472,6 +472,5 @@ func (a *AmmArbitrageCalculator) calcDepthArb(
 	return models.TriangularArbDepthResult{
 		ProfitLoss:     profitLoss,
 		ProfitLossPerc: profitLossPerc,
-		SurfaceResult:  surfaceResult,
 	}
 }
