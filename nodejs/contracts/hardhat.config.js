@@ -1,4 +1,4 @@
-require('@nomicfoundation/hardhat-toolbox');
+require('@nomiclabs/hardhat-waffle');
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -12,19 +12,19 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: 'https://bsc-dataseed1.binance.org/',
-        blockNumber: 42163104, // block number of the latest block at the moment (without this, it gets error)
+        url: 'https://bsc-mainnet.infura.io/v3/dd7bf6951267477f8f20d852e0135f84',
+        // blockNumber: 42163104, // block number of the latest block at the moment (without this, it gets error)
       },
     },
     testnet: {
       url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
       chainId: 97,
-      accounts: ['0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e'],
+      accounts: [],
     },
     mainnet: {
       url: 'https://bsc-dataseed1.binance.org/',
       chainId: 56,
-      accounts: ['0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e'],
+      accounts: [],
     },
   },
 };
