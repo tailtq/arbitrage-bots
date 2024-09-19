@@ -9,18 +9,19 @@ import (
 )
 
 type PancakeswapSourceProvider struct {
-	web3Service     *web3.PancakeswapWeb3Service
+	web3Service     web3.DEXWeb3Service
 	symbolPriceData sync.Map
 	symbols         map[string]*sourceprovider.Symbol
 }
 
 func NewPancakeswapSourceProvider() *PancakeswapSourceProvider {
 	return &PancakeswapSourceProvider{
+		symbols:     make(map[string]*sourceprovider.Symbol),
 		web3Service: web3.NewPancakeswapWeb3Service(),
 	}
 }
 
-func (p *PancakeswapSourceProvider) Web3Service() *web3.PancakeswapWeb3Service {
+func (p *PancakeswapSourceProvider) Web3Service() web3.DEXWeb3Service {
 	return p.web3Service
 }
 

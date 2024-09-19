@@ -39,7 +39,6 @@ type TriangularArbDepthResult struct {
 }
 
 type TriangularArbFullResult struct {
-	SurfaceResult       TriangularArbSurfaceResult
-	DepthResultForward  TriangularArbDepthResult
-	DepthResultBackward TriangularArbDepthResult
+	SurfaceResult      TriangularArbSurfaceResult
+	DepthResultForward TriangularArbDepthResult
 }

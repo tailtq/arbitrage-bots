@@ -409,9 +409,8 @@ func (a *AmmArbitrageCalculator) BatchCalcDepth(surfaceRates []models.Triangular
 
 	for _, surfaceRate := range surfaceRates {
 		results = append(results, models.TriangularArbFullResult{
-			SurfaceResult:       surfaceRate,
-			DepthResultForward:  a.calcDepthOpportunityForward(surfaceRate),
-			DepthResultBackward: a.calcDepthOpportunityBackward(surfaceRate),
+			SurfaceResult:      surfaceRate,
+			DepthResultForward: a.calcDepthOpportunityForward(surfaceRate),
 		})
 	}
 
