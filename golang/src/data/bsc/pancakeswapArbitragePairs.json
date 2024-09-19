@@ -1,0 +1,5252 @@
+[
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x28415ff2C35b65B9E5c7de82126b4015ab9d031F",
+			"symbol": "ADAWBNB",
+			"feeTier": 0,
+			"baseAsset": "ADA",
+			"baseAssetAddress": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1E249DF2F58cBef7EAc2b0EE35964ED8311D5623",
+			"symbol": "ADABUSD",
+			"feeTier": 0,
+			"baseAsset": "ADA",
+			"baseAssetAddress": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xDd5bAd8f8b360d76d12FdA230F8BAF42fe0022CF",
+			"symbol": "DOTWBNB",
+			"feeTier": 0,
+			"baseAsset": "DOT",
+			"baseAssetAddress": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9fDaaB9312084298d210B8789629D3054230e998",
+			"symbol": "DOTBUSD",
+			"feeTier": 0,
+			"baseAsset": "DOT",
+			"baseAssetAddress": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x74E4716E431f45807DCF19f284c7aA99F18a4fbc",
+			"symbol": "ETHWBNB",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7213a321F1855CF1779f42c0CD85d3D95291D34C",
+			"symbol": "ETHBUSD",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x61EB789d75A95CAa3fF50ed7E47b96c132fEc082",
+			"symbol": "BTCBWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF45cd219aEF8618A92BAa7aD848364a158a24F33",
+			"symbol": "BTCBBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x460b4193Ec4C1a17372Aa5FDcd44c520ba658646",
+			"symbol": "CTKWBNB",
+			"feeTier": 0,
+			"baseAsset": "CTK",
+			"baseAssetAddress": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x81826642439cc48E0cDE5EeE7577bE423aE8f9EA",
+			"symbol": "CTKBUSD",
+			"feeTier": 0,
+			"baseAsset": "CTK",
+			"baseAssetAddress": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x133ee93FE93320e1182923E1a640912eDE17C90C",
+			"symbol": "VAIBUSD",
+			"feeTier": 0,
+			"baseAsset": "VAI",
+			"baseAssetAddress": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3955d04E88cAa2482ab4815431e703E4d65Ec93C",
+			"symbol": "VAIWBNB",
+			"feeTier": 0,
+			"baseAsset": "VAI",
+			"baseAssetAddress": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x66FDB2eCCfB58cF098eaa419e5EfDe841368e489",
+			"symbol": "DAIBUSD",
+			"feeTier": 0,
+			"baseAsset": "DAI",
+			"baseAssetAddress": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc7c3cCCE4FA25700fD5574DA7E200ae28BBd36A3",
+			"symbol": "DAIWBNB",
+			"feeTier": 0,
+			"baseAsset": "DAI",
+			"baseAssetAddress": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2354ef4DF11afacb85a5C7f98B624072ECcddbB1",
+			"symbol": "USDCBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xd99c7F6C65857AC913a8f880A4cb84032AB2FC5b",
+			"symbol": "USDCWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4288706624e3dD839b069216eB03B8B9819C10d2",
+			"symbol": "BDOWBNB",
+			"feeTier": 0,
+			"baseAsset": "BDO",
+			"baseAssetAddress": "0x190b589cf9Fb8DDEabBFeae36a813FFb2A702454",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf826ACCdC59b464D86B849ba01BB6c458d1AC362",
+			"symbol": "BDOBUSD",
+			"feeTier": 0,
+			"baseAsset": "BDO",
+			"baseAssetAddress": "0x190b589cf9Fb8DDEabBFeae36a813FFb2A702454",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF74ee1e10e097dc326a2ad004F9Cc95CB71088d3",
+			"symbol": "WBNBHGET",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "HGET",
+			"quoteAssetAddress": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x0FAFb9f79149Db2788b616a4fF0F1301311afaF4",
+			"symbol": "HGETBUSD",
+			"feeTier": 0,
+			"baseAsset": "HGET",
+			"baseAssetAddress": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8e799cB0737525CeB8A6C6Ad07f748535fF6377B",
+			"symbol": "ZEEWBNB",
+			"feeTier": 0,
+			"baseAsset": "ZEE",
+			"baseAssetAddress": "0x44754455564474A89358B2C2265883DF993b12F0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xb8B539BCC1A83733e5FcD821F8Ebb3017b7Ab4aF",
+			"symbol": "ZEEBUSD",
+			"feeTier": 0,
+			"baseAsset": "ZEE",
+			"baseAssetAddress": "0x44754455564474A89358B2C2265883DF993b12F0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc13aA76AAc067c86aE38028019F414D731b3D86A",
+			"symbol": "IOTXBUSD",
+			"feeTier": 0,
+			"baseAsset": "IOTX",
+			"baseAssetAddress": "0x9678E42ceBEb63F23197D726B29b1CB20d0064E5",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1C4D17440d6ae1d1BBCF6cf2DED2c36163D9B2F8",
+			"symbol": "IOTXWBNB",
+			"feeTier": 0,
+			"baseAsset": "IOTX",
+			"baseAssetAddress": "0x9678E42ceBEb63F23197D726B29b1CB20d0064E5",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xAa40f1AC20AAFcFEE8595Da606D78C503C7e70A3",
+			"symbol": "xMARKBUSD",
+			"feeTier": 0,
+			"baseAsset": "xMARK",
+			"baseAssetAddress": "0x26A5dFab467d4f58fB266648CAe769503CEC9580",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x60ff758F01DE801D896a5f2003525f3f012D90Bf",
+			"symbol": "xMARKWBNB",
+			"feeTier": 0,
+			"baseAsset": "xMARK",
+			"baseAssetAddress": "0x26A5dFab467d4f58fB266648CAe769503CEC9580",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x13321AcfF4A27f3d2bcA64b8bEaC6e5FdAAAf12C",
+			"symbol": "WATCHWBNB",
+			"feeTier": 0,
+			"baseAsset": "WATCH",
+			"baseAssetAddress": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xcB325A4cb68955390CDd10F85d154b7fe93C7D16",
+			"symbol": "WATCHBUSD",
+			"feeTier": 0,
+			"baseAsset": "WATCH",
+			"baseAssetAddress": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3578B1f9BCE98D2F4D293b422d8850fdf48B1f21",
+			"symbol": "DEXEBUSD",
+			"feeTier": 0,
+			"baseAsset": "DEXE",
+			"baseAssetAddress": "0x039cB485212f996A9DBb85A9a75d898F94d38dA6",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4D19fE8e7d6164291bB5616DDC06C47913757157",
+			"symbol": "DEXEWBNB",
+			"feeTier": 0,
+			"baseAsset": "DEXE",
+			"baseAssetAddress": "0x039cB485212f996A9DBb85A9a75d898F94d38dA6",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE834bf723f5bDff34a5D1129F3c31Ea4787Bc76a",
+			"symbol": "RAMPBUSD",
+			"feeTier": 0,
+			"baseAsset": "RAMP",
+			"baseAssetAddress": "0x8519EA49c997f50cefFa444d240fB655e89248Aa",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x26D44028fC075AdDa0Ec927bDD9641eEe31173Fb",
+			"symbol": "RAMPWBNB",
+			"feeTier": 0,
+			"baseAsset": "RAMP",
+			"baseAssetAddress": "0x8519EA49c997f50cefFa444d240fB655e89248Aa",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x222C3CbB89647bF77822435Bd4c234A04272A77A",
+			"symbol": "BUXWBNB",
+			"feeTier": 0,
+			"baseAsset": "BUX",
+			"baseAssetAddress": "0x211FfbE424b90e25a15531ca322adF1559779E45",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEf3dad8a4C41dcA139469a156eA64CBF25dBbc18",
+			"symbol": "BUXBUSD",
+			"feeTier": 0,
+			"baseAsset": "BUX",
+			"baseAssetAddress": "0x211FfbE424b90e25a15531ca322adF1559779E45",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x853784B7BDe87d858555715c0123374242db7943",
+			"symbol": "NULSBUSD",
+			"feeTier": 0,
+			"baseAsset": "NULS",
+			"baseAssetAddress": "0x8CD6e29d3686d24d3C2018CEe54621eA0f89313B",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xe957aE5ddC238D9485bD352a1BAbA20416dA40b5",
+			"symbol": "NULSWBNB",
+			"feeTier": 0,
+			"baseAsset": "NULS",
+			"baseAssetAddress": "0x8CD6e29d3686d24d3C2018CEe54621eA0f89313B",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE60B4e87645093A42fa9dcC5d0C8Df6E67f1f9d2",
+			"symbol": "FORBUSD",
+			"feeTier": 0,
+			"baseAsset": "FOR",
+			"baseAssetAddress": "0x658A109C5900BC6d2357c87549B651670E5b0539",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x38F75BBa32b6bfAc6B084779b8E25d361C12e683",
+			"symbol": "FORWBNB",
+			"feeTier": 0,
+			"baseAsset": "FOR",
+			"baseAssetAddress": "0x658A109C5900BC6d2357c87549B651670E5b0539",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x123D475E13aA54A43a7421d94CAa4459dA021c77",
+			"symbol": "SWTHWBNB",
+			"feeTier": 0,
+			"baseAsset": "SWTH",
+			"baseAssetAddress": "0x250b211EE44459dAd5Cd3bCa803dD6a7EcB5d46C",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0198BDB295555Cfe320dF3471ed5bF1CAF5ADEd0",
+			"symbol": "SWTHBUSD",
+			"feeTier": 0,
+			"baseAsset": "SWTH",
+			"baseAssetAddress": "0x250b211EE44459dAd5Cd3bCa803dD6a7EcB5d46C",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE482249Cd295C0d1e9D2baAEE71e66de21024C68",
+			"symbol": "NRVWBNB",
+			"feeTier": 0,
+			"baseAsset": "NRV",
+			"baseAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x401479091d0F7b8AE437Ee8B054575cd33ea72Bd",
+			"symbol": "NRVBUSD",
+			"feeTier": 0,
+			"baseAsset": "NRV",
+			"baseAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x510b29a93ebf098f3fC24A16541aAA0114D07056",
+			"symbol": "APYSWBNB",
+			"feeTier": 0,
+			"baseAsset": "APYS",
+			"baseAssetAddress": "0x37dfACfaeDA801437Ff648A1559d73f4C40aAcb7",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5b8BfC3eDB9C95ba113cCa1e9319E84F5A47D2b6",
+			"symbol": "APYSBUSD",
+			"feeTier": 0,
+			"baseAsset": "APYS",
+			"baseAssetAddress": "0x37dfACfaeDA801437Ff648A1559d73f4C40aAcb7",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2C624C9Ecf16Cb81aB85cC2C0B0c5e12A09AFDa6",
+			"symbol": "HAKKABUSD",
+			"feeTier": 0,
+			"baseAsset": "HAKKA",
+			"baseAssetAddress": "0x1D1eb8E8293222e1a29d2C0E4cE6C0Acfd89AaaC",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xC4cE7EEb1288419321807263e92c3e92999f06D6",
+			"symbol": "HAKKAWBNB",
+			"feeTier": 0,
+			"baseAsset": "HAKKA",
+			"baseAssetAddress": "0x1D1eb8E8293222e1a29d2C0E4cE6C0Acfd89AaaC",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfA83874a1eCE9b9Ea6dcdA94ebD18aF2eDa0D15D",
+			"symbol": "SAFEMARSWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8F3E5fcb696F04002a051C82eAE48000A66e9133",
+			"symbol": "SAFEMARSBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xdf638da5ADff2c7fdB2Ce0fBBfa15813fa113aaA",
+			"symbol": "PLANTBUSD",
+			"feeTier": 0,
+			"baseAsset": "PLANT",
+			"baseAssetAddress": "0x58BA5Bd8872ec18BD360a9592149daed2fC57c69",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x79268898de0F8C67aD73d9E33534D9874411AAAa",
+			"symbol": "PLANTWBNB",
+			"feeTier": 0,
+			"baseAsset": "PLANT",
+			"baseAssetAddress": "0x58BA5Bd8872ec18BD360a9592149daed2fC57c69",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xac2e78d4cD695761F6A7aAEB616a3A3BdcEda18C",
+			"symbol": "PHYBUSD",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2eD490E672E1f19073DD1Fe0Ce78837FFe0b653C",
+			"symbol": "PHYWBNB",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xeF967e3Da982ECc1c84bbe6053fD61Af2a65bB9a",
+			"symbol": "SAFEMOONBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7f1bb2D98aD5ba6Fae2a86acfc170cC2edfd57ec",
+			"symbol": "ElonGateWBNB",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5Ac71a5F1f49dE59925af4AdA5f8abbD03229801",
+			"symbol": "ElonGateBUSD",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf3380437443679aB21bc917a7C8690324317FF2C",
+			"symbol": "FEGBUSD",
+			"feeTier": 0,
+			"baseAsset": "FEG",
+			"baseAssetAddress": "0xacFC95585D80Ab62f67A14C566C1b7a49Fe91167",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2Aa763656A92ce1e6E560c3EA76b4C5fca7C6C14",
+			"symbol": "FEGWBNB",
+			"feeTier": 0,
+			"baseAsset": "FEG",
+			"baseAssetAddress": "0xacFC95585D80Ab62f67A14C566C1b7a49Fe91167",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xeDCd99aD43C6911D37780158370ec1913Ee9e7D3",
+			"symbol": "xBLZDBUSD",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD9002B7E7d63A71F04a16840DA028e1cd534889D",
+			"symbol": "xBLZDWBNB",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x90946d2f9fB68ecc40ad8Bc0C1cB15D6cCbC4022",
+			"symbol": "SWAMPBUSD",
+			"feeTier": 0,
+			"baseAsset": "SWAMP",
+			"baseAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x59Fe1dcdCD8918fe7B4e76E21f27599d5a1eAADb",
+			"symbol": "WBNBSWAMP",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEF780557a7a18ef587A767B4fB35B325c90342Cb",
+			"symbol": "MFCWBNB",
+			"feeTier": 0,
+			"baseAsset": "MFC",
+			"baseAssetAddress": "0xa7Bfc1BA79B2Ef4e1Db62BebEFBA2cEe885c6A58",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xcd92F0a4F908879afe3139B3B4516b69c3a9561F",
+			"symbol": "MFCBUSD",
+			"feeTier": 0,
+			"baseAsset": "MFC",
+			"baseAssetAddress": "0xa7Bfc1BA79B2Ef4e1Db62BebEFBA2cEe885c6A58",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD08841b790A125888617cBa8395cc04B226d245F",
+			"symbol": "LABOWBNB",
+			"feeTier": 0,
+			"baseAsset": "LABO",
+			"baseAssetAddress": "0x171401a3d18B21BFa3f9bF4F9637F3691158365A",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9F7d34d03B0b56263705e1253EE83BF434509D6C",
+			"symbol": "LABOBUSD",
+			"feeTier": 0,
+			"baseAsset": "LABO",
+			"baseAssetAddress": "0x171401a3d18B21BFa3f9bF4F9637F3691158365A",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x57C4195c0E07e8A37B58b52eF9d57d1aDcF8e71E",
+			"symbol": "ASSWBNB",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3d888ED02BbC44c51088005e594419C8219bd77B",
+			"symbol": "ASSBUSD",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA5C7b210Faf1E091949E4272Ba4e66DA4542F377",
+			"symbol": "KIANBUSD",
+			"feeTier": 0,
+			"baseAsset": "KIAN",
+			"baseAssetAddress": "0x5ECE3F1542C4e1a06767457e4D8286beA772fc41",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB48707eE691Cf39cbfd125c08308f5A2F29ad0ED",
+			"symbol": "KIANWBNB",
+			"feeTier": 0,
+			"baseAsset": "KIAN",
+			"baseAssetAddress": "0x5ECE3F1542C4e1a06767457e4D8286beA772fc41",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1099C2E6Ed6ebA95099c205b599B409305783E43",
+			"symbol": "ALPACAWBNB",
+			"feeTier": 0,
+			"baseAsset": "ALPACA",
+			"baseAssetAddress": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7752e1FA9F3a2e860856458517008558DEb989e3",
+			"symbol": "ALPACABUSD",
+			"feeTier": 0,
+			"baseAsset": "ALPACA",
+			"baseAssetAddress": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x54652B0c3aEfe41a4A3A60b6350fAb3F10f8FF08",
+			"symbol": "WBNBPUG",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PUG",
+			"quoteAssetAddress": "0xfB00F428e71A302F045eCc772B7c464E00D64ea4",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5640089fBBDEd64F0b353730627b7d19d4F1ee35",
+			"symbol": "BUSDPUG",
+			"feeTier": 0,
+			"baseAsset": "BUSD",
+			"baseAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PUG",
+			"quoteAssetAddress": "0xfB00F428e71A302F045eCc772B7c464E00D64ea4",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x40D91625AEd59257132495f01f073E7C2084Cf7f",
+			"symbol": "ECPWBNB",
+			"feeTier": 0,
+			"baseAsset": "ECP",
+			"baseAssetAddress": "0x375483CfA7Fc18F6b455E005D835A8335FbdbB1f",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x28bB1c1E92DF040D84D360d2D3A21D68C60C7121",
+			"symbol": "ECPBUSD",
+			"feeTier": 0,
+			"baseAsset": "ECP",
+			"baseAssetAddress": "0x375483CfA7Fc18F6b455E005D835A8335FbdbB1f",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x18D44F8D997b935966E9b9228967C0e2fBD7f0e4",
+			"symbol": "WBNBKIND",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "KIND",
+			"quoteAssetAddress": "0xE3Ba88c38D2789FE58465020CC0FB60b70c10d32",
+			"quoteAssetDecimals": 8
+		},
+		{
+			"address": "0x3d32A46973d70D0E1a38a26537155DC1Ab5aA9E6",
+			"symbol": "KINDBUSD",
+			"feeTier": 0,
+			"baseAsset": "KIND",
+			"baseAssetAddress": "0xE3Ba88c38D2789FE58465020CC0FB60b70c10d32",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xa4195B097a712f14784b544D4416a847461D8199",
+			"symbol": "BUSDEGG",
+			"feeTier": 0,
+			"baseAsset": "BUSD",
+			"baseAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "EGG",
+			"quoteAssetAddress": "0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x87d9aB29340358cCA31F271703129e5a4ec90E67",
+			"symbol": "WBNBEGG",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "EGG",
+			"quoteAssetAddress": "0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc491C75382b218083F4bdb1458E2010624C2Efeb",
+			"symbol": "BTSBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTS",
+			"baseAssetAddress": "0xc2e1acef50aE55661855E8dcB72adB182A3cC259",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x952d9Fe8bF8F14E0F7ea42318DCb96fA388E0CDC",
+			"symbol": "WBNBBTS",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BTS",
+			"quoteAssetAddress": "0xc2e1acef50aE55661855E8dcB72adB182A3cC259",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc491C75382b218083F4bdb1458E2010624C2Efeb",
+			"symbol": "BTSBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTS",
+			"baseAssetAddress": "0xc2e1acef50aE55661855E8dcB72adB182A3cC259",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB3591b4123120b935C667b752aB72c58b006A294",
+			"symbol": "BTSWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTS",
+			"baseAssetAddress": "0x017a6F130c509E1A22e107000d8c7650d6dCbB76",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x182066575EC728B277FC797A57a8d6377Aa3B6ca",
+			"symbol": "ARGONBUSD",
+			"feeTier": 0,
+			"baseAsset": "ARGON",
+			"baseAssetAddress": "0x851F7a700c5d67DB59612b871338a85526752c25",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8c1a4C5E536A75fc58585323eCD4c60da17F5066",
+			"symbol": "ARGONWBNB",
+			"feeTier": 0,
+			"baseAsset": "ARGON",
+			"baseAssetAddress": "0x851F7a700c5d67DB59612b871338a85526752c25",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4d83bA4e2f3f70597A91FbcAA7596E6D4a1EFD07",
+			"symbol": "WRYBUSD",
+			"feeTier": 0,
+			"baseAsset": "WRY",
+			"baseAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x90ED076FBaa22d27bd1fB810D992909CEfc11ec8",
+			"symbol": "WRYWBNB",
+			"feeTier": 0,
+			"baseAsset": "WRY",
+			"baseAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7BDE01C276EE1C4cB336a0F7cFE55D302C6AB5E5",
+			"symbol": "WBNBPRV",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PRV",
+			"quoteAssetAddress": "0xc0d76eAA6B78254175126Dc9dEFfEC3209FC47b5",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xea275C14414dE38f5C19C1e3559af032cc1facf4",
+			"symbol": "PRVBUSD",
+			"feeTier": 0,
+			"baseAsset": "PRV",
+			"baseAssetAddress": "0x7762A14082Ab475C06D3868B385E46aE27017231",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xDccc6406843bb427B4EEA6E9265d9B126dF83C69",
+			"symbol": "SAFEGALAXYWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEGALAXY",
+			"baseAssetAddress": "0x6b51231c43B1604815313801dB5E9E614914d6e4",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xAc8f8370c71fE2915445EAfFe158F16F36106C60",
+			"symbol": "SAFEGALAXYBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEGALAXY",
+			"baseAssetAddress": "0x6b51231c43B1604815313801dB5E9E614914d6e4",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE38e899cc99ddeA9737e06f0A22046d0CA904D70",
+			"symbol": "CROXWBNB",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xe1d5c90e94d73625628b2E6B7AEAbF5f1c504872",
+			"symbol": "CROXBUSD",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x08A83710d86aE318F34716D785a326f930A3877D",
+			"symbol": "MIXWBNB",
+			"feeTier": 0,
+			"baseAsset": "MIX",
+			"baseAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0B33e3f6ddD85FfA290D385408D613EaFD620D99",
+			"symbol": "MIXBUSD",
+			"feeTier": 0,
+			"baseAsset": "MIX",
+			"baseAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0AB22917fA941edCa92A5b7E030C59fbC7D9019a",
+			"symbol": "SATWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAT",
+			"baseAssetAddress": "0xA1928c0D8F83C0bFB7ebE51B412b1FD29A277893",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x020DB9ff8648AcFc9C590eafb8f6bcd8f254D248",
+			"symbol": "SATBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAT",
+			"baseAssetAddress": "0xA1928c0D8F83C0bFB7ebE51B412b1FD29A277893",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB24A9641dBcc8Dd6Abc11A6e1FD24135F8b81d07",
+			"symbol": "WBNBDEFY",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "DEFY",
+			"quoteAssetAddress": "0xdBE4CC36D0C19858d8cc7c5030593E9922aC680D",
+			"quoteAssetDecimals": 8
+		},
+		{
+			"address": "0x634758a818C76d337eb47A6137e1B8D1FD57bFA8",
+			"symbol": "DEFYBUSD",
+			"feeTier": 0,
+			"baseAsset": "DEFY",
+			"baseAssetAddress": "0xdBE4CC36D0C19858d8cc7c5030593E9922aC680D",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD65f0885208545d5DB30c959d32B5cC0E3a6587E",
+			"symbol": "ICAWBNB",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7BE922a90d0dA949CDa3982145528bf70A4c8678",
+			"symbol": "ICABUSD",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x309438d5C12B34C8857e029b19c0F09945187d1a",
+			"symbol": "SPACEWBNB",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x35Cb3FE06d74d5Be668Ab585929e8818D99593BC",
+			"symbol": "SPACEBUSD",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x11d1b76119D9099FE19a50395D983a060A00131F",
+			"symbol": "WBNBFFD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "FFD",
+			"quoteAssetAddress": "0xd12460C0694d62a9e7C2bc6b07B755029193948A",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x57C711BB2287331b2f1d4A9786788eF3065f05ba",
+			"symbol": "FFDBUSD",
+			"feeTier": 0,
+			"baseAsset": "FFD",
+			"baseAssetAddress": "0xd12460C0694d62a9e7C2bc6b07B755029193948A",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x30Ab038F63eC4F20744490a1a3aF066a8074aED2",
+			"symbol": "WBNBCROW",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "CROW",
+			"quoteAssetAddress": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5ef17aa7f0038c97d0d7A68F888c716065C9906B",
+			"symbol": "CROWBUSD",
+			"feeTier": 0,
+			"baseAsset": "CROW",
+			"baseAssetAddress": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x43fBb5727Ea6356E7C51Dffb17ff9b05bf2AbaC6",
+			"symbol": "AINBUSD",
+			"feeTier": 0,
+			"baseAsset": "AIN",
+			"baseAssetAddress": "0x7cE4AcCd9bb261508ABd20B134D6278902369057",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x45b5bB40ddE6AA153a3E4F803f76dB283C5de268",
+			"symbol": "AINWBNB",
+			"feeTier": 0,
+			"baseAsset": "AIN",
+			"baseAssetAddress": "0x7cE4AcCd9bb261508ABd20B134D6278902369057",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x020DB9ff8648AcFc9C590eafb8f6bcd8f254D248",
+			"symbol": "SATBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAT",
+			"baseAssetAddress": "0xA1928c0D8F83C0bFB7ebE51B412b1FD29A277893",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7003a6948e846f4fB9b24b0942eeBd7aEEcb130D",
+			"symbol": "WBNBSAT",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SAT",
+			"quoteAssetAddress": "0xDC0d77593046dB821be5aA55eB3444707ad795B3",
+			"quoteAssetDecimals": 8
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0CDd1A383aa922A61eA46572FBb94aEc61f8AA8e",
+			"symbol": "MOCHIBUSD",
+			"feeTier": 0,
+			"baseAsset": "MOCHI",
+			"baseAssetAddress": "0x055daB90880613a556a5ae2903B2682f8A5b8d27",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0bFBa67E6C9e3E43ff85Be2e9d6c37d0E84db10A",
+			"symbol": "MOCHIWBNB",
+			"feeTier": 0,
+			"baseAsset": "MOCHI",
+			"baseAssetAddress": "0x055daB90880613a556a5ae2903B2682f8A5b8d27",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x38d7857575824077e97094a6c0044D9526A4DeCA",
+			"symbol": "TACOWBNB",
+			"feeTier": 0,
+			"baseAsset": "TACO",
+			"baseAssetAddress": "0x3FF32129B7fa46B7B80cA33a32f2549DbD49c471",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x6A80219671c64E5D00285fD70c124F1441F3FcE0",
+			"symbol": "TACOBUSD",
+			"feeTier": 0,
+			"baseAsset": "TACO",
+			"baseAssetAddress": "0x9066e87Bac891409D690cfEfA41379b34af06391",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF67e4c11CdC4Bf91e0B592213C0b42C99d8c1CD2",
+			"symbol": "WBNBMAU",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MAU",
+			"quoteAssetAddress": "0xeE769281535FF24B7a3735139E5D8673a47a254f",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3239b36b980c1eE1B063ca9Fd6b1D880573A6e48",
+			"symbol": "BUSDMAU",
+			"feeTier": 0,
+			"baseAsset": "BUSD",
+			"baseAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MAU",
+			"quoteAssetAddress": "0xeE769281535FF24B7a3735139E5D8673a47a254f",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xea275C14414dE38f5C19C1e3559af032cc1facf4",
+			"symbol": "PRVBUSD",
+			"feeTier": 0,
+			"baseAsset": "PRV",
+			"baseAssetAddress": "0x7762A14082Ab475C06D3868B385E46aE27017231",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xCd18e1151a4831e5EbCEcC611369123012674253",
+			"symbol": "PRVWBNB",
+			"feeTier": 0,
+			"baseAsset": "PRV",
+			"baseAssetAddress": "0x7762A14082Ab475C06D3868B385E46aE27017231",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xdFB3B5cE9bF456aAD4d136a1A57A2ecbE4355ca5",
+			"symbol": "BUSDSHRMP",
+			"feeTier": 0,
+			"baseAsset": "BUSD",
+			"baseAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SHRMP",
+			"quoteAssetAddress": "0xeeEEeEEe82a747508b66431cFe9443aCE4e30881",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x6afa6b0a6635bB43b5250d7B360Ee1Eb4731077E",
+			"symbol": "WBNBSHRMP",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SHRMP",
+			"quoteAssetAddress": "0xeeEEeEEe82a747508b66431cFe9443aCE4e30881",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5BA1731C5170aFD84DBc8ea78Ec1566500930d87",
+			"symbol": "ZombieBUSD",
+			"feeTier": 0,
+			"baseAsset": "Zombie",
+			"baseAssetAddress": "0xDE7c6452072A4bD77A6633969Bdf579F8644F111",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x374c49fB2804c7e68d5fAD27E86Ceba49c618A3e",
+			"symbol": "WBNBZombie",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "Zombie",
+			"quoteAssetAddress": "0xDE7c6452072A4bD77A6633969Bdf579F8644F111",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD6B3461Cc4a8c8F6f8224166d8dA9DD94f0461e9",
+			"symbol": "DXWBUSD",
+			"feeTier": 0,
+			"baseAsset": "DXW",
+			"baseAssetAddress": "0x89675DcCFE0c19bca178A0E0384Bd8E273a45cbA",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9aD4aEfaB3FE832C6D3E4b544D8fD5C355fe25e9",
+			"symbol": "DXWWBNB",
+			"feeTier": 0,
+			"baseAsset": "DXW",
+			"baseAssetAddress": "0x89675DcCFE0c19bca178A0E0384Bd8E273a45cbA",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xDa59a0f741Dd0a90A1EE4323a79332D41c2a3136",
+			"symbol": "QUAMWBNB",
+			"feeTier": 0,
+			"baseAsset": "QUAM",
+			"baseAssetAddress": "0x1AdE17B4B38B472B5259BbC938618226dF7b5Ca8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x302D5B28198b863295A9A37d3B3d2b7Dd2e3b7f6",
+			"symbol": "QUAMBUSD",
+			"feeTier": 0,
+			"baseAsset": "QUAM",
+			"baseAssetAddress": "0x1AdE17B4B38B472B5259BbC938618226dF7b5Ca8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEe633805F60B9B03C02C5771A9E27253e1A3e7dd",
+			"symbol": "EDXMWBNB",
+			"feeTier": 0,
+			"baseAsset": "EDXM",
+			"baseAssetAddress": "0x6332F6559b2aAAe2ab2169A8c5A94F9D0A311CFD",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9D465A8088cc99f0eaa53900FEB62e81FB804992",
+			"symbol": "EDXMBUSD",
+			"feeTier": 0,
+			"baseAsset": "EDXM",
+			"baseAssetAddress": "0x6332F6559b2aAAe2ab2169A8c5A94F9D0A311CFD",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x10D1C705ba4b4449f4Cd40797A7d514D211823E1",
+			"symbol": "RUPEEBUSD",
+			"feeTier": 0,
+			"baseAsset": "RUPEE",
+			"baseAssetAddress": "0x7B0409A3A3f79bAa284035d48E1DFd581d7d7654",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xeC226FBcDC8dcc79BB2aC55e91e30Ed0b8100E2D",
+			"symbol": "RUPEEWBNB",
+			"feeTier": 0,
+			"baseAsset": "RUPEE",
+			"baseAssetAddress": "0x7B0409A3A3f79bAa284035d48E1DFd581d7d7654",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x23287F428aA48DEB30382614e8cC65Dce1E40348",
+			"symbol": "1TRCBUSD",
+			"feeTier": 0,
+			"baseAsset": "1TRC",
+			"baseAssetAddress": "0x97300A4f628701672096460B5469C41a8d3ECb1A",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD39B572891F3898f4812d30DE5e2314DdF5Fc914",
+			"symbol": "1TRCWBNB",
+			"feeTier": 0,
+			"baseAsset": "1TRC",
+			"baseAssetAddress": "0x97300A4f628701672096460B5469C41a8d3ECb1A",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x59Fb98B47Ae636D3C764A1d80074fa79B28B19f9",
+			"symbol": "MOFIBUSD",
+			"feeTier": 0,
+			"baseAsset": "MOFI",
+			"baseAssetAddress": "0x984D3E9906ef5F3e44576140cD0cf649ba1bEFa8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF0490cA3FcC5Ace42f3261E705DD0b393BFbe116",
+			"symbol": "MOFIWBNB",
+			"feeTier": 0,
+			"baseAsset": "MOFI",
+			"baseAssetAddress": "0x984D3E9906ef5F3e44576140cD0cf649ba1bEFa8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
+			"symbol": "WBNBBUSD",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x60c431e9158311aEa29534957Fd66871A4794ac7",
+			"symbol": "TSTBUSD",
+			"feeTier": 0,
+			"baseAsset": "TST",
+			"baseAssetAddress": "0x62Cf224Ce779862F4A6a4425965c4289c59E4107",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x92307800F43De1C6CA0857CB4674fB315ADEA6Bd",
+			"symbol": "TSTWBNB",
+			"feeTier": 0,
+			"baseAsset": "TST",
+			"baseAssetAddress": "0x62Cf224Ce779862F4A6a4425965c4289c59E4107",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+			"symbol": "CakeUSDT",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xac2e78d4cD695761F6A7aAEB616a3A3BdcEda18C",
+			"symbol": "PHYBUSD",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc452895BE1Bf564aFeC3eD998eC5130B767229bE",
+			"symbol": "CakePHY",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PHY",
+			"quoteAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf93FdC895aCA65d7b457a47894d1F95911b7215a",
+			"symbol": "CakeSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xeF967e3Da982ECc1c84bbe6053fD61Af2a65bB9a",
+			"symbol": "SAFEMOONBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x401479091d0F7b8AE437Ee8B054575cd33ea72Bd",
+			"symbol": "NRVBUSD",
+			"feeTier": 0,
+			"baseAsset": "NRV",
+			"baseAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5Cc54637cdee1C29f3daB72720b09106C4a5CBa6",
+			"symbol": "CakeNRV",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "NRV",
+			"quoteAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x90946d2f9fB68ecc40ad8Bc0C1cB15D6cCbC4022",
+			"symbol": "SWAMPBUSD",
+			"feeTier": 0,
+			"baseAsset": "SWAMP",
+			"baseAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf1DfecAeb7a108e12F94fc556a5C149Cb59F81f5",
+			"symbol": "CakeSWAMP",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4d83bA4e2f3f70597A91FbcAA7596E6D4a1EFD07",
+			"symbol": "WRYBUSD",
+			"feeTier": 0,
+			"baseAsset": "WRY",
+			"baseAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8ce3cC02a5eb0CED5a38AeEb9B2a5a10D8339b19",
+			"symbol": "CakeWRY",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WRY",
+			"quoteAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"quoteAssetDecimals": 8
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xe1d5c90e94d73625628b2E6B7AEAbF5f1c504872",
+			"symbol": "CROXBUSD",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2B64133686cC7297df941E972a90cEB2c957d7cb",
+			"symbol": "CakeCROX",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "CROX",
+			"quoteAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0B33e3f6ddD85FfA290D385408D613EaFD620D99",
+			"symbol": "MIXBUSD",
+			"feeTier": 0,
+			"baseAsset": "MIX",
+			"baseAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2b888BF215872c6FAaBF79892Ae08F410ca8C041",
+			"symbol": "CakeMIX",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MIX",
+			"quoteAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x35Cb3FE06d74d5Be668Ab585929e8818D99593BC",
+			"symbol": "SPACEBUSD",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2e833BAd552D32E20E71E905D1457167e47810cB",
+			"symbol": "SPACECake",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "Cake",
+			"quoteAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x804678fa97d91B974ec2af3c843270886528a9E6",
+			"symbol": "CakeBUSD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3d888ED02BbC44c51088005e594419C8219bd77B",
+			"symbol": "ASSBUSD",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xDc3e39191eeF3e832e7a5F8D43F7Ee3c546856aa",
+			"symbol": "CakeASS",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+			"symbol": "CakeUSDT",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE482249Cd295C0d1e9D2baAEE71e66de21024C68",
+			"symbol": "NRVWBNB",
+			"feeTier": 0,
+			"baseAsset": "NRV",
+			"baseAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5Cc54637cdee1C29f3daB72720b09106C4a5CBa6",
+			"symbol": "CakeNRV",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "NRV",
+			"quoteAssetAddress": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xb8b4383B49d451BBeA63BC4421466E1086da6f18",
+			"symbol": "BONDLYWBNB",
+			"feeTier": 0,
+			"baseAsset": "BONDLY",
+			"baseAssetAddress": "0x96058f8C3e16576D9BD68766f3836d9A33158f89",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x52fFE066b383B1481D3C9ae61CA683b221F6ce8c",
+			"symbol": "CakeBONDLY",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BONDLY",
+			"quoteAssetAddress": "0x96058f8C3e16576D9BD68766f3836d9A33158f89",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xFFd4B200d3C77A0B691B5562D804b3bd54294e6e",
+			"symbol": "TKOWBNB",
+			"feeTier": 0,
+			"baseAsset": "TKO",
+			"baseAssetAddress": "0x9f589e3eabe42ebC94A44727b3f3531C0c877809",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x40f46d204358F9b9C543010258A27a6778000318",
+			"symbol": "CakeTKO",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "TKO",
+			"quoteAssetAddress": "0x9f589e3eabe42ebC94A44727b3f3531C0c877809",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0604471c532F9fEBAD3E37190B667f44BD0894b3",
+			"symbol": "CGGWBNB",
+			"feeTier": 0,
+			"baseAsset": "CGG",
+			"baseAssetAddress": "0x1613957159E9B0ac6c80e824F7Eea748a32a0AE2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf7bF3285e864647cae8AF1c3AF81A1e550F335A8",
+			"symbol": "CakeCGG",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "CGG",
+			"quoteAssetAddress": "0x1613957159E9B0ac6c80e824F7Eea748a32a0AE2",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xa7A0b605343dF36B748FF4B5f7578b3F2D0651CE",
+			"symbol": "XEDWBNB",
+			"feeTier": 0,
+			"baseAsset": "XED",
+			"baseAssetAddress": "0x5621b5A3f4a8008c4CCDd1b942B121c8B1944F1f",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2DcD339c81aE0D7D96e38c06Afe2cc0CF66aB094",
+			"symbol": "CakeXED",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "XED",
+			"quoteAssetAddress": "0x5621b5A3f4a8008c4CCDd1b942B121c8B1944F1f",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2eD490E672E1f19073DD1Fe0Ce78837FFe0b653C",
+			"symbol": "PHYWBNB",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc452895BE1Bf564aFeC3eD998eC5130B767229bE",
+			"symbol": "CakePHY",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PHY",
+			"quoteAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf93FdC895aCA65d7b457a47894d1F95911b7215a",
+			"symbol": "CakeSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1b96e27a90fcdc7800ffDCdAb10a338a8DDd4C92",
+			"symbol": "SYLWBNB",
+			"feeTier": 0,
+			"baseAsset": "SYL",
+			"baseAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x81D6578195e79F842b812CfA161E1e013D317192",
+			"symbol": "CakeSYL",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SYL",
+			"quoteAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"quoteAssetDecimals": 6
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x57C4195c0E07e8A37B58b52eF9d57d1aDcF8e71E",
+			"symbol": "ASSWBNB",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xDc3e39191eeF3e832e7a5F8D43F7Ee3c546856aa",
+			"symbol": "CakeASS",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x59Fe1dcdCD8918fe7B4e76E21f27599d5a1eAADb",
+			"symbol": "WBNBSWAMP",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf1DfecAeb7a108e12F94fc556a5C149Cb59F81f5",
+			"symbol": "CakeSWAMP",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xac109C8025F272414fd9e2faA805a583708A017f",
+			"symbol": "DOGEWBNB",
+			"feeTier": 0,
+			"baseAsset": "DOGE",
+			"baseAssetAddress": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA1d7621ADaDB86c83779b94D978c48760F5DcE67",
+			"symbol": "CakeDOGE",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "DOGE",
+			"quoteAssetAddress": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+			"quoteAssetDecimals": 8
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x0F898a023fEE8dbB08CC68fE8765166E2395087c",
+			"symbol": "CakeHOLD",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "HOLD",
+			"quoteAssetAddress": "0xb5E1f0264E249a593019f3893bd2272Fb79BAB05",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4f150235C339413AD039642880c91E294513940b",
+			"symbol": "HOLDWBNB",
+			"feeTier": 0,
+			"baseAsset": "HOLD",
+			"baseAssetAddress": "0xb5E1f0264E249a593019f3893bd2272Fb79BAB05",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x35d6D5792f997c5A61Fb96eF172bfE6e9016ba4d",
+			"symbol": "CakeSLING",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SLING",
+			"quoteAssetAddress": "0x55F04b94F5A4fd021F5C4dE515938dDa8dd56Af7",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x66e4F98554699e7b8d4F50acce6E03Aa30Ca1995",
+			"symbol": "SLINGWBNB",
+			"feeTier": 0,
+			"baseAsset": "SLING",
+			"baseAssetAddress": "0x55F04b94F5A4fd021F5C4dE515938dDa8dd56Af7",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE38e899cc99ddeA9737e06f0A22046d0CA904D70",
+			"symbol": "CROXWBNB",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2B64133686cC7297df941E972a90cEB2c957d7cb",
+			"symbol": "CakeCROX",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "CROX",
+			"quoteAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x08A83710d86aE318F34716D785a326f930A3877D",
+			"symbol": "MIXWBNB",
+			"feeTier": 0,
+			"baseAsset": "MIX",
+			"baseAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2b888BF215872c6FAaBF79892Ae08F410ca8C041",
+			"symbol": "CakeMIX",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MIX",
+			"quoteAssetAddress": "0xB67754f5b4C704A24d2db68e661b2875a4dDD197",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8ce3cC02a5eb0CED5a38AeEb9B2a5a10D8339b19",
+			"symbol": "CakeWRY",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WRY",
+			"quoteAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"quoteAssetDecimals": 8
+		},
+		{
+			"address": "0x90ED076FBaa22d27bd1fB810D992909CEfc11ec8",
+			"symbol": "WRYWBNB",
+			"feeTier": 0,
+			"baseAsset": "WRY",
+			"baseAssetAddress": "0x4F0c54c06bC401D02Df557FD65eE30F622155cf6",
+			"baseAssetDecimals": 8,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x309438d5C12B34C8857e029b19c0F09945187d1a",
+			"symbol": "SPACEWBNB",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2e833BAd552D32E20E71E905D1457167e47810cB",
+			"symbol": "SPACECake",
+			"feeTier": 0,
+			"baseAsset": "SPACE",
+			"baseAssetAddress": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "Cake",
+			"quoteAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
+			"symbol": "CakeWBNB",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x896fBba85a1B2D28c19b6F1F5818D0b0546e6a19",
+			"symbol": "CakePAWG",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PAWG",
+			"quoteAssetAddress": "0x7B62Cb10134F16EfDc3C6CA54fb211fA1385142a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE93c46E0AA4e2Ab8B5a4A3696baD25F57E52cdAc",
+			"symbol": "PAWGWBNB",
+			"feeTier": 0,
+			"baseAsset": "PAWG",
+			"baseAssetAddress": "0x7B62Cb10134F16EfDc3C6CA54fb211fA1385142a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2354ef4DF11afacb85a5C7f98B624072ECcddbB1",
+			"symbol": "USDCBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEc6557348085Aa57C72514D67070dC863C0a5A8c",
+			"symbol": "USDTUSDC",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xe1d5c90e94d73625628b2E6B7AEAbF5f1c504872",
+			"symbol": "CROXBUSD",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9CEEF5164081545C1989CD621C1f1d48E81Ba18A",
+			"symbol": "CROXUSDT",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8d61Af0D75B7A558C1a35966AEC59c7716ce0140",
+			"symbol": "MDOBUSD",
+			"feeTier": 0,
+			"baseAsset": "MDO",
+			"baseAssetAddress": "0x35e869B7456462b81cdB5e6e42434bD27f3F788c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5F414840D2228f0BD49F63822918648A1e84Ac8e",
+			"symbol": "MDOUSDT",
+			"feeTier": 0,
+			"baseAsset": "MDO",
+			"baseAssetAddress": "0x35e869B7456462b81cdB5e6e42434bD27f3F788c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7EFaEf62fDdCCa950418312c6C91Aef321375A00",
+			"symbol": "USDTBUSD",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3d888ED02BbC44c51088005e594419C8219bd77B",
+			"symbol": "ASSBUSD",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7AEbD384081452F599A14A03C209d3057F9ecdD4",
+			"symbol": "USDTASS",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x74E4716E431f45807DCF19f284c7aA99F18a4fbc",
+			"symbol": "ETHWBNB",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD65f0885208545d5DB30c959d32B5cC0E3a6587E",
+			"symbol": "ICAWBNB",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2cb2C54795b6714dA829FfA580B9692A261F8Bdd",
+			"symbol": "ETHICA",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ICA",
+			"quoteAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x61EB789d75A95CAa3fF50ed7E47b96c132fEc082",
+			"symbol": "BTCBWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB2678C414ebC63c9CC6d1a0fC45f43E249B50fdE",
+			"symbol": "BTCSTWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCST",
+			"baseAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"baseAssetDecimals": 17,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD521534a2255B73Fecc79A3bf11E4042c196E789",
+			"symbol": "BTCBBTCST",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BTCST",
+			"quoteAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"quoteAssetDecimals": 17
+		}
+	],
+	[
+		{
+			"address": "0x61EB789d75A95CAa3fF50ed7E47b96c132fEc082",
+			"symbol": "BTCBWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8046fa66753928F35f7Db23ae0188ee6743C2FBA",
+			"symbol": "τBTCBTCB",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BTCB",
+			"quoteAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x554F966fA8EE2B66E42e3829e9a5a20388ecaB24",
+			"symbol": "τBTCWBNB",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x61EB789d75A95CAa3fF50ed7E47b96c132fEc082",
+			"symbol": "BTCBWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2eD490E672E1f19073DD1Fe0Ce78837FFe0b653C",
+			"symbol": "PHYWBNB",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3788F84a1Dd1DE0fa023FF302bd1C7F6a4aC96Ed",
+			"symbol": "BTCBPHY",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PHY",
+			"quoteAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x61EB789d75A95CAa3fF50ed7E47b96c132fEc082",
+			"symbol": "BTCBWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD65f0885208545d5DB30c959d32B5cC0E3a6587E",
+			"symbol": "ICAWBNB",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA2e5A7Bf668ECb74186e0E4BFBA8a0C58BCc760d",
+			"symbol": "BTCBICA",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ICA",
+			"quoteAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x676c44240baB1f23F31C591fc422d48A9EC9de30",
+			"symbol": "SAFEBTCWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEBTC",
+			"baseAssetAddress": "0x380624A4a7e69dB1cA07deEcF764025FC224D056",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8f76ADeC8844Ce03D25Ec4199A3653e86b4c43cf",
+			"symbol": "SAFEBTCUSDT",
+			"feeTier": 0,
+			"baseAsset": "SAFEBTC",
+			"baseAssetAddress": "0x380624A4a7e69dB1cA07deEcF764025FC224D056",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1b96e27a90fcdc7800ffDCdAb10a338a8DDd4C92",
+			"symbol": "SYLWBNB",
+			"feeTier": 0,
+			"baseAsset": "SYL",
+			"baseAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x43b785F3c5B0Ef9b4aBA42582C5d09766cf62C97",
+			"symbol": "USDTSYL",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SYL",
+			"quoteAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"quoteAssetDecimals": 6
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x82AB370d2055e083747876885E3Ad0B829CFb524",
+			"symbol": "HAPPYWBNB",
+			"feeTier": 0,
+			"baseAsset": "HAPPY",
+			"baseAssetAddress": "0xB0B924C4a31b7d4581a7F78F57ceE1E65736Be1D",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3FED067722bddD944EC84d669a313703aD05E1Cd",
+			"symbol": "USDTHAPPY",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "HAPPY",
+			"quoteAssetAddress": "0xB0B924C4a31b7d4581a7F78F57ceE1E65736Be1D",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x57C4195c0E07e8A37B58b52eF9d57d1aDcF8e71E",
+			"symbol": "ASSWBNB",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7AEbD384081452F599A14A03C209d3057F9ecdD4",
+			"symbol": "USDTASS",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7A90559aDf8fAB73b1d41FFcB7547c509778AC0C",
+			"symbol": "MDGUSDT",
+			"feeTier": 0,
+			"baseAsset": "MDG",
+			"baseAssetAddress": "0x163dE35e4956b36A1aC824C97dFD3c4aBAF8Bd92",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x78d82fCc291EEccA5dBA74694563b9B2eF0CeC2b",
+			"symbol": "MDGWBNB",
+			"feeTier": 0,
+			"baseAsset": "MDG",
+			"baseAssetAddress": "0x163dE35e4956b36A1aC824C97dFD3c4aBAF8Bd92",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xd99c7F6C65857AC913a8f880A4cb84032AB2FC5b",
+			"symbol": "USDCWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEc6557348085Aa57C72514D67070dC863C0a5A8c",
+			"symbol": "USDTUSDC",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xE38e899cc99ddeA9737e06f0A22046d0CA904D70",
+			"symbol": "CROXWBNB",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9CEEF5164081545C1989CD621C1f1d48E81Ba18A",
+			"symbol": "CROXUSDT",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+			"symbol": "USDTWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1aE65A9793D5392DF1202a7637a04682bbc49cd9",
+			"symbol": "USDTTESTO",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "TESTO",
+			"quoteAssetAddress": "0x5dAD542A3933FD881d9Da526856B0b26D462917f",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfdC36cC1f571a20DC482B7eE214bB7f0707FDfc9",
+			"symbol": "TESTOWBNB",
+			"feeTier": 0,
+			"baseAsset": "TESTO",
+			"baseAssetAddress": "0x5dAD542A3933FD881d9Da526856B0b26D462917f",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1BdCebcA3b93af70b58C41272AEa2231754B23ca",
+			"symbol": "INJWBNB",
+			"feeTier": 0,
+			"baseAsset": "INJ",
+			"baseAssetAddress": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xd99c7F6C65857AC913a8f880A4cb84032AB2FC5b",
+			"symbol": "USDCWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x08C80b8b9A7a5348cE70c28a47927dEfFF8b550B",
+			"symbol": "USDCINJ",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "INJ",
+			"quoteAssetAddress": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xB2678C414ebC63c9CC6d1a0fC45f43E249B50fdE",
+			"symbol": "BTCSTWBNB",
+			"feeTier": 0,
+			"baseAsset": "BTCST",
+			"baseAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"baseAssetDecimals": 17,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x139248D303cb9105eAAadBB9b907FF5509B2Ed0f",
+			"symbol": "τBTCBTCST",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BTCST",
+			"quoteAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"quoteAssetDecimals": 17
+		},
+		{
+			"address": "0x554F966fA8EE2B66E42e3829e9a5a20388ecaB24",
+			"symbol": "τBTCWBNB",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x942b294e59a8c47a0F7F20DF105B082710F7C305",
+			"symbol": "WBNBSFP",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SFP",
+			"quoteAssetAddress": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x6615CE60D71513aA4849269dD63821D324A23F8C",
+			"symbol": "WBNBpCWS",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "pCWS",
+			"quoteAssetAddress": "0xbcf39F0EDDa668C58371E519AF37CA705f2bFcbd",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x531C0FfAD8A316935EFAFD753004D128dd32853A",
+			"symbol": "pCWSSFP",
+			"feeTier": 0,
+			"baseAsset": "pCWS",
+			"baseAssetAddress": "0xbcf39F0EDDa668C58371E519AF37CA705f2bFcbd",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SFP",
+			"quoteAssetAddress": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x20c6De8983Fb2D641c55004646aEF40b4EA66E18",
+			"symbol": "EASYWBNB",
+			"feeTier": 0,
+			"baseAsset": "EASY",
+			"baseAssetAddress": "0x7C17c8bED8d14bAccE824D020f994F4880D6Ab3B",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xa454ED3373a7e2242164208C2dAAE3e05Ed4dbB2",
+			"symbol": "WBNBFOX",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "FOX",
+			"quoteAssetAddress": "0xFAd8E46123D7b4e77496491769C167FF894d2ACB",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xe8B12b44dD8E9a757f6C945881521C6f395c9ed2",
+			"symbol": "EASYFOX",
+			"feeTier": 0,
+			"baseAsset": "EASY",
+			"baseAssetAddress": "0x7C17c8bED8d14bAccE824D020f994F4880D6Ab3B",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "FOX",
+			"quoteAssetAddress": "0xFAd8E46123D7b4e77496491769C167FF894d2ACB",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0xFFd4B200d3C77A0B691B5562D804b3bd54294e6e",
+			"symbol": "TKOWBNB",
+			"feeTier": 0,
+			"baseAsset": "TKO",
+			"baseAssetAddress": "0x9f589e3eabe42ebC94A44727b3f3531C0c877809",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x37DAa800Ef52B30222A11ef1643D30EeF4e65FB3",
+			"symbol": "SAFUWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFU",
+			"baseAssetAddress": "0x16Feb16F7Ee2190312D03f449eeEc2339add2D83",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x86523d1Cd89B3ECDaAED539eDDe13c9Dc4AbB761",
+			"symbol": "SAFUTKO",
+			"feeTier": 0,
+			"baseAsset": "SAFU",
+			"baseAssetAddress": "0x16Feb16F7Ee2190312D03f449eeEc2339add2D83",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "TKO",
+			"quoteAssetAddress": "0x9f589e3eabe42ebC94A44727b3f3531C0c877809",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x8046fa66753928F35f7Db23ae0188ee6743C2FBA",
+			"symbol": "τBTCBTCB",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BTCB",
+			"quoteAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x139248D303cb9105eAAadBB9b907FF5509B2Ed0f",
+			"symbol": "τBTCBTCST",
+			"feeTier": 0,
+			"baseAsset": "τBTC",
+			"baseAssetAddress": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BTCST",
+			"quoteAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"quoteAssetDecimals": 17
+		},
+		{
+			"address": "0xD521534a2255B73Fecc79A3bf11E4042c196E789",
+			"symbol": "BTCBBTCST",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BTCST",
+			"quoteAssetAddress": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+			"quoteAssetDecimals": 17
+		}
+	],
+	[
+		{
+			"address": "0xfA83874a1eCE9b9Ea6dcdA94ebD18aF2eDa0D15D",
+			"symbol": "SAFEMARSWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x6f0746EC7C00e3E6ec9f3d097d28DaA685C03682",
+			"symbol": "SAFEMARSSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0xac2e78d4cD695761F6A7aAEB616a3A3BdcEda18C",
+			"symbol": "PHYBUSD",
+			"feeTier": 0,
+			"baseAsset": "PHY",
+			"baseAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x3788F84a1Dd1DE0fa023FF302bd1C7F6a4aC96Ed",
+			"symbol": "BTCBPHY",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "PHY",
+			"quoteAssetAddress": "0xae63595ed0bcfdDefF2ebb74a20aE96727783a67",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF45cd219aEF8618A92BAa7aD848364a158a24F33",
+			"symbol": "BTCBBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7f1bb2D98aD5ba6Fae2a86acfc170cC2edfd57ec",
+			"symbol": "ElonGateWBNB",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2fdAb58934706759c8C92d284c41C5F3F095FB11",
+			"symbol": "ElonGateSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xfff58a50Fdde55F5B5626BB66dE476F63155E078",
+			"symbol": "PITWBNB",
+			"feeTier": 0,
+			"baseAsset": "PIT",
+			"baseAssetAddress": "0xA57ac35CE91Ee92CaEfAA8dc04140C8e232c2E50",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc1b3558aDA07326a23Bd00546fc9E033B800A9Cc",
+			"symbol": "SAFEMOONPIT",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "PIT",
+			"quoteAssetAddress": "0xA57ac35CE91Ee92CaEfAA8dc04140C8e232c2E50",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x57C4195c0E07e8A37B58b52eF9d57d1aDcF8e71E",
+			"symbol": "ASSWBNB",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf636866d5F0b97A2e862b85a06440201ee3AFE23",
+			"symbol": "ASSSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x53885e7ea60190e47E7B03Db8EEF8C1B047D46fe",
+			"symbol": "ZEPSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ZEP",
+			"baseAssetAddress": "0x2E291e1c9f85a86d0C58Ae15621aaC005a8b2EAD",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x5dDc71221CE7C49ad5C1C63d78DAF76Ef59eEf60",
+			"symbol": "ZEPWBNB",
+			"feeTier": 0,
+			"baseAsset": "ZEP",
+			"baseAssetAddress": "0x2E291e1c9f85a86d0C58Ae15621aaC005a8b2EAD",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xfF3dD404aFbA451328de089424C74685bf0a43C9",
+			"symbol": "SAFEMOONWBNB",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x27a57Bfa62dc79713B9CD7E3212e7e2528bC8f2a",
+			"symbol": "TBIRDSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "TBIRD",
+			"baseAssetAddress": "0x60cfDEF4EDb81023C3A848ccA2cbe20beb5f6999",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x9E7A645e2893AF0Abd7c7a17c9e5aC989a5c966E",
+			"symbol": "TBIRDWBNB",
+			"feeTier": 0,
+			"baseAsset": "TBIRD",
+			"baseAssetAddress": "0x60cfDEF4EDb81023C3A848ccA2cbe20beb5f6999",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xf93FdC895aCA65d7b457a47894d1F95911b7215a",
+			"symbol": "CakeSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xf636866d5F0b97A2e862b85a06440201ee3AFE23",
+			"symbol": "ASSSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xDc3e39191eeF3e832e7a5F8D43F7Ee3c546856aa",
+			"symbol": "CakeASS",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x78Ac48792e30c6c07F02eaAEf530A66a79661032",
+			"symbol": "ZEPMOONPIRATE",
+			"feeTier": 0,
+			"baseAsset": "ZEP",
+			"baseAssetAddress": "0x2E291e1c9f85a86d0C58Ae15621aaC005a8b2EAD",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "MOONPIRATE",
+			"quoteAssetAddress": "0xf09b7B6bA6dAb7CccC3AE477a174b164c39f4C66",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x673C3611Bd3FD634ae85E4144E6aAc0705a02c5d",
+			"symbol": "WBNBMOONPIRATE",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MOONPIRATE",
+			"quoteAssetAddress": "0xf09b7B6bA6dAb7CccC3AE477a174b164c39f4C66",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x5dDc71221CE7C49ad5C1C63d78DAF76Ef59eEf60",
+			"symbol": "ZEPWBNB",
+			"feeTier": 0,
+			"baseAsset": "ZEP",
+			"baseAssetAddress": "0x2E291e1c9f85a86d0C58Ae15621aaC005a8b2EAD",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7e21b7c4b6997a2EfEa1831F6203c59c522248A3",
+			"symbol": "PDAODMS",
+			"feeTier": 0,
+			"baseAsset": "PDAO",
+			"baseAssetAddress": "0x1af3B59a839e97e944C65177aB3a024B499133F8",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "DMS",
+			"quoteAssetAddress": "0x7CCE48f8F4B67E2318f22F676975C49ff58D0FbE",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x493d4dc2aE91455E22CB1f3444a71404d9f13886",
+			"symbol": "PDAOWBNB",
+			"feeTier": 0,
+			"baseAsset": "PDAO",
+			"baseAssetAddress": "0x1af3B59a839e97e944C65177aB3a024B499133F8",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8d0A7889D206ca88A754759BfD547e8e2DfE2506",
+			"symbol": "DMSWBNB",
+			"feeTier": 0,
+			"baseAsset": "DMS",
+			"baseAssetAddress": "0x7CCE48f8F4B67E2318f22F676975C49ff58D0FbE",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x9Ac0469dacCb1d0C8f78d8dC7D63C2486261672b",
+			"symbol": "MRATBAFE",
+			"feeTier": 0,
+			"baseAsset": "MRAT",
+			"baseAssetAddress": "0x6D949f9297A522c0f97C232CC209a67Bd7CfA471",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BAFE",
+			"quoteAssetAddress": "0x7bb362962F2a4E2089466C79566572B37CFc5D78",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x48b8F38410a0C9ecCC5aA66500B184Dcb5A1Bf65",
+			"symbol": "MRATWBNB",
+			"feeTier": 0,
+			"baseAsset": "MRAT",
+			"baseAssetAddress": "0x6D949f9297A522c0f97C232CC209a67Bd7CfA471",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xd590737A1471211Ab79983DBdde9a5B6405C72e2",
+			"symbol": "BAFEWBNB",
+			"feeTier": 0,
+			"baseAsset": "BAFE",
+			"baseAssetAddress": "0x7bb362962F2a4E2089466C79566572B37CFc5D78",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x009AB87D2E0b056FFd14dF6E4c9d820B7FA4b98B",
+			"symbol": "HONEYASS",
+			"feeTier": 0,
+			"baseAsset": "HONEY",
+			"baseAssetAddress": "0x1BD7dF20aE5e884C61b7017FaC557e82cCA6baEe",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x57C4195c0E07e8A37B58b52eF9d57d1aDcF8e71E",
+			"symbol": "ASSWBNB",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x11F76ae623575feDbaf722B89ED7a89E6E5952f6",
+			"symbol": "HONEYWBNB",
+			"feeTier": 0,
+			"baseAsset": "HONEY",
+			"baseAssetAddress": "0x1BD7dF20aE5e884C61b7017FaC557e82cCA6baEe",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x672bc1197B07E2E8320DdB8e705634DdD581B760",
+			"symbol": "XVESTUSDC",
+			"feeTier": 0,
+			"baseAsset": "XVEST",
+			"baseAssetAddress": "0x7305509e301d001696043C6BEA3c0bE16D12c706",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB740544Fc140936CB84906f12e53EBEf5160E90c",
+			"symbol": "XVESTWBNB",
+			"feeTier": 0,
+			"baseAsset": "XVEST",
+			"baseAssetAddress": "0x7305509e301d001696043C6BEA3c0bE16D12c706",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xd99c7F6C65857AC913a8f880A4cb84032AB2FC5b",
+			"symbol": "USDCWBNB",
+			"feeTier": 0,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xeDCd99aD43C6911D37780158370ec1913Ee9e7D3",
+			"symbol": "xBLZDBUSD",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x90946d2f9fB68ecc40ad8Bc0C1cB15D6cCbC4022",
+			"symbol": "SWAMPBUSD",
+			"feeTier": 0,
+			"baseAsset": "SWAMP",
+			"baseAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x831b40b19b44ddCaa730dCF6079B62E4f33Ab2DD",
+			"symbol": "xBLZDSWAMP",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x831b40b19b44ddCaa730dCF6079B62E4f33Ab2DD",
+			"symbol": "xBLZDSWAMP",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x59Fe1dcdCD8918fe7B4e76E21f27599d5a1eAADb",
+			"symbol": "WBNBSWAMP",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SWAMP",
+			"quoteAssetAddress": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD9002B7E7d63A71F04a16840DA028e1cd534889D",
+			"symbol": "xBLZDWBNB",
+			"feeTier": 0,
+			"baseAsset": "xBLZD",
+			"baseAssetAddress": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x14F438aaC88A3Feee19DD412D2ad9bC7a05Ac6A5",
+			"symbol": "BTCBMASH",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "MASH",
+			"quoteAssetAddress": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1B3a19d2138adcC190EdDB88F0B97a7b6fB4bD9B",
+			"symbol": "MASHBUSD",
+			"feeTier": 0,
+			"baseAsset": "MASH",
+			"baseAssetAddress": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF45cd219aEF8618A92BAa7aD848364a158a24F33",
+			"symbol": "BTCBBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x8d0A7889D206ca88A754759BfD547e8e2DfE2506",
+			"symbol": "DMSWBNB",
+			"feeTier": 0,
+			"baseAsset": "DMS",
+			"baseAssetAddress": "0x7CCE48f8F4B67E2318f22F676975C49ff58D0FbE",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD027A8a63EEc03DCeeA841c130D1F84b41f99559",
+			"symbol": "DMSORFANO",
+			"feeTier": 0,
+			"baseAsset": "DMS",
+			"baseAssetAddress": "0x7CCE48f8F4B67E2318f22F676975C49ff58D0FbE",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ORFANO",
+			"quoteAssetAddress": "0xEF2ec90e0b8D4CdFdB090989EA1Bc663F0D680BF",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x676Af01766b22760d9e9Ef9130C28AF0fbb2C17b",
+			"symbol": "WBNBORFANO",
+			"feeTier": 0,
+			"baseAsset": "WBNB",
+			"baseAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ORFANO",
+			"quoteAssetAddress": "0xEF2ec90e0b8D4CdFdB090989EA1Bc663F0D680BF",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x4aA8F0ef7dd950e260d5EeaF50A1D796D0cefd2f",
+			"symbol": "SPOREWBNB",
+			"feeTier": 0,
+			"baseAsset": "SPORE",
+			"baseAssetAddress": "0x33A3d962955A3862C8093D1273344719f03cA17C",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xbB6e4bB2a45B92342993E39d5D742bb3d2028f1C",
+			"symbol": "DAISPORE",
+			"feeTier": 0,
+			"baseAsset": "DAI",
+			"baseAssetAddress": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SPORE",
+			"quoteAssetAddress": "0x77f6A5f1B7a2b6D6C322Af8581317D6Bb0a52689",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xc7c3cCCE4FA25700fD5574DA7E200ae28BBd36A3",
+			"symbol": "DAIWBNB",
+			"feeTier": 0,
+			"baseAsset": "DAI",
+			"baseAssetAddress": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x43b785F3c5B0Ef9b4aBA42582C5d09766cf62C97",
+			"symbol": "USDTSYL",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SYL",
+			"quoteAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+			"symbol": "CakeUSDT",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x81D6578195e79F842b812CfA161E1e013D317192",
+			"symbol": "CakeSYL",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SYL",
+			"quoteAssetAddress": "0x7e52a123Ed6DB6Ac872A875552935fBbD2544c86",
+			"quoteAssetDecimals": 6
+		}
+	],
+	[
+		{
+			"address": "0x6f0746EC7C00e3E6ec9f3d097d28DaA685C03682",
+			"symbol": "SAFEMARSSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xeF967e3Da982ECc1c84bbe6053fD61Af2a65bB9a",
+			"symbol": "SAFEMOONBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x8F3E5fcb696F04002a051C82eAE48000A66e9133",
+			"symbol": "SAFEMARSBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMARS",
+			"baseAssetAddress": "0x3aD9594151886Ce8538C1ff615EFa2385a8C3A88",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x5Ac71a5F1f49dE59925af4AdA5f8abbD03229801",
+			"symbol": "ElonGateBUSD",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xeF967e3Da982ECc1c84bbe6053fD61Af2a65bB9a",
+			"symbol": "SAFEMOONBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2fdAb58934706759c8C92d284c41C5F3F095FB11",
+			"symbol": "ElonGateSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ElonGate",
+			"baseAssetAddress": "0x2A9718defF471f3Bb91FA0ECEAB14154F150a385",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		}
+	],
+	[
+		{
+			"address": "0x2B64133686cC7297df941E972a90cEB2c957d7cb",
+			"symbol": "CakeCROX",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "CROX",
+			"quoteAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9CEEF5164081545C1989CD621C1f1d48E81Ba18A",
+			"symbol": "CROXUSDT",
+			"feeTier": 0,
+			"baseAsset": "CROX",
+			"baseAssetAddress": "0x2c094F5A7D1146BB93850f629501eB749f6Ed491",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+			"symbol": "CakeUSDT",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xeF967e3Da982ECc1c84bbe6053fD61Af2a65bB9a",
+			"symbol": "SAFEMOONBUSD",
+			"feeTier": 0,
+			"baseAsset": "SAFEMOON",
+			"baseAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf636866d5F0b97A2e862b85a06440201ee3AFE23",
+			"symbol": "ASSSAFEMOON",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "SAFEMOON",
+			"quoteAssetAddress": "0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0x3d888ED02BbC44c51088005e594419C8219bd77B",
+			"symbol": "ASSBUSD",
+			"feeTier": 0,
+			"baseAsset": "ASS",
+			"baseAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"baseAssetDecimals": 9,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x223648Bb35E87DAC16C4887D8506df79eC29A1dF",
+			"symbol": "MILK2SHAKE",
+			"feeTier": 0,
+			"baseAsset": "MILK2",
+			"baseAssetAddress": "0x4A5a34212404f30C5aB7eB61b078fA4A55AdC5a5",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "SHAKE",
+			"quoteAssetAddress": "0xbA8A6Ef5f15ED18e7184f44a775060a6bF91d8d0",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x9e8a0AD0B1E67BbC96c88463B193b77aF0C55A7C",
+			"symbol": "MILK2WBNB",
+			"feeTier": 0,
+			"baseAsset": "MILK2",
+			"baseAssetAddress": "0x4A5a34212404f30C5aB7eB61b078fA4A55AdC5a5",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xC0885c71442E5a598ad55a0772A8351f5be9751e",
+			"symbol": "SHAKEWBNB",
+			"feeTier": 0,
+			"baseAsset": "SHAKE",
+			"baseAssetAddress": "0xbA8A6Ef5f15ED18e7184f44a775060a6bF91d8d0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "WBNB",
+			"quoteAssetAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x2cb2C54795b6714dA829FfA580B9692A261F8Bdd",
+			"symbol": "ETHICA",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ICA",
+			"quoteAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7BE922a90d0dA949CDa3982145528bf70A4c8678",
+			"symbol": "ICABUSD",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7213a321F1855CF1779f42c0CD85d3D95291D34C",
+			"symbol": "ETHBUSD",
+			"feeTier": 0,
+			"baseAsset": "ETH",
+			"baseAssetAddress": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7BE922a90d0dA949CDa3982145528bf70A4c8678",
+			"symbol": "ICABUSD",
+			"feeTier": 0,
+			"baseAsset": "ICA",
+			"baseAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA2e5A7Bf668ECb74186e0E4BFBA8a0C58BCc760d",
+			"symbol": "BTCBICA",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ICA",
+			"quoteAssetAddress": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xF45cd219aEF8618A92BAa7aD848364a158a24F33",
+			"symbol": "BTCBBUSD",
+			"feeTier": 0,
+			"baseAsset": "BTCB",
+			"baseAssetAddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "BUSD",
+			"quoteAssetAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0xDc3e39191eeF3e832e7a5F8D43F7Ee3c546856aa",
+			"symbol": "CakeASS",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		},
+		{
+			"address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+			"symbol": "CakeUSDT",
+			"feeTier": 0,
+			"baseAsset": "Cake",
+			"baseAssetAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDT",
+			"quoteAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x7AEbD384081452F599A14A03C209d3057F9ecdD4",
+			"symbol": "USDTASS",
+			"feeTier": 0,
+			"baseAsset": "USDT",
+			"baseAssetAddress": "0x55d398326f99059fF775485246999027B3197955",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "ASS",
+			"quoteAssetAddress": "0x7c63F96fEAFACD84e75a594C00faC3693386FBf0",
+			"quoteAssetDecimals": 9
+		}
+	]
+]

@@ -1,6 +1,496 @@
 [
 	[
 		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
+			"symbol": "USD₮cUSD",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
+			"symbol": "cUSDUSDC",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
+			"symbol": "USD₮cUSD",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
+			"symbol": "USDCcUSD",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0xE426E1305f5e6093864762Bf9d2D8B44BC211c59",
+			"symbol": "WETHUSDC",
+			"feeTier": 3000,
+			"baseAsset": "WETH",
+			"baseAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x7766BDC5ff15d3aCeB4D37914963aeBAcCF3de15",
+			"symbol": "USD₮WETH",
+			"feeTier": 3000,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WETH",
+			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
+			"symbol": "USD₮cEUR",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
+			"symbol": "USDCcEUR",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x7766BDC5ff15d3aCeB4D37914963aeBAcCF3de15",
+			"symbol": "USD₮WETH",
+			"feeTier": 3000,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WETH",
+			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xB90FE7DA36aC89448e6Dfd7f2BB1E90A66659977",
+			"symbol": "USDCWETH",
+			"feeTier": 3000,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "WETH",
+			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
+			"symbol": "CELOUSD₮",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USD₮",
+			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0xA1777e082fA1746eB78DD9C1fbB515419CF6e538",
+			"symbol": "CELOUSDC",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		}
+	],
+	[
+		{
+			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
+			"symbol": "USD₮USDC",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
+			"symbol": "CELOUSD₮",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USD₮",
+			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x0Ed413cEfdE954D8E5C54d981d7d182B587E98e3",
+			"symbol": "USDCCELO",
+			"feeTier": 500,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "CELO",
+			"quoteAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
+			"symbol": "USD₮cUSD",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
+			"symbol": "USD₮cEUR",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
+			"symbol": "cUSDUSDC",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
+			"symbol": "USDCcEUR",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
+			"symbol": "CELOcUSD",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xf130F72F8190f662522774C3367E6e8814f5e219",
+			"symbol": "CELOcEUR",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
+			"symbol": "USDCcEUR",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
+			"symbol": "USDCcUSD",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4A46c053bd5c10A959aea258228217b9d3405F3d",
+			"symbol": "cUSDEURA",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "EURA",
+			"quoteAssetAddress": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x4b7A4530D56Ff55a4DcE089d917ede812E543307",
+			"symbol": "EURAcEUR",
+			"feeTier": 10000,
+			"baseAsset": "EURA",
+			"baseAssetAddress": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA143ccF73C25eeC6f38bD1b741043ebeA228b8e9",
+			"symbol": "cKEScEUR",
+			"feeTier": 100,
+			"baseAsset": "cKES",
+			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x95faa9a91cD6c1C018e4B1a6fC4c89D4F1695e5D",
+			"symbol": "cKEScUSD",
+			"feeTier": 100,
+			"baseAsset": "cKES",
+			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
+			"symbol": "cUSDcEUR",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
+			"symbol": "cEURcREAL",
+			"feeTier": 100,
+			"baseAsset": "cEUR",
+			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cREAL",
+			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x72Dd8fe09B5b493012e5816068Dfc6Fb26a2A9e6",
+			"symbol": "cUSDcREAL",
+			"feeTier": 100,
+			"baseAsset": "cUSD",
+			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cREAL",
+			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
 			"address": "0xd88D5F9E6c10E6FebC9296A454f6C2589b1E8fAE",
 			"symbol": "CELOWETH",
 			"feeTier": 3000,
@@ -82,17 +572,6 @@
 			"quoteAssetDecimals": 18
 		},
 		{
-			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
-			"symbol": "CELOUSD₮",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USD₮",
-			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"quoteAssetDecimals": 6
-		},
-		{
 			"address": "0x7766BDC5ff15d3aCeB4D37914963aeBAcCF3de15",
 			"symbol": "USD₮WETH",
 			"feeTier": 3000,
@@ -102,6 +581,17 @@
 			"quoteAsset": "WETH",
 			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
 			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
+			"symbol": "CELOUSD₮",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USD₮",
+			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"quoteAssetDecimals": 6
 		}
 	],
 	[
@@ -257,111 +747,6 @@
 			"quoteAssetDecimals": 18
 		},
 		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
-			"symbol": "USD₮cEUR",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
-			"symbol": "USD₮cUSD",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
-			"symbol": "cUSDUSDC",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		}
-	],
-	[
-		{
-			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
-			"symbol": "USD₮cUSD",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
-			"symbol": "USDCcUSD",
-			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x5dC631aD6C26BEA1a59fBF2C2680CF3df43d249f",
-			"symbol": "USD₮cUSD",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
 			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
 			"symbol": "CELOcUSD",
 			"feeTier": 100,
@@ -421,391 +806,6 @@
 	],
 	[
 		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
-			"symbol": "CELOcUSD",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xf130F72F8190f662522774C3367E6e8814f5e219",
-			"symbol": "CELOcEUR",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
-			"symbol": "cUSDUSDC",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
-			"symbol": "USDCcEUR",
-			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x4A46c053bd5c10A959aea258228217b9d3405F3d",
-			"symbol": "cUSDEURA",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "EURA",
-			"quoteAssetAddress": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x4b7A4530D56Ff55a4DcE089d917ede812E543307",
-			"symbol": "EURAcEUR",
-			"feeTier": 10000,
-			"baseAsset": "EURA",
-			"baseAssetAddress": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
-			"symbol": "USDCcEUR",
-			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
-			"symbol": "USDCcUSD",
-			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xA143ccF73C25eeC6f38bD1b741043ebeA228b8e9",
-			"symbol": "cKEScEUR",
-			"feeTier": 100,
-			"baseAsset": "cKES",
-			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x95faa9a91cD6c1C018e4B1a6fC4c89D4F1695e5D",
-			"symbol": "cKEScUSD",
-			"feeTier": 100,
-			"baseAsset": "cKES",
-			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1c8DafD358d308b880F71eDB5170B010b106Ca60",
-			"symbol": "cUSDcEUR",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
-			"symbol": "cEURcREAL",
-			"feeTier": 100,
-			"baseAsset": "cEUR",
-			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cREAL",
-			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x72Dd8fe09B5b493012e5816068Dfc6Fb26a2A9e6",
-			"symbol": "cUSDcREAL",
-			"feeTier": 100,
-			"baseAsset": "cUSD",
-			"baseAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cREAL",
-			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0xE426E1305f5e6093864762Bf9d2D8B44BC211c59",
-			"symbol": "WETHUSDC",
-			"feeTier": 3000,
-			"baseAsset": "WETH",
-			"baseAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x7766BDC5ff15d3aCeB4D37914963aeBAcCF3de15",
-			"symbol": "USD₮WETH",
-			"feeTier": 3000,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "WETH",
-			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
-			"symbol": "USD₮cEUR",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x116361f4f45e310347B43CD098FDFA459760EA7f",
-			"symbol": "USDCcEUR",
-			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
-			"symbol": "CELOUSD₮",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USD₮",
-			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0xA1777e082fA1746eB78DD9C1fbB515419CF6e538",
-			"symbol": "CELOUSDC",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		}
-	],
-	[
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
-			"symbol": "CELOUSD₮",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USD₮",
-			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x0Ed413cEfdE954D8E5C54d981d7d182B587E98e3",
-			"symbol": "USDCCELO",
-			"feeTier": 500,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "CELO",
-			"quoteAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x1a810e0B6c2dd5629AFa2f0c898b9512C6F78846",
-			"symbol": "USD₮USDC",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0x7766BDC5ff15d3aCeB4D37914963aeBAcCF3de15",
-			"symbol": "USD₮WETH",
-			"feeTier": 3000,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "WETH",
-			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xB90FE7DA36aC89448e6Dfd7f2BB1E90A66659977",
-			"symbol": "USDCWETH",
-			"feeTier": 3000,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "WETH",
-			"quoteAssetAddress": "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
 			"address": "0xE426E1305f5e6093864762Bf9d2D8B44BC211c59",
 			"symbol": "WETHUSDC",
 			"feeTier": 3000,
@@ -841,17 +841,6 @@
 	],
 	[
 		{
-			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
-			"symbol": "CELOcUSD",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
 			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
 			"symbol": "cUSDUSDC",
 			"feeTier": 100,
@@ -861,6 +850,17 @@
 			"quoteAsset": "USDC",
 			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
 			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
+			"symbol": "CELOcUSD",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
 		},
 		{
 			"address": "0xA1777e082fA1746eB78DD9C1fbB515419CF6e538",
@@ -876,17 +876,6 @@
 	],
 	[
 		{
-			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
-			"symbol": "CELOcUSD",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
 			"address": "0x34757893070B0FC5de37AaF2844255fF90F7F1E0",
 			"symbol": "cUSDUSDC",
 			"feeTier": 100,
@@ -896,6 +885,17 @@
 			"quoteAsset": "USDC",
 			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
 			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
+			"symbol": "CELOcUSD",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
 		},
 		{
 			"address": "0x0Ed413cEfdE954D8E5C54d981d7d182B587E98e3",
@@ -911,36 +911,71 @@
 	],
 	[
 		{
-			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
-			"symbol": "CELOcUSD",
+			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
+			"symbol": "USD₮cEUR",
 			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
 			"quoteAssetDecimals": 18
 		},
 		{
-			"address": "0xA1777e082fA1746eB78DD9C1fbB515419CF6e538",
-			"symbol": "CELOUSDC",
+			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
+			"symbol": "CELOUSD₮",
 			"feeTier": 100,
 			"baseAsset": "CELO",
 			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
 			"baseAssetDecimals": 18,
-			"quoteAsset": "USDC",
-			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAsset": "USD₮",
+			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
 			"quoteAssetDecimals": 6
 		},
 		{
-			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
-			"symbol": "USDCcUSD",
+			"address": "0xf130F72F8190f662522774C3367E6e8814f5e219",
+			"symbol": "CELOcEUR",
 			"feeTier": 100,
-			"baseAsset": "USDC",
-			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
+			"symbol": "USD₮cEUR",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
 			"baseAssetDecimals": 6,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAsset": "cEUR",
+			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x1625fE58Cdb3726e5841Fb2bb367Dde9AAa009B3",
+			"symbol": "USD₮cREAL",
+			"feeTier": 100,
+			"baseAsset": "USD₮",
+			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cREAL",
+			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
+			"symbol": "cEURcREAL",
+			"feeTier": 100,
+			"baseAsset": "cEUR",
+			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cREAL",
+			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
 			"quoteAssetDecimals": 18
 		}
 	],
@@ -976,6 +1011,41 @@
 			"baseAssetDecimals": 18,
 			"quoteAsset": "USDGLO",
 			"quoteAssetAddress": "0x4F604735c1cF31399C6E711D5962b2B3E0225AD3",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x2d70cBAbf4d8e61d5317b62cBe912935FD94e0FE",
+			"symbol": "CELOcUSD",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xA1777e082fA1746eB78DD9C1fbB515419CF6e538",
+			"symbol": "CELOUSDC",
+			"feeTier": 100,
+			"baseAsset": "CELO",
+			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDC",
+			"quoteAssetAddress": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+			"quoteAssetDecimals": 6
+		},
+		{
+			"address": "0xEa3fB6e3313A2A90757E4Ca3d6749EfD0107B0B6",
+			"symbol": "USDCcUSD",
+			"feeTier": 100,
+			"baseAsset": "USDC",
+			"baseAssetAddress": "0x37f750B7cC259A2f741AF45294f6a16572CF5cAd",
+			"baseAssetDecimals": 6,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
 			"quoteAssetDecimals": 18
 		}
 	],
@@ -1226,76 +1296,6 @@
 	],
 	[
 		{
-			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
-			"symbol": "USD₮cEUR",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
-			"symbol": "CELOUSD₮",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USD₮",
-			"quoteAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"quoteAssetDecimals": 6
-		},
-		{
-			"address": "0xf130F72F8190f662522774C3367E6e8814f5e219",
-			"symbol": "CELOcEUR",
-			"feeTier": 100,
-			"baseAsset": "CELO",
-			"baseAssetAddress": "0x471EcE3750Da237f93B8E339c536989b8978a438",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
-			"address": "0x628Cb3a5a206956423D158009612813B64B19dab",
-			"symbol": "USD₮cEUR",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cEUR",
-			"quoteAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x1625fE58Cdb3726e5841Fb2bb367Dde9AAa009B3",
-			"symbol": "USD₮cREAL",
-			"feeTier": 100,
-			"baseAsset": "USD₮",
-			"baseAssetAddress": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
-			"baseAssetDecimals": 6,
-			"quoteAsset": "cREAL",
-			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
-			"symbol": "cEURcREAL",
-			"feeTier": 100,
-			"baseAsset": "cEUR",
-			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cREAL",
-			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
 			"address": "0x6cde5f5a192fBf3fD84df983aa6DC30dbd9f8Fac",
 			"symbol": "CELOUSD₮",
 			"feeTier": 100,
@@ -1326,6 +1326,41 @@
 			"baseAssetDecimals": 18,
 			"quoteAsset": "cREAL",
 			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
+			"quoteAssetDecimals": 18
+		}
+	],
+	[
+		{
+			"address": "0x7B9A5BC920610F54881f2F6359007957DE504862",
+			"symbol": "USDGLOcUSD",
+			"feeTier": 100,
+			"baseAsset": "USDGLO",
+			"baseAssetAddress": "0x4F604735c1cF31399C6E711D5962b2B3E0225AD3",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0x953E2937F0515C43Ca7995E80C84aEdCbbB9385e",
+			"symbol": "PACTUSDGLO",
+			"feeTier": 10000,
+			"baseAsset": "PACT",
+			"baseAssetAddress": "0x46c9757C5497c5B1f2eb73aE79b6B67D119B0B58",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "USDGLO",
+			"quoteAssetAddress": "0x4F604735c1cF31399C6E711D5962b2B3E0225AD3",
+			"quoteAssetDecimals": 18
+		},
+		{
+			"address": "0xD10456Ce05b9Af05C8eEde0f93Ea8Aa80A0Daa2f",
+			"symbol": "PACTcUSD",
+			"feeTier": 10000,
+			"baseAsset": "PACT",
+			"baseAssetAddress": "0x2b9018CeB303D540BbF08De8e7De64fDDD63396C",
+			"baseAssetDecimals": 18,
+			"quoteAsset": "cUSD",
+			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
 			"quoteAssetDecimals": 18
 		}
 	],
@@ -1541,41 +1576,6 @@
 	],
 	[
 		{
-			"address": "0x7B9A5BC920610F54881f2F6359007957DE504862",
-			"symbol": "USDGLOcUSD",
-			"feeTier": 100,
-			"baseAsset": "USDGLO",
-			"baseAssetAddress": "0x4F604735c1cF31399C6E711D5962b2B3E0225AD3",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0x953E2937F0515C43Ca7995E80C84aEdCbbB9385e",
-			"symbol": "PACTUSDGLO",
-			"feeTier": 10000,
-			"baseAsset": "PACT",
-			"baseAssetAddress": "0x46c9757C5497c5B1f2eb73aE79b6B67D119B0B58",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "USDGLO",
-			"quoteAssetAddress": "0x4F604735c1cF31399C6E711D5962b2B3E0225AD3",
-			"quoteAssetDecimals": 18
-		},
-		{
-			"address": "0xD10456Ce05b9Af05C8eEde0f93Ea8Aa80A0Daa2f",
-			"symbol": "PACTcUSD",
-			"feeTier": 10000,
-			"baseAsset": "PACT",
-			"baseAssetAddress": "0x2b9018CeB303D540BbF08De8e7De64fDDD63396C",
-			"baseAssetDecimals": 18,
-			"quoteAsset": "cUSD",
-			"quoteAssetAddress": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-			"quoteAssetDecimals": 18
-		}
-	],
-	[
-		{
 			"address": "0x7f7C4335cCac291DDEdcEf4429A626C442b627ed",
 			"symbol": "CHARUSDC",
 			"feeTier": 3000,
@@ -1622,22 +1622,22 @@
 			"quoteAssetDecimals": 18
 		},
 		{
-			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
-			"symbol": "cEURcREAL",
+			"address": "0xb1Ed164c736909bA7ddBC1FeB7CEd4EAAD854a87",
+			"symbol": "cKEScREAL",
 			"feeTier": 100,
-			"baseAsset": "cEUR",
-			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+			"baseAsset": "cKES",
+			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
 			"baseAssetDecimals": 18,
 			"quoteAsset": "cREAL",
 			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
 			"quoteAssetDecimals": 18
 		},
 		{
-			"address": "0xb1Ed164c736909bA7ddBC1FeB7CEd4EAAD854a87",
-			"symbol": "cKEScREAL",
+			"address": "0xb6c8f9490314394CFc6EDacb8717bFDC1EB8dab5",
+			"symbol": "cEURcREAL",
 			"feeTier": 100,
-			"baseAsset": "cKES",
-			"baseAssetAddress": "0x456a3D042C0DbD3db53D5489e98dFb038553B0d0",
+			"baseAsset": "cEUR",
+			"baseAssetAddress": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
 			"baseAssetDecimals": 18,
 			"quoteAsset": "cREAL",
 			"quoteAssetAddress": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",

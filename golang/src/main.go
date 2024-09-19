@@ -2,7 +2,6 @@ package main
 
 import (
 	"arbitrage-bot/helpers"
-	fileHelper "arbitrage-bot/helpers/file"
 	jsonHelper "arbitrage-bot/helpers/json"
 	"arbitrage-bot/models"
 	"arbitrage-bot/services/arbitrage"
@@ -13,45 +12,39 @@ import (
 	"time"
 )
 
-func step1(sourceProvider sourceprovider.ISourceProvider, force bool) [][3]*sourceprovider.Symbol {
-	// get all the triangular pairs
+func step1(sourceProvider sourceprovider.ISourceProvider) [][3]*sourceprovider.Symbol {
+	// get cached arbitrage pairs (need to run command to fetch if not exists)
 	arbitragePairPath := sourceProvider.GetArbitragePairCachePath()
-
-	if !force && fileHelper.PathExists(arbitragePairPath) {
-		var symbols [][3]*sourceprovider.Symbol
-		err := jsonHelper.ReadJSONFile(arbitragePairPath, &symbols)
-		helpers.Panic(err)
-
-		return symbols
-	}
-
-	// NOTE: this doesn't cover the case when we have multiple CEX
-	triangularPairFinder := arbitrage.TriangularPairFinder{}
-	symbols, err := sourceProvider.GetSymbols(force)
+	var symbols [][3]*sourceprovider.Symbol
+	err := jsonHelper.ReadJSONFile(arbitragePairPath, &symbols)
 	helpers.Panic(err)
 
-	// find the arbitrage pairs -> cache it
-	triangularPairs := triangularPairFinder.Handle(symbols)
-	err = jsonHelper.WriteJSONFile(arbitragePairPath, triangularPairs)
-	helpers.Panic(err)
+	return symbols
 
-	return triangularPairs
+	//if !force && fileHelper.PathExists(arbitragePairPath) {
+	//
+	//}
+	//
+	//// NOTE: this doesn't cover the case when we have multiple CEX
+	//triangularPairFinder := arbitrage.TriangularPairFinder{}
+	//symbols, err := sourceProvider.GetSymbols(force)
+	//helpers.Panic(err)
+	//
+	//// find the arbitrage pairs -> cache it
+	//triangularPairs := triangularPairFinder.Handle(symbols)
+	//err = jsonHelper.WriteJSONFile(arbitragePairPath, triangularPairs)
+	//helpers.Panic(err)
+	//
+	//return triangularPairs
 }
 
 // CEX/DEX arbitrage opportunities
 func main() {
-	const forceReloadTriangularPairs = false
-
-	currentSourceProviderName := sourceprovider.SourceProviderName["Uniswap"]
-	sourceProvider := dex.GetSourceProvider(currentSourceProviderName)
+	sourceProvider := dex.NewUniswapSourceProviderService()
 	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
-	_ = arbitrageCalculator
-	//currentSourceProviderName := sourceprovider.SourceProviderName["Binance"]
-	//sourceProvider := cex.GetSourceProvider(currentSourceProviderName)
-	//arbitrageCalculator := arbitrage.NewArbitrageCalculator(sourceProvider)
 
 	// for networks like base, celo, we'll run a command to obtain the triangular pairs, then get cache from step1
-	var triangularPairBatches = step1(sourceProvider, forceReloadTriangularPairs)
+	var triangularPairBatches = step1(sourceProvider)
 	var symbols []*sourceprovider.Symbol
 
 	for _, pair := range triangularPairBatches {
@@ -61,7 +54,7 @@ func main() {
 	}
 
 	var pingChannel = make(chan bool)
-	go sourceProvider.SubscribeSymbols(symbols, false, pingChannel)
+	go sourceProvider.SubscribeSymbols(symbols, pingChannel)
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
 	time.Sleep(3 * time.Second)
