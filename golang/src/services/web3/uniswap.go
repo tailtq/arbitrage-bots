@@ -16,7 +16,6 @@ import (
 	"math/big"
 	"os"
 	"sync"
-	"time"
 )
 
 type UniswapWeb3Service struct {
@@ -59,21 +58,20 @@ func NewUniswapWeb3Service() *UniswapWeb3Service {
 
 // GetPoolData ... returns the pool data for a given pool address
 func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.Symbol {
-	var start = time.Now()
 	poolABI, err := jsonHelper.ReadJSONABIFile("data/web3/uniswapPoolABI.json")
 	helpers.Panic(err)
 	erc20ABI, err := jsonHelper.ReadJSONABIFile("data/web3/erc20.json")
 	helpers.Panic(err)
 
-	var contract = bind.NewBoundContract(address, poolABI, u.client, u.client, u.client)
+	var poolContract = bind.NewBoundContract(address, poolABI, u.client, u.client, u.client)
 	var wg = sync.WaitGroup{}
 	wg.Add(3)
 	var symbol sourceprovider.Symbol
 	var resultToken0, resultToken1, resultFee []interface{}
 	var errToken0, errToken1, errFee error
-	go callContractMethod(&wg, contract, "token0", []interface{}{}, &resultToken0, &errToken0)
-	go callContractMethod(&wg, contract, "token1", []interface{}{}, &resultToken1, &errToken1)
-	go callContractMethod(&wg, contract, "fee", []interface{}{}, &resultFee, &errFee)
+	go ethers.CallContractMethod(&wg, poolContract, "token0", []interface{}{}, &resultToken0, &errToken0)
+	go ethers.CallContractMethod(&wg, poolContract, "token1", []interface{}{}, &resultToken1, &errToken1)
+	go ethers.CallContractMethod(&wg, poolContract, "fee", []interface{}{}, &resultFee, &errFee)
 	wg.Wait()
 	helpers.PanicBatch(errToken0, errToken1, errFee)
 
@@ -83,8 +81,8 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 		var tokenContract = bind.NewBoundContract(tokenAddress, erc20ABI, u.client, u.client, u.client)
 		var resultSymbol, resultDecimals []interface{}
 		var errSymbol, errDecimals error
-		go callContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
-		go callContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
+		go ethers.CallContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
+		go ethers.CallContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
 		wg.Wait()
 		helpers.PanicBatch(errSymbol, errDecimals)
 
@@ -98,11 +96,9 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 			symbol.QuoteAssetDecimals = int(resultDecimals[0].(uint8))
 		}
 	}
-
 	symbol.Address = address.String()
 	symbol.Symbol = symbol.BaseAsset + symbol.QuoteAsset
 	symbol.FeeTier = int(resultFee[0].(*big.Int).Int64())
-	fmt.Println("GetPoolData took", time.Since(start))
 
 	return symbol
 }

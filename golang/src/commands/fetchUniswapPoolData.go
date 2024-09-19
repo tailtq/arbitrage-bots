@@ -7,15 +7,24 @@ import (
 	"arbitrage-bot/services/sourceprovider"
 	"arbitrage-bot/services/sourceprovider/dex"
 	"arbitrage-bot/services/web3"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"sync"
 )
 
+type FetchUniswapPoolDataCommand struct {
+	web3Service *web3.UniswapWeb3Service
+}
+
+// NewFetchUniswapPoolDataCommand ... creates a new FetchUniswapPoolDataCommand
+func NewFetchUniswapPoolDataCommand() *FetchUniswapPoolDataCommand {
+	return &FetchUniswapPoolDataCommand{
+		web3Service: web3.NewUniswapWeb3Service(),
+	}
+}
+
 // fetchSymbolsFromNetwork ... fetches symbols from the network
-func fetchSymbolsFromNetwork(poolData []map[string]string) []*sourceprovider.Symbol {
+func (c *FetchUniswapPoolDataCommand) fetchSymbols(poolData []map[string]string) []*sourceprovider.Symbol {
 	var symbols []*sourceprovider.Symbol
-	var uniswapWeb3Service = web3.NewUniswapWeb3Service()
 	var concurrency = 5
 	var channel = make(chan common.Address)
 	var wg = sync.WaitGroup{}
@@ -26,7 +35,7 @@ func fetchSymbolsFromNetwork(poolData []map[string]string) []*sourceprovider.Sym
 		go func() {
 			defer wg.Done()
 			for poolAddress := range channel {
-				var symbol = uniswapWeb3Service.GetPoolData(poolAddress)
+				var symbol = c.web3Service.GetPoolData(poolAddress)
 				symbols = append(symbols, &symbol)
 			}
 		}()
@@ -41,18 +50,15 @@ func fetchSymbolsFromNetwork(poolData []map[string]string) []*sourceprovider.Sym
 	return symbols
 }
 
-// FetchUniswapPoolData ... fetches Uniswap pool data & find triangular pairs
-func FetchUniswapPoolData(poolDataTemp string) {
+// Fetch ... fetches Uniswap pool data & find triangular pairs
+func (c *FetchUniswapPoolDataCommand) Fetch(poolDataTempFilepath string) {
 	var poolData []map[string]string
-	var err = jsonHelper.ReadJSONFile(poolDataTemp, &poolData)
+	var err = jsonHelper.ReadJSONFile(poolDataTempFilepath, &poolData)
 	helpers.Panic(err)
-
 	// Fetch symbols from the network
-	var symbols = fetchSymbolsFromNetwork(poolData)
-	fmt.Println("Fetched", len(symbols), "symbols")
-
+	var symbols = c.fetchSymbols(poolData)
 	// Find triangular pairs & save to cache
-	var sourceProvider = dex.GetSourceProvider(sourceprovider.SourceProviderName["Uniswap"])
+	var sourceProvider = dex.NewUniswapSourceProviderService()
 	var triangularPairFinder = arbitrage.TriangularPairFinder{}
 	triangularPairs := triangularPairFinder.Handle(symbols)
 	err = jsonHelper.WriteJSONFile(sourceProvider.GetArbitragePairCachePath(), triangularPairs)

@@ -142,7 +142,7 @@ func (u *UniswapSourceProviderService) GetSymbols(force bool) ([]*sourceprovider
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol, useSubgraph bool, pingChannel chan bool) {
+func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool) {
 	var tokenPairs []string
 
 	for _, symbol := range symbols {
@@ -151,39 +151,39 @@ func (u *UniswapSourceProviderService) SubscribeSymbols(symbols []*sourceprovide
 	}
 
 	for {
-		if useSubgraph {
-			subgraphPoolItems, err := u.getSubgraphPoolData()
-			helpers.Panic(err)
-
-			for _, item := range subgraphPoolItems {
-				token0Price, _ := strconv.ParseFloat(item.Token0Price, 64)
-				token1Price, _ := strconv.ParseFloat(item.Token1Price, 64)
-				symbol := u.symbols[item.Token0.Symbol+item.Token1.Symbol]
-
-				if symbol == nil {
-					continue
-				}
-
-				u.symbolPriceData.Store(symbol.Symbol, &SymbolPrice{
-					Symbol:      symbol,
-					Token0Price: token0Price,
-					Token1Price: token1Price,
-					EventTime:   time.Now(),
-				})
-			}
-		} else {
-			aggregatedPrices := u.web3Service.AggregatePrices(symbols, true)
-			aggregatedPrices.Range(func(key any, value any) bool {
-				u.symbolPriceData.Store(key, &SymbolPrice{
-					Symbol:      u.symbols[key.(string)],
-					Token0Price: 1.0 / value.(float64),
-					Token1Price: value.(float64),
-					EventTime:   time.Now(),
-				})
-				return true
+		// Fetch the data directly from the network
+		aggregatedPrices := u.web3Service.AggregatePrices(symbols, true)
+		aggregatedPrices.Range(func(key any, value any) bool {
+			u.symbolPriceData.Store(key, &SymbolPrice{
+				Symbol:      u.symbols[key.(string)],
+				Token0Price: 1.0 / value.(float64),
+				Token1Price: value.(float64),
+				EventTime:   time.Now(),
 			})
-			pingChannel <- true
-		}
+			return true
+		})
+		pingChannel <- true
+		//if useSubgraph {
+		//	subgraphPoolItems, err := u.getSubgraphPoolData()
+		//	helpers.Panic(err)
+		//
+		//	for _, item := range subgraphPoolItems {
+		//		token0Price, _ := strconv.ParseFloat(item.Token0Price, 64)
+		//		token1Price, _ := strconv.ParseFloat(item.Token1Price, 64)
+		//		symbol := u.symbols[item.Token0.Symbol+item.Token1.Symbol]
+		//
+		//		if symbol == nil {
+		//			continue
+		//		}
+		//
+		//		u.symbolPriceData.Store(symbol.Symbol, &SymbolPrice{
+		//			Symbol:      symbol,
+		//			Token0Price: token0Price,
+		//			Token1Price: token1Price,
+		//			EventTime:   time.Now(),
+		//		})
+		//	}
+		//} else {}
 
 		// Fetch the data every 60 seconds
 		time.Sleep(10 * time.Second)

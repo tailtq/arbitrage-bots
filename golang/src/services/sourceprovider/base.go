@@ -3,7 +3,7 @@ package sourceprovider
 // ISourceProvider ... Interface for the source provider
 type ISourceProvider interface {
 	GetArbitragePairCachePath() string
-	GetSymbols(force bool) ([]*Symbol, error)
+	//GetSymbols(force bool) ([]*Symbol, error)
 }
 
 // https://www.investopedia.com/terms/b/bid-and-ask.asp
