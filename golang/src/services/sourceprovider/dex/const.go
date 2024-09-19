@@ -41,7 +41,7 @@ type SubgraphPoolItem struct {
 
 // ISourceProvider ... Interface for the DEX source provider
 type ISourceProvider interface {
-	Web3Service() *web3.UniswapWeb3Service // *web3.PancakeswapWeb3Service
+	Web3Service() web3.DEXWeb3Service
 	sourceprovider.ISourceProvider
 	SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool)
 	GetSymbol(symbol string) sourceprovider.Symbol

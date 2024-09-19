@@ -37,7 +37,7 @@ var suitablePairs = []string{
 
 // UniswapSourceProviderService ... Uniswap source provider
 type UniswapSourceProviderService struct {
-	web3Service     *web3.UniswapWeb3Service
+	web3Service     web3.DEXWeb3Service
 	symbolPriceData sync.Map
 	symbols         map[string]*sourceprovider.Symbol
 }
@@ -50,7 +50,7 @@ func NewUniswapSourceProviderService() *UniswapSourceProviderService {
 	}
 }
 
-func (u *UniswapSourceProviderService) Web3Service() *web3.UniswapWeb3Service {
+func (u *UniswapSourceProviderService) Web3Service() web3.DEXWeb3Service {
 	return u.web3Service
 }
 

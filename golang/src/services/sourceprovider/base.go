@@ -24,10 +24,3 @@ type SymbolOrderbookDepth struct {
 	Bids         []*OrderbookEntry `json:"bids"`
 	Asks         []*OrderbookEntry `json:"asks"`
 }
-
-// SourceProviderName ... Source provider name
-var SourceProviderName = map[string]string{
-	"Binance": "Binance",
-	"MEXC":    "MEXC",
-	"Uniswap": "Uniswap",
-}

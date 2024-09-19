@@ -40,7 +40,8 @@ func step1(sourceProvider sourceprovider.ISourceProvider) [][3]*sourceprovider.S
 
 // CEX/DEX arbitrage opportunities
 func main() {
-	sourceProvider := dex.NewUniswapSourceProviderService()
+	//sourceProvider := dex.NewUniswapSourceProviderService()
+	sourceProvider := dex.NewPancakeswapSourceProvider()
 	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
 
 	// for networks like base, celo, we'll run a command to obtain the triangular pairs, then get cache from step1
@@ -55,6 +56,7 @@ func main() {
 
 	var pingChannel = make(chan bool)
 	go sourceProvider.SubscribeSymbols(symbols, pingChannel)
+	var startingAmount float64 = 5
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
 	time.Sleep(3 * time.Second)
@@ -64,7 +66,6 @@ func main() {
 		var surfaceResults []models.TriangularArbSurfaceResult
 
 		for _, triangularPairs := range triangularPairBatches {
-			var startingAmount float64 = 5
 			surfaceResult, _ := arbitrageCalculator.CalcTriangularArbSurfaceRate(triangularPairs, startingAmount)
 
 			if surfaceResult.ProfitLoss > 0 {
@@ -77,7 +78,7 @@ func main() {
 			var depthResults = arbitrageCalculator.BatchCalcDepth(surfaceResults)
 
 			for _, depthResult := range depthResults {
-				if depthResult.DepthResultForward.ProfitLoss > 0 || depthResult.DepthResultBackward.ProfitLoss > 0 {
+				if depthResult.DepthResultForward.ProfitLoss > 0 {
 					fmt.Println("HAHAHAHA", depthResult)
 				}
 			}
