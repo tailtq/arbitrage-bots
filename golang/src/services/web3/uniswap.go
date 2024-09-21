@@ -3,6 +3,7 @@ package web3
 import (
 	"arbitrage-bot/helpers"
 	"arbitrage-bot/helpers/ethers"
+	ethersHelper "arbitrage-bot/helpers/ethers"
 	jsonHelper "arbitrage-bot/helpers/json"
 	"arbitrage-bot/services/sourceprovider"
 	"context"
@@ -105,29 +106,38 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 
 // GetPrice ... returns the price for a given symbol
 func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
-	if amountIn == 0 {
-		return 0
-	}
-	var inputTokenA, inputTokenB common.Address
-	var inputDecimalsA, inputDecimalsB int
-
-	if tradeDirection == "baseToQuote" {
-		inputTokenA = common.HexToAddress(symbol.BaseAssetAddress)
-		inputDecimalsA = symbol.BaseAssetDecimals
-		inputTokenB = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputDecimalsB = symbol.QuoteAssetDecimals
-	} else if tradeDirection == "quoteToBase" {
-		inputTokenA = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputDecimalsA = symbol.QuoteAssetDecimals
-		inputTokenB = common.HexToAddress(symbol.BaseAssetAddress)
-		inputDecimalsB = symbol.BaseAssetDecimals
-	}
+	var tradePath = ethersHelper.GetTradePaths([]sourceprovider.Symbol{symbol}, []string{tradeDirection})[0]
 
 	if u.quoterVersion == "v2" {
-		return u.quoteExactInputSingleV2(symbol, amountIn, inputTokenA, inputTokenB, inputDecimalsA, inputDecimalsB, verbose)
+		return u.quoteExactInputSingleV2(
+			symbol,
+			amountIn,
+			tradePath.BaseAssetAddress,
+			tradePath.QuoteAssetAddress,
+			tradePath.BaseAssetDecimals,
+			tradePath.QuoteAssetDecimals,
+			verbose,
+		)
 	} else {
-		return u.quoteExactInputSingleV1(symbol, amountIn, inputTokenA, inputTokenB, inputDecimalsA, inputDecimalsB, verbose)
+		return u.quoteExactInputSingleV1(
+			symbol,
+			amountIn,
+			tradePath.BaseAssetAddress,
+			tradePath.QuoteAssetAddress,
+			tradePath.BaseAssetDecimals,
+			tradePath.QuoteAssetDecimals,
+			verbose,
+		)
 	}
+}
+
+func (u *UniswapWeb3Service) GetPriceMultiplePaths(
+	symbols []sourceprovider.Symbol,
+	tradeDirections []string,
+	amountIn float64,
+	verbose bool,
+) float64 {
+	return 0
 }
 
 func (u *UniswapWeb3Service) quoteExactInputSingleV1(
