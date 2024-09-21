@@ -2,9 +2,9 @@ package web3
 
 import (
 	"arbitrage-bot/helpers"
-	"arbitrage-bot/helpers/ethers"
+	ethersHelper "arbitrage-bot/helpers/ethers"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/services/sourceprovider"
+	sp "arbitrage-bot/services/sourceprovider"
 	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
@@ -24,7 +24,7 @@ type PancakeswapWeb3Service struct {
 func NewPancakeswapWeb3Service() *PancakeswapWeb3Service {
 	var networkRpcUrl = os.Getenv("NETWORK_RPC_URL")
 	var networkName = os.Getenv("NETWORK_NAME")
-	var pancakeswapAddresses = ethers.GetPancakeSwapAddresses(networkName)
+	var pancakeswapAddresses = ethersHelper.GetPancakeSwapAddresses(networkName)
 	var factoryAddress = common.HexToAddress(pancakeswapAddresses["factory"])
 	var routerAddress = common.HexToAddress(pancakeswapAddresses["router"])
 	factoryABI, err := jsonHelper.ReadJSONABIFile("data/web3/pancakeswapFactoryV2ABI.json")
@@ -45,44 +45,54 @@ func NewPancakeswapWeb3Service() *PancakeswapWeb3Service {
 }
 
 // GetPrice ... gets price
-func (u *PancakeswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
-	if amountIn == 0 {
-		return 0
-	}
-	var inputTokenA, inputTokenB common.Address
-	var inputDecimalsA, inputDecimalsB int
-
-	if tradeDirection == "baseToQuote" {
-		inputTokenA = common.HexToAddress(symbol.BaseAssetAddress)
-		inputDecimalsA = symbol.BaseAssetDecimals
-		inputTokenB = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputDecimalsB = symbol.QuoteAssetDecimals
-	} else if tradeDirection == "quoteToBase" {
-		inputTokenA = common.HexToAddress(symbol.QuoteAssetAddress)
-		inputDecimalsA = symbol.QuoteAssetDecimals
-		inputTokenB = common.HexToAddress(symbol.BaseAssetAddress)
-		inputDecimalsB = symbol.BaseAssetDecimals
-	}
-
-	var amountInParsed = ethers.EtherToWei(amountIn, inputDecimalsA)
+func (u *PancakeswapWeb3Service) GetPrice(
+	symbol sp.Symbol,
+	amountIn float64,
+	tradeDirection string,
+	verbose bool,
+) float64 {
+	var tradePath = ethersHelper.GetTradePaths([]sp.Symbol{symbol}, []string{tradeDirection})[0]
+	var amountInParsed = ethersHelper.EtherToWei(amountIn, tradePath.BaseAssetDecimals)
 	var result []interface{}
-	var tradePath = []common.Address{inputTokenA, inputTokenB}
-	var err = u.routerContract.Call(&bind.CallOpts{}, &result, "getAmountsOut", amountInParsed, tradePath)
+	var path = []common.Address{tradePath.BaseAssetAddress, tradePath.QuoteAssetAddress}
+	var err = u.routerContract.Call(&bind.CallOpts{}, &result, "getAmountsOut", amountInParsed, path)
 
 	if err != nil {
-		if verbose {
-			fmt.Println("Router error:", symbol.Symbol, err)
-		}
+		helpers.VerboseLog(verbose, fmt.Sprintf("Error getting price for %s: %v", symbol.Symbol, err))
 		return 0
 	}
 
 	var priceList = result[0].([]*big.Int)
-	return ethers.WeiToEther(priceList[len(priceList)-1], inputDecimalsB)
+	return ethersHelper.WeiToEther(priceList[len(priceList)-1], tradePath.QuoteAssetDecimals)
+}
+
+func (u *PancakeswapWeb3Service) GetPriceMultiplePaths(
+	symbols []sp.Symbol,
+	tradeDirections []string,
+	amountIn float64,
+	verbose bool,
+) float64 {
+	var tradePaths = ethersHelper.GetTradePaths(symbols, tradeDirections)
+	var path = []common.Address{tradePaths[0].BaseAssetAddress}
+	for _, tradePath := range tradePaths {
+		path = append(path, tradePath.QuoteAssetAddress)
+	}
+	var amountInParsed = ethersHelper.EtherToWei(amountIn, tradePaths[0].BaseAssetDecimals)
+	var result []interface{}
+	var err = u.routerContract.Call(&bind.CallOpts{}, &result, "getAmountsOut", amountInParsed, path)
+
+	if err != nil {
+		helpers.VerboseLog(verbose, fmt.Sprintf("Error getting price for %s: %v", symbols, err))
+		return 0
+	}
+
+	var priceList = result[0].([]*big.Int)
+	return ethersHelper.WeiToEther(priceList[len(priceList)-1], tradePaths[len(tradePaths)-1].QuoteAssetDecimals)
 }
 
 // AggregatePrices ... aggregates prices
-func (u *PancakeswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, verbose bool) *sync.Map {
-	var channel = make(chan *sourceprovider.Symbol)
+func (u *PancakeswapWeb3Service) AggregatePrices(symbols []*sp.Symbol, verbose bool) *sync.Map {
+	var channel = make(chan *sp.Symbol)
 	var concurrency = 8
 	var result sync.Map
 	var wg sync.WaitGroup
@@ -108,8 +118,8 @@ func (u *PancakeswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbo
 	return &result
 }
 
-// GetPoolDataByIndex ... gets pool data by index
-func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) sourceprovider.Symbol {
+// GetPoolDataByIndex ... get pool address by index (in factory) then get pool data
+func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) sp.Symbol {
 	var result []interface{}
 	var err = u.factoryContract.Call(&bind.CallOpts{}, &result, "allPairs", big.NewInt(int64(index)))
 	helpers.Panic(err)
@@ -118,7 +128,7 @@ func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) sourceprovider.Sy
 	return u.GetPoolData(poolAddress)
 }
 
-func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sourceprovider.Symbol {
+func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
 	poolABI, err := jsonHelper.ReadJSONABIFile("data/web3/pancakeswapPoolABI.json")
 	helpers.Panic(err)
 	erc20ABI, err := jsonHelper.ReadJSONABIFile("data/web3/erc20.json")
@@ -127,11 +137,15 @@ func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sourceprovi
 	var poolContract = bind.NewBoundContract(address, poolABI, u.client, u.client, u.client)
 	var wg = sync.WaitGroup{}
 	wg.Add(2)
-	var symbol sourceprovider.Symbol
+	var symbol sp.Symbol
 	var resultToken0, resultToken1 []interface{}
 	var errToken0, errToken1 error
-	go ethers.CallContractMethod(&wg, poolContract, "token0", []interface{}{}, &resultToken0, &errToken0)
-	go ethers.CallContractMethod(&wg, poolContract, "token1", []interface{}{}, &resultToken1, &errToken1)
+	go ethersHelper.CallContractMethod(
+		&wg, poolContract, "token0", []interface{}{}, &resultToken0, &errToken0,
+	)
+	go ethersHelper.CallContractMethod(
+		&wg, poolContract, "token1", []interface{}{}, &resultToken1, &errToken1,
+	)
 	//go ethers.CallContractMethod(&wg, poolContract, "fee", []interface{}{}, &resultFee, &errFee)
 	wg.Wait()
 	helpers.PanicBatch(errToken0, errToken1)
@@ -142,8 +156,12 @@ func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sourceprovi
 		var tokenContract = bind.NewBoundContract(tokenAddress, erc20ABI, u.client, u.client, u.client)
 		var resultSymbol, resultDecimals []interface{}
 		var errSymbol, errDecimals error
-		go ethers.CallContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
-		go ethers.CallContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
+		go ethersHelper.CallContractMethod(
+			&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol,
+		)
+		go ethersHelper.CallContractMethod(
+			&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals,
+		)
 		wg.Wait()
 		helpers.PanicBatch(errSymbol, errDecimals)
 

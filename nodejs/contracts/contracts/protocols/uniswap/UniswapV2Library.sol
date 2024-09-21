@@ -1,9 +1,8 @@
-//SPDX-License-Identifier: MIT
-pragma solidity =0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
 
-import "../interfaces/IUniswapV2Pair.sol";
-
-import "./SafeMath.sol";
+import "./IUniswapV2Pair.sol";
+import "../libraries/SafeMath.sol";
 
 library UniswapV2Library {
     using SafeMath for uint256;
@@ -55,20 +54,6 @@ library UniswapV2Library {
         (reserveA, reserveB) = tokenA == token0
             ? (reserve0, reserve1)
             : (reserve1, reserve0);
-    }
-
-    // given some amount of an asset and pair reserves, returns an equivalent amount of the other asset
-    function quote(
-        uint256 amountA,
-        uint256 reserveA,
-        uint256 reserveB
-    ) internal pure returns (uint256 amountB) {
-        require(amountA > 0, "UniswapV2Library: INSUFFICIENT_AMOUNT");
-        require(
-            reserveA > 0 && reserveB > 0,
-            "UniswapV2Library: INSUFFICIENT_LIQUIDITY"
-        );
-        amountB = amountA.mul(reserveB) / reserveA;
     }
 
     // given an input amount of an asset and pair reserves, returns the maximum output amount of the other asset

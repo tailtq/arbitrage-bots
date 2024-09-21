@@ -75,9 +75,12 @@ func main() {
 
 		if len(surfaceResults) > 0 {
 			fmt.Println("Fetching depth for the surface results...")
-			var depthResults = arbitrageCalculator.BatchCalcDepth(surfaceResults)
 
-			for _, depthResult := range depthResults {
+			for _, surfaceRate := range surfaceResults {
+				var depthResult = models.TriangularArbFullResult{
+					SurfaceResult:      surfaceRate,
+					DepthResultForward: arbitrageCalculator.CalcDepthOpportunityForward(surfaceRate),
+				}
 				if depthResult.DepthResultForward.ProfitLoss > 0 {
 					fmt.Println("HAHAHAHA", depthResult)
 				}

@@ -1,6 +1,9 @@
 package helpers
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func Panic(err error) {
 	if err != nil {
@@ -13,6 +16,12 @@ func PanicBatch(errs ...error) {
 		if err != nil {
 			panic(err)
 		}
+	}
+}
+
+func VerboseLog(verbose bool, message string) {
+	if verbose {
+		fmt.Println(message)
 	}
 }
 
