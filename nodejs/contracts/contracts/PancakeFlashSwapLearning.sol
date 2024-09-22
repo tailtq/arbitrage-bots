@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ~0.6.6;
+pragma solidity >=0.8.18;
 
 import "hardhat/console.sol";
-import "./protocols/uniswap/UniswapV2Library.sol";
+import "./libraries/UniswapV2Library.sol";
 import "./libraries/SafeERC20.sol";
 import "./interfaces/IUniswapV2Router01.sol";
 import "./interfaces/IUniswapV2Router02.sol";
-import "./interfaces/IUniswapV2Pair.sol";
+//import "./interfaces/IUniswapV2Pair.sol";
 import "./interfaces/IUniswapV2Factory.sol";
 import "./interfaces/IERC20.sol";
 
@@ -100,7 +100,7 @@ contract PancakeFlashSwap {
     }
 
     function pancakeCall(address _sender, uint256 _amount0, uint256 _amount1, bytes calldata _data) external {
-        // Ensure this request comes from the contract
+        // Ensure this request comes from the pair pool contract
         address token0 = IUniswapV2Pair(msg.sender).token0();
         address token1 = IUniswapV2Pair(msg.sender).token1();
         address pair = IUniswapV2Factory(PANCAKE_FACTORY).getPair(token0, token1);
