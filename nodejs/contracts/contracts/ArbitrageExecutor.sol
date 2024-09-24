@@ -3,7 +3,6 @@
 pragma solidity >=0.8.18;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "./interfaces/IUniswapV2Factory.sol";
 import "./interfaces/IUniswapV2Router01.sol";
@@ -30,12 +29,11 @@ contract Ownable {
 }
 
 contract ArbitrageExecutor is Ownable {
-    using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
     uint256 private constant MAX_UINT = 115792089237316195423570985008687907853269984665640564039457584007913129639935;
-    address public PANCAKE_FACTORY;
-    address public PANCAKE_ROUTER;
+    address public immutable PANCAKE_FACTORY;
+    address public immutable PANCAKE_ROUTER;
 
     struct SwapParams {
         uint8 protocol;  // 0: PancakeSwap, 1: UniswapV2, 2: UniswapV3
@@ -50,20 +48,24 @@ contract ArbitrageExecutor is Ownable {
         PANCAKE_ROUTER = _pancakeRouter;
     }
 
-    function swapIn(SwapParams[] calldata paramsArray, uint256 amountIn) public {
-        // swapIn with Flashloan
-        // remember to set allowance for the tokens
+    function swapIn(SwapParams[] calldata paramsArray, uint256 amountIn, address flashloanToken1) public {
+        // swapIn with Flashloan, remember to set allowance for the tokens
+        require(paramsArray.length > 0, "Empty params array");
         SwapParams calldata swapParams = paramsArray[0];
 
         if (swapParams.protocol == 0) {
-            address pair = IUniswapV2Factory(PANCAKE_FACTORY).getPair(swapParams.tokenIn, swapParams.tokenOut);
+            address pair = IUniswapV2Factory(PANCAKE_FACTORY).getPair(swapParams.tokenIn, flashloanToken1);
             require(pair != address(0), "This pool does not exist");
-            uint256 amount0Out = IUniswapV2Pair(pair).token0() == swapParams.tokenIn ? amountIn : 0;
-            uint256 amount1Out = IUniswapV2Pair(pair).token1() == swapParams.tokenIn ? amountIn : 0;
-            // Pass data as bytes so that the `swap` function knows it is a flashloan
-            bytes memory data = abi.encode(paramsArray, amountIn);
+            (uint256 amount0Out, uint256 amount1Out) = IUniswapV2Pair(pair).token0() == swapParams.tokenIn
+                ? (amountIn, uint256(0))
+                : (uint256(0), amountIn);
             // Execute the initial swap to get the loan
-            IUniswapV2Pair(pair).swap(amount0Out, amount1Out, address(this), data);
+            IUniswapV2Pair(pair).swap(
+                amount0Out,
+                amount1Out,
+                address(this),
+                abi.encode(paramsArray, amountIn)
+            );
         }
     }
 
@@ -82,26 +84,32 @@ contract ArbitrageExecutor is Ownable {
         uint256 loanAmount = _amount0 > 0 ? _amount0 : _amount1;
 
         if (paramsArray[0].protocol == 0) {
-            uint256 amountOut = placeTradeUniswapV2(paramsArray, loanAmount);
+            uint256 amountOut = placeTradeUniswapV2(paramsArray, loanAmount, PANCAKE_ROUTER);
             require(amountOut > amountIn, "Arbitrage not profitable");
             // Pay loan back
             IERC20(paramsArray[0].tokenIn).safeTransfer(pair, amountToRepay);
         }
     }
 
-    function placeTradeUniswapV2(SwapParams[] memory paramsArray, uint256 _amountIn) private returns (uint256) {
+    function placeTradeUniswapV2(
+        SwapParams[] memory paramsArray,
+        uint256 _amountIn,
+        address _router
+    ) private returns (uint256) {
         // Form the path to trade
-        // USDT -> BTC, BTC -> ETH, ETH -> USDT  => Path is USDT -> BTC -> ETH -> USDT
+        // USDT -> BTC, BTC -> ETH, ETH -> USDT => Path is USDT -> BTC -> ETH -> USDT
         address[] memory path = new address[](paramsArray.length + 1);
         path[0] = paramsArray[0].tokenIn;
 
-        for (uint256 i = 0; i < paramsArray.length;) {
+        for (uint8 i = 0; i < paramsArray.length;) {
             path[i + 1] = paramsArray[i].tokenOut;
             unchecked {
                 i++;
             }
         }
-        IUniswapV2Router01 router1 = IUniswapV2Router01(PANCAKE_ROUTER);
+        checkAndSetAllowances(path, _amountIn, _router);
+
+        IUniswapV2Router01 router1 = IUniswapV2Router01(_router);
         uint256 amountOutMin = router1.getAmountsOut(_amountIn, path)[1];
         uint256 deadline = block.timestamp + 30 minutes;
         uint amountReceived = router1.swapExactTokensForTokens(_amountIn, amountOutMin, path, address(this), deadline)[1];
@@ -110,9 +118,14 @@ contract ArbitrageExecutor is Ownable {
         return amountReceived;
     }
 
-    function setTokensMaxAllowance(address[] calldata _tokens, address _router) onlyOwner public {
-        for (uint256 i = 0; i < _tokens.length; i++) {
-            IERC20(_tokens[i]).safeIncreaseAllowance(_router, MAX_UINT);
+    function checkAndSetAllowances(address[] memory _tokens, uint256 _amountIn, address _router) internal {
+        for (uint8 i = 0; i < _tokens.length;) {
+            if (IERC20(_tokens[i]).allowance(address(this), _router) < _amountIn) {
+                IERC20(_tokens[i]).safeIncreaseAllowance(_router, MAX_UINT);
+            }
+            unchecked {
+                i++;
+            }
         }
     }
 
