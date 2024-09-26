@@ -15,6 +15,8 @@ describe('ArbitrageExecutor', function () {
   // PancakeSwap addresses on BSC
   const PANCAKE_FACTORY = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73';
   const PANCAKE_ROUTER = '0x10ED43C718714eb63d5aA57B78B54704E256024E';
+  const UNISWAP_V2_FACTORY = '0x0000000000000000000000000000000000000000';
+  const UNISWAP_V2_ROUTER = '0x0000000000000000000000000000000000000000';
 
   // Some popular token addresses on BSC
   const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
@@ -29,7 +31,9 @@ describe('ArbitrageExecutor', function () {
     // Deploy ArbitrageExecutor
     const ArbitrageExecutor = await ethers.getContractFactory('ArbitrageExecutor');
     [owner, addr1, addr2] = await ethers.getSigners();
-    arbitrageExecutor = await ArbitrageExecutor.deploy(PANCAKE_FACTORY, PANCAKE_ROUTER);
+    arbitrageExecutor = await ArbitrageExecutor.deploy(
+      PANCAKE_FACTORY, PANCAKE_ROUTER, UNISWAP_V2_FACTORY, UNISWAP_V2_ROUTER
+    );
     await arbitrageExecutor.deployed();
     await impersonateFundErc20(busdToken, BUSD_WHALE_ADDRESS, arbitrageExecutor.address, initialFundHuman);
   });
