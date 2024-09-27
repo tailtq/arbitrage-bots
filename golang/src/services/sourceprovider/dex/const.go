@@ -43,7 +43,7 @@ type SubgraphPoolItem struct {
 type ISourceProvider interface {
 	Web3Service() web3.DEXWeb3Service
 	sourceprovider.ISourceProvider
-	SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool)
+	SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool, verbose bool)
 	GetSymbol(symbol string) sourceprovider.Symbol
 	GetSymbolPrice(symbol string) *SymbolPrice
 }

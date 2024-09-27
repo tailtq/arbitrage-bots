@@ -67,12 +67,10 @@ func (u *PancakeswapWeb3Service) GetPrice(
 }
 
 func (u *PancakeswapWeb3Service) GetPriceMultiplePaths(
-	symbols []sp.Symbol,
-	tradeDirections []string,
+	tradePaths []sp.TradePath,
 	amountIn float64,
 	verbose bool,
 ) float64 {
-	var tradePaths = ethersHelper.GetTradePaths(symbols, tradeDirections)
 	var path = []common.Address{tradePaths[0].BaseAssetAddress}
 	for _, tradePath := range tradePaths {
 		path = append(path, tradePath.QuoteAssetAddress)
@@ -82,7 +80,7 @@ func (u *PancakeswapWeb3Service) GetPriceMultiplePaths(
 	var err = u.routerContract.Call(&bind.CallOpts{}, &result, "getAmountsOut", amountInParsed, path)
 
 	if err != nil {
-		helpers.VerboseLog(verbose, fmt.Sprintf("Error getting price for %s: %v", symbols, err))
+		helpers.VerboseLog(verbose, fmt.Sprintf("Error getting price: %v", err))
 		return 0
 	}
 
@@ -119,7 +117,7 @@ func (u *PancakeswapWeb3Service) AggregatePrices(symbols []*sp.Symbol, verbose b
 }
 
 // GetPoolDataByIndex ... get pool address by index (in factory) then get pool data
-func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) sp.Symbol {
+func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) (sp.Symbol, error) {
 	var result []interface{}
 	var err = u.factoryContract.Call(&bind.CallOpts{}, &result, "allPairs", big.NewInt(int64(index)))
 	helpers.Panic(err)
@@ -128,7 +126,7 @@ func (u *PancakeswapWeb3Service) GetPoolDataByIndex(index int) sp.Symbol {
 	return u.GetPoolData(poolAddress)
 }
 
-func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
+func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) (sp.Symbol, error) {
 	poolABI, err := jsonHelper.ReadJSONABIFile("data/web3/pancakeswapPoolABI.json")
 	helpers.Panic(err)
 	erc20ABI, err := jsonHelper.ReadJSONABIFile("data/web3/erc20.json")
@@ -148,7 +146,10 @@ func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
 	)
 	//go ethers.CallContractMethod(&wg, poolContract, "fee", []interface{}{}, &resultFee, &errFee)
 	wg.Wait()
-	helpers.PanicBatch(errToken0, errToken1)
+
+	if errToken0 != nil || errToken1 != nil {
+		return symbol, fmt.Errorf("error getting token addresses: %v, %v", errToken0, errToken1)
+	}
 
 	for _, result := range [][]interface{}{resultToken0, resultToken1} {
 		wg.Add(2)
@@ -163,7 +164,10 @@ func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
 			&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals,
 		)
 		wg.Wait()
-		helpers.PanicBatch(errSymbol, errDecimals)
+
+		if errSymbol != nil || errDecimals != nil {
+			return symbol, fmt.Errorf("error getting token addresses: %v, %v", errSymbol, errDecimals)
+		}
 
 		if tokenAddress == resultToken0[0] {
 			symbol.BaseAsset = resultSymbol[0].(string)
@@ -179,5 +183,5 @@ func (u *PancakeswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
 	symbol.Symbol = symbol.BaseAsset + symbol.QuoteAsset
 	//symbol.FeeTier = int(resultFee[0].(*big.Int).Int64())
 
-	return symbol
+	return symbol, nil
 }

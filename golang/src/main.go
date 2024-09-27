@@ -7,6 +7,7 @@ import (
 	"arbitrage-bot/services/arbitrage"
 	"arbitrage-bot/services/sourceprovider"
 	"arbitrage-bot/services/sourceprovider/dex"
+	"arbitrage-bot/services/web3"
 	"fmt"
 	_ "github.com/joho/godotenv/autoload"
 	"time"
@@ -43,6 +44,7 @@ func main() {
 	//sourceProvider := dex.NewUniswapSourceProviderService()
 	sourceProvider := dex.NewPancakeswapSourceProvider()
 	arbitrageCalculator := arbitrage.NewAmmArbitrageCalculator(sourceProvider)
+	arbitrageExecutor := web3.NewArbitrageExecutorWeb3Service()
 
 	// for networks like base, celo, we'll run a command to obtain the triangular pairs, then get cache from step1
 	var triangularPairBatches = step1(sourceProvider)
@@ -53,10 +55,10 @@ func main() {
 			symbols = append(symbols, symbol)
 		}
 	}
-
 	var pingChannel = make(chan bool)
-	go sourceProvider.SubscribeSymbols(symbols, pingChannel)
 	var startingAmount float64 = 5
+	var verbose = false
+	go sourceProvider.SubscribeSymbols(symbols, pingChannel, verbose)
 
 	fmt.Println("Subscribed to symbols, waiting for data...")
 	time.Sleep(3 * time.Second)
@@ -77,11 +79,16 @@ func main() {
 			fmt.Println("Fetching depth for the surface results...")
 
 			for _, surfaceRate := range surfaceResults {
-				var depthResult = models.TriangularArbFullResult{
-					SurfaceResult:      surfaceRate,
-					DepthResultForward: arbitrageCalculator.CalcDepthOpportunityForward(surfaceRate),
-				}
-				if depthResult.DepthResultForward.ProfitLoss > 0 {
+				var depthResult = arbitrageCalculator.CalcDepthOpportunityForward(surfaceRate, verbose)
+
+				// execute the arbitrage if the profit is between 1% and 10%
+				if depthResult.ProfitLossPerc > 0.01 && depthResult.ProfitLossPerc < 0.1 {
+					var loanAddress = arbitrageExecutor.GetLoanAddress(symbols, depthResult.TradePaths)
+					err := arbitrageExecutor.ExecuteArbitrage(depthResult.TradePaths, startingAmount, loanAddress)
+
+					if err != nil {
+						fmt.Println(err)
+					}
 					fmt.Println("HAHAHAHA", depthResult)
 				}
 			}

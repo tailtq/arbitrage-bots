@@ -1,6 +1,7 @@
 package arbitrage
 
 import (
+	ethersHelper "arbitrage-bot/helpers/ethers"
 	"arbitrage-bot/models"
 	"arbitrage-bot/services/sourceprovider"
 	"arbitrage-bot/services/sourceprovider/dex"
@@ -403,26 +404,26 @@ func (a *AmmArbitrageCalculator) CalcTriangularArbSurfaceRate(triangularPair [3]
 	return tradingResult, fmt.Errorf("no profitable arbitrage found")
 }
 
-func (a *AmmArbitrageCalculator) CalcDepthOpportunityForward(surfaceResult models.TriangularArbSurfaceResult) models.TriangularArbDepthResult {
+func (a *AmmArbitrageCalculator) CalcDepthOpportunityForward(
+	surfaceResult models.TriangularArbSurfaceResult, verbose bool,
+) models.TriangularArbDepthResult {
 	var contract1 = surfaceResult.Contract1
 	var contract2 = surfaceResult.Contract2
 	var contract3 = surfaceResult.Contract3
 	var allContracts = fmt.Sprintf("%s_%s_%s", contract1, contract2, contract3)
 	_ = allContracts
-	var symbol1 = surfaceResult.Symbol1
-	var symbol2 = surfaceResult.Symbol2
-	var symbol3 = surfaceResult.Symbol3
-	var directionTrade1 = surfaceResult.DirectionTrade1
-	var directionTrade2 = surfaceResult.DirectionTrade2
-	var directionTrade3 = surfaceResult.DirectionTrade3
 
-	var symbols = []sourceprovider.Symbol{symbol1, symbol2, symbol3}
-	var tradeDirections = []string{directionTrade1, directionTrade2, directionTrade3}
+	var tradePaths = ethersHelper.GetTradePathsFromSurfaceResult(surfaceResult)
 	var acquiredCoinT3 = a.sourceProvider.Web3Service().GetPriceMultiplePaths(
-		symbols, tradeDirections, surfaceResult.StartingAmount, true,
+		tradePaths, surfaceResult.StartingAmount, verbose,
 	)
+	var profitLoss, profitLossPerc = a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
 
-	return a.calcDepthArb(surfaceResult.StartingAmount, acquiredCoinT3)
+	return models.TriangularArbDepthResult{
+		ProfitLoss:     profitLoss,
+		ProfitLossPerc: profitLossPerc,
+		TradePaths:     tradePaths,
+	}
 }
 
 func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
@@ -438,12 +439,9 @@ func (a *AmmArbitrageCalculator) revertDirection(direction string) string {
 func (a *AmmArbitrageCalculator) calcDepthArb(
 	amountIn float64,
 	outputOut float64,
-) models.TriangularArbDepthResult {
+) (float64, float64) {
 	var profitLoss = outputOut - amountIn
 	var profitLossPerc = (profitLoss / amountIn) * 100
 
-	return models.TriangularArbDepthResult{
-		ProfitLoss:     profitLoss,
-		ProfitLossPerc: profitLossPerc,
-	}
+	return profitLoss, profitLossPerc
 }
