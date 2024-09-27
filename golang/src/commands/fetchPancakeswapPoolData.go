@@ -36,8 +36,12 @@ func (c *FetchPancakeswapPoolDataCommand) fetchSymbols() []*sourceprovider.Symbo
 		go func() {
 			defer wg.Done()
 			for index := range channel {
-				var symbol = c.web3Service.GetPoolDataByIndex(index)
-				symbols = append(symbols, &symbol)
+				var symbol, err = c.web3Service.GetPoolDataByIndex(index)
+				if err == nil {
+					symbols = append(symbols, &symbol)
+				} else {
+					fmt.Println("Error fetching pool data:", err)
+				}
 			}
 		}()
 	}

@@ -1,7 +1,8 @@
 package ethers
 
 import (
-	"arbitrage-bot/services/sourceprovider"
+	"arbitrage-bot/models"
+	sp "arbitrage-bot/services/sourceprovider"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"math"
@@ -33,8 +34,8 @@ func CallContractMethod(
 }
 
 // GetTradePaths ... get trade paths from symbols and trade directions
-func GetTradePaths(symbols []sourceprovider.Symbol, tradeDirections []string) []sourceprovider.TradePath {
-	var tradePaths = make([]sourceprovider.TradePath, len(symbols))
+func GetTradePaths(symbols []sp.Symbol, tradeDirections []string) []sp.TradePath {
+	var tradePaths = make([]sp.TradePath, len(symbols))
 
 	for i, symbol := range symbols {
 		var inputTokenA, inputTokenB common.Address
@@ -51,7 +52,7 @@ func GetTradePaths(symbols []sourceprovider.Symbol, tradeDirections []string) []
 			inputTokenB = common.HexToAddress(symbol.BaseAssetAddress)
 			inputDecimalsB = symbol.BaseAssetDecimals
 		}
-		tradePaths[i] = sourceprovider.TradePath{
+		tradePaths[i] = sp.TradePath{
 			BaseAssetAddress:   inputTokenA,
 			BaseAssetDecimals:  inputDecimalsA,
 			QuoteAssetAddress:  inputTokenB,
@@ -62,12 +63,41 @@ func GetTradePaths(symbols []sourceprovider.Symbol, tradeDirections []string) []
 	return tradePaths
 }
 
+func GetTradePathsFromSurfaceResult(surfaceResult models.TriangularArbSurfaceResult) []sp.TradePath {
+	var symbols = []sp.Symbol{
+		surfaceResult.Symbol1,
+		surfaceResult.Symbol2,
+		surfaceResult.Symbol3,
+	}
+	var tradeDirections = []string{
+		surfaceResult.DirectionTrade1,
+		surfaceResult.DirectionTrade2,
+		surfaceResult.DirectionTrade3,
+	}
+
+	return GetTradePaths(symbols, tradeDirections)
+}
+
 func GetPancakeSwapAddresses(networkName string) map[string]string {
 	if networkName == "bsc" {
 		return map[string]string{
 			"factory": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
 			"router":  "0x10ED43C718714eb63d5aA57B78B54704E256024E",
 		}
+	} else if networkName == "bsc-testnet" {
+		return map[string]string{
+			"factory": "0xB7926C0430Afb07AA7DEfDE6DA862aE0Bde767bc",
+			"router":  "0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3",
+		}
 	}
 	return map[string]string{}
+}
+
+func GetArbitrageExecutorAddresses(networkName string) map[string]common.Address {
+	if networkName == "bsc-testnet" {
+		return map[string]common.Address{
+			"v1": common.HexToAddress("0x1959b2a1776dee3daef75ae6b545f9c8d6b0df6b"),
+		}
+	}
+	return map[string]common.Address{}
 }

@@ -2,10 +2,9 @@ package web3
 
 import (
 	"arbitrage-bot/helpers"
-	"arbitrage-bot/helpers/ethers"
 	ethersHelper "arbitrage-bot/helpers/ethers"
 	jsonHelper "arbitrage-bot/helpers/json"
-	"arbitrage-bot/services/sourceprovider"
+	sp "arbitrage-bot/services/sourceprovider"
 	"context"
 	"fmt"
 	"github.com/ethereum/go-ethereum"
@@ -58,7 +57,7 @@ func NewUniswapWeb3Service() *UniswapWeb3Service {
 }
 
 // GetPoolData ... returns the pool data for a given pool address
-func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.Symbol {
+func (u *UniswapWeb3Service) GetPoolData(address common.Address) sp.Symbol {
 	poolABI, err := jsonHelper.ReadJSONABIFile("data/web3/uniswapPoolABI.json")
 	helpers.Panic(err)
 	erc20ABI, err := jsonHelper.ReadJSONABIFile("data/web3/erc20.json")
@@ -67,12 +66,12 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 	var poolContract = bind.NewBoundContract(address, poolABI, u.client, u.client, u.client)
 	var wg = sync.WaitGroup{}
 	wg.Add(3)
-	var symbol sourceprovider.Symbol
+	var symbol sp.Symbol
 	var resultToken0, resultToken1, resultFee []interface{}
 	var errToken0, errToken1, errFee error
-	go ethers.CallContractMethod(&wg, poolContract, "token0", []interface{}{}, &resultToken0, &errToken0)
-	go ethers.CallContractMethod(&wg, poolContract, "token1", []interface{}{}, &resultToken1, &errToken1)
-	go ethers.CallContractMethod(&wg, poolContract, "fee", []interface{}{}, &resultFee, &errFee)
+	go ethersHelper.CallContractMethod(&wg, poolContract, "token0", []interface{}{}, &resultToken0, &errToken0)
+	go ethersHelper.CallContractMethod(&wg, poolContract, "token1", []interface{}{}, &resultToken1, &errToken1)
+	go ethersHelper.CallContractMethod(&wg, poolContract, "fee", []interface{}{}, &resultFee, &errFee)
 	wg.Wait()
 	helpers.PanicBatch(errToken0, errToken1, errFee)
 
@@ -82,8 +81,8 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 		var tokenContract = bind.NewBoundContract(tokenAddress, erc20ABI, u.client, u.client, u.client)
 		var resultSymbol, resultDecimals []interface{}
 		var errSymbol, errDecimals error
-		go ethers.CallContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
-		go ethers.CallContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
+		go ethersHelper.CallContractMethod(&wg, tokenContract, "symbol", []interface{}{}, &resultSymbol, &errSymbol)
+		go ethersHelper.CallContractMethod(&wg, tokenContract, "decimals", []interface{}{}, &resultDecimals, &errDecimals)
 		wg.Wait()
 		helpers.PanicBatch(errSymbol, errDecimals)
 
@@ -105,8 +104,8 @@ func (u *UniswapWeb3Service) GetPoolData(address common.Address) sourceprovider.
 }
 
 // GetPrice ... returns the price for a given symbol
-func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
-	var tradePath = ethersHelper.GetTradePaths([]sourceprovider.Symbol{symbol}, []string{tradeDirection})[0]
+func (u *UniswapWeb3Service) GetPrice(symbol sp.Symbol, amountIn float64, tradeDirection string, verbose bool) float64 {
+	var tradePath = ethersHelper.GetTradePaths([]sp.Symbol{symbol}, []string{tradeDirection})[0]
 
 	if u.quoterVersion == "v2" {
 		return u.quoteExactInputSingleV2(
@@ -132,8 +131,7 @@ func (u *UniswapWeb3Service) GetPrice(symbol sourceprovider.Symbol, amountIn flo
 }
 
 func (u *UniswapWeb3Service) GetPriceMultiplePaths(
-	symbols []sourceprovider.Symbol,
-	tradeDirections []string,
+	tradePaths []sp.TradePath,
 	amountIn float64,
 	verbose bool,
 ) float64 {
@@ -141,7 +139,7 @@ func (u *UniswapWeb3Service) GetPriceMultiplePaths(
 }
 
 func (u *UniswapWeb3Service) quoteExactInputSingleV1(
-	symbol sourceprovider.Symbol,
+	symbol sp.Symbol,
 	amountIn float64,
 	inputTokenA common.Address,
 	inputTokenB common.Address,
@@ -171,11 +169,11 @@ func (u *UniswapWeb3Service) quoteExactInputSingleV1(
 	}
 	var quotedAmountOut = new(big.Int)
 	quotedAmountOut.SetBytes(result)
-	return ethers.WeiToEther(quotedAmountOut, inputDecimalsB)
+	return ethersHelper.WeiToEther(quotedAmountOut, inputDecimalsB)
 }
 
 func (u *UniswapWeb3Service) quoteExactInputSingleV2(
-	symbol sourceprovider.Symbol,
+	symbol sp.Symbol,
 	amountIn float64,
 	inputTokenA common.Address,
 	inputTokenB common.Address,
@@ -226,11 +224,11 @@ func (u *UniswapWeb3Service) quoteExactInputSingleV2(
 		&gasEstimate,
 	}, "quoteExactInputSingle", result)
 
-	return ethers.WeiToEther(amountOut, inputDecimalsB)
+	return ethersHelper.WeiToEther(amountOut, inputDecimalsB)
 }
 
-func (u *UniswapWeb3Service) AggregatePrices(symbols []*sourceprovider.Symbol, verbose bool) *sync.Map {
-	var channel = make(chan *sourceprovider.Symbol)
+func (u *UniswapWeb3Service) AggregatePrices(symbols []*sp.Symbol, verbose bool) *sync.Map {
+	var channel = make(chan *sp.Symbol)
 	var concurrency = 8
 	var result sync.Map
 	var wg sync.WaitGroup

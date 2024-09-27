@@ -45,7 +45,7 @@ func (p *PancakeswapSourceProvider) GetSymbol(symbol string) sourceprovider.Symb
 }
 
 // SubscribeSymbols ... subscribes to the symbols
-func (p *PancakeswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool) {
+func (p *PancakeswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.Symbol, pingChannel chan bool, verbose bool) {
 	var tokenPairs []string
 
 	for _, symbol := range symbols {
@@ -54,7 +54,7 @@ func (p *PancakeswapSourceProvider) SubscribeSymbols(symbols []*sourceprovider.S
 	}
 
 	for {
-		aggregatedPrices := p.web3Service.AggregatePrices(symbols, true)
+		aggregatedPrices := p.web3Service.AggregatePrices(symbols, verbose)
 		aggregatedPrices.Range(func(key any, value any) bool {
 			p.symbolPriceData.Store(key, &SymbolPrice{
 				Symbol:      p.symbols[key.(string)],
